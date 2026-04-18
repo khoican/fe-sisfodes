@@ -14,7 +14,7 @@ import { holidays } from '#/data/holiday.data'
 import { news } from '#/data/news.data'
 import { umkm } from '#/data/umkm.data'
 import { dateFormat } from '#/utils/date.util'
-import { createFileRoute } from '@tanstack/react-router'
+import { ClientOnly, createFileRoute } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import { FaRegClock } from 'react-icons/fa6'
@@ -163,9 +163,11 @@ function App () {
           }}
         />
         <section className='w-full grid md:grid-cols-2 gap-6 mt-6'>
-          {announcements.slice(0, 1).map((item, index) => (
-            <NewsCard key={index} {...item} />
-          ))}
+          <ClientOnly>
+            {announcements.slice(0, 1).map((item, index) => (
+              <NewsCard key={index} {...item} />
+            ))}
+          </ClientOnly>
 
           <section className='flex flex-col w-full gap-12'>
             <section className='bg-primary rounded-lg p-6 flex flex-col justify-between gap-6'>
@@ -174,13 +176,18 @@ function App () {
               </h3>
 
               {holidays.slice(0, 1).map((item, index) => (
-                <div className='flex items-center gap-6 text-white bg-white/10 p-4 rounded-lg'>
+                <div
+                  key={index}
+                  className='flex items-center gap-6 text-white bg-white/10 p-4 rounded-lg'
+                >
                   <FaRegCalendarAlt className='text-4xl' />
                   <div key={index} className='flex flex-col gap-2 w-full'>
                     <p className='text-md text-white'>{item.name}</p>
-                    <p className='text-sm text-white/80'>
-                      {dateFormat({ date: item.date })}
-                    </p>
+                    <ClientOnly>
+                      <p className='text-sm text-white/80'>
+                        {dateFormat({ date: item.date })}
+                      </p>
+                    </ClientOnly>
                   </div>
                 </div>
               ))}
@@ -190,9 +197,11 @@ function App () {
               <Title title='Agenda Desa' />
 
               <div className='grid gap-8'>
-                {events.slice(0, 3).map((item, index) => (
-                  <EventCard key={index} {...item} />
-                ))}
+                <ClientOnly>
+                  {events.slice(0, 3).map((item, index) => (
+                    <EventCard key={index} {...item} />
+                  ))}
+                </ClientOnly>
               </div>
             </section>
           </section>
@@ -214,9 +223,11 @@ function App () {
         />
 
         <div className='grid lg:grid-cols-3 w-full gap-6'>
-          {news.slice(0, 3).map((item, index) => (
-            <NewsCard key={index} {...item} />
-          ))}
+          <ClientOnly>
+            {news.slice(0, 3).map((item, index) => (
+              <NewsCard key={index} {...item} />
+            ))}
+          </ClientOnly>
         </div>
       </div>
 
@@ -251,14 +262,14 @@ function App () {
             </p>
 
             <div className='flex items-center mt-4 gap-2 font-medium'>
-              <MdOutlineLocationOn className='w-1/12' size={20}/>
+              <MdOutlineLocationOn className='w-1/12' size={20} />
               <p className='text-sm w-11/12'>
                 Jl. Banyuwangi No.6, Tegalan, Sumber Kejayan, Kec. Mayang,
                 Kabupaten Jember
               </p>
             </div>
             <div className='flex items-center mt-4 gap-2 font-medium'>
-              <FaRegClock className='w-1/12' size={14}/>
+              <FaRegClock className='w-1/12' size={14} />
               <p className='text-sm w-11/12'>
                 08.00 - 15.00 WIB (Senin - Jumat)
               </p>
@@ -266,10 +277,12 @@ function App () {
           </div>
         </section>
 
-        <Maps
-          position={[-8.176801402877157, 113.8329968231125]}
-          className='w-full h-[35vh] rounded-lg col-span-2'
-        />
+        <ClientOnly>
+          <Maps
+            position={[-8.176801402877157, 113.8329968231125]}
+            className='w-full h-[35vh] rounded-lg col-span-2'
+          />
+        </ClientOnly>
       </div>
     </main>
   )

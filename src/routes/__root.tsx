@@ -16,8 +16,6 @@ import appCss from '../styles.css?url'
 
 import type { QueryClient } from '@tanstack/react-query'
 
-import 'leaflet/dist/leaflet.css'
-
 interface MyRouterContext {
   queryClient: QueryClient
 }
@@ -65,7 +63,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <HeadContent />
       </head>
-      <body className="font-sans antialiased wrap-anywhere selection:bg-white">
+      <body className="font-sans antialiased wrap-anywhere selection:bg-white" suppressHydrationWarning>
         <Header />
         {children}
         <Footer />

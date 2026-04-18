@@ -1,9 +1,15 @@
 import logo from '#/assets/images/logo/logo.png'
 import { footerData } from '#/data/footer.data'
-import { Link } from '@tanstack/react-router'
+import { ClientOnly, Link } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
 import { getYear } from 'date-fns'
-import { FaClock, FaFacebook, FaInstagram, FaPhone, FaTiktok } from 'react-icons/fa6'
+import {
+  FaClock,
+  FaFacebook,
+  FaInstagram,
+  FaPhone,
+  FaTiktok
+} from 'react-icons/fa6'
 import Socmed from '../shared/socmed'
 
 export default function Footer () {
@@ -58,9 +64,11 @@ export default function Footer () {
         </div>
       </div>
 
-      <div className='col-span-full text-center text-sm text-gray-500 mt-12'>
-        &copy; {year} Desa Sumberkejayan.
-      </div>
+      <ClientOnly>
+        <div className='col-span-full text-center text-sm text-gray-500 mt-12'>
+          &copy; {year} Desa Sumberkejayan.
+        </div>
+      </ClientOnly>
     </footer>
   )
 }
