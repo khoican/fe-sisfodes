@@ -1,3 +1,4 @@
+import { Badge } from '#/components/ui/badge'
 import { Card, CardContent, CardHeader } from '#/components/ui/card'
 import type { News } from '#/types/news.d'
 import { dateFormat } from '#/utils/date.util'
@@ -9,6 +10,7 @@ export default function NewsCard ({
   title,
   description,
   image,
+  category,
   created_at
 }: News) {
   return (
@@ -22,11 +24,18 @@ export default function NewsCard ({
         />
       </CardHeader>
       <CardContent className='flex flex-col gap-1.5 p-6'>
-        <p className='text-xs text-gray-500'>{dateFormat({ date: created_at })}</p>
+        <div className='flex items-center gap-2'>
+          <Badge variant='destructive' className='text-[10px]'>
+            {category?.name || 'Pengumuman'}
+          </Badge>
+          <p className='text-xs text-gray-500'>
+            {dateFormat({ date: created_at })}
+          </p>
+        </div>
         <h3 className='text-lg font-semibold'>{title}</h3>
         <p
           className='text-sm text-gray-400 line-clamp-2'
-          dangerouslySetInnerHTML={{ __html: description }}
+          dangerouslySetInnerHTML={{ __html: description ?? '' }}
         ></p>
 
         <Link

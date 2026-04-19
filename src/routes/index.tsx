@@ -14,6 +14,7 @@ import { holidays } from '#/data/holiday.data'
 import { news } from '#/data/news.data'
 import { population } from '#/data/population.data'
 import { umkm } from '#/data/umkm.data'
+import type { News } from '#/types/news'
 import { dateFormat } from '#/utils/date.util'
 import { ClientOnly, createFileRoute } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
@@ -225,7 +226,7 @@ function App () {
 
         <div className='grid lg:grid-cols-3 w-full gap-6'>
           <ClientOnly>
-            {news.slice(0, 3).map((item, index) => (
+            {news.slice(0, 3).map((item: News, index: number) => (
               <NewsCard key={index} {...item} />
             ))}
           </ClientOnly>

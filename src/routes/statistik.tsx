@@ -60,7 +60,7 @@ function Statistik () {
 
   return (
     <main className='px-4 lg:px-12 py-8'>
-      <section className='w-full lg:w-1/3 mt-10'>
+      <section className='w-full lg:w-1/2 mt-10'>
         <Badge variant='primary' className='mb-4'>
           Data Tahun 2025
         </Badge>
