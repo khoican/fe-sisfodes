@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as StatistikRouteImport } from './routes/statistik'
 import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as IndexRouteImport } from './routes/index'
 
+const StatistikRoute = StatistikRouteImport.update({
+  id: '/statistik',
+  path: '/statistik',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfilRoute = ProfilRouteImport.update({
   id: '/profil',
   path: '/profil',
@@ -26,31 +32,42 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/profil': typeof ProfilRoute
+  '/statistik': typeof StatistikRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/profil': typeof ProfilRoute
+  '/statistik': typeof StatistikRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/profil': typeof ProfilRoute
+  '/statistik': typeof StatistikRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/profil'
+  fullPaths: '/' | '/profil' | '/statistik'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/profil'
-  id: '__root__' | '/' | '/profil'
+  to: '/' | '/profil' | '/statistik'
+  id: '__root__' | '/' | '/profil' | '/statistik'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProfilRoute: typeof ProfilRoute
+  StatistikRoute: typeof StatistikRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/statistik': {
+      id: '/statistik'
+      path: '/statistik'
+      fullPath: '/statistik'
+      preLoaderRoute: typeof StatistikRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profil': {
       id: '/profil'
       path: '/profil'
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProfilRoute: ProfilRoute,
+  StatistikRoute: StatistikRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -12,6 +12,7 @@ import { announcements } from '#/data/announcement.data'
 import { events } from '#/data/event.data'
 import { holidays } from '#/data/holiday.data'
 import { news } from '#/data/news.data'
+import { population } from '#/data/population.data'
 import { umkm } from '#/data/umkm.data'
 import { dateFormat } from '#/utils/date.util'
 import { ClientOnly, createFileRoute } from '@tanstack/react-router'
@@ -71,15 +72,15 @@ function App () {
             <DemographyCard
               icon={MdOutlineGroups}
               title='Jumlah Penduduk'
-              value={4259}
+              value={population.population}
             />
             <DemographyCard
               icon={MdOutlineFamilyRestroom}
               title='Keluarga'
-              value={1120}
+              value={population.family}
             />
-            <DemographyCard icon={IoIosMan} title='Laki-laki' value={2100} />
-            <DemographyCard icon={IoIosWoman} title='Perempuan' value={2150} />
+            <DemographyCard icon={IoIosMan} title='Laki-laki' value={population.male} />
+            <DemographyCard icon={IoIosWoman} title='Perempuan' value={population.female} />
           </div>
         </div>
 

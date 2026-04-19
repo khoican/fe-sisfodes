@@ -54,6 +54,7 @@ function Profil () {
             <p
               className='flex flex-col gap-4 text-gray-500 mt-4 leading-relaxed'
               dangerouslySetInnerHTML={{ __html: history.content }}
+              suppressHydrationWarning
             ></p>
           </div>
         </div>
@@ -76,7 +77,7 @@ function Profil () {
           </div>
           <div>
             <h3 className='text-4xl font-extrabold tracking-wider'>MISI</h3>
-
+            
             {mission.map((item, index) => (
               <div key={index} className='text-md mt-4 flex items-start gap-4'>
                 <div className='bg-white/30 p-4 rounded-md'>
