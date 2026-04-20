@@ -9,12 +9,12 @@ export const Route = createFileRoute('/profil')({
   component: Profil
 })
 
-function Profil () {
+function Profil() {
   const leader = members.find(item => item.position === 'Kepala Desa')
 
   return (
     <main className=''>
-      <section className='grid md:grid-cols-8 gap-10 items-center bg-white px-4 lg:px-12 pb-8 pt-8'>
+      <section className='grid md:grid-cols-8 gap-10 items-center bg-white px-4 lg:px-12 pb-8 pt-8 rounded-b-xl'>
         <div className='w-full md:col-span-5'>
           <h1 className='text-6xl font-extrabold'>
             Mengenal <span className='text-primary'>Luhurnya</span> Sejarah Kami
@@ -77,7 +77,7 @@ function Profil () {
           </div>
           <div>
             <h3 className='text-4xl font-extrabold tracking-wider'>MISI</h3>
-            
+
             {mission.map((item, index) => (
               <div key={index} className='text-md mt-4 flex items-start gap-4'>
                 <div className='bg-white/30 p-4 rounded-md'>
@@ -110,9 +110,9 @@ function Profil () {
         </div>
 
         <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8'>
-            {members.filter(item => item.position !== 'Kepala Desa').map((item, index) => (
-              <PersonCard key={index} {...item} />
-            ))}
+          {members.filter(item => item.position !== 'Kepala Desa').map((item, index) => (
+            <PersonCard key={index} {...item} />
+          ))}
         </div>
       </section>
     </main>

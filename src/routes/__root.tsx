@@ -65,7 +65,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       </head>
       <body className="font-sans antialiased wrap-anywhere selection:bg-white" suppressHydrationWarning>
         <Header />
-        {children}
+        <main className='w-full max-w-7xl mx-auto'>
+          {children}
+        </main>
         <Footer />
         <TanStackDevtools
           config={{
