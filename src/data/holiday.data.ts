@@ -29,7 +29,7 @@ export const holidays: Holiday[] = [
   {
     id: 6,
     name: 'Hari Raya Idul Fitri 1447 Hijriah',
-    date: new Date('2026-03-20') // Estimasi Kalender Astronomi
+    date: new Date('2026-03-20')
   },
   {
     id: 7,

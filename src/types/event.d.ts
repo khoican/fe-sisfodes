@@ -1,11 +1,7 @@
-export interface Event {
-    id?: number
-    title: string
-    description: string
-    image: string
+import type { News } from '#/types/news'
+
+export interface Event extends News {
     date: Date
     time: string
     location: string
-    created_by: string
-    created_at: Date
 }

@@ -12,6 +12,9 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as StatistikRouteImport } from './routes/statistik'
 import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BeritaIndexRouteImport } from './routes/berita/index'
+import { Route as BeritaPengumumanRouteImport } from './routes/berita/pengumuman'
+import { Route as BeritaSlugRouteImport } from './routes/berita/$slug'
 
 const StatistikRoute = StatistikRouteImport.update({
   id: '/statistik',
@@ -28,35 +31,81 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BeritaIndexRoute = BeritaIndexRouteImport.update({
+  id: '/berita/',
+  path: '/berita/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BeritaPengumumanRoute = BeritaPengumumanRouteImport.update({
+  id: '/berita/pengumuman',
+  path: '/berita/pengumuman',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BeritaSlugRoute = BeritaSlugRouteImport.update({
+  id: '/berita/$slug',
+  path: '/berita/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/profil': typeof ProfilRoute
   '/statistik': typeof StatistikRoute
+  '/berita/$slug': typeof BeritaSlugRoute
+  '/berita/pengumuman': typeof BeritaPengumumanRoute
+  '/berita/': typeof BeritaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/profil': typeof ProfilRoute
   '/statistik': typeof StatistikRoute
+  '/berita/$slug': typeof BeritaSlugRoute
+  '/berita/pengumuman': typeof BeritaPengumumanRoute
+  '/berita': typeof BeritaIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/profil': typeof ProfilRoute
   '/statistik': typeof StatistikRoute
+  '/berita/$slug': typeof BeritaSlugRoute
+  '/berita/pengumuman': typeof BeritaPengumumanRoute
+  '/berita/': typeof BeritaIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/profil' | '/statistik'
+  fullPaths:
+    | '/'
+    | '/profil'
+    | '/statistik'
+    | '/berita/$slug'
+    | '/berita/pengumuman'
+    | '/berita/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/profil' | '/statistik'
-  id: '__root__' | '/' | '/profil' | '/statistik'
+  to:
+    | '/'
+    | '/profil'
+    | '/statistik'
+    | '/berita/$slug'
+    | '/berita/pengumuman'
+    | '/berita'
+  id:
+    | '__root__'
+    | '/'
+    | '/profil'
+    | '/statistik'
+    | '/berita/$slug'
+    | '/berita/pengumuman'
+    | '/berita/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProfilRoute: typeof ProfilRoute
   StatistikRoute: typeof StatistikRoute
+  BeritaSlugRoute: typeof BeritaSlugRoute
+  BeritaPengumumanRoute: typeof BeritaPengumumanRoute
+  BeritaIndexRoute: typeof BeritaIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +131,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/berita/': {
+      id: '/berita/'
+      path: '/berita'
+      fullPath: '/berita/'
+      preLoaderRoute: typeof BeritaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/berita/pengumuman': {
+      id: '/berita/pengumuman'
+      path: '/berita/pengumuman'
+      fullPath: '/berita/pengumuman'
+      preLoaderRoute: typeof BeritaPengumumanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/berita/$slug': {
+      id: '/berita/$slug'
+      path: '/berita/$slug'
+      fullPath: '/berita/$slug'
+      preLoaderRoute: typeof BeritaSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +159,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProfilRoute: ProfilRoute,
   StatistikRoute: StatistikRoute,
+  BeritaSlugRoute: BeritaSlugRoute,
+  BeritaPengumumanRoute: BeritaPengumumanRoute,
+  BeritaIndexRoute: BeritaIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

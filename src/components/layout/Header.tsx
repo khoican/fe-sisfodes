@@ -1,5 +1,5 @@
 import { MENU } from '#/constant/menu.constant'
-import { Link } from '@tanstack/react-router'
+import { ClientOnly, Link } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
 import logo from '../../assets/images/logo/logo.png'
 import { Button } from '../ui/button'
@@ -43,7 +43,9 @@ export default function Header () {
           {MENU.kontak.name}
         </Button>
 
-        <MobileMenu menus={menus} />
+        <ClientOnly>
+          <MobileMenu menus={menus} />
+        </ClientOnly>
       </nav>
     </header>
   )

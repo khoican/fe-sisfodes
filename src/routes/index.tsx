@@ -8,7 +8,6 @@ import Progress from '#/components/shared/progress'
 import { Badge } from '#/components/ui/badge'
 import { Button } from '#/components/ui/button'
 import Title from '#/components/ui/title'
-import { announcements } from '#/data/announcement.data'
 import { events } from '#/data/event.data'
 import { holidays } from '#/data/holiday.data'
 import { news } from '#/data/news.data'
@@ -32,6 +31,9 @@ import hero from '../assets/images/hero.jpg'
 export const Route = createFileRoute('/')({ component: App })
 
 function App () {
+  const announcements = news.filter((item) => item.category?.name === 'Pengumuman')
+  const newsData = news.filter((item) => item.category?.name !== 'Pengumuman')
+
   return (
     <main className='px-4 lg:px-12 pb-8 pt-8'>
       {/* hero */}
@@ -226,7 +228,7 @@ function App () {
 
         <div className='grid lg:grid-cols-3 w-full gap-6'>
           <ClientOnly>
-            {news.slice(0, 3).map((item: News, index: number) => (
+            {newsData.slice(0, 3).map((item: News, index: number) => (
               <NewsCard key={index} {...item} />
             ))}
           </ClientOnly>
