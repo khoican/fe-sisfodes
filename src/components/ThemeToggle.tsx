@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 type ThemeMode = 'light' | 'dark' | 'auto'
 
-function getInitialMode(): ThemeMode {
+function getInitialMode (): ThemeMode {
   if (typeof window === 'undefined') {
     return 'auto'
   }
@@ -15,7 +15,7 @@ function getInitialMode(): ThemeMode {
   return 'auto'
 }
 
-function applyThemeMode(mode: ThemeMode) {
+function applyThemeMode (mode: ThemeMode) {
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
   const resolved = mode === 'auto' ? (prefersDark ? 'dark' : 'light') : mode
 
@@ -31,7 +31,7 @@ function applyThemeMode(mode: ThemeMode) {
   document.documentElement.style.colorScheme = resolved
 }
 
-export default function ThemeToggle() {
+export default function ThemeToggle () {
   const [mode, setMode] = useState<ThemeMode>('auto')
 
   useEffect(() => {
@@ -54,7 +54,7 @@ export default function ThemeToggle() {
     }
   }, [mode])
 
-  function toggleMode() {
+  function toggleMode () {
     const nextMode: ThemeMode =
       mode === 'light' ? 'dark' : mode === 'dark' ? 'auto' : 'light'
     setMode(nextMode)
@@ -69,11 +69,11 @@ export default function ThemeToggle() {
 
   return (
     <button
-      type="button"
+      type='button'
       onClick={toggleMode}
       aria-label={label}
       title={label}
-      className="rounded-full border border-[var(--chip-line)] bg-[var(--chip-bg)] px-3 py-1.5 text-sm font-semibold text-[var(--sea-ink)] shadow-[0_8px_22px_rgba(30,90,72,0.08)] transition hover:-translate-y-0.5"
+      className='rounded-full border border-(--clip-line) bg-(--chip-bg) px-3 py-1.5 text-sm font-semibold text-(--sea-ink) shadow-[0_8px_22px_rgba(30,90,72,0.08)] transition hover:-translate-y-0.5'
     >
       {mode === 'auto' ? 'Auto' : mode === 'dark' ? 'Dark' : 'Light'}
     </button>
