@@ -1,39 +1,39 @@
-name: Staging - Frontend Sisfodes
+# name: Staging - Frontend Sisfodes
 
-on:
-  push:
-    branches:
-      - staging
+# on:
+#   push:
+#     branches:
+#       - staging
 
-concurrency:
-  group: staging-fe-sisfodes
-  cancel-in-progress: true
+# concurrency:
+#   group: staging-fe-sisfodes
+#   cancel-in-progress: true
 
-jobs:
-  deploy:
-    runs-on: self-hosted
-    timeout-minutes: 15
+# jobs:
+#   deploy:
+#     runs-on: self-hosted
+#     timeout-minutes: 15
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: 'npm'
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 24
+#           cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci
+#       - name: Install dependencies
+#         run: npm ci
 
-      - name: Build Application
-        run: npm run build
+#       - name: Build Application
+#         run: npm run build
 
-      - name: Deploy & Restart PM2
-        run: |
-          mkdir -p ${{ secrets.TARGET_DIR }}
-          rsync -az --delete .output/ ${{ secrets.TARGET_DIR }}/.output/
-          cp package.json ${{ secrets.TARGET_DIR }}/
-          cd ${{ secrets.TARGET_DIR }}
-          sudo pm2 restart sisfodes-app || sudo pm2 start .output/server/index.mjs --name sisfodes-app
+#       - name: Deploy & Restart PM2
+#         run: |
+#           mkdir -p ${{ secrets.TARGET_DIR }}
+#           rsync -az --delete .output/ ${{ secrets.TARGET_DIR }}/.output/
+#           cp package.json ${{ secrets.TARGET_DIR }}/
+#           cd ${{ secrets.TARGET_DIR }}
+#           sudo pm2 restart sisfodes-app || sudo pm2 start .output/server/index.mjs --name sisfodes-app

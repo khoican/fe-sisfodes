@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StatistikRouteImport } from './routes/statistik'
 import { Route as ProfilRouteImport } from './routes/profil'
+import { Route as GaleriRouteImport } from './routes/galeri'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as UmkmIndexRouteImport } from './routes/umkm/index'
 import { Route as BeritaIndexRouteImport } from './routes/berita/index'
@@ -26,6 +27,11 @@ const StatistikRoute = StatistikRouteImport.update({
 const ProfilRoute = ProfilRouteImport.update({
   id: '/profil',
   path: '/profil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GaleriRoute = GaleriRouteImport.update({
+  id: '/galeri',
+  path: '/galeri',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -61,6 +67,7 @@ const BeritaSlugRoute = BeritaSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/galeri': typeof GaleriRoute
   '/profil': typeof ProfilRoute
   '/statistik': typeof StatistikRoute
   '/berita/$slug': typeof BeritaSlugRoute
@@ -71,6 +78,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/galeri': typeof GaleriRoute
   '/profil': typeof ProfilRoute
   '/statistik': typeof StatistikRoute
   '/berita/$slug': typeof BeritaSlugRoute
@@ -82,6 +90,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/galeri': typeof GaleriRoute
   '/profil': typeof ProfilRoute
   '/statistik': typeof StatistikRoute
   '/berita/$slug': typeof BeritaSlugRoute
@@ -94,6 +103,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/galeri'
     | '/profil'
     | '/statistik'
     | '/berita/$slug'
@@ -104,6 +114,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/galeri'
     | '/profil'
     | '/statistik'
     | '/berita/$slug'
@@ -114,6 +125,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/galeri'
     | '/profil'
     | '/statistik'
     | '/berita/$slug'
@@ -125,6 +137,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GaleriRoute: typeof GaleriRoute
   ProfilRoute: typeof ProfilRoute
   StatistikRoute: typeof StatistikRoute
   BeritaSlugRoute: typeof BeritaSlugRoute
@@ -148,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/profil'
       fullPath: '/profil'
       preLoaderRoute: typeof ProfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galeri': {
+      id: '/galeri'
+      path: '/galeri'
+      fullPath: '/galeri'
+      preLoaderRoute: typeof GaleriRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -197,6 +217,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GaleriRoute: GaleriRoute,
   ProfilRoute: ProfilRoute,
   StatistikRoute: StatistikRoute,
   BeritaSlugRoute: BeritaSlugRoute,
