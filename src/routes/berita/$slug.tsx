@@ -11,6 +11,61 @@ import { Calendar } from 'lucide-react'
 import { IoIosArrowForward } from 'react-icons/io'
 
 export const Route = createFileRoute('/berita/$slug')({
+  head: ({ params }) => {
+    const berita = news.find(item => item.slug === params.slug)
+    const title = berita ? `${berita.title} | Desa Sumberkejayan` : 'Berita | Desa Sumberkejayan'
+    const description = berita?.description || 'Baca berita terbaru dari Desa Sumberkejayan.'
+    const image = berita?.image || ''
+
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'NewsArticle',
+      headline: berita?.title,
+      description: berita?.description,
+      image: [image],
+      datePublished: berita?.created_at,
+      author: [
+        {
+          '@type': 'Person',
+          name: berita?.author,
+        },
+      ],
+    }
+
+    return {
+      meta: [
+        {
+          title,
+        },
+        {
+          name: 'description',
+          content: description,
+        },
+        {
+          property: 'og:title',
+          content: title,
+        },
+        {
+          property: 'og:description',
+          content: description,
+        },
+        {
+          property: 'og:image',
+          content: image,
+        },
+        {
+          property: 'og:type',
+          content: 'article',
+        },
+      ],
+      scripts: [
+        {
+          type: 'application/ld+json',
+          children: JSON.stringify(jsonLd),
+        },
+      ],
+    }
+  },
   component: DetailBerita
 })
 

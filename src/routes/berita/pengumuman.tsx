@@ -8,6 +8,17 @@ import type { News } from '#/types/news'
 import { ClientOnly, createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/berita/pengumuman')({
+  head: () => ({
+    meta: [
+      {
+        title: 'Pengumuman Resmi | Desa Sumberkejayan',
+      },
+      {
+        name: 'description',
+        content: 'Daftar pengumuman resmi dan informasi penting dari Pemerintah Desa Sumberkejayan.',
+      },
+    ],
+  }),
   component: RouteComponent
 })
 

@@ -1,13 +1,13 @@
 export interface MenuItem {
-    name: string
-    path: string
+  name: string
+  path: string
 }
 
 export interface Menu {
-    [key: string]: MenuItem
+  [key: string]: MenuItem
 }
 
-export const MENU : Menu = {
+export const MENU: Menu = {
   beranda: {
     name: 'Beranda',
     path: '/'
@@ -45,3 +45,14 @@ export const MENU : Menu = {
     path: '/kontak'
   }
 }
+
+export const DISPLAY_MENU = [
+  MENU.beranda,
+  MENU.profil,
+  MENU.statistik,
+  MENU.layanan,
+  MENU.berita,
+  MENU.potensi,
+  MENU.umkm,
+  MENU.galeri
+]

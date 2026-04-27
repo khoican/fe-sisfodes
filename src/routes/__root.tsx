@@ -45,6 +45,26 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
       {
         title: 'Desa Sumberkejayan',
       },
+      {
+        name: 'description',
+        content: 'Portal resmi informasi dan pelayanan publik Desa Sumberkejayan. Akuntabel, Transparan, dan Mandiri.',
+      },
+      {
+        property: 'og:title',
+        content: 'Desa Sumberkejayan',
+      },
+      {
+        property: 'og:description',
+        content: 'Portal resmi informasi dan pelayanan publik Desa Sumberkejayan.',
+      },
+      {
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
     ],
     links: [
       {
@@ -58,7 +78,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="id" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <HeadContent />

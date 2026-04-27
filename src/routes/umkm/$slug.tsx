@@ -8,6 +8,60 @@ import { Image } from '@unpic/react'
 import { MdStorefront } from 'react-icons/md'
 
 export const Route = createFileRoute('/umkm/$slug')({
+  head: ({ params }) => {
+    const produk = umkm.find(item => item.slug === params.slug)
+    const title = produk ? `${produk.name} | Desa Sumberkejayan` : 'Produk UMKM | Desa Sumberkejayan'
+    const description = produk?.description.replace(/<[^>]*>?/gm, '').slice(0, 160) || 'Detail produk UMKM Desa Sumberkejayan.'
+    const image = produk?.image || ''
+
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: produk?.name,
+      description: description,
+      image: [image],
+      offers: {
+        '@type': 'Offer',
+        price: produk?.price,
+        priceCurrency: 'IDR',
+        availability: 'https://schema.org/InStock',
+      },
+    }
+
+    return {
+      meta: [
+        {
+          title,
+        },
+        {
+          name: 'description',
+          content: description,
+        },
+        {
+          property: 'og:title',
+          content: title,
+        },
+        {
+          property: 'og:description',
+          content: description,
+        },
+        {
+          property: 'og:image',
+          content: image,
+        },
+        {
+          property: 'og:type',
+          content: 'product',
+        },
+      ],
+      scripts: [
+        {
+          type: 'application/ld+json',
+          children: JSON.stringify(jsonLd),
+        },
+      ],
+    }
+  },
   component: DetailUmkm
 })
 

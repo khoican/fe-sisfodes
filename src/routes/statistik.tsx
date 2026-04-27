@@ -12,6 +12,17 @@ import {
 } from 'react-icons/md'
 
 export const Route = createFileRoute('/statistik')({
+  head: () => ({
+    meta: [
+      {
+        title: 'Statistik Kependudukan | Desa Sumberkejayan',
+      },
+      {
+        name: 'description',
+        content: 'Transparansi data kependudukan Desa Sumberkejayan, termasuk jumlah penduduk, demografi, dan sebaran wilayah.',
+      },
+    ],
+  }),
   component: Statistik
 })
 

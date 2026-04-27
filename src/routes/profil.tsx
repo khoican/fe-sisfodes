@@ -6,6 +6,17 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
 
 export const Route = createFileRoute('/profil')({
+  head: () => ({
+    meta: [
+      {
+        title: 'Profil Desa | Desa Sumberkejayan',
+      },
+      {
+        name: 'description',
+        content: 'Pelajari sejarah, visi, misi, dan struktur organisasi Pemerintah Desa Sumberkejayan.',
+      },
+    ],
+  }),
   component: Profil
 })
 
@@ -97,9 +108,9 @@ function Profil() {
       </section>
 
       <section className='mt-16 px-4 lg:px-12 py-8 lg:py-16'>
-        <h1 className='text-4xl font-semibold text-center'>
+        <h2 className='text-4xl font-semibold text-center'>
           Struktur Organisasi
-        </h1>
+        </h2>
         <p className='text-center text-gray-600 mt-4 text-sm w-full md:w-1/3 mx-auto'>
           Sinergi antara pemimpin berpengalaman dan tenaga muda progresif untuk
           melayani masyarakat Sumberkejayan.

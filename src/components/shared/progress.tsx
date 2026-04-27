@@ -22,7 +22,7 @@ export default function Progress ({ label, progress, className }: ProgressProps)
         <span>{label.title}</span>
         <span className={cn('ml-auto', className?.value)}>{label.value}</span>
       </div>
-      <ProgressComponent value={progress} id='progress-upload' className={className?.root} indicatorClassName={className?.indicator} />
+      <ProgressComponent value={progress} id='progress-upload' className={className?.root} indicatorClassName={className?.indicator} aria-label={label.title} />
     </div>
   )
 }

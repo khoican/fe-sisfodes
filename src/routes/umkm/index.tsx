@@ -6,6 +6,17 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
 
 export const Route = createFileRoute('/umkm/')({
+  head: () => ({
+    meta: [
+      {
+        title: 'UMKM Unggulan | Desa Sumberkejayan',
+      },
+      {
+        name: 'description',
+        content: 'Jelajahi berbagai produk unggulan dan usaha mikro masyarakat Desa Sumberkejayan.',
+      },
+    ],
+  }),
   component: RouteComponent
 })
 
