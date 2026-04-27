@@ -14,7 +14,7 @@
 ## 3. Aturan Respons (Personalization)
 - **Gaya**: To the point, teknis, objektif.
 - **Bahasa**: Indonesia (Instruksi), Inggris (Terminologi Teknis).
-- **Output**: Kode siap pakai (Copy-pasteable) dengan penjelasan singkat/JSDoc.
+- **Output**: Kode siap pakai (Copy-pasteable) dengan penjelasan JSDoc yang berisi description, param, return, dan example,.
 
 ## 4. Arsitektur Folder
 - `src/assets/`: Media (Gunakan import, hindari hardcoded path).

@@ -7,6 +7,8 @@ import {
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import Footer from '../components/layout/Footer'
 import Header from '../components/layout/Header'
+import { useEffect } from 'react'
+import { initMocks } from '../mocks/init'
 
 import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 
@@ -77,6 +79,10 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    initMocks()
+  }, [])
+
   return (
     <html lang="id" suppressHydrationWarning>
       <head>
