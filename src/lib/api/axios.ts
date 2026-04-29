@@ -60,7 +60,7 @@ axiosInstance.interceptors.response.use(
       const data = error.response.data;
 
       // Ambil pesan error dari response backend jika ada
-      const serverMessage = data.metadata.message;
+      const serverMessage = data?.metadata?.message;
 
       switch (status) {
         case 400:
@@ -96,11 +96,6 @@ axiosInstance.interceptors.response.use(
       errorMessage = 'Tidak dapat terhubung ke server. Periksa koneksi internet Anda.';
     }
 
-    // Tampilkan log error di development
-    if (process.env.NODE_ENV === 'development') {
-      console.error(`[API Error] ${errorMessage}`, error);
-    }
-
     // Mengubah error object agar memuat pesan yang sudah kita buat
     const customError = new Error(errorMessage);
     return Promise.reject(customError);
@@ -112,19 +107,19 @@ axiosInstance.interceptors.response.use(
  */
 export const api = {
   get: <T>(url: string, config = {}) => 
-    axiosInstance.get<ApiResponse<T>>(url, config).then(res => res.data.response),
+    axiosInstance.get<ApiResponse<T>>(url, config).then(res => res.data),
   
   post: <T>(url: string, data = {}, config = {}) => 
-    axiosInstance.post<ApiResponse<T>>(url, data, config).then(res => res.data.response),
+    axiosInstance.post<ApiResponse<T>>(url, data, config).then(res => res.data),
   
   put: <T>(url: string, data = {}, config = {}) => 
-    axiosInstance.put<ApiResponse<T>>(url, data, config).then(res => res.data.response),
+    axiosInstance.put<ApiResponse<T>>(url, data, config).then(res => res.data),
   
   delete: <T>(url: string, config = {}) => 
-    axiosInstance.delete<ApiResponse<T>>(url, config).then(res => res.data.response),
+    axiosInstance.delete<ApiResponse<T>>(url, config).then(res => res.data),
     
   patch: <T>(url: string, data = {}, config = {}) => 
-    axiosInstance.patch<ApiResponse<T>>(url, data, config).then(res => res.data.response),
+    axiosInstance.patch<ApiResponse<T>>(url, data, config).then(res => res.data),
 };
 
 export default axiosInstance;
