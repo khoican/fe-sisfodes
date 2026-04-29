@@ -52,6 +52,7 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   (error: AxiosError<ApiResponse>) => {
+    console.error('[Axios Error]', error.response?.status, error.response?.data);
     let errorMessage = 'Terjadi kesalahan pada sistem.';
 
     if (error.response) {
@@ -60,7 +61,7 @@ axiosInstance.interceptors.response.use(
       const data = error.response.data;
 
       // Ambil pesan error dari response backend jika ada
-      const serverMessage = data?.metadata?.message;
+      const serverMessage = data.metadata.message;
 
       switch (status) {
         case 400:

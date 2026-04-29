@@ -19,6 +19,7 @@ export const Route = createFileRoute('/api/profile')({
 
           return ApiResponse.success(data, 'Berhasil mengambil profil desa')
         } catch (error) {
+          console.error('API Error [/api/profile]:', error)
           return ApiResponse.error('Gagal mengambil data profil desa', 500)
         }
       }
