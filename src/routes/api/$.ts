@@ -1,101 +1,54 @@
-import { announcements } from '#/data/announcement.data'
+import { profileData } from '#/data/profile.data'
+import { heroData } from '#/data/hero.data'
+import { announcementData } from '#/data/announcement.data'
 import { budgetData } from '#/data/budget.data'
-import { events } from '#/data/event.data'
-import { holidays } from '#/data/holiday.data'
-import { members } from '#/data/member.data'
-import { news } from '#/data/news.data'
-import { population } from '#/data/population.data'
-import { umkm } from '#/data/umkm.data'
+import { eventData } from '#/data/event.data'
+import { footerData } from '#/data/footer.data'
+import { newsData } from '#/data/news.data'
+import { populationData } from '#/data/population.data'
+import { umkmData } from '#/data/umkm.data'
+import { ApiResponse } from '#/utils/apiResponse.util'
 import { createFileRoute } from '@tanstack/react-router'
 
 /**
- * Mapping endpoint ke data source
- */
-const dataMap: Record<string, any> = {
-  announcement: announcements,
-  news: news,
-  umkm: umkm,
-  event: events,
-  population: population,
-  budget: budgetData,
-  member: members,
-  holiday: holidays
-}
-
-/**
- * API Route Catch-all untuk simulasi backend
- * Menangani request list dan detail berdasarkan id/slug
- *
+ * Endpoint API Dinamis
+ * Menangani permintaan ke /api/* dan mengembalikan data yang sesuai berdasarkan parameter path.
+ * 
  * @example
- * GET /api/news -> Mengambil semua berita
- * GET /api/news/slug-berita -> Mengambil detail berita
+ * GET /api/profile -> Mengembalikan data profil desa
+ * GET /api/hero -> Mengembalikan data hero/banner
  */
 export const Route = createFileRoute('/api/$')({
   server: {
     handlers: {
       GET: async ({ params }) => {
-        const path = params._splat ?? ''
-        const [resource, identifier] = path.split('/')
-
-        const data = dataMap[resource]
-
-        // 1. Handling Resource Not Found
-        if (!data) {
-          return Response.json(
-            {
-              metadata: {
-                code: 404,
-                message: `Resource '${resource}' tidak ditemukan.`
-              },
-              response: null
-            },
-            { status: 404 }
-          )
+        const path = params._
+        
+        // Mapping data berdasarkan path/nama file yang diminta
+        const dataMap: Record<string, any> = {
+          profile: profileData,
+          hero: heroData,
+          announcement: announcementData,
+          budget: budgetData,
+          event: eventData,
+          footer: footerData,
+          news: newsData,
+          population: populationData,
+          umkm: umkmData
         }
 
-        // 2. Handling Detail Request (ID atau Slug)
-        if (identifier) {
-          if (!Array.isArray(data)) {
-            return Response.json(
-              {
-                metadata: {
-                  code: 400,
-                  message: `Resource '${resource}' bukan merupakan list data.`
-                },
-                response: null
-              },
-              { status: 400 }
-            )
+        try {
+          const data = dataMap[path]
+
+          if (!data) {
+            return ApiResponse.error(`Data '${path}' tidak ditemukan`, 404)
           }
 
-          const item = data.find(
-            (i: any) => i.id?.toString() === identifier || i.slug === identifier
-          )
-
-          if (!item) {
-            return Response.json(
-              {
-                metadata: {
-                  code: 404,
-                  message: `Data dengan identifier '${identifier}' tidak ditemukan di '${resource}'.`
-                },
-                response: null
-              },
-              { status: 404 }
-            )
-          }
-
-          return Response.json({
-            metadata: { code: 200, message: 'Success' },
-            response: item
-          })
+          return ApiResponse.success(data, `Berhasil mengambil data ${path}`)
+        } catch (error) {
+          console.error(`API Error [/api/${path}]:`, error)
+          return ApiResponse.error(`Gagal mengambil data ${path}`, 500)
         }
-
-        // 3. Handling List Request
-        return Response.json({
-          metadata: { code: 200, message: 'Success' },
-          response: data
-        })
       }
     }
   }
