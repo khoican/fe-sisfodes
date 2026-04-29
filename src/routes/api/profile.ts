@@ -1,4 +1,4 @@
-import profile from '#/data/profile.json'
+import { profileData } from '#/data/profile.data'
 import { ApiResponse } from '#/utils/apiResponse.util'
 import { createFileRoute } from '@tanstack/react-router'
 
@@ -11,11 +11,7 @@ export const Route = createFileRoute('/api/profile')({
     handlers: {
       GET: async () => {
         try {
-          const data = profile
-
-          if (!data) {
-            return ApiResponse.error('Data profil desa tidak ditemukan', 404)
-          }
+          const data = profileData
 
           return ApiResponse.success(data, 'Berhasil mengambil profil desa')
         } catch (error) {
