@@ -17,18 +17,19 @@ export const Route = createFileRoute('/')({
   head: () => ({
     meta: [
       {
-        title: 'Beranda | Desa Sumberkejayan',
+        title: 'Beranda | Desa Sumberkejayan'
       },
       {
         name: 'description',
-        content: 'Selamat datang di portal resmi Desa Sumberkejayan. Temukan informasi terkini, layanan publik, dan potensi desa kami.',
-      },
-    ],
+        content:
+          'Selamat datang di portal resmi Desa Sumberkejayan. Temukan informasi terkini, layanan publik, dan potensi desa kami.'
+      }
+    ]
   }),
-  loader: () => {
+  loader: async () => {
     return {
-      announcements: news.filter((item) => item.category?.name === 'Pengumuman'),
-      newsData: news.filter((item) => item.category?.name !== 'Pengumuman'),
+      announcements: news.filter(item => item.category?.name === 'Pengumuman'),
+      newsData: news.filter(item => item.category?.name !== 'Pengumuman'),
       holidays: holidays,
       events: events,
       umkm: umkm
@@ -38,7 +39,8 @@ export const Route = createFileRoute('/')({
 })
 
 function App () {
-  const { announcements, newsData, holidays, events, umkm } = Route.useLoaderData()
+  const { announcements, newsData, holidays, events, umkm } =
+    Route.useLoaderData()
 
   return (
     <main className='px-4 lg:px-12 pb-8 pt-8'>
@@ -51,10 +53,10 @@ function App () {
 
       <WelcomeSection />
 
-      <AnnouncementAgendaSection 
-        announcements={announcements} 
-        holidays={holidays} 
-        events={events} 
+      <AnnouncementAgendaSection
+        announcements={announcements}
+        holidays={holidays}
+        events={events}
       />
 
       <OrganizationCarousel title='Struktur Organisasi' className='mt-16' />

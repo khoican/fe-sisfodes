@@ -16,7 +16,7 @@ interface ApiResponse<T = any> {
  * Konfigurasi dasar Axios Instance
  */
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: '/api', // Base URL mengarah ke MSW atau API asli nantinya
+  baseURL: '/api',
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
