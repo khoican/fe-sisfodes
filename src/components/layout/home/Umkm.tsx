@@ -3,11 +3,17 @@ import Title from '#/components/ui/title'
 import type { Umkm } from '#/types/umkm'
 import { MdStorefront } from 'react-icons/md'
 
-interface UmkmSectionProps {
+interface UmkmProps {
   umkm: Umkm[]
 }
 
-export default function UmkmSection({ umkm }: UmkmSectionProps) {
+/**
+ * Seksi UMKM yang menampilkan daftar produk UMKM unggulan desa.
+ * 
+ * @param {UmkmProps} props - Properti komponen berisi daftar UMKM.
+ * @returns {JSX.Element} Elemen seksi UMKM.
+ */
+export default function Umkm({ umkm }: UmkmProps) {
   return (
     <div className='w-full mt-16'>
       <Title

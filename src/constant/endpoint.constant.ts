@@ -9,5 +9,6 @@ export const ENDPOINTS = {
     hero: '/hero',
     official: '/official',
     population: '/population',
-    budget: '/budget'
+    budget: '/budget',
+    agenda: '/agenda'
 }

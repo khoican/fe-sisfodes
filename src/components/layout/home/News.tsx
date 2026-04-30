@@ -3,11 +3,17 @@ import Title from '#/components/ui/title'
 import type { News } from '#/types/news'
 import { IoIosArrowForward } from 'react-icons/io'
 
-interface NewsSectionProps {
+interface NewsProps {
   newsData: News[]
 }
 
-export default function NewsSection({ newsData }: NewsSectionProps) {
+/**
+ * Seksi Berita yang menampilkan daftar berita terbaru.
+ * 
+ * @param {NewsProps} props - Properti komponen berisi daftar berita.
+ * @returns {JSX.Element} Elemen seksi berita.
+ */
+export default function News({ newsData }: NewsProps) {
   return (
     <div className='w-full mt-16'>
       <Title

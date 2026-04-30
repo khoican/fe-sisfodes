@@ -1,16 +1,15 @@
-import AnnouncementAgendaSection from '#/components/layout/home/AnnouncementAgendaSection'
+import AnnouncementAgenda from '#/components/layout/home/AnnouncementAgenda'
 import Budget from '#/components/layout/home/Budget'
 import Demography from '#/components/layout/home/Demography'
 import Hero from '#/components/layout/home/Hero'
 import Location from '#/components/layout/home/Location'
-import NewsSection from '#/components/layout/home/NewsSection'
-import UmkmSection from '#/components/layout/home/UmkmSection'
+import News from '#/components/layout/home/News'
+import Umkm from '#/components/layout/home/Umkm'
 import Welcome from '#/components/layout/home/Welcome'
 import { OrganizationCarousel } from '#/components/shared/carousel/organization'
-import { events } from '#/data/event.data'
-import { holidays } from '#/data/holiday.data'
 import { news } from '#/data/news.data'
-import { umkm } from '#/data/umkm.data'
+import { umkm as umkmData } from '#/data/umkm.data'
+import { agendaQueryOptions } from '#/services/agenda.service'
 import { budgetQueryOptions } from '#/services/budget.service'
 import { heroQueryOptions } from '#/services/hero.service'
 import { officialQueryOptions } from '#/services/official.service'
@@ -33,12 +32,13 @@ export const Route = createFileRoute('/')({
     ]
   }),
   loader: async ({ context }) => {
-    const [profile, hero, official, population, budget] = await Promise.all([
+    const [profile, hero, official, population, budget, agenda] = await Promise.all([
       context.queryClient.ensureQueryData(profileQueryOptions()),
       context.queryClient.ensureQueryData(heroQueryOptions()),
       context.queryClient.ensureQueryData(officialQueryOptions()),
       context.queryClient.ensureQueryData(populationQueryOptions()),
-      context.queryClient.ensureQueryData(budgetQueryOptions())
+      context.queryClient.ensureQueryData(budgetQueryOptions()),
+      context.queryClient.ensureQueryData(agendaQueryOptions())
     ])
 
     return {
@@ -47,11 +47,9 @@ export const Route = createFileRoute('/')({
       official: official.response,
       population: population.response,
       budget: budget.response,
-      announcements: news.filter(item => item.category?.name === 'Pengumuman'),
+      agenda: agenda.response,
       newsData: news.filter(item => item.category?.name !== 'Pengumuman'),
-      holidays: holidays,
-      events: events,
-      umkm: umkm
+      umkm: umkmData
     }
   },
   component: App
@@ -59,11 +57,9 @@ export const Route = createFileRoute('/')({
 
 function App () {
   const {
-    announcements,
     newsData,
     official,
-    holidays,
-    events,
+    agenda,
     umkm,
     profile,
     hero,
@@ -87,11 +83,7 @@ function App () {
         }
       />
 
-      <AnnouncementAgendaSection
-        announcements={announcements}
-        holidays={holidays}
-        events={events}
-      />
+      <AnnouncementAgenda agenda={agenda} />
 
       <OrganizationCarousel
         title='Struktur Organisasi'
@@ -99,9 +91,9 @@ function App () {
         official={official}
       />
 
-      <NewsSection newsData={newsData} />
+      <News newsData={newsData} />
 
-      <UmkmSection umkm={umkm} />
+      <Umkm umkm={umkm} />
 
       <Location
         address={`${profile.address.address}, ${profile.address.village}, ${profile.address.district}, ${profile.address.regency}`}

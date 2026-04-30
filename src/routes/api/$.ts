@@ -1,6 +1,5 @@
-import { announcements } from '#/data/announcement.data'
+import { agendaData } from '#/data/agenda.data'
 import { budgetData } from '#/data/budget.data'
-import { events } from '#/data/event.data'
 import { footerData } from '#/data/footer.data'
 import { heroData } from '#/data/hero.data'
 import { news } from '#/data/news.data'
@@ -34,11 +33,10 @@ export const Route = createFileRoute('/api/$')({
           official: officialData,
           budget: budgetData,
           footer: footerData,
-          announcement: announcements,
-          event: events,
           news: news,
           umkm: umkm,
-          population: populationData
+          population: populationData,
+          agenda: agendaData
         }
 
         try {
