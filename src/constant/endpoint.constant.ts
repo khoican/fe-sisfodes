@@ -6,4 +6,6 @@ export const ENDPOINTS = {
     galery: '/gallery',
     layanan: '/services',
     potensi: '/potentials',
+    hero: '/hero',
+    official: '/official'
 }
