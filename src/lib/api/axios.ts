@@ -1,3 +1,4 @@
+import { BASE_API_URL } from '#/constant/api.constant';
 import type { AxiosError, AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 import axios from 'axios';
 
@@ -16,7 +17,7 @@ interface ApiResponse<T = any> {
  * Konfigurasi dasar Axios Instance
  */
 const axiosInstance: AxiosInstance = axios.create({
-  baseURL: '/api',
+  baseURL: BASE_API_URL,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',

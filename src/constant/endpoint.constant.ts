@@ -7,5 +7,6 @@ export const ENDPOINTS = {
     layanan: '/services',
     potensi: '/potentials',
     hero: '/hero',
-    official: '/official'
+    official: '/official',
+    population: '/population'
 }

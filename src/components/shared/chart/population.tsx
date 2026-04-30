@@ -1,40 +1,56 @@
 "use client"
 
-import { population } from "#/data/population.data";
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
-import type { ChartConfig } from "../../ui/chart";
-import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from "../../ui/chart";
+import type { Population } from "#/types/population";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
+import { ChartConfig, ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from "../../ui/chart";
 
 const chartConfig = {
-  population: {
+  count: {
     label: "Jumlah Penduduk",
-    color: "var(--primary)", 
+    color: "hsl(var(--primary))", 
   }
 } satisfies ChartConfig
 
-export function PopulationChart() {
+interface PopulationChartProps {
+  data: Population['by_age']
+}
+
+/**
+ * Komponen grafik batang untuk menampilkan distribusi penduduk berdasarkan usia.
+ * 
+ * @param {PopulationChartProps} props - Properti komponen.
+ * @returns {JSX.Element} Elemen grafik kependudukan.
+ */
+export function PopulationChart({ data }: PopulationChartProps) {
   return (
-    <ChartContainer config={chartConfig} className="h-[40vh] w-full aspect-square">
+    <ChartContainer config={chartConfig} className="h-[300px] w-full">
       <BarChart 
         accessibilityLayer 
-        data={population.age}
-        margin={{ top: 20, right: 20, left: 20, bottom: 20 }}
+        data={data}
+        margin={{ top: 20, right: 20, left: 0, bottom: 0 }}
       >
-        <CartesianGrid vertical={false} strokeDasharray="3 3"/>
+        <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="hsl(var(--border))" />
 
         <XAxis
-          dataKey="age"
+          dataKey="label"
           tickLine={false}
           tickMargin={10}
           axisLine={false}
-          tickFormatter={(value) => value.slice(0, 5)}
+          fontSize={12}
+        />
+        
+        <YAxis 
+          tickLine={false}
+          axisLine={false}
+          fontSize={12}
         />
 
         <ChartTooltip content={<ChartTooltipContent />} />
         <ChartLegend content={<ChartLegendContent />} />
         <Bar 
-          dataKey="population" 
-          fill="var(--primary)"
+          dataKey="count" 
+          name="Jumlah Penduduk"
+          fill="hsl(var(--primary))"
           radius={[4, 4, 0, 0]} 
         />
       </BarChart>

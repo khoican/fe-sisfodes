@@ -1,15 +1,15 @@
 import { Card, CardContent, CardHeader } from "#/components/ui/card";
-import type { Member } from "#/types/member.d";
+import type { Official } from "#/types/official";
 import { Image } from "@unpic/react";
 
-export default function PersonCard ( { name, position, image} : Member ) {
+export default function PersonCard ( { name, position, image} : Official ) {
   return (
-    <Card className="p-4 gap-4 h-full">
+    <Card className="p-4 gap-2 h-full">
         <CardHeader className="p-0">
             <Image src={image} alt={name} layout="fullWidth" className="rounded-md aspect-square object-top" />
         </CardHeader>
-        <CardContent className='flex flex-col items-center justify-center'>
-          <p className='text-lg font-semibold'>{name}</p>
+        <CardContent className='flex flex-col items-center justify-center px-2 h-full'>
+          <p className='text-md font-semibold line-clamp-1 '>{name}</p>
           <p className='text-xs text-primary'>{position}</p>
         </CardContent>
     </Card>

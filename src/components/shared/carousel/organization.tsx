@@ -1,6 +1,6 @@
 
-import { members } from '#/data/member.data'
 import { cn } from '#/lib/utils'
+import type { Official } from '#/types/official'
 import {
   Carousel as CarouselComponent,
   CarouselContent,
@@ -14,9 +14,10 @@ import PersonCard from '../card/person'
 interface CarouselProps {
   title: string
   className?: string
+  official: Official[]
 }
 
-export function OrganizationCarousel ({ title, className }: CarouselProps) {
+export function OrganizationCarousel ({ title, className, official }: CarouselProps) {
   return (
     <CarouselComponent className={cn('w-full', className)}>
       <div className='flex items-center justify-between px-1'>
@@ -29,13 +30,11 @@ export function OrganizationCarousel ({ title, className }: CarouselProps) {
       </div>
 
       <CarouselContent>
-        {members.map((member, index) => (
-          <CarouselItem key={index} className={cn('basis-1/1 md:basis-1/2 lg:basis-1/4')}>
+        {official.map((member, index) => (
+          <CarouselItem key={index} className={cn('basis-1/1 md:basis-1/2 lg:basis-1/4 h-full')}>
             <div className='p-1'>
               <PersonCard 
-                name={member.name}
-                position={member.position}
-                image={member.image}
+                {...member}
               />
             </div>
           </CarouselItem>

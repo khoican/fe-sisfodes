@@ -4,6 +4,8 @@ import { events } from '#/data/event.data'
 import { footerData } from '#/data/footer.data'
 import { heroData } from '#/data/hero.data'
 import { news } from '#/data/news.data'
+import { officialData } from '#/data/official.data'
+import { populationData } from '#/data/population.data'
 import { profileData } from '#/data/profile.data'
 import { umkm } from '#/data/umkm.data'
 import { ApiResponse } from '#/utils/apiResponse.util'
@@ -29,12 +31,14 @@ export const Route = createFileRoute('/api/$')({
         const dataMap: Record<string, any> = {
           profile: profileData,
           hero: heroData,
+          official: officialData,
           budget: budgetData,
           footer: footerData,
           announcement: announcements,
           event: events,
           news: news,
-          umkm: umkm
+          umkm: umkm,
+          population: populationData
         }
 
         try {

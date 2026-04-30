@@ -18,7 +18,6 @@ import { Route as BeritaIndexRouteImport } from './routes/berita/index'
 import { Route as UmkmSlugRouteImport } from './routes/umkm/$slug'
 import { Route as BeritaPengumumanRouteImport } from './routes/berita/pengumuman'
 import { Route as BeritaSlugRouteImport } from './routes/berita/$slug'
-import { Route as ApiProfileRouteImport } from './routes/api/profile'
 import { Route as ApiSplatRouteImport } from './routes/api/$'
 
 const StatistikRoute = StatistikRouteImport.update({
@@ -66,11 +65,6 @@ const BeritaSlugRoute = BeritaSlugRouteImport.update({
   path: '/berita/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiProfileRoute = ApiProfileRouteImport.update({
-  id: '/api/profile',
-  path: '/api/profile',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiSplatRoute = ApiSplatRouteImport.update({
   id: '/api/$',
   path: '/api/$',
@@ -83,7 +77,6 @@ export interface FileRoutesByFullPath {
   '/profil': typeof ProfilRoute
   '/statistik': typeof StatistikRoute
   '/api/$': typeof ApiSplatRoute
-  '/api/profile': typeof ApiProfileRoute
   '/berita/$slug': typeof BeritaSlugRoute
   '/berita/pengumuman': typeof BeritaPengumumanRoute
   '/umkm/$slug': typeof UmkmSlugRoute
@@ -96,7 +89,6 @@ export interface FileRoutesByTo {
   '/profil': typeof ProfilRoute
   '/statistik': typeof StatistikRoute
   '/api/$': typeof ApiSplatRoute
-  '/api/profile': typeof ApiProfileRoute
   '/berita/$slug': typeof BeritaSlugRoute
   '/berita/pengumuman': typeof BeritaPengumumanRoute
   '/umkm/$slug': typeof UmkmSlugRoute
@@ -110,7 +102,6 @@ export interface FileRoutesById {
   '/profil': typeof ProfilRoute
   '/statistik': typeof StatistikRoute
   '/api/$': typeof ApiSplatRoute
-  '/api/profile': typeof ApiProfileRoute
   '/berita/$slug': typeof BeritaSlugRoute
   '/berita/pengumuman': typeof BeritaPengumumanRoute
   '/umkm/$slug': typeof UmkmSlugRoute
@@ -125,7 +116,6 @@ export interface FileRouteTypes {
     | '/profil'
     | '/statistik'
     | '/api/$'
-    | '/api/profile'
     | '/berita/$slug'
     | '/berita/pengumuman'
     | '/umkm/$slug'
@@ -138,7 +128,6 @@ export interface FileRouteTypes {
     | '/profil'
     | '/statistik'
     | '/api/$'
-    | '/api/profile'
     | '/berita/$slug'
     | '/berita/pengumuman'
     | '/umkm/$slug'
@@ -151,7 +140,6 @@ export interface FileRouteTypes {
     | '/profil'
     | '/statistik'
     | '/api/$'
-    | '/api/profile'
     | '/berita/$slug'
     | '/berita/pengumuman'
     | '/umkm/$slug'
@@ -165,7 +153,6 @@ export interface RootRouteChildren {
   ProfilRoute: typeof ProfilRoute
   StatistikRoute: typeof StatistikRoute
   ApiSplatRoute: typeof ApiSplatRoute
-  ApiProfileRoute: typeof ApiProfileRoute
   BeritaSlugRoute: typeof BeritaSlugRoute
   BeritaPengumumanRoute: typeof BeritaPengumumanRoute
   UmkmSlugRoute: typeof UmkmSlugRoute
@@ -238,13 +225,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BeritaSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/profile': {
-      id: '/api/profile'
-      path: '/api/profile'
-      fullPath: '/api/profile'
-      preLoaderRoute: typeof ApiProfileRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/$': {
       id: '/api/$'
       path: '/api/$'
@@ -261,7 +241,6 @@ const rootRouteChildren: RootRouteChildren = {
   ProfilRoute: ProfilRoute,
   StatistikRoute: StatistikRoute,
   ApiSplatRoute: ApiSplatRoute,
-  ApiProfileRoute: ApiProfileRoute,
   BeritaSlugRoute: BeritaSlugRoute,
   BeritaPengumumanRoute: BeritaPengumumanRoute,
   UmkmSlugRoute: UmkmSlugRoute,

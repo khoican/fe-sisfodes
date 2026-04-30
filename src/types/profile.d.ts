@@ -3,15 +3,25 @@ export interface Profile {
   vision: string;
   mission: string[];
   history: string;
-  address: string;
+  address: {
+    country: string;
+    province: string;
+    regency: string;
+    district: string;
+    village: string;
+    address: string;
+  };
   contact: {
     email: string;
     phone: string;
+    instagram?: string;
     whatsapp?: string;
+    tiktok?: string;
   };
   coordinates: {
-    latitude: number;
-    longitude: number;
+    latitude: string;
+    longitude: string;
   };
+  greeting: string;
   map_embed_url?: string;
 }
