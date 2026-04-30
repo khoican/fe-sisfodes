@@ -1,5 +1,5 @@
 import AnnouncementAgendaSection from '#/components/layout/home/AnnouncementAgendaSection'
-import BudgetSection from '#/components/layout/home/BudgetSection'
+import Budget from '#/components/layout/home/Budget'
 import Demography from '#/components/layout/home/Demography'
 import Hero from '#/components/layout/home/Hero'
 import Location from '#/components/layout/home/Location'
@@ -11,6 +11,7 @@ import { events } from '#/data/event.data'
 import { holidays } from '#/data/holiday.data'
 import { news } from '#/data/news.data'
 import { umkm } from '#/data/umkm.data'
+import { budgetQueryOptions } from '#/services/budget.service'
 import { heroQueryOptions } from '#/services/hero.service'
 import { officialQueryOptions } from '#/services/official.service'
 import { populationQueryOptions } from '#/services/population.service'
@@ -32,11 +33,12 @@ export const Route = createFileRoute('/')({
     ]
   }),
   loader: async ({ context }) => {
-    const [profile, hero, official, population] = await Promise.all([
+    const [profile, hero, official, population, budget] = await Promise.all([
       context.queryClient.ensureQueryData(profileQueryOptions()),
       context.queryClient.ensureQueryData(heroQueryOptions()),
       context.queryClient.ensureQueryData(officialQueryOptions()),
-      context.queryClient.ensureQueryData(populationQueryOptions())
+      context.queryClient.ensureQueryData(populationQueryOptions()),
+      context.queryClient.ensureQueryData(budgetQueryOptions())
     ])
 
     return {
@@ -44,6 +46,7 @@ export const Route = createFileRoute('/')({
       hero: hero.response,
       official: official.response,
       population: population.response,
+      budget: budget.response,
       announcements: news.filter(item => item.category?.name === 'Pengumuman'),
       newsData: news.filter(item => item.category?.name !== 'Pengumuman'),
       holidays: holidays,
@@ -64,7 +67,8 @@ function App () {
     umkm,
     profile,
     hero,
-    population
+    population,
+    budget
   } = Route.useLoaderData()
 
   return (
@@ -73,7 +77,7 @@ function App () {
 
       <div className='grid lg:grid-cols-3 gap-y-8 gap-x-0 lg:gap-y-0 lg:gap-x-8 mt-8 w-full'>
         <Demography population={population} />
-        <BudgetSection />
+        <Budget budget={budget} />
       </div>
 
       <Welcome
