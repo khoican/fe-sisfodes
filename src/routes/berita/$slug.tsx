@@ -2,7 +2,10 @@ import NewsCard from '#/components/shared/card/news'
 import { Avatar, AvatarFallback } from '#/components/ui/avatar'
 import { Badge } from '#/components/ui/badge'
 import Title from '#/components/ui/title'
-import { newsDetailQueryOptions, newsQueryOptions } from '#/services/news.service'
+import {
+  newsDetailQueryOptions,
+  newsQueryOptions
+} from '#/services/news.service'
 import type { News } from '#/types/news'
 import { dateFormat } from '#/utils/date.util'
 import { ClientOnly, createFileRoute } from '@tanstack/react-router'
@@ -11,10 +14,27 @@ import { Calendar } from 'lucide-react'
 import { IoIosArrowForward } from 'react-icons/io'
 
 export const Route = createFileRoute('/berita/$slug')({
+  loader: async ({
+    context,
+    params
+  }): Promise<{ news: News[]; berita: News }> => {
+    const [newsResponse, detailResponse] = await Promise.all([
+      context.queryClient.ensureQueryData(newsQueryOptions()),
+      context.queryClient.ensureQueryData(newsDetailQueryOptions(params.slug))
+    ])
+
+    return {
+      news: newsResponse.response,
+      berita: detailResponse.response
+    }
+  },
   head: ({ loaderData }) => {
-    const berita = loaderData?.berita
-    const title = berita ? `${berita.title} | Desa Sumberkejayan` : 'Berita | Desa Sumberkejayan'
-    const description = berita?.description || 'Baca berita terbaru dari Desa Sumberkejayan.'
+    const berita = loaderData?.berita || null
+    const title = berita
+      ? `${berita.title} | Desa Sumberkejayan`
+      : 'Berita | Desa Sumberkejayan'
+    const description =
+      berita?.description || 'Baca berita terbaru dari Desa Sumberkejayan.'
     const image = berita?.image || ''
 
     const jsonLd = {
@@ -27,54 +47,43 @@ export const Route = createFileRoute('/berita/$slug')({
       author: [
         {
           '@type': 'Person',
-          name: berita?.author,
-        },
-      ],
+          name: berita?.author
+        }
+      ]
     }
 
     return {
       meta: [
         {
-          title,
+          title
         },
         {
           name: 'description',
-          content: description,
+          content: description
         },
         {
           property: 'og:title',
-          content: title,
+          content: title
         },
         {
           property: 'og:description',
-          content: description,
+          content: description
         },
         {
           property: 'og:image',
-          content: image,
+          content: image
         },
         {
           property: 'og:type',
-          content: 'article',
-        },
+          content: 'article'
+        }
       ],
       scripts: [
         {
           type: 'application/ld+json',
-          children: JSON.stringify(jsonLd),
-        },
-      ],
-    }
-  },
-  loader: async ({ context, params }) => {
-    const [newsResponse, detailResponse] = await Promise.all([
-      context.queryClient.ensureQueryData(newsQueryOptions()),
-      context.queryClient.ensureQueryData(newsDetailQueryOptions(params.slug))
-    ])
-
-    return {
-      news: newsResponse.response,
-      berita: detailResponse.response
+          children: JSON.stringify(jsonLd)
+        }
+      ]
     }
   },
   component: DetailBerita
@@ -83,14 +92,14 @@ export const Route = createFileRoute('/berita/$slug')({
 function DetailBerita () {
   const { berita, news } = Route.useLoaderData()
 
-  const author = berita?.author?.split(' ')[0].charAt(0).toUpperCase() || 'U'
+  const author = berita.author?.split(' ')[0].charAt(0).toUpperCase() || 'U'
 
   return (
     <main className='w-full px-4 lg:px-12 py-8'>
       <section className='w-full flex flex-col gap-8'>
-        <Badge variant='primary'>{berita?.category?.name}</Badge>
+        <Badge variant='primary'>{berita.category?.name}</Badge>
 
-        <h1 className='text-7xl font-bold'>{berita?.title}</h1>
+        <h1 className='text-7xl font-bold'>{berita.title}</h1>
 
         <div
           w-full
@@ -103,33 +112,33 @@ function DetailBerita () {
               </AvatarFallback>
             </Avatar>
 
-            <p className='text-primary font-medium'>{berita?.author}</p>
+            <p className='text-primary font-medium'>{berita.author}</p>
           </div>
 
           <div className='flex items-center gap-1'>
             <Calendar className='inline-block mr-1 text-gray-500' size={16} />
-            <p>{dateFormat({ date: berita?.created_at || new Date() })}</p>
+            <p>{dateFormat({ date: berita.created_at })}</p>
           </div>
         </div>
       </section>
 
       <section className='w-full h-auto mt-16'>
         <Image
-          src={berita?.image || ''}
-          alt={berita?.title || 'Gambar Berita'}
+          src={berita.image || ''}
+          alt={berita.title || 'Gambar Berita'}
           layout='fullWidth'
           className='w-full h-auto rounded-xl object-cover'
         />
 
         <p className='text-sm text-gray-400 italic mt-2 text-center'>
-          {berita?.description}
+          {berita.description}
         </p>
       </section>
 
       <section className='grid md:grid-cols-2 lg:grid-cols-3 gap-16 mt-16 pb-16 border-b border-b-gray-200'>
         <article
           className='w-full flex flex-col gap-6 text-lg text-gray-600 leading-relaxed md:col-span-1 lg:col-span-2'
-          dangerouslySetInnerHTML={{ __html: berita?.content || '' }}
+          dangerouslySetInnerHTML={{ __html: berita.content || '' }}
         ></article>
 
         <aside>
@@ -141,7 +150,7 @@ function DetailBerita () {
           </div>
 
           <div>
-            {news.slice(0, 3).map((item, index) => (
+            {news.slice(0, 3).map((item: News, index: number) => (
               <div
                 key={index}
                 className='text-md mb-8 flex items-start gap-4 group'
@@ -170,23 +179,24 @@ function DetailBerita () {
       </section>
 
       <section className='w-full mt-16'>
-        <Title title='Berita Terkait' link={{
-          to: '/berita',
-          label: 'Berita Lainnya',
-          icon: IoIosArrowForward
-        }}/>
+        <Title
+          title='Berita Terkait'
+          link={{
+            to: '/berita',
+            label: 'Berita Lainnya',
+            icon: IoIosArrowForward
+          }}
+        />
 
         <div className='grid md:grid-cols-2 lg:grid-cols-3 w-full gap-6 mt-12'>
           <ClientOnly>
-            {news
-              .slice(4, 10)
-              .map((item: News, index: number) => (
-                <NewsCard
-                  key={index}
-                  {...item}
-                  className={{ root: 'shadow-none' }}
-                />
-              ))}
+            {news.slice(4, 10).map((item: News, index: number) => (
+              <NewsCard
+                key={index}
+                {...item}
+                className={{ root: 'shadow-none' }}
+              />
+            ))}
           </ClientOnly>
         </div>
       </section>

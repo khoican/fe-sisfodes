@@ -5,7 +5,7 @@ import axios from 'axios';
 /**
  * Interface untuk format response standar dari backend
  */
-interface ApiResponse<T = any> {
+export interface ApiResponse<T = any> {
   metadata: {
     code: number;
     message: string;
