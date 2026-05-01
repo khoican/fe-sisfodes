@@ -11,6 +11,7 @@ import { product } from '#/data/product.data'
 import { profileData } from '#/data/profile.data'
 import { sdgsData } from '#/data/sdgs.data'
 import { facilityData } from '#/data/facility.data'
+import { galleryData } from '#/data/gallery.data'
 import { ApiResponse } from '#/utils/apiResponse.util'
 import { createFileRoute } from '@tanstack/react-router'
 
@@ -44,7 +45,8 @@ export const Route = createFileRoute('/api/$')({
           idm: idmData,
           sdgs: sdgsData,
           geography: geographyData,
-          facilities: facilityData
+          facilities: facilityData,
+          gallery: galleryData
         }
 
         try {

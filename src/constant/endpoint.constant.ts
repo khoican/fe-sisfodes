@@ -14,5 +14,6 @@ export const ENDPOINTS = {
     idm: '/idm',
     sdgs: '/sdgs',
     geography: '/geography',
-    facilities: '/facilities'
+    facilities: '/facilities',
+    gallery: '/gallery'
     }
