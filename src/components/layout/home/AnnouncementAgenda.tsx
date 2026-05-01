@@ -1,8 +1,8 @@
 import EventCard from '#/components/shared/card/event'
 import Title from '#/components/ui/title'
 import type { Agenda } from '#/types/agenda'
-import { ClientOnly } from '@tanstack/react-router'
 import { dateFormat } from '#/utils/date.util'
+import { ClientOnly } from '@tanstack/react-router'
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import { IoIosArrowForward } from 'react-icons/io'
 
@@ -64,7 +64,7 @@ export default function AnnouncementAgenda({
                 key={index}
                 className='flex items-center gap-6 text-white bg-white/10 p-5 rounded-xl border border-white/5 hover:bg-white/20 transition-all cursor-default'
               >
-                <div className='flex flex-col items-center justify-center bg-white text-primary rounded-lg p-2 min-w-[60px] h-[60px] shadow-lg'>
+                <div className='flex flex-col items-center justify-center bg-white text-primary rounded-lg p-2 min-w-15 h-15 shadow-lg'>
                   <span className='text-xl font-bold leading-none'>
                     {new Date(item.date.start).getDate()}
                   </span>

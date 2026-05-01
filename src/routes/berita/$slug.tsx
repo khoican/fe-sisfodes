@@ -2,7 +2,7 @@ import NewsCard from '#/components/shared/card/news'
 import { Avatar, AvatarFallback } from '#/components/ui/avatar'
 import { Badge } from '#/components/ui/badge'
 import Title from '#/components/ui/title'
-import { news } from '#/data/news.data'
+import { newsDetailQueryOptions, newsQueryOptions } from '#/services/news.service'
 import type { News } from '#/types/news'
 import { dateFormat } from '#/utils/date.util'
 import { ClientOnly, createFileRoute } from '@tanstack/react-router'
@@ -11,8 +11,8 @@ import { Calendar } from 'lucide-react'
 import { IoIosArrowForward } from 'react-icons/io'
 
 export const Route = createFileRoute('/berita/$slug')({
-  head: ({ params }) => {
-    const berita = news.find(item => item.slug === params.slug)
+  head: ({ loaderData }) => {
+    const berita = loaderData?.berita
     const title = berita ? `${berita.title} | Desa Sumberkejayan` : 'Berita | Desa Sumberkejayan'
     const description = berita?.description || 'Baca berita terbaru dari Desa Sumberkejayan.'
     const image = berita?.image || ''
@@ -66,12 +66,22 @@ export const Route = createFileRoute('/berita/$slug')({
       ],
     }
   },
+  loader: async ({ context, params }) => {
+    const [newsResponse, detailResponse] = await Promise.all([
+      context.queryClient.ensureQueryData(newsQueryOptions()),
+      context.queryClient.ensureQueryData(newsDetailQueryOptions(params.slug))
+    ])
+
+    return {
+      news: newsResponse.response,
+      berita: detailResponse.response
+    }
+  },
   component: DetailBerita
 })
 
 function DetailBerita () {
-  const { slug } = Route.useParams()
-  const berita = news.find(item => item.slug === slug)
+  const { berita, news } = Route.useLoaderData()
 
   const author = berita?.author?.split(' ')[0].charAt(0).toUpperCase() || 'U'
 

@@ -7,11 +7,11 @@ import News from '#/components/layout/home/News'
 import Umkm from '#/components/layout/home/Umkm'
 import Welcome from '#/components/layout/home/Welcome'
 import { OrganizationCarousel } from '#/components/shared/carousel/organization'
-import { news } from '#/data/news.data'
 import { umkm as umkmData } from '#/data/umkm.data'
 import { agendaQueryOptions } from '#/services/agenda.service'
 import { budgetQueryOptions } from '#/services/budget.service'
 import { heroQueryOptions } from '#/services/hero.service'
+import { newsQueryOptions } from '#/services/news.service'
 import { officialQueryOptions } from '#/services/official.service'
 import { populationQueryOptions } from '#/services/population.service'
 import { profileQueryOptions } from '#/services/profile.service'
@@ -32,13 +32,14 @@ export const Route = createFileRoute('/')({
     ]
   }),
   loader: async ({ context }) => {
-    const [profile, hero, official, population, budget, agenda] = await Promise.all([
+    const [profile, hero, official, population, budget, agenda, news] = await Promise.all([
       context.queryClient.ensureQueryData(profileQueryOptions()),
       context.queryClient.ensureQueryData(heroQueryOptions()),
       context.queryClient.ensureQueryData(officialQueryOptions()),
       context.queryClient.ensureQueryData(populationQueryOptions()),
       context.queryClient.ensureQueryData(budgetQueryOptions()),
-      context.queryClient.ensureQueryData(agendaQueryOptions())
+      context.queryClient.ensureQueryData(agendaQueryOptions()),
+      context.queryClient.ensureQueryData(newsQueryOptions())
     ])
 
     return {
@@ -48,7 +49,7 @@ export const Route = createFileRoute('/')({
       population: population.response,
       budget: budget.response,
       agenda: agenda.response,
-      newsData: news.filter(item => item.category?.name !== 'Pengumuman'),
+      newsData: news.response.filter(item => item.category?.name !== 'Pengumuman'),
       umkm: umkmData
     }
   },

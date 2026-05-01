@@ -1,7 +1,7 @@
 import NewsCard from '#/components/shared/card/news'
 import { Badge } from '#/components/ui/badge'
 import { Button } from '#/components/ui/button'
-import { news } from '#/data/news.data'
+import { newsQueryOptions } from '#/services/news.service'
 import type { News } from '#/types/news'
 import { ClientOnly, Link, createFileRoute } from '@tanstack/react-router'
 
@@ -17,23 +17,24 @@ export const Route = createFileRoute('/berita/')({
       },
     ],
   }),
+  loader: async ({ context }) => {
+    const news = await context.queryClient.ensureQueryData(newsQueryOptions())
+    return {
+      news: news.response
+    }
+  },
   component: Berita
 })
 
 function Berita () {
+  const { news } = Route.useLoaderData()
+
   const latestNews = news
     .filter(item => item.category?.name !== 'Pengumuman')
-    .sort(
-      (a, b) =>
-        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-    )
     .slice(0, 4)
+    
   const newsData = news
     .filter(item => item.category?.name !== 'Pengumuman')
-    .sort(
-      (a, b) =>
-        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
-    )
 
   return (
     <main className='w-full px-4 lg:px-12 py-8'>
