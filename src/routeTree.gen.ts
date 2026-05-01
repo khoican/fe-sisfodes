@@ -9,27 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as StatistikRouteImport } from './routes/statistik'
-import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as GaleriRouteImport } from './routes/galeri'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProdukIndexRouteImport } from './routes/produk/index'
 import { Route as BeritaIndexRouteImport } from './routes/berita/index'
+import { Route as StatistikSdgsRouteImport } from './routes/statistik/sdgs'
+import { Route as StatistikKependudukanRouteImport } from './routes/statistik/kependudukan'
+import { Route as StatistikIdmRouteImport } from './routes/statistik/idm'
+import { Route as ProfilStrukturOrganisasiRouteImport } from './routes/profil/struktur-organisasi'
+import { Route as ProfilProfilDesaRouteImport } from './routes/profil/profil-desa'
 import { Route as ProdukSlugRouteImport } from './routes/produk/$slug'
 import { Route as BeritaPengumumanRouteImport } from './routes/berita/pengumuman'
 import { Route as BeritaSlugRouteImport } from './routes/berita/$slug'
 import { Route as ApiSplatRouteImport } from './routes/api/$'
 
-const StatistikRoute = StatistikRouteImport.update({
-  id: '/statistik',
-  path: '/statistik',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProfilRoute = ProfilRouteImport.update({
-  id: '/profil',
-  path: '/profil',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const GaleriRoute = GaleriRouteImport.update({
   id: '/galeri',
   path: '/galeri',
@@ -48,6 +41,32 @@ const ProdukIndexRoute = ProdukIndexRouteImport.update({
 const BeritaIndexRoute = BeritaIndexRouteImport.update({
   id: '/berita/',
   path: '/berita/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatistikSdgsRoute = StatistikSdgsRouteImport.update({
+  id: '/statistik/sdgs',
+  path: '/statistik/sdgs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatistikKependudukanRoute = StatistikKependudukanRouteImport.update({
+  id: '/statistik/kependudukan',
+  path: '/statistik/kependudukan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatistikIdmRoute = StatistikIdmRouteImport.update({
+  id: '/statistik/idm',
+  path: '/statistik/idm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfilStrukturOrganisasiRoute =
+  ProfilStrukturOrganisasiRouteImport.update({
+    id: '/profil/struktur-organisasi',
+    path: '/profil/struktur-organisasi',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProfilProfilDesaRoute = ProfilProfilDesaRouteImport.update({
+  id: '/profil/profil-desa',
+  path: '/profil/profil-desa',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProdukSlugRoute = ProdukSlugRouteImport.update({
@@ -74,24 +93,30 @@ const ApiSplatRoute = ApiSplatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/galeri': typeof GaleriRoute
-  '/profil': typeof ProfilRoute
-  '/statistik': typeof StatistikRoute
   '/api/$': typeof ApiSplatRoute
   '/berita/$slug': typeof BeritaSlugRoute
   '/berita/pengumuman': typeof BeritaPengumumanRoute
   '/produk/$slug': typeof ProdukSlugRoute
+  '/profil/profil-desa': typeof ProfilProfilDesaRoute
+  '/profil/struktur-organisasi': typeof ProfilStrukturOrganisasiRoute
+  '/statistik/idm': typeof StatistikIdmRoute
+  '/statistik/kependudukan': typeof StatistikKependudukanRoute
+  '/statistik/sdgs': typeof StatistikSdgsRoute
   '/berita/': typeof BeritaIndexRoute
   '/produk/': typeof ProdukIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/galeri': typeof GaleriRoute
-  '/profil': typeof ProfilRoute
-  '/statistik': typeof StatistikRoute
   '/api/$': typeof ApiSplatRoute
   '/berita/$slug': typeof BeritaSlugRoute
   '/berita/pengumuman': typeof BeritaPengumumanRoute
   '/produk/$slug': typeof ProdukSlugRoute
+  '/profil/profil-desa': typeof ProfilProfilDesaRoute
+  '/profil/struktur-organisasi': typeof ProfilStrukturOrganisasiRoute
+  '/statistik/idm': typeof StatistikIdmRoute
+  '/statistik/kependudukan': typeof StatistikKependudukanRoute
+  '/statistik/sdgs': typeof StatistikSdgsRoute
   '/berita': typeof BeritaIndexRoute
   '/produk': typeof ProdukIndexRoute
 }
@@ -99,12 +124,15 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/galeri': typeof GaleriRoute
-  '/profil': typeof ProfilRoute
-  '/statistik': typeof StatistikRoute
   '/api/$': typeof ApiSplatRoute
   '/berita/$slug': typeof BeritaSlugRoute
   '/berita/pengumuman': typeof BeritaPengumumanRoute
   '/produk/$slug': typeof ProdukSlugRoute
+  '/profil/profil-desa': typeof ProfilProfilDesaRoute
+  '/profil/struktur-organisasi': typeof ProfilStrukturOrganisasiRoute
+  '/statistik/idm': typeof StatistikIdmRoute
+  '/statistik/kependudukan': typeof StatistikKependudukanRoute
+  '/statistik/sdgs': typeof StatistikSdgsRoute
   '/berita/': typeof BeritaIndexRoute
   '/produk/': typeof ProdukIndexRoute
 }
@@ -113,36 +141,45 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/galeri'
-    | '/profil'
-    | '/statistik'
     | '/api/$'
     | '/berita/$slug'
     | '/berita/pengumuman'
     | '/produk/$slug'
+    | '/profil/profil-desa'
+    | '/profil/struktur-organisasi'
+    | '/statistik/idm'
+    | '/statistik/kependudukan'
+    | '/statistik/sdgs'
     | '/berita/'
     | '/produk/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/galeri'
-    | '/profil'
-    | '/statistik'
     | '/api/$'
     | '/berita/$slug'
     | '/berita/pengumuman'
     | '/produk/$slug'
+    | '/profil/profil-desa'
+    | '/profil/struktur-organisasi'
+    | '/statistik/idm'
+    | '/statistik/kependudukan'
+    | '/statistik/sdgs'
     | '/berita'
     | '/produk'
   id:
     | '__root__'
     | '/'
     | '/galeri'
-    | '/profil'
-    | '/statistik'
     | '/api/$'
     | '/berita/$slug'
     | '/berita/pengumuman'
     | '/produk/$slug'
+    | '/profil/profil-desa'
+    | '/profil/struktur-organisasi'
+    | '/statistik/idm'
+    | '/statistik/kependudukan'
+    | '/statistik/sdgs'
     | '/berita/'
     | '/produk/'
   fileRoutesById: FileRoutesById
@@ -150,32 +187,21 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   GaleriRoute: typeof GaleriRoute
-  ProfilRoute: typeof ProfilRoute
-  StatistikRoute: typeof StatistikRoute
   ApiSplatRoute: typeof ApiSplatRoute
   BeritaSlugRoute: typeof BeritaSlugRoute
   BeritaPengumumanRoute: typeof BeritaPengumumanRoute
   ProdukSlugRoute: typeof ProdukSlugRoute
+  ProfilProfilDesaRoute: typeof ProfilProfilDesaRoute
+  ProfilStrukturOrganisasiRoute: typeof ProfilStrukturOrganisasiRoute
+  StatistikIdmRoute: typeof StatistikIdmRoute
+  StatistikKependudukanRoute: typeof StatistikKependudukanRoute
+  StatistikSdgsRoute: typeof StatistikSdgsRoute
   BeritaIndexRoute: typeof BeritaIndexRoute
   ProdukIndexRoute: typeof ProdukIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/statistik': {
-      id: '/statistik'
-      path: '/statistik'
-      fullPath: '/statistik'
-      preLoaderRoute: typeof StatistikRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/profil': {
-      id: '/profil'
-      path: '/profil'
-      fullPath: '/profil'
-      preLoaderRoute: typeof ProfilRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/galeri': {
       id: '/galeri'
       path: '/galeri'
@@ -202,6 +228,41 @@ declare module '@tanstack/react-router' {
       path: '/berita'
       fullPath: '/berita/'
       preLoaderRoute: typeof BeritaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/statistik/sdgs': {
+      id: '/statistik/sdgs'
+      path: '/statistik/sdgs'
+      fullPath: '/statistik/sdgs'
+      preLoaderRoute: typeof StatistikSdgsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/statistik/kependudukan': {
+      id: '/statistik/kependudukan'
+      path: '/statistik/kependudukan'
+      fullPath: '/statistik/kependudukan'
+      preLoaderRoute: typeof StatistikKependudukanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/statistik/idm': {
+      id: '/statistik/idm'
+      path: '/statistik/idm'
+      fullPath: '/statistik/idm'
+      preLoaderRoute: typeof StatistikIdmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profil/struktur-organisasi': {
+      id: '/profil/struktur-organisasi'
+      path: '/profil/struktur-organisasi'
+      fullPath: '/profil/struktur-organisasi'
+      preLoaderRoute: typeof ProfilStrukturOrganisasiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profil/profil-desa': {
+      id: '/profil/profil-desa'
+      path: '/profil/profil-desa'
+      fullPath: '/profil/profil-desa'
+      preLoaderRoute: typeof ProfilProfilDesaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/produk/$slug': {
@@ -238,12 +299,15 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   GaleriRoute: GaleriRoute,
-  ProfilRoute: ProfilRoute,
-  StatistikRoute: StatistikRoute,
   ApiSplatRoute: ApiSplatRoute,
   BeritaSlugRoute: BeritaSlugRoute,
   BeritaPengumumanRoute: BeritaPengumumanRoute,
   ProdukSlugRoute: ProdukSlugRoute,
+  ProfilProfilDesaRoute: ProfilProfilDesaRoute,
+  ProfilStrukturOrganisasiRoute: ProfilStrukturOrganisasiRoute,
+  StatistikIdmRoute: StatistikIdmRoute,
+  StatistikKependudukanRoute: StatistikKependudukanRoute,
+  StatistikSdgsRoute: StatistikSdgsRoute,
   BeritaIndexRoute: BeritaIndexRoute,
   ProdukIndexRoute: ProdukIndexRoute,
 }
