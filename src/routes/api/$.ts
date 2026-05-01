@@ -5,8 +5,8 @@ import { heroData } from '#/data/hero.data'
 import { news } from '#/data/news.data'
 import { officialData } from '#/data/official.data'
 import { populationData } from '#/data/population.data'
+import { product } from '#/data/product.data'
 import { profileData } from '#/data/profile.data'
-import { umkm } from '#/data/umkm.data'
 import { ApiResponse } from '#/utils/apiResponse.util'
 import { createFileRoute } from '@tanstack/react-router'
 
@@ -34,7 +34,7 @@ export const Route = createFileRoute('/api/$')({
           budget: budgetData,
           footer: footerData,
           news: news,
-          umkm: umkm,
+          product: product,
           population: populationData,
           agenda: agendaData
         }

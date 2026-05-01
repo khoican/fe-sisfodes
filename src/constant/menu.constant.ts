@@ -154,8 +154,8 @@ export const MENU: Menu = {
     name: 'Potensi',
     subMenu: [
       {
-        name: 'UMKM',
-        path: '/potensi/umkm'
+        name: 'Produk Desa',
+        path: '/produk'
       },
       {
         name: 'Wisata',

@@ -4,16 +4,16 @@ import Demography from '#/components/layout/home/Demography'
 import Hero from '#/components/layout/home/Hero'
 import Location from '#/components/layout/home/Location'
 import News from '#/components/layout/home/News'
-import Umkm from '#/components/layout/home/Umkm'
+import ProductSection from '#/components/layout/home/Product'
 import Welcome from '#/components/layout/home/Welcome'
 import { OrganizationCarousel } from '#/components/shared/carousel/organization'
-import { umkm as umkmData } from '#/data/umkm.data'
 import { agendaQueryOptions } from '#/services/agenda.service'
 import { budgetQueryOptions } from '#/services/budget.service'
 import { heroQueryOptions } from '#/services/hero.service'
 import { newsQueryOptions } from '#/services/news.service'
 import { officialQueryOptions } from '#/services/official.service'
 import { populationQueryOptions } from '#/services/population.service'
+import { productQueryOptions } from '#/services/product.service'
 import { profileQueryOptions } from '#/services/profile.service'
 import type { Official } from '#/types/official'
 import { createFileRoute } from '@tanstack/react-router'
@@ -32,14 +32,15 @@ export const Route = createFileRoute('/')({
     ]
   }),
   loader: async ({ context }) => {
-    const [profile, hero, official, population, budget, agenda, news] = await Promise.all([
+    const [profile, hero, official, population, budget, agenda, news, products] = await Promise.all([
       context.queryClient.ensureQueryData(profileQueryOptions()),
       context.queryClient.ensureQueryData(heroQueryOptions()),
       context.queryClient.ensureQueryData(officialQueryOptions()),
       context.queryClient.ensureQueryData(populationQueryOptions()),
       context.queryClient.ensureQueryData(budgetQueryOptions()),
       context.queryClient.ensureQueryData(agendaQueryOptions()),
-      context.queryClient.ensureQueryData(newsQueryOptions())
+      context.queryClient.ensureQueryData(newsQueryOptions()),
+      context.queryClient.ensureQueryData(productQueryOptions())
     ])
 
     return {
@@ -50,7 +51,7 @@ export const Route = createFileRoute('/')({
       budget: budget.response,
       agenda: agenda.response,
       newsData: news.response.filter(item => item.category?.name !== 'Pengumuman'),
-      umkm: umkmData
+      products: products.response
     }
   },
   component: App
@@ -61,7 +62,7 @@ function App () {
     newsData,
     official,
     agenda,
-    umkm,
+    products,
     profile,
     hero,
     population,
@@ -94,7 +95,7 @@ function App () {
 
       <News newsData={newsData} />
 
-      <Umkm umkm={umkm} />
+      <ProductSection products={products} />
 
       <Location
         address={`${profile.address.address}, ${profile.address.village}, ${profile.address.district}, ${profile.address.regency}`}

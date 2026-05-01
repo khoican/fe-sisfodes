@@ -1,11 +1,11 @@
-export interface Umkm {
+export interface Product {
     id?: number
     slug: string
     name: string
     price: number
     description: string
     store: string
-    image: string
+    image: string[]
     category: {
         id: number
         name: string

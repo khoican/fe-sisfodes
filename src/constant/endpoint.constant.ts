@@ -1,7 +1,7 @@
 export const ENDPOINTS = {
     profil: '/profile',
     berita: '/news',
-    produk: '/products',
+    produk: '/product',
     penduduk: '/population',
     galery: '/gallery',
     layanan: '/services',

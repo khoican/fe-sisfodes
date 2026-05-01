@@ -13,9 +13,9 @@ import { Route as StatistikRouteImport } from './routes/statistik'
 import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as GaleriRouteImport } from './routes/galeri'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as UmkmIndexRouteImport } from './routes/umkm/index'
+import { Route as ProdukIndexRouteImport } from './routes/produk/index'
 import { Route as BeritaIndexRouteImport } from './routes/berita/index'
-import { Route as UmkmSlugRouteImport } from './routes/umkm/$slug'
+import { Route as ProdukSlugRouteImport } from './routes/produk/$slug'
 import { Route as BeritaPengumumanRouteImport } from './routes/berita/pengumuman'
 import { Route as BeritaSlugRouteImport } from './routes/berita/$slug'
 import { Route as ApiSplatRouteImport } from './routes/api/$'
@@ -40,9 +40,9 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const UmkmIndexRoute = UmkmIndexRouteImport.update({
-  id: '/umkm/',
-  path: '/umkm/',
+const ProdukIndexRoute = ProdukIndexRouteImport.update({
+  id: '/produk/',
+  path: '/produk/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BeritaIndexRoute = BeritaIndexRouteImport.update({
@@ -50,9 +50,9 @@ const BeritaIndexRoute = BeritaIndexRouteImport.update({
   path: '/berita/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const UmkmSlugRoute = UmkmSlugRouteImport.update({
-  id: '/umkm/$slug',
-  path: '/umkm/$slug',
+const ProdukSlugRoute = ProdukSlugRouteImport.update({
+  id: '/produk/$slug',
+  path: '/produk/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BeritaPengumumanRoute = BeritaPengumumanRouteImport.update({
@@ -79,9 +79,9 @@ export interface FileRoutesByFullPath {
   '/api/$': typeof ApiSplatRoute
   '/berita/$slug': typeof BeritaSlugRoute
   '/berita/pengumuman': typeof BeritaPengumumanRoute
-  '/umkm/$slug': typeof UmkmSlugRoute
+  '/produk/$slug': typeof ProdukSlugRoute
   '/berita/': typeof BeritaIndexRoute
-  '/umkm/': typeof UmkmIndexRoute
+  '/produk/': typeof ProdukIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -91,9 +91,9 @@ export interface FileRoutesByTo {
   '/api/$': typeof ApiSplatRoute
   '/berita/$slug': typeof BeritaSlugRoute
   '/berita/pengumuman': typeof BeritaPengumumanRoute
-  '/umkm/$slug': typeof UmkmSlugRoute
+  '/produk/$slug': typeof ProdukSlugRoute
   '/berita': typeof BeritaIndexRoute
-  '/umkm': typeof UmkmIndexRoute
+  '/produk': typeof ProdukIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -104,9 +104,9 @@ export interface FileRoutesById {
   '/api/$': typeof ApiSplatRoute
   '/berita/$slug': typeof BeritaSlugRoute
   '/berita/pengumuman': typeof BeritaPengumumanRoute
-  '/umkm/$slug': typeof UmkmSlugRoute
+  '/produk/$slug': typeof ProdukSlugRoute
   '/berita/': typeof BeritaIndexRoute
-  '/umkm/': typeof UmkmIndexRoute
+  '/produk/': typeof ProdukIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -118,9 +118,9 @@ export interface FileRouteTypes {
     | '/api/$'
     | '/berita/$slug'
     | '/berita/pengumuman'
-    | '/umkm/$slug'
+    | '/produk/$slug'
     | '/berita/'
-    | '/umkm/'
+    | '/produk/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -130,9 +130,9 @@ export interface FileRouteTypes {
     | '/api/$'
     | '/berita/$slug'
     | '/berita/pengumuman'
-    | '/umkm/$slug'
+    | '/produk/$slug'
     | '/berita'
-    | '/umkm'
+    | '/produk'
   id:
     | '__root__'
     | '/'
@@ -142,9 +142,9 @@ export interface FileRouteTypes {
     | '/api/$'
     | '/berita/$slug'
     | '/berita/pengumuman'
-    | '/umkm/$slug'
+    | '/produk/$slug'
     | '/berita/'
-    | '/umkm/'
+    | '/produk/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -155,9 +155,9 @@ export interface RootRouteChildren {
   ApiSplatRoute: typeof ApiSplatRoute
   BeritaSlugRoute: typeof BeritaSlugRoute
   BeritaPengumumanRoute: typeof BeritaPengumumanRoute
-  UmkmSlugRoute: typeof UmkmSlugRoute
+  ProdukSlugRoute: typeof ProdukSlugRoute
   BeritaIndexRoute: typeof BeritaIndexRoute
-  UmkmIndexRoute: typeof UmkmIndexRoute
+  ProdukIndexRoute: typeof ProdukIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -190,11 +190,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/umkm/': {
-      id: '/umkm/'
-      path: '/umkm'
-      fullPath: '/umkm/'
-      preLoaderRoute: typeof UmkmIndexRouteImport
+    '/produk/': {
+      id: '/produk/'
+      path: '/produk'
+      fullPath: '/produk/'
+      preLoaderRoute: typeof ProdukIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/berita/': {
@@ -204,11 +204,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BeritaIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/umkm/$slug': {
-      id: '/umkm/$slug'
-      path: '/umkm/$slug'
-      fullPath: '/umkm/$slug'
-      preLoaderRoute: typeof UmkmSlugRouteImport
+    '/produk/$slug': {
+      id: '/produk/$slug'
+      path: '/produk/$slug'
+      fullPath: '/produk/$slug'
+      preLoaderRoute: typeof ProdukSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/berita/pengumuman': {
@@ -243,9 +243,9 @@ const rootRouteChildren: RootRouteChildren = {
   ApiSplatRoute: ApiSplatRoute,
   BeritaSlugRoute: BeritaSlugRoute,
   BeritaPengumumanRoute: BeritaPengumumanRoute,
-  UmkmSlugRoute: UmkmSlugRoute,
+  ProdukSlugRoute: ProdukSlugRoute,
   BeritaIndexRoute: BeritaIndexRoute,
-  UmkmIndexRoute: UmkmIndexRoute,
+  ProdukIndexRoute: ProdukIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
