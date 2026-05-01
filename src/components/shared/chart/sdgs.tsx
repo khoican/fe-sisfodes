@@ -2,7 +2,8 @@
 
 import type { SdgsChart as SdgsChartType } from "#/types/sdgs";
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
-import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent, type ChartConfig } from "../../ui/chart";
+import type { ChartConfig } from "../../ui/chart";
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "../../ui/chart";
 
 const chartConfig = {
   score: {
@@ -23,24 +24,15 @@ interface SdgsChartProps {
  */
 export function SdgsChart({ data }: SdgsChartProps) {
   return (
-    <ChartContainer config={chartConfig} className="h-[400px] w-full">
+    <ChartContainer config={chartConfig} className="h-full w-full">
       <BarChart 
         accessibilityLayer 
         data={data}
-        margin={{ top: 20, right: 20, left: 0, bottom: 60 }}
+        margin={{ top: 20, right: 20, left: 0, bottom: 0 }}
       >
         <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="hsl(var(--border))" />
 
-        <XAxis
-          dataKey="label"
-          tickLine={false}
-          tickMargin={10}
-          axisLine={false}
-          fontSize={10}
-          angle={-45}
-          textAnchor="end"
-          interval={0}
-        />
+        <XAxis dataKey="label" hide />
         
         <YAxis 
           tickLine={false}
@@ -50,7 +42,6 @@ export function SdgsChart({ data }: SdgsChartProps) {
         />
 
         <ChartTooltip content={<ChartTooltipContent />} />
-        <ChartLegend content={<ChartLegendContent />} />
         <Bar 
           dataKey="score" 
           name="Skor SDGs"
