@@ -2,25 +2,86 @@
 
 import { cn } from '#/lib/utils'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import L from 'leaflet'
+import 'leaflet/dist/leaflet.css'
+import { MapPin } from 'lucide-react'
+import { renderToStaticMarkup } from 'react-dom/server'
 
-interface MapsProps {
-    position: [number, number]
-    zoom?: number
-    className?: string
+// Perbaikan icon Leaflet default untuk menghindari error 404 pada marker images
+// @ts-ignore
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
+  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+});
+
+interface MarkerData {
+  id: string
+  name: string
+  category: string
+  position: [number, number]
+  address: string
 }
 
-export default function Maps ({ position, zoom = 16, className }: MapsProps) {
+interface MapsProps {
+    center: [number, number]
+    zoom?: number
+    className?: string
+    markers?: MarkerData[]
+}
+
+/**
+ * Komponen Peta Interaktif menggunakan React Leaflet.
+ * Menampilkan peta dasar dengan marker kustom untuk fasilitas desa.
+ */
+export default function Maps ({ center, zoom = 15, className, markers = [] }: MapsProps) {
+  
+  // Membuat icon kustom menggunakan Lucide React
+  const createCustomIcon = (category: string) => {
+    const iconHtml = renderToStaticMarkup(
+      <div className="bg-primary p-2 rounded-full border-2 border-white shadow-lg text-white">
+        <MapPin size={20} />
+      </div>
+    )
+    
+    return L.divIcon({
+      html: iconHtml,
+      className: 'custom-div-icon',
+      iconSize: [36, 36],
+      iconAnchor: [18, 36],
+    })
+  }
+
   return (
-    <MapContainer className={cn('w-full h-full z-0', className)} center={position} zoom={zoom} scrollWheelZoom={false}>
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-      />
-      <Marker position={position}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
-    </MapContainer>
+    <div className={cn('relative w-full h-full rounded-2xl overflow-hidden border shadow-inner', className)}>
+      <MapContainer 
+        className='w-full h-full z-0' 
+        center={center} 
+        zoom={zoom} 
+        scrollWheelZoom={true}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        />
+        
+        {markers.map((marker) => (
+          <Marker 
+            key={marker.id} 
+            position={marker.position}
+            icon={createCustomIcon(marker.category)}
+          >
+            <Popup className="custom-popup">
+              <div className="p-1">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-primary mb-1">{marker.category}</p>
+                <h4 className="font-bold text-sm text-gray-900">{marker.name}</h4>
+                <p className="text-xs text-gray-500 mt-1">{marker.address}</p>
+              </div>
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+    </div>
   )
 }
