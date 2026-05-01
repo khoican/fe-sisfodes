@@ -10,5 +10,8 @@ export const ENDPOINTS = {
     official: '/official',
     population: '/population',
     budget: '/budget',
-    agenda: '/agenda'
-}
+    agenda: '/agenda',
+    idm: '/idm',
+    sdgs: '/sdgs',
+    geography: '/geography'
+    }

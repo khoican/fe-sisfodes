@@ -18,15 +18,15 @@ export const MENU: Menu = {
     subMenu: [
       {
         name: 'Profil Desa',
-        path: '/profil/desa'
+        path: '/profil/profil-desa'
       },
       {
-        name: 'Struktur Pemerintahan',
-        path: '/profil/struktur-pemerintahan'
+        name: 'Struktur Organisasi',
+        path: '/profil/struktur-organisasi'
       },
       {
-        name: 'Geografis Desa',
-        path: '/profil/geografis-desa'
+        name: 'Geografi Desa',
+        path: '/profil/geografi-desa'
       },
       {
         name: 'Fasilitas Umum',
