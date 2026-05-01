@@ -13,5 +13,6 @@ export const ENDPOINTS = {
     agenda: '/agenda',
     idm: '/idm',
     sdgs: '/sdgs',
-    geography: '/geography'
+    geography: '/geography',
+    facilities: '/facilities'
     }

@@ -2,6 +2,7 @@ import { agendaData } from '#/data/agenda.data'
 import { budgetData } from '#/data/budget.data'
 import { footerData } from '#/data/footer.data'
 import { heroData } from '#/data/hero.data'
+import { geographyData } from '#/data/geography.data'
 import { idmData } from '#/data/idm.data'
 import { news } from '#/data/news.data'
 import { officialData } from '#/data/official.data'
@@ -9,6 +10,7 @@ import { populationData } from '#/data/population.data'
 import { product } from '#/data/product.data'
 import { profileData } from '#/data/profile.data'
 import { sdgsData } from '#/data/sdgs.data'
+import { facilityData } from '#/data/facility.data'
 import { ApiResponse } from '#/utils/apiResponse.util'
 import { createFileRoute } from '@tanstack/react-router'
 
@@ -40,7 +42,9 @@ export const Route = createFileRoute('/api/$')({
           population: populationData,
           agenda: agendaData,
           idm: idmData,
-          sdgs: sdgsData
+          sdgs: sdgsData,
+          geography: geographyData,
+          facilities: facilityData
         }
 
         try {
