@@ -134,11 +134,11 @@ export const MENU: Menu = {
     subMenu: [
       {
         name: 'Berita',
-        path: '/informasi/berita'
+        path: '/berita'
       },
       {
         name: 'Artikel',
-        path: '/informasi/artikel'
+        path: '/berita'
       },
       {
         name: 'Agenda',
