@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PengaduanRouteImport } from './routes/pengaduan'
 import { Route as GaleriRouteImport } from './routes/galeri'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProdukIndexRouteImport } from './routes/produk/index'
@@ -16,13 +17,23 @@ import { Route as BeritaIndexRouteImport } from './routes/berita/index'
 import { Route as StatistikSdgsRouteImport } from './routes/statistik/sdgs'
 import { Route as StatistikKependudukanRouteImport } from './routes/statistik/kependudukan'
 import { Route as StatistikIdmRouteImport } from './routes/statistik/idm'
+import { Route as PublikasiApbdesRouteImport } from './routes/publikasi/apbdes'
 import { Route as ProfilStrukturOrganisasiRouteImport } from './routes/profil/struktur-organisasi'
 import { Route as ProfilProfilDesaRouteImport } from './routes/profil/profil-desa'
+import { Route as ProfilPetaDesaRouteImport } from './routes/profil/peta-desa'
+import { Route as ProfilGeografiDesaRouteImport } from './routes/profil/geografi-desa'
+import { Route as ProfilFasilitasUmumRouteImport } from './routes/profil/fasilitas-umum'
 import { Route as ProdukSlugRouteImport } from './routes/produk/$slug'
-import { Route as BeritaPengumumanRouteImport } from './routes/berita/pengumuman'
+import { Route as LembagaSlugRouteImport } from './routes/lembaga/$slug'
+import { Route as InformasiAgendaRouteImport } from './routes/informasi/agenda'
 import { Route as BeritaSlugRouteImport } from './routes/berita/$slug'
 import { Route as ApiSplatRouteImport } from './routes/api/$'
 
+const PengaduanRoute = PengaduanRouteImport.update({
+  id: '/pengaduan',
+  path: '/pengaduan',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GaleriRoute = GaleriRouteImport.update({
   id: '/galeri',
   path: '/galeri',
@@ -58,6 +69,11 @@ const StatistikIdmRoute = StatistikIdmRouteImport.update({
   path: '/statistik/idm',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PublikasiApbdesRoute = PublikasiApbdesRouteImport.update({
+  id: '/publikasi/apbdes',
+  path: '/publikasi/apbdes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfilStrukturOrganisasiRoute =
   ProfilStrukturOrganisasiRouteImport.update({
     id: '/profil/struktur-organisasi',
@@ -69,14 +85,34 @@ const ProfilProfilDesaRoute = ProfilProfilDesaRouteImport.update({
   path: '/profil/profil-desa',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProfilPetaDesaRoute = ProfilPetaDesaRouteImport.update({
+  id: '/profil/peta-desa',
+  path: '/profil/peta-desa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfilGeografiDesaRoute = ProfilGeografiDesaRouteImport.update({
+  id: '/profil/geografi-desa',
+  path: '/profil/geografi-desa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfilFasilitasUmumRoute = ProfilFasilitasUmumRouteImport.update({
+  id: '/profil/fasilitas-umum',
+  path: '/profil/fasilitas-umum',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProdukSlugRoute = ProdukSlugRouteImport.update({
   id: '/produk/$slug',
   path: '/produk/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BeritaPengumumanRoute = BeritaPengumumanRouteImport.update({
-  id: '/berita/pengumuman',
-  path: '/berita/pengumuman',
+const LembagaSlugRoute = LembagaSlugRouteImport.update({
+  id: '/lembaga/$slug',
+  path: '/lembaga/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InformasiAgendaRoute = InformasiAgendaRouteImport.update({
+  id: '/informasi/agenda',
+  path: '/informasi/agenda',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BeritaSlugRoute = BeritaSlugRouteImport.update({
@@ -93,12 +129,18 @@ const ApiSplatRoute = ApiSplatRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/galeri': typeof GaleriRoute
+  '/pengaduan': typeof PengaduanRoute
   '/api/$': typeof ApiSplatRoute
   '/berita/$slug': typeof BeritaSlugRoute
-  '/berita/pengumuman': typeof BeritaPengumumanRoute
+  '/informasi/agenda': typeof InformasiAgendaRoute
+  '/lembaga/$slug': typeof LembagaSlugRoute
   '/produk/$slug': typeof ProdukSlugRoute
+  '/profil/fasilitas-umum': typeof ProfilFasilitasUmumRoute
+  '/profil/geografi-desa': typeof ProfilGeografiDesaRoute
+  '/profil/peta-desa': typeof ProfilPetaDesaRoute
   '/profil/profil-desa': typeof ProfilProfilDesaRoute
   '/profil/struktur-organisasi': typeof ProfilStrukturOrganisasiRoute
+  '/publikasi/apbdes': typeof PublikasiApbdesRoute
   '/statistik/idm': typeof StatistikIdmRoute
   '/statistik/kependudukan': typeof StatistikKependudukanRoute
   '/statistik/sdgs': typeof StatistikSdgsRoute
@@ -108,12 +150,18 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/galeri': typeof GaleriRoute
+  '/pengaduan': typeof PengaduanRoute
   '/api/$': typeof ApiSplatRoute
   '/berita/$slug': typeof BeritaSlugRoute
-  '/berita/pengumuman': typeof BeritaPengumumanRoute
+  '/informasi/agenda': typeof InformasiAgendaRoute
+  '/lembaga/$slug': typeof LembagaSlugRoute
   '/produk/$slug': typeof ProdukSlugRoute
+  '/profil/fasilitas-umum': typeof ProfilFasilitasUmumRoute
+  '/profil/geografi-desa': typeof ProfilGeografiDesaRoute
+  '/profil/peta-desa': typeof ProfilPetaDesaRoute
   '/profil/profil-desa': typeof ProfilProfilDesaRoute
   '/profil/struktur-organisasi': typeof ProfilStrukturOrganisasiRoute
+  '/publikasi/apbdes': typeof PublikasiApbdesRoute
   '/statistik/idm': typeof StatistikIdmRoute
   '/statistik/kependudukan': typeof StatistikKependudukanRoute
   '/statistik/sdgs': typeof StatistikSdgsRoute
@@ -124,12 +172,18 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/galeri': typeof GaleriRoute
+  '/pengaduan': typeof PengaduanRoute
   '/api/$': typeof ApiSplatRoute
   '/berita/$slug': typeof BeritaSlugRoute
-  '/berita/pengumuman': typeof BeritaPengumumanRoute
+  '/informasi/agenda': typeof InformasiAgendaRoute
+  '/lembaga/$slug': typeof LembagaSlugRoute
   '/produk/$slug': typeof ProdukSlugRoute
+  '/profil/fasilitas-umum': typeof ProfilFasilitasUmumRoute
+  '/profil/geografi-desa': typeof ProfilGeografiDesaRoute
+  '/profil/peta-desa': typeof ProfilPetaDesaRoute
   '/profil/profil-desa': typeof ProfilProfilDesaRoute
   '/profil/struktur-organisasi': typeof ProfilStrukturOrganisasiRoute
+  '/publikasi/apbdes': typeof PublikasiApbdesRoute
   '/statistik/idm': typeof StatistikIdmRoute
   '/statistik/kependudukan': typeof StatistikKependudukanRoute
   '/statistik/sdgs': typeof StatistikSdgsRoute
@@ -141,12 +195,18 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/galeri'
+    | '/pengaduan'
     | '/api/$'
     | '/berita/$slug'
-    | '/berita/pengumuman'
+    | '/informasi/agenda'
+    | '/lembaga/$slug'
     | '/produk/$slug'
+    | '/profil/fasilitas-umum'
+    | '/profil/geografi-desa'
+    | '/profil/peta-desa'
     | '/profil/profil-desa'
     | '/profil/struktur-organisasi'
+    | '/publikasi/apbdes'
     | '/statistik/idm'
     | '/statistik/kependudukan'
     | '/statistik/sdgs'
@@ -156,12 +216,18 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/galeri'
+    | '/pengaduan'
     | '/api/$'
     | '/berita/$slug'
-    | '/berita/pengumuman'
+    | '/informasi/agenda'
+    | '/lembaga/$slug'
     | '/produk/$slug'
+    | '/profil/fasilitas-umum'
+    | '/profil/geografi-desa'
+    | '/profil/peta-desa'
     | '/profil/profil-desa'
     | '/profil/struktur-organisasi'
+    | '/publikasi/apbdes'
     | '/statistik/idm'
     | '/statistik/kependudukan'
     | '/statistik/sdgs'
@@ -171,12 +237,18 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/galeri'
+    | '/pengaduan'
     | '/api/$'
     | '/berita/$slug'
-    | '/berita/pengumuman'
+    | '/informasi/agenda'
+    | '/lembaga/$slug'
     | '/produk/$slug'
+    | '/profil/fasilitas-umum'
+    | '/profil/geografi-desa'
+    | '/profil/peta-desa'
     | '/profil/profil-desa'
     | '/profil/struktur-organisasi'
+    | '/publikasi/apbdes'
     | '/statistik/idm'
     | '/statistik/kependudukan'
     | '/statistik/sdgs'
@@ -187,12 +259,18 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   GaleriRoute: typeof GaleriRoute
+  PengaduanRoute: typeof PengaduanRoute
   ApiSplatRoute: typeof ApiSplatRoute
   BeritaSlugRoute: typeof BeritaSlugRoute
-  BeritaPengumumanRoute: typeof BeritaPengumumanRoute
+  InformasiAgendaRoute: typeof InformasiAgendaRoute
+  LembagaSlugRoute: typeof LembagaSlugRoute
   ProdukSlugRoute: typeof ProdukSlugRoute
+  ProfilFasilitasUmumRoute: typeof ProfilFasilitasUmumRoute
+  ProfilGeografiDesaRoute: typeof ProfilGeografiDesaRoute
+  ProfilPetaDesaRoute: typeof ProfilPetaDesaRoute
   ProfilProfilDesaRoute: typeof ProfilProfilDesaRoute
   ProfilStrukturOrganisasiRoute: typeof ProfilStrukturOrganisasiRoute
+  PublikasiApbdesRoute: typeof PublikasiApbdesRoute
   StatistikIdmRoute: typeof StatistikIdmRoute
   StatistikKependudukanRoute: typeof StatistikKependudukanRoute
   StatistikSdgsRoute: typeof StatistikSdgsRoute
@@ -202,6 +280,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/pengaduan': {
+      id: '/pengaduan'
+      path: '/pengaduan'
+      fullPath: '/pengaduan'
+      preLoaderRoute: typeof PengaduanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/galeri': {
       id: '/galeri'
       path: '/galeri'
@@ -251,6 +336,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StatistikIdmRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/publikasi/apbdes': {
+      id: '/publikasi/apbdes'
+      path: '/publikasi/apbdes'
+      fullPath: '/publikasi/apbdes'
+      preLoaderRoute: typeof PublikasiApbdesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profil/struktur-organisasi': {
       id: '/profil/struktur-organisasi'
       path: '/profil/struktur-organisasi'
@@ -265,6 +357,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfilProfilDesaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/profil/peta-desa': {
+      id: '/profil/peta-desa'
+      path: '/profil/peta-desa'
+      fullPath: '/profil/peta-desa'
+      preLoaderRoute: typeof ProfilPetaDesaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profil/geografi-desa': {
+      id: '/profil/geografi-desa'
+      path: '/profil/geografi-desa'
+      fullPath: '/profil/geografi-desa'
+      preLoaderRoute: typeof ProfilGeografiDesaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profil/fasilitas-umum': {
+      id: '/profil/fasilitas-umum'
+      path: '/profil/fasilitas-umum'
+      fullPath: '/profil/fasilitas-umum'
+      preLoaderRoute: typeof ProfilFasilitasUmumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/produk/$slug': {
       id: '/produk/$slug'
       path: '/produk/$slug'
@@ -272,11 +385,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProdukSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/berita/pengumuman': {
-      id: '/berita/pengumuman'
-      path: '/berita/pengumuman'
-      fullPath: '/berita/pengumuman'
-      preLoaderRoute: typeof BeritaPengumumanRouteImport
+    '/lembaga/$slug': {
+      id: '/lembaga/$slug'
+      path: '/lembaga/$slug'
+      fullPath: '/lembaga/$slug'
+      preLoaderRoute: typeof LembagaSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/informasi/agenda': {
+      id: '/informasi/agenda'
+      path: '/informasi/agenda'
+      fullPath: '/informasi/agenda'
+      preLoaderRoute: typeof InformasiAgendaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/berita/$slug': {
@@ -299,12 +419,18 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   GaleriRoute: GaleriRoute,
+  PengaduanRoute: PengaduanRoute,
   ApiSplatRoute: ApiSplatRoute,
   BeritaSlugRoute: BeritaSlugRoute,
-  BeritaPengumumanRoute: BeritaPengumumanRoute,
+  InformasiAgendaRoute: InformasiAgendaRoute,
+  LembagaSlugRoute: LembagaSlugRoute,
   ProdukSlugRoute: ProdukSlugRoute,
+  ProfilFasilitasUmumRoute: ProfilFasilitasUmumRoute,
+  ProfilGeografiDesaRoute: ProfilGeografiDesaRoute,
+  ProfilPetaDesaRoute: ProfilPetaDesaRoute,
   ProfilProfilDesaRoute: ProfilProfilDesaRoute,
   ProfilStrukturOrganisasiRoute: ProfilStrukturOrganisasiRoute,
+  PublikasiApbdesRoute: PublikasiApbdesRoute,
   StatistikIdmRoute: StatistikIdmRoute,
   StatistikKependudukanRoute: StatistikKependudukanRoute,
   StatistikSdgsRoute: StatistikSdgsRoute,

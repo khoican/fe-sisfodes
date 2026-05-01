@@ -1,6 +1,6 @@
 import { Badge } from '#/components/ui/badge'
 import { Button } from '#/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '#/components/ui/card'
+import { Card, CardContent } from '#/components/ui/card'
 import { Input } from '#/components/ui/input'
 import { Label } from '#/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '#/components/ui/select'
@@ -8,17 +8,17 @@ import { Textarea } from '#/components/ui/textarea'
 import Title from '#/components/ui/title'
 import { profileQueryOptions } from '#/services/profile.service'
 import { createFileRoute } from '@tanstack/react-router'
-import { 
-  MessageSquare, 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock, 
-  ShieldCheck, 
-  Send, 
+import {
   AlertCircle,
   CheckCircle2,
-  HelpCircle
+  Clock,
+  HelpCircle,
+  Mail,
+  MapPin,
+  MessageSquare,
+  Phone,
+  Send,
+  ShieldCheck
 } from 'lucide-react'
 import { useState } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
@@ -228,7 +228,7 @@ function PengaduanPage() {
                   
                   <div className='space-y-4'>
                     <a 
-                      href={`https://wa.me/${profil.phone.replace(/[^0-9]/g, '')}`} 
+                      href={`https://wa.me/${profil.contact.phone.replace(/[^0-9]/g, '')}`} 
                       target='_blank' 
                       className='flex items-center gap-4 bg-white/20 hover:bg-white/30 p-4 rounded-2xl backdrop-blur-md transition-all border border-white/10'
                     >
@@ -237,7 +237,7 @@ function PengaduanPage() {
                        </div>
                        <div>
                           <p className='text-[10px] uppercase font-bold opacity-70'>WhatsApp Desa</p>
-                          <p className='font-bold'>{profil.phone}</p>
+                          <p className='font-bold'>{profil.contact.phone}</p>
                        </div>
                     </a>
                     
@@ -275,7 +275,7 @@ function PengaduanPage() {
                      <Mail className='shrink-0 text-primary mt-1' size={20} />
                      <div>
                         <p className='text-xs font-bold text-gray-400 uppercase tracking-widest mb-1'>Email Resmi</p>
-                        <p className='text-sm text-gray-700'>{profil.email}</p>
+                        <p className='text-sm text-gray-700'>{profil.contact.email}</p>
                      </div>
                   </div>
 

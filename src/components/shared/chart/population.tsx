@@ -2,7 +2,8 @@
 
 import type { Population } from "#/types/population";
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
-import { ChartConfig, ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from "../../ui/chart";
+import type { ChartConfig } from "../../ui/chart";
+import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from "../../ui/chart";
 
 const chartConfig = {
   count: {
@@ -50,7 +51,7 @@ export function PopulationChart({ data }: PopulationChartProps) {
         <Bar 
           dataKey="count" 
           name="Jumlah Penduduk"
-          fill="hsl(var(--primary))"
+          fill="var(--primary)"
           radius={[4, 4, 0, 0]} 
         />
       </BarChart>

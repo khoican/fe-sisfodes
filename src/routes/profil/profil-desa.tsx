@@ -1,11 +1,9 @@
-import PersonCard from '#/components/shared/card/person'
 import Title from '#/components/ui/title'
-import { members } from '#/data/member.data'
-import { history, mission, vision } from '#/data/profile.data'
+import { profileQueryOptions } from '#/services/profile.service'
 import { createFileRoute } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
 
-export const Route = createFileRoute('/profil')({
+export const Route = createFileRoute('/profil/profil-desa')({
   head: () => ({
     meta: [
       {
@@ -17,11 +15,22 @@ export const Route = createFileRoute('/profil')({
       },
     ],
   }),
+  loader: async ({ context }) => {
+    const profil = await context.queryClient.ensureQueryData(profileQueryOptions()) 
+
+    return {
+      profil: profil.response
+    }
+  },
   component: Profil
 })
 
 function Profil() {
-  const leader = members.find(item => item.position === 'Kepala Desa')
+  const { profil } = Route.useLoaderData()
+
+  const history = profil?.history
+  const vision = profil?.vision
+  const mission = profil?.mission
 
   return (
     <main className=''>
@@ -64,7 +73,7 @@ function Profil() {
             <h3 className='text-xl font-semibold text-primary'>Sejarah Awal</h3>
             <p
               className='flex flex-col gap-4 text-gray-500 mt-4 leading-relaxed'
-              dangerouslySetInnerHTML={{ __html: history.content }}
+              dangerouslySetInnerHTML={{ __html: history }}
               suppressHydrationWarning
             ></p>
           </div>
@@ -84,12 +93,12 @@ function Profil() {
               VISI
             </h3>
 
-            <p className='text-lg md:text-2xl italic mt-6'>"{vision.content}"</p>
+            <p className='text-lg md:text-2xl italic mt-6'>"{vision}"</p>
           </div>
           <div>
             <h3 className='text-4xl font-extrabold tracking-wider'>MISI</h3>
 
-            {mission.map((item, index) => (
+            {mission.map((item: string, index: number) => (
               <div key={index} className='text-md mt-4 flex items-start gap-4'>
                 <div className='bg-white/30 p-4 rounded-md'>
                   <p className='text-md font-bold'>
@@ -104,26 +113,6 @@ function Profil() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className='mt-16 px-4 lg:px-12 py-8 lg:py-16'>
-        <h2 className='text-4xl font-semibold text-center'>
-          Struktur Organisasi
-        </h2>
-        <p className='text-center text-gray-600 mt-4 text-sm w-full md:w-1/3 mx-auto'>
-          Sinergi antara pemimpin berpengalaman dan tenaga muda progresif untuk
-          melayani masyarakat Sumberkejayan.
-        </p>
-
-        <div className='w-full md:w-1/3 mx-auto mt-16'>
-          {leader && <PersonCard {...leader} />}
-        </div>
-
-        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8'>
-          {members.filter(item => item.position !== 'Kepala Desa').map((item, index) => (
-            <PersonCard key={index} {...item} />
-          ))}
         </div>
       </section>
     </main>

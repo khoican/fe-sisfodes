@@ -12,6 +12,7 @@ import { profileData } from '#/data/profile.data'
 import { sdgsData } from '#/data/sdgs.data'
 import { facilityData } from '#/data/facility.data'
 import { galleryData } from '#/data/gallery.data'
+import { institutionData } from '#/data/institution.data'
 import { ApiResponse } from '#/utils/apiResponse.util'
 import { createFileRoute } from '@tanstack/react-router'
 
@@ -46,7 +47,8 @@ export const Route = createFileRoute('/api/$')({
           sdgs: sdgsData,
           geography: geographyData,
           facilities: facilityData,
-          gallery: galleryData
+          gallery: galleryData,
+          institutions: institutionData
         }
 
         try {

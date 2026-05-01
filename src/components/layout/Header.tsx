@@ -28,7 +28,7 @@ export default function Header () {
             <NavMenu key={menu.name} {...menu} />
           ))}
           <Button variant='default' className='hidden lg:inline-flex ml-4'>
-            {MENU.pengaduan.name}
+            <Link to={MENU.pengaduan.path}>{MENU.pengaduan.name}</Link>
           </Button>
         </menu>
 

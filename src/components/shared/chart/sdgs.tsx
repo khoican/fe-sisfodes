@@ -30,7 +30,7 @@ export function SdgsChart({ data }: SdgsChartProps) {
         data={data}
         margin={{ top: 20, right: 20, left: 0, bottom: 0 }}
       >
-        <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="hsl(var(--border))" />
+        <CartesianGrid vertical={false} strokeDasharray="3 3" />
 
         <XAxis dataKey="label" hide />
         
