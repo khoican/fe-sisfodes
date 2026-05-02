@@ -15,7 +15,8 @@ import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 
 import appCss from '../styles.css?url'
 
-import ThemeCustomizer from '#/components/shared/ThemeCustomizer'
+import Setting from '#/components/Setting'
+import { useVoice } from '#/hooks/voice.hook'
 import type { QueryClient } from '@tanstack/react-query'
 import { FaWhatsapp } from 'react-icons/fa6'
 
@@ -25,13 +26,18 @@ interface MyRouterContext {
 
 const THEME_INIT_SCRIPT = `(function(){
   try {
-    var stored = window.localStorage.getItem('theme');
-    var mode = (stored === 'light' || stored === 'dark') ? stored : 'light';
+    var storedTheme = window.localStorage.getItem('theme');
+    var themeMode = (storedTheme === 'light' || storedTheme === 'dark') ? storedTheme : 'light';
     var root = document.documentElement;
     
     root.classList.remove('light', 'dark');
-    root.classList.add(mode);
-    root.style.colorScheme = mode;
+    root.classList.add(themeMode);
+    root.style.colorScheme = themeMode;
+
+    var storedColor = window.localStorage.getItem('sisfodes-primary-color');
+    if (storedColor) {
+      root.style.setProperty('--primary', storedColor);
+    }
   } catch (e) {}
 })();`
 
@@ -108,6 +114,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 })
 function RootDocument ({ children }: { children: React.ReactNode }) {
   const { queryClient } = Route.useRouteContext()
+  useVoice() // Aktivasi fitur Text-to-Speech global
 
   return (
     <html lang='id' suppressHydrationWarning>
@@ -116,20 +123,23 @@ function RootDocument ({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body
-        className='font-sans antialiased wrap-anywhere selection:bg-white'
+        className='font-sans antialiased wrap-anywhere selection:bg-primary selection:text-white'
         suppressHydrationWarning
       >
         <QueryClientProvider client={queryClient}>
           <Header />
           <main className='w-full max-w-7xl mx-auto'>
             {children}
-            <ThemeCustomizer />
-            <button
-              className='rounded-full fixed bottom-8 right-4 md:bottom-16 md:right-8 lg:bottom-24 lg:right-16 z-50 shadow-lg bg-green-500 hover:bg-green-600 text-white p-3 md:p-4'
-              aria-label='chat-whatsapp'
-            >
-              <FaWhatsapp className='w-6 h-6 md:w-7 md:h-7' />
-            </button>
+            
+            <div className='fixed bottom-8 right-4 md:bottom-16 md:right-8 lg:bottom-24 lg:right-16 z-50 flex flex-col gap-4 items-center'>
+              <Setting />
+              <button
+                className='rounded-full shadow-lg bg-green-500 hover:bg-green-600 text-white p-3 md:p-4 transition-all hover:scale-110'
+                aria-label='chat-whatsapp'
+              >
+                <FaWhatsapp className='w-6 h-6 md:w-7 md:h-7' />
+              </button>
+            </div>
           </main>
           <Footer />
           <TanStackDevtools
