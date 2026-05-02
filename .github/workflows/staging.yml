@@ -18,7 +18,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+    
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+            version: 10
+    
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -26,24 +31,31 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: sudo pnpm install
+        run: pnpm install
 
       - name: Build Application
-        run: sudo pnpm build BASE=/
+        run: pnpm build
         env:
           NODE_ENV: staging
+          Base: /
 
       - name: Deploy & Restart PM2
         run: |
           # Pastikan direktori target ada
-          sudo mkdir -p ${{ secrets.TARGET_DIR }}
+          mkdir -p ${{ secrets.TARGET_DIR }}
           
           # Sinkronisasi output build
-          sudo rsync -az --delete .output/ ${{ secrets.TARGET_DIR }}/.output/
+          rsync -az --delete .output/ ${{ secrets.TARGET_DIR }}/.output/
           
           # Salin file konfigurasi yang diperlukan
-          sudo cp package.json ${{ secrets.TARGET_DIR }}/
+          cp package.json ${{ secrets.TARGET_DIR }}/
           
           # Restart aplikasi via PM2
           cd ${{ secrets.TARGET_DIR }}
-          sudo pm2 restart sisfodes-app || sudo pm2 start .output/server/index.mjs --name sisfodes-app
+          pm2 restart sisfodes-app || pm2 start .output/server/index.mjs --name sisfodes-app
+
+          # Simpan konfigurasi pm2 agar tetap jalan setelah reboot server
+          pm2 save
+
+          # Restart server jika diperlukan (opsional, tergantung setup server)
+          # sudo systemctl restart nginx
