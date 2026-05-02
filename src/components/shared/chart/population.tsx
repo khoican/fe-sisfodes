@@ -38,12 +38,14 @@ export function PopulationChart({ data }: PopulationChartProps) {
           tickMargin={10}
           axisLine={false}
           fontSize={12}
+          tick={{ fill: 'hsl(var(--muted-foreground))' }}
         />
         
         <YAxis 
           tickLine={false}
           axisLine={false}
           fontSize={12}
+          tick={{ fill: 'hsl(var(--muted-foreground))' }}
         />
 
         <ChartTooltip content={<ChartTooltipContent />} />

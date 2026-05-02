@@ -86,13 +86,13 @@ function PengaduanPage() {
   return (
     <main className='w-full'>
       {/* Hero Header */}
-      <section className='bg-white px-4 lg:px-12 py-12 rounded-b-3xl border-b shadow-sm'>
+      <section className='bg-background px-4 lg:px-12 py-12 rounded-b-3xl border-b shadow-sm'>
         <div className='max-w-4xl'>
           <Badge variant='primary' className='mb-4 uppercase tracking-widest'>Suara Masyarakat</Badge>
           <h1 className='text-5xl font-extrabold leading-tight'>
             Layanan <span className='text-primary'>Pengaduan</span>
           </h1>
-          <p className='text-gray-600 mt-6 text-lg'>
+          <p className='text-muted-foreground mt-6 text-lg'>
             Pemerintah Desa Sumberkejayan berkomitmen untuk mendengar dan menindaklanjuti setiap aspirasi 
             serta keluhan warga demi pelayanan publik yang lebih baik.
           </p>
@@ -106,25 +106,25 @@ function PengaduanPage() {
             <Title title='Formulir Pengaduan' />
             
             {isSubmitted ? (
-              <div className='mt-8 bg-green-50 border border-green-100 rounded-3xl p-12 text-center animate-in zoom-in duration-300'>
+              <div className='mt-8 bg-green-500/10 border border-green-500/20 rounded-3xl p-12 text-center animate-in zoom-in duration-300'>
                 <div className='w-20 h-20 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl shadow-green-500/20'>
                   <CheckCircle2 size={40} />
                 </div>
-                <h3 className='text-2xl font-bold text-green-800'>Laporan Berhasil Terkirim!</h3>
-                <p className='text-green-700/70 mt-4 max-w-md mx-auto'>
+                <h3 className='text-2xl font-bold text-green-600 dark:text-green-400'>Laporan Berhasil Terkirim!</h3>
+                <p className='text-green-600/70 dark:text-green-400/70 mt-4 max-w-md mx-auto'>
                   Terima kasih atas laporan Anda. Tim kami akan segera meninjau dan menindaklanjuti 
                   pengaduan tersebut. Nomor tiket laporan telah dikirim ke kontak Anda.
                 </p>
                 <Button 
                   onClick={() => setIsSubmitted(false)}
                   variant='outline' 
-                  className='mt-8 border-green-200 text-green-700 hover:bg-green-100'
+                  className='mt-8 border-green-200 dark:border-green-500/30 text-green-700 dark:text-green-400 hover:bg-green-100 dark:hover:bg-green-500/20'
                 >
                   Kirim Laporan Lainnya
                 </Button>
               </div>
             ) : (
-              <Card className='mt-8 border-none shadow-xl shadow-gray-100 rounded-3xl overflow-hidden'>
+              <Card className='mt-8 border-none shadow-xl shadow-muted/10 rounded-3xl overflow-hidden'>
                 <div className='bg-primary h-2 w-full'></div>
                 <CardContent className='p-8'>
                   <form onSubmit={handleSubmit} className='space-y-6'>
@@ -171,7 +171,7 @@ function PengaduanPage() {
                       />
                     </div>
 
-                    <div className='bg-amber-50 border border-amber-100 p-4 rounded-xl flex gap-3 text-amber-800 text-sm'>
+                    <div className='bg-amber-500/10 border border-amber-500/20 p-4 rounded-xl flex gap-3 text-amber-600 dark:text-amber-400 text-sm'>
                       <AlertCircle className='shrink-0 mt-0.5' size={18} />
                       <p>
                         Pastikan data yang Anda masukkan benar. Laporan palsu atau penyalahgunaan layanan 
@@ -203,12 +203,12 @@ function PengaduanPage() {
                        {idx < complaintFlow.length - 1 && (
                          <div className='hidden lg:block absolute top-10 left-full w-full h-px border-t border-dashed border-primary/30 -z-0'></div>
                        )}
-                       <div className='bg-white p-6 rounded-2xl border border-gray-100 shadow-sm relative z-10 h-full hover:border-primary/50 transition-colors'>
+                       <div className='bg-card p-6 rounded-2xl border border-border shadow-sm relative z-10 h-full hover:border-primary/50 transition-colors'>
                           <div className='w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform'>
                              <step.icon size={24} />
                           </div>
                           <h4 className='font-bold text-lg mb-2'>{step.title}</h4>
-                          <p className='text-xs text-gray-500 leading-relaxed'>{step.description}</p>
+                          <p className='text-xs text-muted-foreground leading-relaxed'>{step.description}</p>
                        </div>
                     </div>
                   ))}
@@ -254,7 +254,7 @@ function PengaduanPage() {
                </div>
             </div>
 
-            <div className='bg-white p-8 rounded-3xl border shadow-sm space-y-8'>
+            <div className='bg-card p-8 rounded-3xl border shadow-sm space-y-8'>
                <h3 className='text-xl font-bold flex items-center gap-2'>
                   <InfoIcon size={20} className='text-primary' />
                   Informasi Kontak
@@ -264,8 +264,8 @@ function PengaduanPage() {
                   <div className='flex gap-4'>
                      <MapPin className='shrink-0 text-primary mt-1' size={20} />
                      <div>
-                        <p className='text-xs font-bold text-gray-400 uppercase tracking-widest mb-1'>Alamat Kantor</p>
-                        <p className='text-sm text-gray-700 leading-relaxed'>
+                        <p className='text-xs font-bold text-muted-foreground/70 uppercase tracking-widest mb-1'>Alamat Kantor</p>
+                        <p className='text-sm text-muted-foreground leading-relaxed'>
                            {profil.address.address}, {profil.address.village}, Kec. {profil.address.district}, {profil.address.regency}
                         </p>
                      </div>
@@ -274,23 +274,23 @@ function PengaduanPage() {
                   <div className='flex gap-4'>
                      <Mail className='shrink-0 text-primary mt-1' size={20} />
                      <div>
-                        <p className='text-xs font-bold text-gray-400 uppercase tracking-widest mb-1'>Email Resmi</p>
-                        <p className='text-sm text-gray-700'>{profil.contact.email}</p>
+                        <p className='text-xs font-bold text-muted-foreground/70 uppercase tracking-widest mb-1'>Email Resmi</p>
+                        <p className='text-sm text-muted-foreground'>{profil.contact.email}</p>
                      </div>
                   </div>
 
                   <div className='flex gap-4'>
                      <Clock className='shrink-0 text-primary mt-1' size={20} />
                      <div>
-                        <p className='text-xs font-bold text-gray-400 uppercase tracking-widest mb-1'>Jam Operasional</p>
-                        <p className='text-sm text-gray-700'>Senin - Jumat: 08:00 - 15:00 WIB</p>
+                        <p className='text-xs font-bold text-muted-foreground/70 uppercase tracking-widest mb-1'>Jam Operasional</p>
+                        <p className='text-sm text-muted-foreground'>Senin - Jumat: 08:00 - 15:00 WIB</p>
                      </div>
                   </div>
                </div>
             </div>
 
-            <div className='bg-gray-50 p-6 rounded-2xl border border-dashed border-gray-300'>
-               <p className='text-xs text-gray-500 leading-relaxed'>
+            <div className='bg-muted p-6 rounded-2xl border border-dashed border-border'>
+               <p className='text-xs text-muted-foreground leading-relaxed'>
                   <strong>Catatan:</strong> Pengaduan Anda akan diproses dalam waktu maksimal 3x24 jam kerja 
                   sejak laporan diverifikasi oleh admin.
                </p>

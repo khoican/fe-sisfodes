@@ -34,7 +34,7 @@ function ProdukIndex () {
           PRODUK UNGGULAN
         </div>
         <h1 className='text-6xl font-bold'>Produk Desa</h1>
-        <p className='text-gray-600 mt-2'>
+        <p className='text-muted-foreground mt-2'>
           Mendukung ekonomi lokal melalui produk-produk berkualitas hasil karya
           masyarakat Desa Sumberkejayan.
         </p>

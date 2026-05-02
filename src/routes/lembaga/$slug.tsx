@@ -50,7 +50,7 @@ function InstitutionDetail() {
   return (
     <main className='w-full'>
       {/* Hero Section */}
-      <section className='grid md:grid-cols-8 gap-10 items-center bg-white px-4 lg:px-12 pb-8 pt-8 rounded-b-xl border-b shadow-sm'>
+      <section className='grid md:grid-cols-8 gap-10 items-center bg-background px-4 lg:px-12 pb-8 pt-8 rounded-b-xl border-b border-border shadow-sm'>
         <div className='w-full md:col-span-5'>
           <Badge variant='primary' className='w-fit uppercase tracking-wider px-4 mb-4'>
             Lembaga Desa
@@ -58,18 +58,18 @@ function InstitutionDetail() {
           <h1 className='text-5xl font-extrabold leading-tight'>
             {institution.full_name} <span className='text-primary'>({institution.name})</span>
           </h1>
-          <p className='text-sm md:text-lg text-gray-600 mt-6 max-w-2xl leading-relaxed'>
+          <p className='text-sm md:text-lg text-muted-foreground mt-6 max-w-2xl leading-relaxed'>
             {institution.description}
           </p>
           
-          <div className='flex items-center gap-2 mt-8 text-xs text-gray-400'>
+          <div className='flex items-center gap-2 mt-8 text-xs text-muted-foreground/70'>
              <Calendar size={14} className='text-primary' />
              <span>Terakhir diperbarui: {new Date(institution.last_updated).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
           </div>
         </div>
 
         <div className='w-full md:col-span-3 flex justify-center items-center'>
-          <div className='w-64 h-64 relative bg-gray-50 rounded-3xl p-8 border shadow-inner flex items-center justify-center'>
+          <div className='w-64 h-64 relative bg-muted rounded-3xl p-8 border border-border shadow-inner flex items-center justify-center'>
             <Image
               src={institution.logo}
               alt={institution.name}
@@ -123,11 +123,11 @@ function InstitutionDetail() {
           
           <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8'>
             {(institution.tasks || institution.functions || []).map((item, index) => (
-              <div key={index} className='bg-white p-6 rounded-2xl border shadow-sm flex gap-4 hover:border-primary/30 transition-colors'>
+              <div key={index} className='bg-card p-6 rounded-2xl border border-border shadow-sm flex gap-4 hover:border-primary/30 transition-colors'>
                 <div className='w-10 h-10 shrink-0 bg-primary/10 rounded-xl flex items-center justify-center text-primary'>
                   <ListChecks size={20} />
                 </div>
-                <p className='text-sm text-gray-700 font-medium leading-relaxed'>{item}</p>
+                <p className='text-sm text-muted-foreground font-medium leading-relaxed'>{item}</p>
               </div>
             ))}
           </div>
@@ -137,7 +137,7 @@ function InstitutionDetail() {
       {/* Members Section */}
       <section className='px-4 lg:px-12 mt-16 mb-20'>
         <Title title='Struktur Kepengurusan' />
-        <p className='text-gray-500 mt-2 mb-10'>Daftar pengurus {institution.full_name} yang aktif saat ini.</p>
+        <p className='text-muted-foreground mt-2 mb-10'>Daftar pengurus {institution.full_name} yang aktif saat ini.</p>
         
         {institution.members && institution.members.length > 0 ? (
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
@@ -146,7 +146,7 @@ function InstitutionDetail() {
             ))}
           </div>
         ) : (
-          <div className='w-full py-12 bg-gray-50 rounded-2xl border border-dashed flex flex-col items-center justify-center text-gray-400'>
+          <div className='w-full py-12 bg-muted rounded-2xl border border-dashed border-border flex flex-col items-center justify-center text-muted-foreground/70'>
              <p>Data kepengurusan belum tersedia atau sedang diperbarui.</p>
           </div>
         )}
@@ -158,7 +158,7 @@ function InstitutionDetail() {
             <ShieldCheck size={32} />
          </div>
          <h3 className='text-3xl font-bold'>Peran Serta Lembaga</h3>
-         <p className='max-w-2xl text-gray-600 leading-relaxed'>
+         <p className='max-w-2xl text-muted-foreground leading-relaxed'>
            Lembaga ini bekerja sama dengan Pemerintah Desa dan elemen masyarakat lainnya 
            untuk mewujudkan Desa Sumberkejayan yang lebih maju dan sejahtera.
          </p>

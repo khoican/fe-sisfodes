@@ -60,13 +60,13 @@ function AgendaPage() {
   return (
     <main className='w-full'>
       {/* Header */}
-      <section className='bg-white px-4 lg:px-12 py-12 rounded-b-3xl border-b shadow-sm'>
+      <section className='bg-background px-4 lg:px-12 py-12 rounded-b-3xl border-b border-border shadow-sm'>
         <div className='max-w-4xl'>
           <Badge variant='primary' className='mb-4 uppercase tracking-widest'>Kalender Kegiatan</Badge>
           <h1 className='text-5xl font-extrabold leading-tight'>
             Agenda <span className='text-primary'>Desa</span>
           </h1>
-          <p className='text-gray-600 mt-6 text-lg'>
+          <p className='text-muted-foreground mt-6 text-lg'>
             Ikuti berbagai kegiatan kemasyarakatan, rapat desa, dan perayaan hari besar. 
             Pastikan Anda tetap terinformasi dengan jadwal terbaru kami.
           </p>
@@ -81,16 +81,16 @@ function AgendaPage() {
             {Object.entries(groupedAgenda).map(([month, items]) => (
               <div key={month} className='space-y-6'>
                 <div className='flex items-center gap-4'>
-                  <h3 className='text-2xl font-bold text-gray-800'>{month}</h3>
-                  <div className='flex-grow h-px bg-gray-100'></div>
+                  <h3 className='text-2xl font-bold text-foreground'>{month}</h3>
+                  <div className='flex-grow h-px bg-border'></div>
                 </div>
 
                 <div className='space-y-4'>
                   {items.map((item) => (
-                    <Card key={item.id} className={`border-none shadow-sm hover:shadow-md transition-all overflow-hidden ${item.is_holiday ? 'bg-red-50/30' : 'bg-white'}`}>
+                    <Card key={item.id} className={`border-none shadow-sm hover:shadow-md transition-all overflow-hidden ${item.is_holiday ? 'bg-destructive/10' : 'bg-card'}`}>
                       <CardContent className='p-0 flex flex-col md:flex-row'>
                         {/* Date Box */}
-                        <div className={`w-full md:w-32 p-6 flex flex-col items-center justify-center text-center ${item.is_holiday ? 'bg-red-500 text-white' : 'bg-primary text-white'}`}>
+                        <div className={`w-full md:w-32 p-6 flex flex-col items-center justify-center text-center ${item.is_holiday ? 'bg-destructive text-white' : 'bg-primary text-white'}`}>
                           <span className='text-sm font-bold uppercase tracking-widest opacity-80'>{formatDay(item.date.start)}</span>
                           <span className='text-4xl font-black'>{formatDate(item.date.start)}</span>
                         </div>
@@ -102,11 +102,11 @@ function AgendaPage() {
                               {item.is_holiday && <Badge variant='destructive' className='text-[10px]'>Libur Nasional</Badge>}
                               <Badge variant='outline' className='text-[10px] border-primary/20 text-primary uppercase'>{item.is_national ? 'Nasional' : 'Lokal'}</Badge>
                             </div>
-                            <h4 className='text-xl font-bold text-gray-800 mb-2'>{item.title}</h4>
-                            <p className='text-sm text-gray-500 line-clamp-2'>{item.description}</p>
+                            <h4 className='text-xl font-bold text-foreground mb-2'>{item.title}</h4>
+                            <p className='text-sm text-muted-foreground line-clamp-2'>{item.description}</p>
                           </div>
 
-                          <div className='mt-6 flex flex-wrap gap-4 text-xs text-gray-400'>
+                          <div className='mt-6 flex flex-wrap gap-4 text-xs text-muted-foreground/70'>
                             <div className='flex items-center gap-1.5'>
                               <Clock size={14} className='text-primary' />
                               <span>{item.time.start} - {item.time.end} WIB</span>
@@ -134,24 +134,24 @@ function AgendaPage() {
                   <p className='text-white/80 text-sm leading-relaxed mb-6'>
                     Dapatkan notifikasi langsung ke WhatsApp Anda untuk setiap agenda desa terbaru.
                   </p>
-                  <button className='w-full py-3 bg-white text-primary font-bold rounded-xl hover:bg-gray-100 transition-colors'>
+                  <button className='w-full py-3 bg-white text-primary font-bold rounded-xl hover:bg-muted transition-colors'>
                     Daftar Sekarang
                   </button>
                </div>
             </div>
 
-            <div className='bg-white p-6 rounded-2xl border shadow-sm'>
+            <div className='bg-card p-6 rounded-2xl border border-border shadow-sm'>
                <div className='flex items-center gap-2 mb-4 text-primary font-bold'>
                   <Info size={20} />
                   <span>Keterangan</span>
                </div>
                <ul className='space-y-4'>
-                  <li className='flex items-start gap-3 text-sm text-gray-600'>
+                  <li className='flex items-start gap-3 text-sm text-muted-foreground'>
                      <div className='w-4 h-4 rounded bg-primary shrink-0 mt-0.5'></div>
                      <span>Agenda Lokal: Kegiatan rutin atau khusus desa.</span>
                   </li>
-                  <li className='flex items-start gap-3 text-sm text-gray-600'>
-                     <div className='w-4 h-4 rounded bg-red-500 shrink-0 mt-0.5'></div>
+                  <li className='flex items-start gap-3 text-sm text-muted-foreground'>
+                     <div className='w-4 h-4 rounded bg-destructive shrink-0 mt-0.5'></div>
                      <span>Libur Nasional: Kalender resmi pemerintah RI.</span>
                   </li>
                </ul>

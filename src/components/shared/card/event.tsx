@@ -19,9 +19,9 @@ export default function EventCard ({ title, date, time, location }: Event) {
       </ClientOnly>
 
       <div className='w-9/12 md:w-11/12'>
-        <h3 className='text-lg text-gray-800 font-semibold mb-1'>{title}</h3>
+        <h3 className='text-lg text-foreground font-semibold mb-1'>{title}</h3>
 
-        <div className='flex items-center gap-16 text-gray-500 text-xs md:text-sm'>
+        <div className='flex items-center gap-16 text-muted-foreground text-xs md:text-sm'>
           <p className='flex items-center gap-2'>
             <FaClock /> {time}
           </p>

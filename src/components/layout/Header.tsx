@@ -10,7 +10,7 @@ export default function Header () {
     'https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061'
 
   return (
-    <header className='sticky top-0 z-50 border-b px-4 backdrop-blur-lg bg-white/80'>
+    <header className='sticky top-0 z-50 border-b px-4 backdrop-blur-lg bg-background/80'>
       <nav className='w-full flex items-center justify-between gap-x-3 gap-y-2 py-3 sm:py-4 px-0 lg:px-8'>
         <h2 className='m-0 shrink-0 text-base font-semibold tracking-tight'>
           <Link to='/'>

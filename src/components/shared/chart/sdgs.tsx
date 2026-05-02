@@ -39,6 +39,7 @@ export function SdgsChart({ data }: SdgsChartProps) {
           axisLine={false}
           fontSize={12}
           domain={[0, 100]}
+          tick={{ fill: 'hsl(var(--muted-foreground))' }}
         />
 
         <ChartTooltip content={<ChartTooltipContent />} />

@@ -16,7 +16,7 @@ interface DemographyProps {
  */
 export default function Demography({ population }: DemographyProps) {
   return (
-    <div className='bg-white rounded-lg drop-shadow p-6 lg:col-span-2'>
+    <div className='bg-card rounded-lg drop-shadow p-6 lg:col-span-2'>
       <div className='flex items-center justify-between mb-8'>
         <h2 className='text-2xl font-semibold text-primary'>
           Demografi Desa

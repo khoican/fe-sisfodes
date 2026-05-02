@@ -16,11 +16,11 @@ export default function Footer () {
   const year = getYear(new Date())
 
   return (
-    <footer className='mt-20 grid md:grid-cols-2 lg:grid-cols-4 gap-8 p-12'>
+    <footer className='mt-20 grid md:grid-cols-2 lg:grid-cols-4 gap-8 p-12 bg-card text-card-foreground border-t'>
       <div>
-        <Image src={logo} alt='logo' layout='fullWidth' className='w-1/2' />
+        <Image src={logo} alt='logo' layout='fullWidth' className='w-1/2 dark:brightness-0 dark:invert' />
 
-        <p className='mt-8 text-sm text-gray-500 font-medium tracking-wider'>
+        <p className='mt-8 text-sm text-muted-foreground font-medium tracking-wider'>
           Melayani warga dengan sepenuh hati, membangun kemandirian ekonomi dari
           potensi lokal yang berkelanjutan.
         </p>
@@ -44,28 +44,28 @@ export default function Footer () {
       <div>
         <FooterTitle title='Kontak Kami' />
 
-        <p className='text-sm text-gray-500 font-medium tracking-wider'>
+        <p className='text-sm text-muted-foreground font-medium tracking-wider'>
           Jl. Banyuwangi No.6, Tegalan, Sumber Kejayan, Kec. Mayang, Kabupaten
           Jember
         </p>
 
         <div className='flex items-center gap-2 text-primary text-sm font-medium tracking-wider mt-4'>
           <FaClock />
-          <span className='text-sm text-gray-500 font-medium tracking-wider'>
+          <span className='text-sm text-muted-foreground font-medium tracking-wider'>
             08.00 - 15.00 WIB (Senin - Jumat)
           </span>
         </div>
 
         <div className='flex items-center gap-2 text-primary text-sm font-medium tracking-wider mt-4'>
           <FaPhone />
-          <span className='text-sm text-gray-500 font-medium tracking-wider'>
+          <span className='text-sm text-muted-foreground font-medium tracking-wider'>
             08123456789
           </span>
         </div>
       </div>
 
       <ClientOnly>
-        <div className='col-span-full text-center text-sm text-gray-500 mt-12'>
+        <div className='col-span-full text-center text-sm text-muted-foreground mt-12'>
           &copy; {year} Desa Sumberkejayan.
         </div>
       </ClientOnly>
@@ -85,7 +85,7 @@ function FooterLink ({ label, to }: { label: string; to: string }) {
   return (
     <Link
       to={to}
-      className='text-sm text-gray-400 hover:text-primary font-medium'
+      className='text-sm text-muted-foreground hover:text-primary font-medium transition-colors'
     >
       {label}
     </Link>

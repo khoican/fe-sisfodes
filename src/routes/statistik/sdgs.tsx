@@ -59,7 +59,7 @@ function SdgsPage () {
   return (
     <main className='w-full'>
       {/* Header */}
-      <section className='bg-white px-4 lg:px-12 py-12 rounded-b-3xl border-b shadow-sm'>
+      <section className='bg-background px-4 lg:px-12 py-12 rounded-b-3xl border-b border-border shadow-sm'>
         <div className='flex flex-col lg:flex-row gap-12 items-center'>
           <div className='flex-1'>
             <Badge variant='primary' className='mb-4 uppercase tracking-widest'>
@@ -68,7 +68,7 @@ function SdgsPage () {
             <h1 className='text-5xl font-extrabold leading-tight'>
               SDGs <span className='text-primary'>Desa</span>
             </h1>
-            <p className='text-gray-600 mt-6 text-lg max-w-2xl'>
+            <p className='text-muted-foreground mt-6 text-lg max-w-2xl'>
               Sustainable Development Goals (SDGs) Desa adalah upaya terpadu
               untuk mewujudkan desa tanpa kemiskinan, tanpa kelaparan, dan desa
               ekonomi tumbuh merata.
@@ -83,11 +83,11 @@ function SdgsPage () {
                   {sdgs.score.average}
                 </span>
               </div>
-              <div className='px-8 py-4 bg-gray-50 rounded-2xl border flex flex-col justify-center'>
-                <span className='text-[10px] font-bold text-gray-400 uppercase tracking-wider'>
+              <div className='px-8 py-4 bg-muted rounded-2xl border border-border flex flex-col justify-center'>
+                <span className='text-[10px] font-bold text-muted-foreground/70 uppercase tracking-wider'>
                   Total Tujuan
                 </span>
-                <span className='text-2xl font-black text-gray-800'>
+                <span className='text-2xl font-black text-foreground'>
                   {sdgs.score.data.length} Goals
                 </span>
               </div>
@@ -98,10 +98,10 @@ function SdgsPage () {
             <Globe className='w-48 h-48 text-primary/10 absolute animate-spin-slow' />
             <div className='relative z-10 text-center'>
               <TrendingUp className='w-16 h-16 text-primary mx-auto mb-4' />
-              <h3 className='text-xl font-bold text-gray-800'>
+              <h3 className='text-xl font-bold text-foreground'>
                 Capaian Global
               </h3>
-              <p className='text-xs text-gray-500 mt-2'>
+              <p className='text-xs text-muted-foreground mt-2'>
                 Aksi lokal untuk tujuan global
               </p>
             </div>
@@ -112,22 +112,22 @@ function SdgsPage () {
       {/* Chart Section */}
       <section className='px-4 lg:px-12 py-16'>
         <Title title='Visualisasi Capaian' />
-        <div className='h-140 w-full bg-white p-6 rounded-3xl shadow-sm border mt-8'>
+        <div className='h-140 w-full bg-card p-6 rounded-3xl shadow-sm border border-border mt-8'>
           <SdgsChart data={sdgs.chart} />
         </div>
       </section>
 
       {/* Grid Goals */}
-      <section className='px-4 lg:px-12 py-16 bg-gray-50/50'>
+      <section className='px-4 lg:px-12 py-16 bg-muted/50'>
         <div className='flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12'>
           <Title title='18 Tujuan SDGs Desa' />
 
           <div className='relative w-full md:w-80'>
-            <Search className='absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400' />
+            <Search className='absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/70' />
             <input
               type='text'
               placeholder='Cari tujuan SDGS...'
-              className='w-full pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all shadow-sm'
+              className='w-full pl-10 pr-4 py-2.5 bg-card border border-border rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all shadow-sm text-foreground'
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
             />
@@ -138,7 +138,7 @@ function SdgsPage () {
           {filteredGoals.map(goal => (
             <Card
               key={goal.goals}
-              className='group border-none shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden bg-white flex flex-col py-0 pb-6 gap-4'
+              className='group border-none shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden bg-card flex flex-col py-0 pb-6 gap-4'
             >
               <div className='relative h-48 overflow-hidden'>
                 <Image
@@ -169,12 +169,12 @@ function SdgsPage () {
                   >
                     {goal.score}
                   </span>
-                  <span className='text-[10px] font-bold text-gray-400 uppercase'>
+                  <span className='text-[10px] font-bold text-muted-foreground/70 uppercase'>
                     Capaian
                   </span>
                 </div>
 
-                <div className='w-full bg-gray-100 rounded-full h-1.5 overflow-hidden'>
+                <div className='w-full bg-muted rounded-full h-1.5 overflow-hidden'>
                   <div
                     className={`h-full rounded-full transition-all duration-1000 ${getProgressColor(
                       goal.score
@@ -188,8 +188,8 @@ function SdgsPage () {
         </div>
 
         {filteredGoals.length === 0 && (
-          <div className='text-center py-20 bg-white rounded-3xl border border-dashed'>
-            <p className='text-gray-400'>
+          <div className='text-center py-20 bg-card rounded-3xl border border-dashed border-border'>
+            <p className='text-muted-foreground/70'>
               Tujuan SDGs yang Anda cari tidak ditemukan.
             </p>
           </div>
@@ -197,7 +197,7 @@ function SdgsPage () {
       </section>
 
       {/* Action Footer */}
-      <section className='px-4 lg:px-12 py-16 bg-white border-t'>
+      <section className='px-4 lg:px-12 py-16 bg-background border-t border-border'>
         <div className='bg-primary rounded-[2rem] p-12 text-white flex flex-col md:flex-row items-center gap-12 relative overflow-hidden'>
           <CheckCircle2 className='absolute -bottom-10 -left-10 w-48 h-48 text-white/10' />
           <div className='flex-1 z-10'>

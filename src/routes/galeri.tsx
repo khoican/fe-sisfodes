@@ -59,8 +59,8 @@ function GaleriPage() {
 
       {/* Filter Section */}
       <section className='mt-12 px-4 lg:px-12'>
-        <div className='flex flex-wrap items-center gap-3 bg-white p-4 rounded-2xl border shadow-sm'>
-          <div className='flex items-center gap-2 mr-4 text-gray-400'>
+        <div className='flex flex-wrap items-center gap-3 bg-card p-4 rounded-2xl border shadow-sm'>
+          <div className='flex items-center gap-2 mr-4 text-muted-foreground'>
              <Filter size={18} />
              <span className='text-sm font-medium'>Filter:</span>
           </div>
@@ -71,7 +71,7 @@ function GaleriPage() {
               className={`px-6 py-2 rounded-xl text-sm font-semibold transition-all ${
                 selectedCategory === cat 
                   ? 'bg-primary text-white shadow-lg shadow-primary/20 scale-105' 
-                  : 'bg-gray-50 text-gray-500 hover:bg-gray-100'
+                  : 'bg-muted text-muted-foreground hover:bg-muted/80'
               }`}
             >
               {cat}
@@ -161,6 +161,10 @@ function GaleriPage() {
             Kirim Dokumentasi
          </button>
       </section>
+    </main>
+  )
+}
+>
     </main>
   )
 }

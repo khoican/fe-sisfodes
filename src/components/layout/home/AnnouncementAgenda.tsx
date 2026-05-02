@@ -47,7 +47,7 @@ export default function AnnouncementAgenda ({
               countdown={countdown} 
             />
           ) : (
-            <div className='bg-gray-100 rounded-2xl p-8 text-center text-gray-500'>
+            <div className='bg-muted rounded-2xl p-8 text-center text-muted-foreground'>
               Tidak ada agenda desa mendatang.
             </div>
           )}

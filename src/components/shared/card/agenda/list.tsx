@@ -9,12 +9,12 @@ interface AgendaListProps {
 
 export function AgendaList({ events }: AgendaListProps) {
   return (
-    <div className='bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col'>
+    <div className='bg-card rounded-2xl p-6 border border-border shadow-sm flex flex-col'>
       <div className='flex items-center justify-between mb-6'>
-        <h3 className='text-lg font-bold text-gray-800'>
+        <h3 className='text-lg font-bold text-foreground'>
           Agenda Mendatang
         </h3>
-        <Badge variant='secondary' className='bg-gray-100 text-gray-600'>
+        <Badge variant='secondary' className='bg-muted text-muted-foreground'>
           {events.length} Kegiatan
         </Badge>
       </div>
@@ -25,7 +25,7 @@ export function AgendaList({ events }: AgendaListProps) {
             <AgendaListItem key={item.id} item={item} />
           ))
         ) : (
-          <div className='flex flex-col items-center justify-center py-10 text-gray-400'>
+          <div className='flex flex-col items-center justify-center py-10 text-muted-foreground/70'>
             <Calendar className='size-12 mb-2 opacity-20' />
             <p>Belum ada jadwal lainnya</p>
           </div>

@@ -37,11 +37,11 @@ function Berita () {
     .filter(item => item.category?.name !== 'Pengumuman')
 
   return (
-    <main className='w-full px-4 lg:px-12 py-8'>
+    <main className='w-full px-4 lg:px-12 py-8 bg-background'>
       <section className='w-full lg:w-1/2 py-16 flex flex-col gap-6'>
         <Badge variant='primary'>PILAR INFORMASI DESA</Badge>
-        <h1 className='text-6xl font-bold'>Warta Desa Terkini</h1>
-        <p className='text-gray-600'>
+        <h1 className='text-6xl font-bold text-foreground'>Warta Desa Terkini</h1>
+        <p className='text-muted-foreground'>
           Menyajikan kabar terpercaya, kebijakan terbaru, dan cerita inspiratif
           dari jantung Desa Sumberkejayan untuk masyarakat yang lebih berdaya.
         </p>
@@ -122,6 +122,10 @@ function Berita () {
           </ClientOnly>
         </div>
       </section>
+    </main>
+  )
+}
+on>
     </main>
   )
 }

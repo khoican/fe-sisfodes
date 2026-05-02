@@ -111,7 +111,7 @@ export default function NewsCard ({
             <p className='text-primary uppercase'>
               {category?.name ?? 'Pengumuman'}
             </p>
-            <p className='text-gray-500'>{dateFormat({ date: created_at })}</p>
+            <p className='text-muted-foreground'>{dateFormat({ date: created_at })}</p>
           </div>
           <h3>
             {hasDetail ? (
@@ -119,7 +119,7 @@ export default function NewsCard ({
                 to='/berita/$slug'
                 params={{ slug: detailSlug! }}
                 className={cn(
-                  'text-lg font-semibold group-hover:text-primary cursor-pointer',
+                  'text-lg font-semibold text-foreground group-hover:text-primary cursor-pointer transition-colors',
                   className?.title
                 )}
               >
@@ -128,7 +128,7 @@ export default function NewsCard ({
             ) : (
               <span
                 className={cn(
-                  'text-lg font-semibold group-hover:text-primary cursor-pointer',
+                  'text-lg font-semibold text-foreground group-hover:text-primary cursor-pointer transition-colors',
                   className?.title
                 )}
               >
@@ -137,7 +137,7 @@ export default function NewsCard ({
             )}
           </h3>
           <p
-            className={cn('text-gray-600 mt-2 text-sm', className?.description)}
+            className={cn('text-muted-foreground mt-2 text-sm', className?.description)}
             dangerouslySetInnerHTML={{ __html: description ?? '' }}
           ></p>
         </div>

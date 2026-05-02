@@ -15,7 +15,7 @@ export function AgendaListItem({ item }: AgendaListItemProps) {
           'w-14 h-14 rounded-xl flex flex-col items-center justify-center shrink-0 border transition-all duration-300 group-hover:scale-105',
           item.is_holiday
             ? 'bg-destructive/5 border-destructive/20 text-destructive'
-            : 'bg-gray-50 border-gray-100 text-gray-600'
+            : 'bg-muted border-border text-muted-foreground'
         )}
       >
         <span className='text-xl font-bold leading-none'>
@@ -32,22 +32,22 @@ export function AgendaListItem({ item }: AgendaListItemProps) {
         <h4
           className={cn(
             'font-semibold line-clamp-1 transition-colors group-hover:text-primary',
-            item.is_holiday ? 'text-destructive' : 'text-gray-800'
+            item.is_holiday ? 'text-destructive' : 'text-foreground'
           )}
         >
           {item.title}
         </h4>
         <div className='flex items-center gap-3 mt-1'>
-          <p className='text-xs text-gray-500 flex items-center gap-1'>
-            <Calendar className='size-3 text-gray-400' />
+          <p className='text-xs text-muted-foreground flex items-center gap-1'>
+            <Calendar className='size-3 text-muted-foreground/70' />
             {dateFormat({
               date: new Date(item.date.start),
               options: { format: 'dd MMM yyyy' }
             })}
           </p>
           {!item.is_holiday && (
-            <p className='text-xs text-gray-500 flex items-center gap-1'>
-              <Clock className='size-3 text-gray-400' />
+            <p className='text-xs text-muted-foreground flex items-center gap-1'>
+              <Clock className='size-3 text-muted-foreground/70' />
               {item.time.start}
             </p>
           )}

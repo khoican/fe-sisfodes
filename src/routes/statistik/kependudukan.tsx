@@ -80,13 +80,13 @@ function KependudukanPage() {
   return (
     <main className='w-full'>
       {/* Header */}
-      <section className='bg-white px-4 lg:px-12 py-12 rounded-b-3xl border-b'>
+      <section className='bg-background px-4 lg:px-12 py-12 rounded-b-3xl border-b border-border'>
         <div className='max-w-4xl'>
           <Badge variant='primary' className='mb-4 uppercase tracking-widest'>Demografi</Badge>
           <h1 className='text-5xl font-extrabold leading-tight'>
             Statistik <span className='text-primary'>Kependudukan</span>
           </h1>
-          <p className='text-gray-600 mt-6 text-lg'>
+          <p className='text-muted-foreground mt-6 text-lg'>
             Data kependudukan yang akurat adalah fondasi perencanaan pembangunan desa yang tepat sasaran. 
             Informasi di bawah ini mencerminkan kondisi riil masyarakat Desa Sumberkejayan.
           </p>
@@ -97,13 +97,13 @@ function KependudukanPage() {
             <Card key={idx} className='border-none bg-primary/5 shadow-sm'>
               <CardContent className='pt-6'>
                 <div className='flex items-center gap-4'>
-                  <div className='p-3 bg-white rounded-2xl shadow-sm text-primary'>
+                  <div className='p-3 bg-card rounded-2xl shadow-sm text-primary'>
                     <stat.icon size={24} />
                   </div>
                   <div>
-                    <p className='text-xs font-bold text-gray-400 uppercase tracking-wider'>{stat.label}</p>
-                    <p className='text-2xl font-black text-gray-800'>
-                      {stat.value} <span className='text-sm font-normal text-gray-500'>{stat.unit}</span>
+                    <p className='text-xs font-bold text-muted-foreground/70 uppercase tracking-wider'>{stat.label}</p>
+                    <p className='text-2xl font-black text-foreground'>
+                      {stat.value} <span className='text-sm font-normal text-muted-foreground'>{stat.unit}</span>
                     </p>
                   </div>
                 </div>
@@ -115,7 +115,7 @@ function KependudukanPage() {
 
       {/* Gender & Age Section */}
       <section className='px-4 lg:px-12 py-16 grid lg:grid-cols-2 gap-12'>
-        <Card className='border-none shadow-md overflow-hidden bg-white'>
+        <Card className='border-none shadow-md overflow-hidden bg-card'>
           <CardHeader className='pb-0'>
             <CardTitle>Distribusi Jenis Kelamin</CardTitle>
             <CardDescription>Perbandingan jumlah penduduk laki-laki dan perempuan.</CardDescription>
@@ -138,7 +138,13 @@ function KependudukanPage() {
                     ))}
                   </Pie>
                   <Tooltip 
-                    contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
+                    contentStyle={{ 
+                        borderRadius: '12px', 
+                        border: 'none', 
+                        boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
+                        backgroundColor: 'hsl(var(--card))',
+                        color: 'hsl(var(--foreground))'
+                    }}
                   />
                   <Legend />
                 </PieChart>
@@ -148,7 +154,7 @@ function KependudukanPage() {
                {genderData.map((g) => (
                  <div key={g.name} className='p-4 rounded-2xl border text-center' style={{ borderColor: `${g.color}20`, backgroundColor: `${g.color}05` }}>
                     <g.icon className='w-6 h-6 mx-auto mb-2' style={{ color: g.color }} />
-                    <p className='text-xs font-bold text-gray-500 uppercase'>{g.name}</p>
+                    <p className='text-xs font-bold text-muted-foreground uppercase'>{g.name}</p>
                     <p className='text-xl font-black' style={{ color: g.color }}>{g.value} Jiwa</p>
                  </div>
                ))}
@@ -156,7 +162,7 @@ function KependudukanPage() {
           </CardContent>
         </Card>
 
-        <Card className='border-none shadow-md overflow-hidden bg-white'>
+        <Card className='border-none shadow-md overflow-hidden bg-card'>
           <CardHeader className='pb-0'>
             <CardTitle>Komposisi Usia</CardTitle>
             <CardDescription>Pengelompokan penduduk berdasarkan rentang usia (Tahun).</CardDescription>
@@ -165,12 +171,18 @@ function KependudukanPage() {
             <div className='h-80 w-full mt-4'>
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={population.by_age}>
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} opacity={0.3} />
-                  <XAxis dataKey="label" axisLine={false} tickLine={false} tick={{ fontSize: 12 }} />
-                  <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 12 }} />
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} opacity={0.3} stroke='hsl(var(--border))' />
+                  <XAxis dataKey="label" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }} />
+                  <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }} />
                   <Tooltip 
-                    cursor={{ fill: '#f3f4f6' }}
-                    contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
+                    cursor={{ fill: 'hsl(var(--muted)/0.3)' }}
+                    contentStyle={{ 
+                        borderRadius: '12px', 
+                        border: 'none', 
+                        boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
+                        backgroundColor: 'hsl(var(--card))',
+                        color: 'hsl(var(--foreground))'
+                    }}
                   />
                   <Bar dataKey="count" fill="#3b82f6" radius={[6, 6, 0, 0]} />
                 </BarChart>
@@ -181,25 +193,25 @@ function KependudukanPage() {
       </section>
 
       {/* Education & Administration */}
-      <section className='px-4 lg:px-12 py-16 bg-gray-50/50 grid lg:grid-cols-2 gap-12'>
+      <section className='px-4 lg:px-12 py-16 bg-muted/50 grid lg:grid-cols-2 gap-12'>
         <div>
           <Title title='Tingkat Pendidikan' />
-          <p className='text-sm text-gray-500 mb-8'>Data jenjang pendidikan terakhir yang ditempuh oleh penduduk desa.</p>
+          <p className='text-sm text-muted-foreground mb-8'>Data jenjang pendidikan terakhir yang ditempuh oleh penduduk desa.</p>
           <div className='space-y-6'>
             {population.by_education.map((item, idx) => (
-              <div key={idx} className='bg-white p-5 rounded-2xl shadow-sm border flex items-center justify-between group hover:border-primary/30 transition-colors'>
+              <div key={idx} className='bg-card p-5 rounded-2xl shadow-sm border border-border flex items-center justify-between group hover:border-primary/30 transition-colors'>
                 <div className='flex items-center gap-4'>
                   <div className='w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary'>
                     <GraduationCap size={24} />
                   </div>
                   <div>
-                    <h4 className='font-bold text-gray-800'>{item.label}</h4>
-                    <p className='text-xs text-gray-400'>Jenjang Pendidikan</p>
+                    <h4 className='font-bold text-foreground'>{item.label}</h4>
+                    <p className='text-xs text-muted-foreground/70'>Jenjang Pendidikan</p>
                   </div>
                 </div>
                 <div className='text-right'>
                   <p className='text-xl font-black text-primary'>{item.count}</p>
-                  <p className='text-[10px] font-bold text-gray-400 uppercase'>Jiwa</p>
+                  <p className='text-[10px] font-bold text-muted-foreground/70 uppercase'>Jiwa</p>
                 </div>
               </div>
             ))}
@@ -208,8 +220,8 @@ function KependudukanPage() {
 
         <div>
           <Title title='Persebaran Wilayah' />
-          <p className='text-sm text-gray-500 mb-8'>Distribusi penduduk berdasarkan wilayah dusun atau administratif desa.</p>
-          <div className='h-[400px] w-full bg-white p-6 rounded-3xl shadow-sm border'>
+          <p className='text-sm text-muted-foreground mb-8'>Distribusi penduduk berdasarkan wilayah dusun atau administratif desa.</p>
+          <div className='h-[400px] w-full bg-card p-6 rounded-3xl shadow-sm border border-border'>
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
@@ -226,7 +238,13 @@ function KependudukanPage() {
                   ))}
                 </Pie>
                 <Tooltip 
-                  contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
+                  contentStyle={{ 
+                    borderRadius: '12px', 
+                    border: 'none', 
+                    boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)',
+                    backgroundColor: 'hsl(var(--card))',
+                    color: 'hsl(var(--foreground))'
+                  }}
                 />
               </PieChart>
             </ResponsiveContainer>
@@ -235,7 +253,7 @@ function KependudukanPage() {
              {population.by_administration.map((item, idx) => (
                 <div key={idx} className='flex items-center gap-2'>
                    <div className='w-3 h-3 rounded-full' style={{ backgroundColor: COLORS[idx % COLORS.length] }}></div>
-                   <span className='text-sm text-gray-600 font-medium'>{item.label}</span>
+                   <span className='text-sm text-muted-foreground font-medium'>{item.label}</span>
                 </div>
              ))}
           </div>
@@ -243,19 +261,19 @@ function KependudukanPage() {
       </section>
 
       {/* Footer Info */}
-      <section className='w-full bg-white p-12 lg:px-24 flex flex-col md:flex-row items-center justify-between border-t gap-8'>
+      <section className='w-full bg-background p-12 lg:px-24 flex flex-col md:flex-row items-center justify-between border-t border-border gap-8'>
         <div className='flex items-center gap-6'>
            <div className='w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary'>
               <Clock size={32} />
            </div>
            <div>
               <h3 className='text-xl font-bold'>Pembaruan Terakhir</h3>
-              <p className='text-gray-500 text-sm'>Data kependudukan diperbarui secara otomatis setiap semester.</p>
+              <p className='text-muted-foreground text-sm'>Data kependudukan diperbarui secara otomatis setiap semester.</p>
            </div>
         </div>
-        <div className='px-8 py-4 bg-gray-50 border border-dashed border-gray-300 rounded-2xl'>
-           <p className='text-xs font-bold text-gray-400 uppercase tracking-widest'>Status Data</p>
-           <p className='text-xl font-black text-gray-800'>{population.last_updated}</p>
+        <div className='px-8 py-4 bg-muted border border-dashed border-border rounded-2xl'>
+           <p className='text-xs font-bold text-muted-foreground/70 uppercase tracking-widest'>Status Data</p>
+           <p className='text-xl font-black text-foreground'>{population.last_updated}</p>
         </div>
       </section>
     </main>

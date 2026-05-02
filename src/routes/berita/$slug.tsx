@@ -103,7 +103,7 @@ function DetailBerita () {
 
         <div
           w-full
-          className='flex items-center gap-16 text-sm py-6 border-y border-y-gray-200'
+          className='flex items-center gap-16 text-sm py-6 border-y border-y-border'
         >
           <div className='flex items-center gap-2'>
             <Avatar>
@@ -116,7 +116,7 @@ function DetailBerita () {
           </div>
 
           <div className='flex items-center gap-1'>
-            <Calendar className='inline-block mr-1 text-gray-500' size={16} />
+            <Calendar className='inline-block mr-1 text-muted-foreground' size={16} />
             <p>{dateFormat({ date: berita.created_at })}</p>
           </div>
         </div>
@@ -130,14 +130,14 @@ function DetailBerita () {
           className='w-full h-auto rounded-xl object-cover'
         />
 
-        <p className='text-sm text-gray-400 italic mt-2 text-center'>
+        <p className='text-sm text-muted-foreground/70 italic mt-2 text-center'>
           {berita.description}
         </p>
       </section>
 
-      <section className='grid md:grid-cols-2 lg:grid-cols-3 gap-16 mt-16 pb-16 border-b border-b-gray-200'>
+      <section className='grid md:grid-cols-2 lg:grid-cols-3 gap-16 mt-16 pb-16 border-b border-b-border'>
         <article
-          className='w-full flex flex-col gap-6 text-lg text-gray-600 leading-relaxed md:col-span-1 lg:col-span-2'
+          className='w-full flex flex-col gap-6 text-lg text-muted-foreground leading-relaxed md:col-span-1 lg:col-span-2'
           dangerouslySetInnerHTML={{ __html: berita.content || '' }}
         ></article>
 
@@ -155,7 +155,7 @@ function DetailBerita () {
                 key={index}
                 className='text-md mb-8 flex items-start gap-4 group'
               >
-                <div className='p-4 text-gray-400 text-center group-hover:text-white group-hover:bg-primary/80 rounded-md w-1/5'>
+                <div className='p-4 text-muted-foreground/70 text-center group-hover:text-white group-hover:bg-primary/80 rounded-md w-1/5'>
                   <p className='text-md font-bold'>
                     {new Intl.NumberFormat('id-ID', {
                       minimumIntegerDigits: 2,
@@ -168,7 +168,7 @@ function DetailBerita () {
                   <p className='font-medium line-clamp-2 group-hover:text-primary'>
                     {item.title}
                   </p>
-                  <p className='text-xs text-gray-400 mt-2'>
+                  <p className='text-xs text-muted-foreground/70 mt-2'>
                     {dateFormat({ date: item.created_at })}
                   </p>
                 </div>

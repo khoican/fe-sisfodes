@@ -75,8 +75,8 @@ export default function Maps ({ center, zoom = 15, className, markers = [] }: Ma
             <Popup className="custom-popup">
               <div className="p-1">
                 <p className="text-[10px] font-bold uppercase tracking-wider text-primary mb-1">{marker.category}</p>
-                <h4 className="font-bold text-sm text-gray-900">{marker.name}</h4>
-                <p className="text-xs text-gray-500 mt-1">{marker.address}</p>
+                <h4 className="font-bold text-sm text-foreground">{marker.name}</h4>
+                <p className="text-xs text-muted-foreground mt-1">{marker.address}</p>
               </div>
             </Popup>
           </Marker>

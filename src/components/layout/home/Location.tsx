@@ -21,11 +21,11 @@ interface LocationProps {
 
 export default function Location({ address, latitude, longitude }: LocationProps) {
   return (
-    <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-16 items-center w-full mt-16 relative bg-white rounded-lg p-8'>
+    <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-16 items-center w-full mt-16 relative bg-card rounded-lg p-8'>
       <section className='col-span-1'>
         <Title title='Lokasi Kami' />
 
-        <div className='mt-8 text-sm text-gray-600'>
+        <div className='mt-8 text-sm text-muted-foreground'>
           <p className=''>
             Kunjungi kantor pelayanan kami untuk mendapatkan bantuan informasi
             dan layanan administrasi desa secara langsung.

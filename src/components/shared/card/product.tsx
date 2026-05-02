@@ -40,12 +40,13 @@ export default function ProductCard ({
         <Link
           to='/produk/$slug'
           params={{ slug }}
-          className='text-md font-semibold group-hover:text-primary'
+          className='text-md font-semibold text-foreground group-hover:text-primary transition-colors'
         >
           {name}
         </Link>
-        <p className='text-xs text-gray-500'>{store}</p>
+        <p className='text-xs text-muted-foreground'>{store}</p>
       </CardContent>
+
 
       <CardFooter className='p-4 pt-0 grid grid-cols-2 items-center'>
         <p className='text-md text-primary font-bold'>

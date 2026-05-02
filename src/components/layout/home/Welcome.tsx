@@ -20,7 +20,7 @@ export default function Welcome({ greeting, leader }: WelcomeProps) {
         <h3 className='text-4xl text-primary font-semibold mb-4'>
           Sambutan Kepala Desa
         </h3>
-        <p className='italic text-gray-600'>
+        <p className='italic text-muted-foreground'>
           "{greeting}"
         </p>
         <p className='font-semibold'>- {leader.name}</p>

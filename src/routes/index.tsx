@@ -70,7 +70,7 @@ function App () {
   } = Route.useLoaderData()
 
   return (
-    <main className='px-4 lg:px-12 pb-8 pt-8'>
+    <main className='px-4 lg:px-12 pb-8 pt-8 bg-background text-foreground'>
       <Hero hero={hero} />
 
       <div className='grid lg:grid-cols-3 gap-y-8 gap-x-0 lg:gap-y-0 lg:gap-x-8 mt-8 w-full'>

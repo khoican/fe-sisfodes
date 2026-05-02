@@ -51,7 +51,7 @@ function DetailProduk () {
     <main className='w-full px-4 lg:px-12 py-8'>
       <section className='grid lg:grid-cols-2 gap-12 mt-8'>
         <div className='flex flex-col gap-4'>
-          <div className='relative overflow-hidden rounded-xl bg-gray-100 aspect-square'>
+          <div className='relative overflow-hidden rounded-xl bg-muted aspect-square'>
             <Image
               src={produk?.image[0] || ''}
               alt={produk?.name || ''}
@@ -61,7 +61,7 @@ function DetailProduk () {
           </div>
           <div className='grid grid-cols-4 gap-4'>
             {produk?.image.slice(1).map((img, idx) => (
-              <div key={idx} className='rounded-lg overflow-hidden bg-gray-100 aspect-square'>
+              <div key={idx} className='rounded-lg overflow-hidden bg-muted aspect-square'>
                 <Image
                   src={img}
                   alt={`${produk.name} ${idx + 1}`}
@@ -79,7 +79,7 @@ function DetailProduk () {
               {produk?.category.name}
             </Badge>
             <h1 className='text-5xl font-bold'>{produk?.name}</h1>
-            <div className='flex items-center gap-2 text-gray-500'>
+            <div className='flex items-center gap-2 text-muted-foreground'>
               <MdStorefront size={18} />
               <p className='text-lg font-medium'>{produk?.store}</p>
             </div>
@@ -89,12 +89,12 @@ function DetailProduk () {
             Rp {produk?.price.toLocaleString('id-ID')}
           </p>
 
-          <div className='h-[1px] w-full bg-gray-200 my-2'></div>
+          <div className='h-[1px] w-full bg-border my-2'></div>
 
           <div className='flex flex-col gap-4'>
             <h3 className='text-xl font-semibold'>Deskripsi Produk</h3>
             <article
-              className='text-gray-600 leading-relaxed'
+              className='text-muted-foreground leading-relaxed'
               dangerouslySetInnerHTML={{ __html: produk?.description || '' }}
             ></article>
           </div>

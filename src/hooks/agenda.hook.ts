@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useState } from 'react'
-import type { Agenda } from '#/types/agenda'
-import { AgendaHelper, type CountdownParts } from '#/utils/agenda.util'
+import type { Agenda } from '#/types/agenda';
+import type { CountdownParts } from '#/utils/agenda.util';
+import { AgendaHelper } from '#/utils/agenda.util';
+import { useEffect, useMemo, useState } from 'react';
 
 /**
  * Custom hook for managing agenda state and logic.
