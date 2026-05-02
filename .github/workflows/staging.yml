@@ -49,20 +49,20 @@ jobs:
           fi
 
           # Pastikan direktori target ada
-          mkdir -p "$TARGET_DIR"
+          sudo mkdir -p "$TARGET_DIR"
           
           # Sinkronisasi output build
-          rsync -az --delete .output/ "$TARGET_DIR"/.output/
+          sudo rsync -az --delete .output/ "$TARGET_DIR"/.output/
           
           # Salin file konfigurasi yang diperlukan
-          cp package.json "$TARGET_DIR"/
+          sudo cp package.json "$TARGET_DIR"/
           
           # Restart aplikasi via PM2
           cd "$TARGET_DIR"
-          pm2 restart sisfodes-app || pm2 start .output/server/index.mjs --name sisfodes-app
+          sudo pm2 restart sisfodes-app || sudo pm2 start .output/server/index.mjs --name sisfodes-app
 
           # Simpan konfigurasi pm2 agar tetap jalan setelah reboot server
-          pm2 save
+          sudo pm2 save
 
           # Restart server jika diperlukan (opsional, tergantung setup server)
           # sudo systemctl restart nginx
