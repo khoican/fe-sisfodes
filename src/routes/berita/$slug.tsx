@@ -99,7 +99,7 @@ function DetailBerita () {
       <section className='w-full flex flex-col gap-8'>
         <Badge variant='primary'>{berita.category?.name}</Badge>
 
-        <h1 className='text-7xl font-bold'>{berita.title}</h1>
+        <h1 className='text-xl lg:text-7xl font-bold'>{berita.title}</h1>
 
         <div
           w-full

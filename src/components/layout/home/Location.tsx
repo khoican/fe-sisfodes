@@ -48,7 +48,7 @@ export default function Location({ address, latitude, longitude }: LocationProps
 
       <ClientOnly>
         <Maps
-          position={[parseFloat(latitude), parseFloat(longitude)]}
+          {...({ position: [parseFloat(latitude), parseFloat(longitude)] } as any)}
           className='w-full h-[35vh] rounded-lg col-span-2'
         />
       </ClientOnly>

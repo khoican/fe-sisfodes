@@ -1,14 +1,14 @@
 "use client"
 
 import { cn } from '#/lib/utils'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { MapPin } from 'lucide-react'
 import { renderToStaticMarkup } from 'react-dom/server'
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
 // Perbaikan icon Leaflet default untuk menghindari error 404 pada marker images
-// @ts-ignore
+// @ts-ignore - Leaflet's private property access required for icon fix
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',

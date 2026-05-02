@@ -15,7 +15,9 @@ import TanStackQueryDevtools from '../integrations/tanstack-query/devtools'
 
 import appCss from '../styles.css?url'
 
+import ThemeCustomizer from '#/components/shared/ThemeCustomizer'
 import type { QueryClient } from '@tanstack/react-query'
+import { FaWhatsapp } from 'react-icons/fa6'
 
 interface MyRouterContext {
   queryClient: QueryClient
@@ -93,8 +95,8 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
   notFoundComponent: () => {
     return (
       <div className='p-20 text-center h-[70vh] flex flex-col items-center justify-center'>
-        <h1 className='text-9xl font-extrabold text-primary'>404</h1>
-        <p className='text-xl mt-4'>Halaman tidak ditemukan.</p>
+        <h1 className='text-4xl md:text-9xl font-extrabold text-primary'>404</h1>
+        <p className='text-sm md:text-xl mt-4'>Halaman tidak ditemukan.</p>
       </div>
     )
   },
@@ -119,11 +121,20 @@ function RootDocument ({ children }: { children: React.ReactNode }) {
       >
         <QueryClientProvider client={queryClient}>
           <Header />
-          <main className='w-full max-w-7xl mx-auto'>{children}</main>
+          <main className='w-full max-w-7xl mx-auto'>
+            {children}
+            <ThemeCustomizer />
+            <button
+              className='rounded-full fixed bottom-8 right-4 md:bottom-16 md:right-8 lg:bottom-24 lg:right-16 z-50 shadow-lg bg-green-500 hover:bg-green-600 text-white p-3 md:p-4'
+              aria-label='chat-whatsapp'
+            >
+              <FaWhatsapp className='w-6 h-6 md:w-7 md:h-7' />
+            </button>
+          </main>
           <Footer />
           <TanStackDevtools
             config={{
-              position: 'bottom-right'
+              position: 'bottom-left'
             }}
             plugins={[
               {

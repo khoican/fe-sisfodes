@@ -1,4 +1,4 @@
-import type { Sdgs } from "#/types/sdgs"
+import type { Sdgs } from '#/types/sdgs'
 
 export const sdgsData: Sdgs = {
   score: {
