@@ -1,68 +1,68 @@
-name: Staging - Frontend Sisfodes
+# name: Staging - Frontend Sisfodes
 
-on:
-  push:
-    branches:
-      - staging
+# on:
+#   push:
+#     branches:
+#       - staging
 
-concurrency:
-  group: staging-fe-sisfodes
-  cancel-in-progress: true
+# concurrency:
+#   group: staging-fe-sisfodes
+#   cancel-in-progress: true
 
-jobs:
-  deploy:
-    name: Deploy to Staging
-    runs-on: self-hosted
-    timeout-minutes: 15
+# jobs:
+#   deploy:
+#     name: Deploy to Staging
+#     runs-on: self-hosted
+#     timeout-minutes: 15
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
     
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-            version: 10
+#       - name: Install pnpm
+#         uses: pnpm/action-setup@v4
+#         with:
+#             version: 10
     
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: '24'
 
-      - name: Install dependencies
-        run: pnpm install
+#       - name: Install dependencies
+#         run: pnpm install
 
-      - name: Build Application
-        run: pnpm build
-        env:
-          NODE_ENV: staging
-          Base: /
+#       - name: Build Application
+#         run: pnpm build
+#         env:
+#           NODE_ENV: staging
+#           Base: /
 
-      - name: Deploy & Restart PM2
-        env:
-          TARGET_DIR: "/var/www/staging/fe-sisfodes"
-        run: |
-          # cek apakah Secrets TARGET_DIR sudah diatur
-          if [ -z "$TARGET_DIR" ]; then
-            echo "Error: TARGET_DIR secret is not set."
-            exit 1
-          fi
+#       - name: Deploy & Restart PM2
+#         env:
+#           TARGET_DIR: "/var/www/staging/fe-sisfodes"
+#         run: |
+#           # cek apakah Secrets TARGET_DIR sudah diatur
+#           if [ -z "$TARGET_DIR" ]; then
+#             echo "Error: TARGET_DIR secret is not set."
+#             exit 1
+#           fi
 
-          # Pastikan direktori target ada
-          sudo mkdir -p "$TARGET_DIR"
+#           # Pastikan direktori target ada
+#           sudo mkdir -p "$TARGET_DIR"
           
-          # Sinkronisasi output build
-          sudo rsync -az --delete .output/ "$TARGET_DIR"/.output/
+#           # Sinkronisasi output build
+#           sudo rsync -az --delete .output/ "$TARGET_DIR"/.output/
           
-          # Salin file konfigurasi yang diperlukan
-          sudo cp package.json "$TARGET_DIR"/
+#           # Salin file konfigurasi yang diperlukan
+#           sudo cp package.json "$TARGET_DIR"/
           
-          # Restart aplikasi via PM2
-          cd "$TARGET_DIR"
-          sudo pm2 restart sisfodes-app || sudo pm2 start .output/server/index.mjs --name sisfodes-app
+#           # Restart aplikasi via PM2
+#           cd "$TARGET_DIR"
+#           sudo pm2 restart sisfodes-app || sudo pm2 start .output/server/index.mjs --name sisfodes-app
 
-          # Simpan konfigurasi pm2 agar tetap jalan setelah reboot server
-          sudo pm2 save
+#           # Simpan konfigurasi pm2 agar tetap jalan setelah reboot server
+#           sudo pm2 save
 
-          # Restart server jika diperlukan (opsional, tergantung setup server)
-          # sudo systemctl restart nginx
+#           # Restart server jika diperlukan (opsional, tergantung setup server)
+#           # sudo systemctl restart nginx
