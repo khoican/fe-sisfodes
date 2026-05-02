@@ -40,7 +40,7 @@ jobs:
 
       - name: Deploy & Restart PM2
         env:
-          TARGET_DIR: ${{ secrets.TARGET_DIR }}
+          TARGET_DIR: "/var/www/staging/fe-sisfodes"
         run: |
           # cek apakah Secrets TARGET_DIR sudah diatur
           if [ -z "$TARGET_DIR" ]; then
