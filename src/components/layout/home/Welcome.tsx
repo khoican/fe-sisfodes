@@ -17,9 +17,9 @@ export default function Welcome({ greeting, leader }: WelcomeProps) {
   return (
     <section className='w-full grid grid-cols-1 md:grid-cols-3 mt-16 gap-y-8 gap-x-0 md:gap-y-0 md:gap-x-8 items-center p-6 rounded-lg'>
       <div className='col-span-2 flex flex-col gap-2 max-sm:order-2'>
-        <h3 className='text-4xl text-primary font-semibold mb-4'>
+        <h2 className='text-4xl text-primary font-semibold mb-4'>
           Sambutan Kepala Desa
-        </h3>
+        </h2>
         <p className='italic text-muted-foreground'>
           "{greeting}"
         </p>

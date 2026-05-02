@@ -26,9 +26,9 @@ export default function Footer () {
         </p>
 
         <div className='w-full flex items-center gap-4 mt-6'>
-          <Socmed icon={FaFacebook} link='https://www.facebook.com/' />
-          <Socmed icon={FaInstagram} link='https://www.instagram.com/' />
-          <Socmed icon={FaTiktok} link='https://www.tiktok.com/' />
+          <Socmed icon={FaFacebook} link='https://www.facebook.com/' label='Kunjungi Facebook Desa' />
+          <Socmed icon={FaInstagram} link='https://www.instagram.com/' label='Kunjungi Instagram Desa' />
+          <Socmed icon={FaTiktok} link='https://www.tiktok.com/' label='Kunjungi Tiktok Desa' />
         </div>
       </div>
 

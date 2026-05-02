@@ -139,11 +139,11 @@ function PengaduanPage() {
                       </div>
                     </div>
 
-                    <div className='grid md:grid-cols-2 gap-6'>
+                    <div className='grid md:grid-cols-2 gap-6 w-full'>
                       <div className='space-y-2'>
                         <Label htmlFor='category'>Kategori Pengaduan</Label>
-                        <Select required>
-                          <SelectTrigger id='category'>
+                        <Select required >
+                          <SelectTrigger id='category' className='w-full'>
                             <SelectValue placeholder='Pilih kategori' />
                           </SelectTrigger>
                           <SelectContent>

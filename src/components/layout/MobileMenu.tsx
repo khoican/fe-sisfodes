@@ -1,7 +1,7 @@
 'use client'
 
 import type { MenuItem } from '#/constant/menu.constant'
-import { Button } from '@/components/ui/button'
+import { Button } from '#/components/ui/button'
 import { FaBarsStaggered } from 'react-icons/fa6'
 import { NavMenuMobile } from '../shared/navmenu'
 import {
@@ -19,7 +19,7 @@ export function MobileMenu ({ menus }: MobileMenuProps) {
   return (
     <Drawer direction='right'>
       <DrawerTrigger asChild className='flex lg:hidden'>
-        <Button variant='outline'>
+        <Button variant='outline' aria-label='Buka menu'>
           <FaBarsStaggered />
         </Button>
       </DrawerTrigger>

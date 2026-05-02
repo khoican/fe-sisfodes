@@ -16,7 +16,7 @@ export default function ProductCard ({
 }: Product) {
   const onClickContact = () => {
     const whatsappUrl = `https://wa.me/${contact.replace('0', '62')}`
-    window.open(whatsappUrl, '_blank')
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
   }
 
   return (

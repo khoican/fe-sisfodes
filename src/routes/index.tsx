@@ -1,12 +1,4 @@
-import AnnouncementAgenda from '#/components/layout/home/AnnouncementAgenda'
-import Budget from '#/components/layout/home/Budget'
-import Demography from '#/components/layout/home/Demography'
 import Hero from '#/components/layout/home/Hero'
-import Location from '#/components/layout/home/Location'
-import News from '#/components/layout/home/News'
-import ProductSection from '#/components/layout/home/Product'
-import Welcome from '#/components/layout/home/Welcome'
-import { OrganizationCarousel } from '#/components/shared/carousel/organization'
 import { agendaQueryOptions } from '#/services/agenda.service'
 import { budgetQueryOptions } from '#/services/budget.service'
 import { heroQueryOptions } from '#/services/hero.service'
@@ -17,6 +9,19 @@ import { productQueryOptions } from '#/services/product.service'
 import { profileQueryOptions } from '#/services/profile.service'
 import type { Official } from '#/types/official'
 import { createFileRoute } from '@tanstack/react-router'
+import { lazy, Suspense } from 'react'
+
+// Lazy loaded components for better initial performance
+const Demography = lazy(() => import('#/components/layout/home/Demography'))
+const Budget = lazy(() => import('#/components/layout/home/Budget'))
+const Welcome = lazy(() => import('#/components/layout/home/Welcome'))
+const AnnouncementAgenda = lazy(() => import('#/components/layout/home/AnnouncementAgenda'))
+const OrganizationCarousel = lazy(() => import('#/components/shared/carousel/organization').then(m => ({ default: m.OrganizationCarousel })))
+const News = lazy(() => import('#/components/layout/home/News'))
+const ProductSection = lazy(() => import('#/components/layout/home/Product'))
+const Location = lazy(() => import('#/components/layout/home/Location'))
+
+const HomeSkeleton = () => <div className='w-full h-40 bg-muted animate-pulse rounded-xl mt-8' />
 
 export const Route = createFileRoute('/')({
   head: () => ({
@@ -73,35 +78,49 @@ function App () {
     <main className='px-4 lg:px-12 pb-8 pt-8 bg-background text-foreground'>
       <Hero hero={hero} />
 
-      <div className='grid lg:grid-cols-3 gap-y-8 gap-x-0 lg:gap-y-0 lg:gap-x-8 mt-8 w-full'>
-        <Demography population={population} />
-        <Budget budget={budget} />
-      </div>
+      <Suspense fallback={<HomeSkeleton />}>
+        <div className='grid lg:grid-cols-3 gap-y-8 gap-x-0 lg:gap-y-0 lg:gap-x-8 mt-8 w-full'>
+          <Demography population={population} />
+          <Budget budget={budget} />
+        </div>
+      </Suspense>
 
-      <Welcome
-        greeting={profile.greeting}
-        leader={
-          official.find(item => item.position === 'Kepala Desa') as Official
-        }
-      />
+      <Suspense fallback={<HomeSkeleton />}>
+        <Welcome
+          greeting={profile.greeting}
+          leader={
+            official.find(item => item.position === 'Kepala Desa') as Official
+          }
+        />
+      </Suspense>
 
-      <AnnouncementAgenda agenda={agenda} />
+      <Suspense fallback={<HomeSkeleton />}>
+        <AnnouncementAgenda agenda={agenda} />
+      </Suspense>
 
-      <OrganizationCarousel
-        title='Struktur Organisasi'
-        className='mt-16 h-full'
-        official={official}
-      />
+      <Suspense fallback={<HomeSkeleton />}>
+        <OrganizationCarousel
+          title='Struktur Organisasi'
+          className='mt-16 h-full'
+          official={official}
+        />
+      </Suspense>
 
-      <News newsData={newsData} />
+      <Suspense fallback={<HomeSkeleton />}>
+        <News newsData={newsData} />
+      </Suspense>
 
-      <ProductSection products={products} />
+      <Suspense fallback={<HomeSkeleton />}>
+        <ProductSection products={products} />
+      </Suspense>
 
-      <Location
-        address={`${profile.address.address}, ${profile.address.village}, ${profile.address.district}, ${profile.address.regency}`}
-        latitude={profile.coordinates.latitude}
-        longitude={profile.coordinates.longitude}
-      />
+      <Suspense fallback={<HomeSkeleton />}>
+        <Location
+          address={`${profile.address.address}, ${profile.address.village}, ${profile.address.district}, ${profile.address.regency}`}
+          latitude={profile.coordinates.latitude}
+          longitude={profile.coordinates.longitude}
+        />
+      </Suspense>
     </main>
   )
 }

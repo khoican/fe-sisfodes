@@ -13,10 +13,10 @@ export default function Header () {
     <header className='sticky top-0 z-50 border-b px-4 backdrop-blur-lg bg-background/80'>
       <nav className='w-full flex items-center justify-between gap-x-3 gap-y-2 py-3 sm:py-4 px-0 lg:px-8'>
         <h2 className='m-0 shrink-0 text-base font-semibold tracking-tight'>
-          <Link to='/'>
+          <Link to='/' aria-label='Kembali ke Beranda'>
             <Image
               src={logo}
-              alt='Logo'
+              alt='Sisfodes Desa Sumberkejayan'
               layout='fullWidth'
               className='w-full h-8 object-cover'
             />

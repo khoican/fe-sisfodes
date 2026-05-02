@@ -16,7 +16,7 @@ export default function Title ({ title, link }: TitleProps) {
   return (
     <div className='flex items-center justify-between mb-4'>
       <div>
-        <h1 className='text-2xl font-semibold font-poppins mb-1'>{title}</h1>
+        <h2 className='text-2xl font-semibold font-poppins mb-1 text-foreground'>{title}</h2>
 
         <div className='bg-primary rounded-full h-2 w-20'></div>
       </div>
