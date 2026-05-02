@@ -12,6 +12,7 @@ dist-ssr
 __unconfig*
 todos.json
 server.md
+.package-lock.json
 
 # Local Netlify folder
 .netlify
