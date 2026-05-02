@@ -28,13 +28,13 @@ export const Route = createFileRoute('/profil/profil-desa')({
 function Profil() {
   const { profil } = Route.useLoaderData()
 
-  const history = profil?.history
-  const vision = profil?.vision
-  const mission = profil?.mission
+  const history = profil.history
+  const vision = profil.vision
+  const mission = profil.mission
 
   return (
     <main className=''>
-      <section className='grid md:grid-cols-8 gap-10 items-center bg-white px-4 lg:px-12 pb-8 pt-8 rounded-b-xl'>
+      <section className='grid md:grid-cols-8 gap-10 items-center bg-white dark:bg-gray-950 px-4 lg:px-12 pb-8 pt-8 rounded-b-xl'>
         <div className='w-full md:col-span-5'>
           <h1 className='text-6xl font-extrabold'>
             Mengenal <span className='text-primary'>Luhurnya</span> Sejarah Kami
@@ -69,10 +69,10 @@ function Profil() {
             layout='fullWidth'
           />
 
-          <div className='w-full md:col-span-2 bg-white rounded-2xl shadow p-8 border-b-6 border-primary'>
+          <div className='w-full md:col-span-2 bg-card rounded-2xl shadow p-8 border-b-6 border-primary border'>
             <h3 className='text-xl font-semibold text-primary'>Sejarah Awal</h3>
             <p
-              className='flex flex-col gap-4 text-gray-500 mt-4 leading-relaxed'
+              className='flex flex-col gap-4 text-muted-foreground mt-4 leading-relaxed'
               dangerouslySetInnerHTML={{ __html: history }}
               suppressHydrationWarning
             ></p>

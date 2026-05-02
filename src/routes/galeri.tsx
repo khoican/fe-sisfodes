@@ -1,10 +1,10 @@
 import { Badge } from '#/components/ui/badge'
 import { galleryQueryOptions } from '#/services/gallery.service'
+import type { GalleryItem } from '#/types/gallery'
 import { createFileRoute } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
-import { useState, useMemo } from 'react'
-import { Camera, Maximize2, X, Filter, Calendar } from 'lucide-react'
-import type { GalleryItem } from '#/types/gallery'
+import { Calendar, Camera, Filter, Maximize2, X } from 'lucide-react'
+import { useMemo, useState } from 'react'
 
 export const Route = createFileRoute('/galeri')({
   head: () => ({
@@ -161,10 +161,6 @@ function GaleriPage() {
             Kirim Dokumentasi
          </button>
       </section>
-    </main>
-  )
-}
->
     </main>
   )
 }
