@@ -98,7 +98,7 @@ function KependudukanPage() {
               <CardContent className='pt-6'>
                 <div className='flex items-center gap-4'>
                   <div className='p-3 bg-card rounded-2xl shadow-sm text-primary'>
-                    <stat.icon size={24} />
+                    <stat.icon size={24} aria-hidden='true' />
                   </div>
                   <div>
                     <p className='text-xs font-bold text-muted-foreground/70 uppercase tracking-wider'>{stat.label}</p>
@@ -267,7 +267,7 @@ function KependudukanPage() {
               <Clock size={32} />
            </div>
            <div>
-              <h3 className='text-xl font-bold'>Pembaruan Terakhir</h3>
+              <h2 className='text-xl font-bold text-foreground'>Pembaruan Terakhir</h2>
               <p className='text-muted-foreground text-sm'>Data kependudukan diperbarui secara otomatis setiap semester.</p>
            </div>
         </div>

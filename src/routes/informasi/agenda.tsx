@@ -58,12 +58,12 @@ function AgendaPage() {
   }
 
   return (
-    <main className='w-full'>
+    <main className='w-full bg-background'>
       {/* Header */}
-      <section className='bg-background px-4 lg:px-12 py-12 rounded-b-3xl border-b border-border shadow-sm'>
+      <section className='bg-card px-4 lg:px-12 py-12 rounded-b-3xl border-b border-border shadow-sm'>
         <div className='max-w-4xl'>
           <Badge variant='primary' className='mb-4 uppercase tracking-widest'>Kalender Kegiatan</Badge>
-          <h1 className='text-5xl font-extrabold leading-tight'>
+          <h1 className='text-5xl font-extrabold leading-tight text-foreground'>
             Agenda <span className='text-primary'>Desa</span>
           </h1>
           <p className='text-muted-foreground mt-6 text-lg'>
@@ -81,8 +81,8 @@ function AgendaPage() {
             {Object.entries(groupedAgenda).map(([month, items]) => (
               <div key={month} className='space-y-6'>
                 <div className='flex items-center gap-4'>
-                  <h3 className='text-2xl font-bold text-foreground'>{month}</h3>
-                  <div className='flex-grow h-px bg-border'></div>
+                  <h2 className='text-2xl font-bold text-foreground'>{month}</h2>
+                  <div className='flex-grow h-px bg-border' aria-hidden='true'></div>
                 </div>
 
                 <div className='space-y-4'>
@@ -102,17 +102,17 @@ function AgendaPage() {
                               {item.is_holiday && <Badge variant='destructive' className='text-[10px]'>Libur Nasional</Badge>}
                               <Badge variant='outline' className='text-[10px] border-primary/20 text-primary uppercase'>{item.is_national ? 'Nasional' : 'Lokal'}</Badge>
                             </div>
-                            <h4 className='text-xl font-bold text-foreground mb-2'>{item.title}</h4>
+                            <h3 className='text-xl font-bold text-foreground mb-2'>{item.title}</h3>
                             <p className='text-sm text-muted-foreground line-clamp-2'>{item.description}</p>
                           </div>
 
                           <div className='mt-6 flex flex-wrap gap-4 text-xs text-muted-foreground/70'>
                             <div className='flex items-center gap-1.5'>
-                              <Clock size={14} className='text-primary' />
+                              <Clock size={14} className='text-primary' aria-hidden='true' />
                               <span>{item.time.start} - {item.time.end} WIB</span>
                             </div>
                             <div className='flex items-center gap-1.5'>
-                              <MapPin size={14} className='text-primary' />
+                              <MapPin size={14} className='text-primary' aria-hidden='true' />
                               <span>{item.location}</span>
                             </div>
                           </div>
@@ -128,9 +128,9 @@ function AgendaPage() {
           {/* Sidebar / Notice */}
           <div className='lg:col-span-1 space-y-8'>
             <div className='bg-primary text-white p-8 rounded-3xl shadow-xl shadow-primary/20 relative overflow-hidden'>
-               <Bell className='absolute -bottom-10 -right-10 w-40 h-40 text-white/10 -rotate-12' />
+               <Bell className='absolute -bottom-10 -right-10 w-40 h-40 text-white/10 -rotate-12' aria-hidden='true' />
                <div className='relative z-10'>
-                  <h3 className='text-2xl font-bold mb-4'>Langganan Info</h3>
+                  <h2 className='text-2xl font-bold mb-4'>Langganan Info</h2>
                   <p className='text-white/80 text-sm leading-relaxed mb-6'>
                     Dapatkan notifikasi langsung ke WhatsApp Anda untuk setiap agenda desa terbaru.
                   </p>
@@ -142,16 +142,16 @@ function AgendaPage() {
 
             <div className='bg-card p-6 rounded-2xl border border-border shadow-sm'>
                <div className='flex items-center gap-2 mb-4 text-primary font-bold'>
-                  <Info size={20} />
-                  <span>Keterangan</span>
+                  <Info size={20} aria-hidden='true' />
+                  <h2 className='font-bold'>Keterangan</h2>
                </div>
                <ul className='space-y-4'>
                   <li className='flex items-start gap-3 text-sm text-muted-foreground'>
-                     <div className='w-4 h-4 rounded bg-primary shrink-0 mt-0.5'></div>
+                     <div className='w-4 h-4 rounded bg-primary shrink-0 mt-0.5' aria-hidden='true'></div>
                      <span>Agenda Lokal: Kegiatan rutin atau khusus desa.</span>
                   </li>
                   <li className='flex items-start gap-3 text-sm text-muted-foreground'>
-                     <div className='w-4 h-4 rounded bg-destructive shrink-0 mt-0.5'></div>
+                     <div className='w-4 h-4 rounded bg-destructive shrink-0 mt-0.5' aria-hidden='true'></div>
                      <span>Libur Nasional: Kalender resmi pemerintah RI.</span>
                   </li>
                </ul>

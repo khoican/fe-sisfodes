@@ -117,12 +117,12 @@ function IdmPage() {
           </div>
 
           <div className='w-full lg:w-96 h-64 bg-primary/5 rounded-3xl p-8 flex flex-col items-center justify-center relative overflow-hidden'>
-             <TrendingUp className='absolute -bottom-10 -right-10 w-40 h-40 text-primary/10 -rotate-12' />
+             <TrendingUp className='absolute -bottom-10 -right-10 w-40 h-40 text-primary/10 -rotate-12' aria-hidden='true' />
              <div className='relative z-10 text-center'>
                 <div className='w-20 h-20 bg-primary rounded-2xl flex items-center justify-center text-white mx-auto mb-4 shadow-xl shadow-primary/30'>
-                   <ShieldCheck size={40} />
+                   <ShieldCheck size={40} aria-hidden='true' />
                 </div>
-                <h3 className='text-xl font-bold text-foreground'>Desa Mandiri</h3>
+                <h2 className='text-xl font-bold text-foreground'>Desa Mandiri</h2>
                 <p className='text-sm text-muted-foreground mt-1 italic'>Berdasarkan Keputusan Menteri Desa</p>
              </div>
           </div>
@@ -231,10 +231,11 @@ function IdmPage() {
             <Title title='Rincian Indikator' />
             
             <div className='relative w-full md:w-80'>
-               <Search className='absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/70' />
+               <Search className='absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/70' aria-hidden='true' />
                <input
                  type='text'
                  placeholder='Cari indikator...'
+                 aria-label='Cari indikator IDM'
                  className='w-full pl-10 pr-4 py-2.5 bg-card border border-border rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all shadow-sm text-foreground'
                  value={searchQuery}
                  onChange={(e) => setSearchQuery(e.target.value)}

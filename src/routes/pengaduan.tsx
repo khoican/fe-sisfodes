@@ -108,9 +108,9 @@ function PengaduanPage() {
             {isSubmitted ? (
               <div className='mt-8 bg-green-500/10 border border-green-500/20 rounded-3xl p-12 text-center animate-in zoom-in duration-300'>
                 <div className='w-20 h-20 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl shadow-green-500/20'>
-                  <CheckCircle2 size={40} />
+                  <CheckCircle2 size={40} aria-hidden='true' />
                 </div>
-                <h3 className='text-2xl font-bold text-green-600 dark:text-green-400'>Laporan Berhasil Terkirim!</h3>
+                <h2 className='text-2xl font-bold text-green-600 dark:text-green-400'>Laporan Berhasil Terkirim!</h2>
                 <p className='text-green-600/70 dark:text-green-400/70 mt-4 max-w-md mx-auto'>
                   Terima kasih atas laporan Anda. Tim kami akan segera meninjau dan menindaklanjuti 
                   pengaduan tersebut. Nomor tiket laporan telah dikirim ke kontak Anda.

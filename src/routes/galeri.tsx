@@ -42,15 +42,15 @@ function GaleriPage() {
   }, [gallery, selectedCategory])
 
   return (
-    <main className='w-full'>
+    <main className='w-full bg-background'>
       {/* Hero Header */}
-      <section className='bg-white px-4 lg:px-12 py-12 rounded-b-3xl border-b shadow-sm'>
+      <section className='bg-card px-4 lg:px-12 py-12 rounded-b-3xl border-b shadow-sm'>
         <div className='max-w-4xl'>
           <Badge variant='primary' className='mb-4 uppercase tracking-widest'>Dokumentasi Visual</Badge>
-          <h1 className='text-5xl font-extrabold leading-tight'>
+          <h1 className='text-5xl font-extrabold leading-tight text-foreground'>
             Galeri <span className='text-primary'>Desa</span>
           </h1>
-          <p className='text-gray-600 mt-6 text-lg'>
+          <p className='text-muted-foreground mt-6 text-lg'>
             Menyaksikan jejak perkembangan dan keindahan Desa Sumberkejayan melalui 
             lensa kamera. Dokumentasi kegiatan masyarakat, pembangunan infrastruktur, dan pesona alam.
           </p>
@@ -59,15 +59,16 @@ function GaleriPage() {
 
       {/* Filter Section */}
       <section className='mt-12 px-4 lg:px-12'>
-        <div className='flex flex-wrap items-center gap-3 bg-card p-4 rounded-2xl border shadow-sm'>
+        <div className='flex flex-wrap items-center gap-3 bg-card p-4 rounded-2xl border border-border shadow-sm'>
           <div className='flex items-center gap-2 mr-4 text-muted-foreground'>
-             <Filter size={18} />
+             <Filter size={18} aria-hidden='true' />
              <span className='text-sm font-medium'>Filter:</span>
           </div>
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
+              aria-pressed={selectedCategory === cat}
               className={`px-6 py-2 rounded-xl text-sm font-semibold transition-all ${
                 selectedCategory === cat 
                   ? 'bg-primary text-white shadow-lg shadow-primary/20 scale-105' 
@@ -86,8 +87,12 @@ function GaleriPage() {
           {filteredGallery.map((item) => (
             <div 
               key={item.id} 
-              className='relative group break-inside-avoid rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 border bg-white'
+              role='button'
+              tabIndex={0}
+              aria-label={`Lihat detail foto ${item.title}`}
+              className='relative group break-inside-avoid rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500 border border-border bg-card'
               onClick={() => setSelectedImage(item)}
+              onKeyDown={(e) => e.key === 'Enter' && setSelectedImage(item)}
             >
               <Image
                 src={item.image}
@@ -97,14 +102,14 @@ function GaleriPage() {
               />
               
               <div className='absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6'>
-                 <Badge className='w-fit mb-3 bg-primary border-none'>{item.category}</Badge>
-                 <h3 className='text-white font-bold text-lg leading-tight'>{item.title}</h3>
+                 <Badge className='w-fit mb-3 bg-primary border-none text-white'>{item.category}</Badge>
+                 <h2 className='text-white font-bold text-lg leading-tight'>{item.title}</h2>
                  <div className='flex items-center gap-2 text-white/70 text-xs mt-2'>
-                    <Calendar size={12} />
+                    <Calendar size={12} aria-hidden='true' />
                     <span>{new Date(item.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
                  </div>
                  <div className='absolute top-4 right-4 bg-white/20 backdrop-blur-md p-2 rounded-full text-white transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300'>
-                    <Maximize2 size={18} />
+                    <Maximize2 size={18} aria-hidden='true' />
                  </div>
               </div>
             </div>
@@ -114,10 +119,16 @@ function GaleriPage() {
 
       {/* Lightbox / Modal */}
       {selectedImage && (
-        <div className='fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 md:p-12 animate-in fade-in duration-300'>
+        <div 
+          className='fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 md:p-12 animate-in fade-in duration-300'
+          role='dialog'
+          aria-modal='true'
+          aria-labelledby='lightbox-title'
+        >
           <button 
             className='absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-50 p-2 hover:bg-white/10 rounded-full'
             onClick={() => setSelectedImage(null)}
+            aria-label='Tutup galeri'
           >
             <X size={32} />
           </button>
@@ -134,12 +145,12 @@ function GaleriPage() {
             
             <div className='text-center max-w-3xl'>
                <Badge variant='primary' className='mb-3'>{selectedImage.category}</Badge>
-               <h2 className='text-2xl md:text-3xl font-bold text-white'>{selectedImage.title}</h2>
+               <h2 id='lightbox-title' className='text-2xl md:text-3xl font-bold text-white'>{selectedImage.title}</h2>
                {selectedImage.description && (
                  <p className='text-white/60 mt-3 text-sm md:text-base leading-relaxed'>{selectedImage.description}</p>
                )}
                <div className='flex items-center justify-center gap-2 text-white/40 text-xs mt-4'>
-                  <Calendar size={14} />
+                  <Calendar size={14} aria-hidden='true' />
                   <span>Diambil pada: {new Date(selectedImage.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
                </div>
             </div>
@@ -148,12 +159,12 @@ function GaleriPage() {
       )}
 
       {/* Footer Info */}
-      <section className='w-full bg-primary/5 p-12 lg:p-20 flex flex-col items-center text-center gap-6 rounded-t-3xl'>
+      <section className='w-full bg-primary/5 p-12 lg:p-20 flex flex-col items-center text-center gap-6 rounded-t-3xl border-t border-border'>
          <div className='w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-2'>
-            <Camera size={32} />
+            <Camera size={32} aria-hidden='true' />
          </div>
-         <h3 className='text-3xl font-bold'>Kontribusi Dokumentasi</h3>
-         <p className='max-w-2xl text-gray-600 leading-relaxed'>
+         <h2 className='text-3xl font-bold text-foreground'>Kontribusi Dokumentasi</h2>
+         <p className='max-w-2xl text-muted-foreground leading-relaxed'>
            Punya foto atau video menarik tentang kegiatan di Desa Sumberkejayan? 
            Kirimkan karya Anda ke tim admin desa untuk ditampilkan di halaman galeri ini.
          </p>

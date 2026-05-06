@@ -113,19 +113,19 @@ export const MENU: Menu = {
     subMenu: [
       {
         name: 'Surat Keterangan Domisili',
-        path: '/layanan/surat-keterangan-domisili'
+        path: '/layanan/domisili'
       },
       {
         name: 'Surat Keterangan Kehilangan',
-        path: '/layanan/surat-keterangan-kehilangan'
+        path: '/layanan/kehilangan'
       },
       {
         name: 'Surat Keterangan Tidak Mampu',
-        path: '/layanan/surat-keterangan-tidak-mampu'
+        path: '/layanan/tidak-mampu'
       },
       {
         name: 'Surat Keterangan Pindah Kawin',
-        path: '/layanan/surat-keterangan-pindah-kawin'
+        path: '/layanan/pindah-kawin'
       }
     ]
   },
@@ -134,11 +134,11 @@ export const MENU: Menu = {
     subMenu: [
       {
         name: 'Berita',
-        path: '/berita'
+        path: '/informasi/berita'
       },
       {
         name: 'Artikel',
-        path: '/berita'
+        path: '/informasi/artikel'
       },
       {
         name: 'Agenda',
@@ -208,7 +208,7 @@ export const MENU: Menu = {
     name: 'Pengaduan',
     path: '/pengaduan'
   }
-}
+} as const
 
 export const DISPLAY_MENU = [
   MENU.beranda,

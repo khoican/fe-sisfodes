@@ -44,19 +44,20 @@ function DetailProduk () {
 
   const onClickContact = () => {
     const whatsappUrl = `https://wa.me/${produk?.contact.replace('0', '62')}`
-    window.open(whatsappUrl, '_blank')
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
   }
 
   return (
-    <main className='w-full px-4 lg:px-12 py-8'>
+    <main className='w-full px-4 lg:px-12 py-8 bg-background'>
       <section className='grid lg:grid-cols-2 gap-12 mt-8'>
         <div className='flex flex-col gap-4'>
-          <div className='relative overflow-hidden rounded-xl bg-muted aspect-square'>
+          <div className='relative overflow-hidden rounded-xl bg-muted aspect-square shadow-sm'>
             <Image
               src={produk?.image[0] || ''}
               alt={produk?.name || ''}
               layout='fullWidth'
               className='w-full h-full object-center object-cover'
+              priority
             />
           </div>
           <div className='grid grid-cols-4 gap-4'>
@@ -78,21 +79,21 @@ function DetailProduk () {
             <Badge variant='primary' className='w-fit uppercase text-xs tracking-widest'>
               {produk?.category.name}
             </Badge>
-            <h1 className='text-5xl font-bold'>{produk?.name}</h1>
+            <h1 className='text-3xl lg:text-5xl font-bold text-foreground'>{produk?.name}</h1>
             <div className='flex items-center gap-2 text-muted-foreground'>
-              <MdStorefront size={18} />
-              <p className='text-lg font-medium'>{produk?.store}</p>
+              <MdStorefront size={18} aria-hidden='true' />
+              <p className='text-lg font-semibold'>{produk?.store}</p>
             </div>
           </div>
 
-          <p className='text-4xl font-bold text-primary'>
+          <p className='text-4xl font-black text-primary'>
             Rp {produk?.price.toLocaleString('id-ID')}
           </p>
 
-          <div className='h-[1px] w-full bg-border my-2'></div>
+          <div className='h-[1px] w-full bg-border my-2' />
 
           <div className='flex flex-col gap-4'>
-            <h3 className='text-xl font-semibold'>Deskripsi Produk</h3>
+            <h2 className='text-xl font-bold text-foreground'>Deskripsi Produk</h2>
             <article
               className='text-muted-foreground leading-relaxed'
               dangerouslySetInnerHTML={{ __html: produk?.description || '' }}
@@ -101,7 +102,8 @@ function DetailProduk () {
 
           <button
             onClick={onClickContact}
-            className='mt-4 w-full lg:w-fit px-8 py-4 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2'
+            aria-label={`Hubungi penjual ${produk?.name} melalui WhatsApp`}
+            className='mt-4 w-full lg:w-fit px-8 py-4 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-all hover:scale-105 flex items-center justify-center gap-2 shadow-lg shadow-primary/20'
           >
             Hubungi Penjual (WhatsApp)
           </button>

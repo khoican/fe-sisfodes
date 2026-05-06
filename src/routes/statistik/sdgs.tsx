@@ -1,4 +1,3 @@
-import { SdgsChart } from '#/components/shared/chart/sdgs'
 import { Badge } from '#/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '#/components/ui/card'
 import Title from '#/components/ui/title'
@@ -6,7 +5,11 @@ import { sdgsQueryOptions } from '#/services/sdgs.service'
 import { createFileRoute } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
 import { CheckCircle2, Globe, Search, TrendingUp } from 'lucide-react'
-import { useMemo, useState } from 'react'
+import { useMemo, useState, lazy, Suspense } from 'react'
+
+const SdgsChart = lazy(() => import('#/components/shared/chart/sdgs').then(m => ({ default: m.SdgsChart })))
+const ChartSkeleton = () => <div className='w-full h-full bg-muted animate-pulse rounded-3xl' />
+const GoalSkeleton = () => <div className='w-full h-64 bg-muted animate-pulse rounded-xl' />
 
 export const Route = createFileRoute('/statistik/sdgs')({
   head: () => ({
@@ -113,7 +116,9 @@ function SdgsPage () {
       <section className='px-4 lg:px-12 py-16'>
         <Title title='Visualisasi Capaian' />
         <div className='h-140 w-full bg-card p-6 rounded-3xl shadow-sm border border-border mt-8'>
-          <SdgsChart data={sdgs.chart} />
+          <Suspense fallback={<ChartSkeleton />}>
+            <SdgsChart data={sdgs.chart} />
+          </Suspense>
         </div>
       </section>
 
@@ -123,10 +128,11 @@ function SdgsPage () {
           <Title title='18 Tujuan SDGs Desa' />
 
           <div className='relative w-full md:w-80'>
-            <Search className='absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/70' />
+            <Search className='absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/70' aria-hidden='true' />
             <input
               type='text'
               placeholder='Cari tujuan SDGS...'
+              aria-label='Cari tujuan SDGS'
               className='w-full pl-10 pr-4 py-2.5 bg-card border border-border rounded-2xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all shadow-sm text-foreground'
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
@@ -135,56 +141,58 @@ function SdgsPage () {
         </div>
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
-          {filteredGoals.map(goal => (
-            <Card
-              key={goal.goals}
-              className='group border-none shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden bg-card flex flex-col py-0 pb-6 gap-4'
-            >
-              <div className='relative h-48 overflow-hidden'>
-                <Image
-                  src={goal.image}
-                  alt={goal.title}
-                  className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0'
-                  layout='fullWidth'
-                />
-                <div className='absolute top-3 left-3'>
-                  <div className='w-8 h-8 bg-black/50 backdrop-blur-md text-white rounded-lg flex items-center justify-center font-black text-sm border border-white/20'>
-                    {goal.goals}
+          <Suspense fallback={<div className='col-span-full grid grid-cols-1 md:grid-cols-4 gap-6'><GoalSkeleton /><GoalSkeleton /><GoalSkeleton /><GoalSkeleton /></div>}>
+            {filteredGoals.map(goal => (
+              <Card
+                key={goal.goals}
+                className='group border-none shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden bg-card flex flex-col py-0 pb-6 gap-4'
+              >
+                <div className='relative h-48 overflow-hidden'>
+                  <Image
+                    src={goal.image}
+                    alt={goal.title}
+                    className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0'
+                    layout='fullWidth'
+                  />
+                  <div className='absolute top-3 left-3'>
+                    <div className='w-8 h-8 bg-black/50 backdrop-blur-md text-white rounded-lg flex items-center justify-center font-black text-sm border border-white/20'>
+                      {goal.goals}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <CardHeader className='grow'>
-                <CardTitle className='text-sm group-hover:text-primary transition-colors leading-snug h-10 line-clamp-2'>
-                  {goal.title}
-                </CardTitle>
-              </CardHeader>
+                <CardHeader className='grow'>
+                  <CardTitle className='text-sm group-hover:text-primary transition-colors leading-snug h-10 line-clamp-2'>
+                    {goal.title}
+                  </CardTitle>
+                </CardHeader>
 
-              <CardContent>
-                <div className='flex items-center justify-between mb-2'>
-                  <span
-                    className={`text-xl font-black ${getScoreColor(
-                      goal.score
-                    )}`}
-                  >
-                    {goal.score}
-                  </span>
-                  <span className='text-[10px] font-bold text-muted-foreground/70 uppercase'>
-                    Capaian
-                  </span>
-                </div>
+                <CardContent>
+                  <div className='flex items-center justify-between mb-2'>
+                    <span
+                      className={`text-xl font-black ${getScoreColor(
+                        goal.score
+                      )}`}
+                    >
+                      {goal.score}
+                    </span>
+                    <span className='text-[10px] font-bold text-muted-foreground/70 uppercase'>
+                      Capaian
+                    </span>
+                  </div>
 
-                <div className='w-full bg-muted rounded-full h-1.5 overflow-hidden'>
-                  <div
-                    className={`h-full rounded-full transition-all duration-1000 ${getProgressColor(
-                      goal.score
-                    )}`}
-                    style={{ width: `${goal.score}%` }}
-                  />
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                  <div className='w-full bg-muted rounded-full h-1.5 overflow-hidden'>
+                    <div
+                      className={`h-full rounded-full transition-all duration-1000 ${getProgressColor(
+                        goal.score
+                      )}`}
+                      style={{ width: `${goal.score}%` }}
+                    />
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </Suspense>
         </div>
 
         {filteredGoals.length === 0 && (
@@ -199,10 +207,10 @@ function SdgsPage () {
       {/* Action Footer */}
       <section className='px-4 lg:px-12 py-16 bg-background border-t border-border'>
         <div className='bg-primary rounded-[2rem] p-12 text-white flex flex-col md:flex-row items-center gap-12 relative overflow-hidden'>
-          <CheckCircle2 className='absolute -bottom-10 -left-10 w-48 h-48 text-white/10' />
+          <CheckCircle2 className='absolute -bottom-10 -left-10 w-48 h-48 text-white/10' aria-hidden='true' />
           <div className='flex-1 z-10'>
-            <h3 className='text-3xl font-bold mb-4'>Komitmen Keberlanjutan</h3>
-            <p className='text-white/80 leading-relaxed max-w-2xl'>
+            <h2 className='text-3xl font-bold mb-4'>Komitmen Keberlanjutan</h2>
+            <p className='text-white/80 leading-relaxed max-w-2xl text-lg'>
               Pemerintah Desa Sumberkejayan terus berupaya mengintegrasikan
               tujuan-tujuan SDGs dalam setiap kebijakan pembangunan desa. Kami
               percaya bahwa masa depan yang lebih baik dimulai dari aksi nyata
