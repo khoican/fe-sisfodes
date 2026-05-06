@@ -16,5 +16,8 @@ export const ENDPOINTS = {
     geography: '/geography',
     facilities: '/facilities',
     gallery: '/gallery',
-    institutions: '/institutions'
+    institutions: '/institutions',
+    artikel: '/artikel',
+    penghargaan: '/penghargaan',
+    publikasi: '/publication'
     }

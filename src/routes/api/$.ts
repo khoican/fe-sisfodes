@@ -1,3 +1,6 @@
+import { publicationData } from '#/data/publication.data'
+import { artikelData } from '#/data/artikel.data'
+import { penghargaanData } from '#/data/penghargaan.data'
 import { agendaData } from '#/data/agenda.data'
 import { budgetData } from '#/data/budget.data'
 import { footerData } from '#/data/footer.data'
@@ -48,7 +51,10 @@ export const Route = createFileRoute('/api/$')({
           geography: geographyData,
           facilities: facilityData,
           gallery: galleryData,
-          institutions: institutionData
+          institutions: institutionData,
+          artikel: artikelData,
+          penghargaan: penghargaanData,
+          publication: publicationData
         }
 
         try {

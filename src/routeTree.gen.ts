@@ -16,6 +16,10 @@ import { Route as ProdukIndexRouteImport } from './routes/produk/index'
 import { Route as StatistikSdgsRouteImport } from './routes/statistik/sdgs'
 import { Route as StatistikKependudukanRouteImport } from './routes/statistik/kependudukan'
 import { Route as StatistikIdmRouteImport } from './routes/statistik/idm'
+import { Route as PublikasiRpjmdesRouteImport } from './routes/publikasi/rpjmdes'
+import { Route as PublikasiRkpdesRouteImport } from './routes/publikasi/rkpdes'
+import { Route as PublikasiRapbdesRouteImport } from './routes/publikasi/rapbdes'
+import { Route as PublikasiBankDataRouteImport } from './routes/publikasi/bank-data'
 import { Route as PublikasiApbdesRouteImport } from './routes/publikasi/apbdes'
 import { Route as ProfilStrukturOrganisasiRouteImport } from './routes/profil/struktur-organisasi'
 import { Route as ProfilProfilDesaRouteImport } from './routes/profil/profil-desa'
@@ -28,6 +32,8 @@ import { Route as LayananTidakMampuRouteImport } from './routes/layanan/tidak-ma
 import { Route as LayananPindahKawinRouteImport } from './routes/layanan/pindah-kawin'
 import { Route as LayananKehilanganRouteImport } from './routes/layanan/kehilangan'
 import { Route as LayananDomisiliRouteImport } from './routes/layanan/domisili'
+import { Route as InformasiPenghargaanRouteImport } from './routes/informasi/penghargaan'
+import { Route as InformasiArtikelRouteImport } from './routes/informasi/artikel'
 import { Route as InformasiAgendaRouteImport } from './routes/informasi/agenda'
 import { Route as ApiSplatRouteImport } from './routes/api/$'
 import { Route as InformasiBeritaIndexRouteImport } from './routes/informasi/berita/index'
@@ -66,6 +72,26 @@ const StatistikKependudukanRoute = StatistikKependudukanRouteImport.update({
 const StatistikIdmRoute = StatistikIdmRouteImport.update({
   id: '/statistik/idm',
   path: '/statistik/idm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PublikasiRpjmdesRoute = PublikasiRpjmdesRouteImport.update({
+  id: '/publikasi/rpjmdes',
+  path: '/publikasi/rpjmdes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PublikasiRkpdesRoute = PublikasiRkpdesRouteImport.update({
+  id: '/publikasi/rkpdes',
+  path: '/publikasi/rkpdes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PublikasiRapbdesRoute = PublikasiRapbdesRouteImport.update({
+  id: '/publikasi/rapbdes',
+  path: '/publikasi/rapbdes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PublikasiBankDataRoute = PublikasiBankDataRouteImport.update({
+  id: '/publikasi/bank-data',
+  path: '/publikasi/bank-data',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PublikasiApbdesRoute = PublikasiApbdesRouteImport.update({
@@ -129,6 +155,16 @@ const LayananDomisiliRoute = LayananDomisiliRouteImport.update({
   path: '/layanan/domisili',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InformasiPenghargaanRoute = InformasiPenghargaanRouteImport.update({
+  id: '/informasi/penghargaan',
+  path: '/informasi/penghargaan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InformasiArtikelRoute = InformasiArtikelRouteImport.update({
+  id: '/informasi/artikel',
+  path: '/informasi/artikel',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InformasiAgendaRoute = InformasiAgendaRouteImport.update({
   id: '/informasi/agenda',
   path: '/informasi/agenda',
@@ -156,6 +192,8 @@ export interface FileRoutesByFullPath {
   '/pengaduan': typeof PengaduanRoute
   '/api/$': typeof ApiSplatRoute
   '/informasi/agenda': typeof InformasiAgendaRoute
+  '/informasi/artikel': typeof InformasiArtikelRoute
+  '/informasi/penghargaan': typeof InformasiPenghargaanRoute
   '/layanan/domisili': typeof LayananDomisiliRoute
   '/layanan/kehilangan': typeof LayananKehilanganRoute
   '/layanan/pindah-kawin': typeof LayananPindahKawinRoute
@@ -168,6 +206,10 @@ export interface FileRoutesByFullPath {
   '/profil/profil-desa': typeof ProfilProfilDesaRoute
   '/profil/struktur-organisasi': typeof ProfilStrukturOrganisasiRoute
   '/publikasi/apbdes': typeof PublikasiApbdesRoute
+  '/publikasi/bank-data': typeof PublikasiBankDataRoute
+  '/publikasi/rapbdes': typeof PublikasiRapbdesRoute
+  '/publikasi/rkpdes': typeof PublikasiRkpdesRoute
+  '/publikasi/rpjmdes': typeof PublikasiRpjmdesRoute
   '/statistik/idm': typeof StatistikIdmRoute
   '/statistik/kependudukan': typeof StatistikKependudukanRoute
   '/statistik/sdgs': typeof StatistikSdgsRoute
@@ -181,6 +223,8 @@ export interface FileRoutesByTo {
   '/pengaduan': typeof PengaduanRoute
   '/api/$': typeof ApiSplatRoute
   '/informasi/agenda': typeof InformasiAgendaRoute
+  '/informasi/artikel': typeof InformasiArtikelRoute
+  '/informasi/penghargaan': typeof InformasiPenghargaanRoute
   '/layanan/domisili': typeof LayananDomisiliRoute
   '/layanan/kehilangan': typeof LayananKehilanganRoute
   '/layanan/pindah-kawin': typeof LayananPindahKawinRoute
@@ -193,6 +237,10 @@ export interface FileRoutesByTo {
   '/profil/profil-desa': typeof ProfilProfilDesaRoute
   '/profil/struktur-organisasi': typeof ProfilStrukturOrganisasiRoute
   '/publikasi/apbdes': typeof PublikasiApbdesRoute
+  '/publikasi/bank-data': typeof PublikasiBankDataRoute
+  '/publikasi/rapbdes': typeof PublikasiRapbdesRoute
+  '/publikasi/rkpdes': typeof PublikasiRkpdesRoute
+  '/publikasi/rpjmdes': typeof PublikasiRpjmdesRoute
   '/statistik/idm': typeof StatistikIdmRoute
   '/statistik/kependudukan': typeof StatistikKependudukanRoute
   '/statistik/sdgs': typeof StatistikSdgsRoute
@@ -207,6 +255,8 @@ export interface FileRoutesById {
   '/pengaduan': typeof PengaduanRoute
   '/api/$': typeof ApiSplatRoute
   '/informasi/agenda': typeof InformasiAgendaRoute
+  '/informasi/artikel': typeof InformasiArtikelRoute
+  '/informasi/penghargaan': typeof InformasiPenghargaanRoute
   '/layanan/domisili': typeof LayananDomisiliRoute
   '/layanan/kehilangan': typeof LayananKehilanganRoute
   '/layanan/pindah-kawin': typeof LayananPindahKawinRoute
@@ -219,6 +269,10 @@ export interface FileRoutesById {
   '/profil/profil-desa': typeof ProfilProfilDesaRoute
   '/profil/struktur-organisasi': typeof ProfilStrukturOrganisasiRoute
   '/publikasi/apbdes': typeof PublikasiApbdesRoute
+  '/publikasi/bank-data': typeof PublikasiBankDataRoute
+  '/publikasi/rapbdes': typeof PublikasiRapbdesRoute
+  '/publikasi/rkpdes': typeof PublikasiRkpdesRoute
+  '/publikasi/rpjmdes': typeof PublikasiRpjmdesRoute
   '/statistik/idm': typeof StatistikIdmRoute
   '/statistik/kependudukan': typeof StatistikKependudukanRoute
   '/statistik/sdgs': typeof StatistikSdgsRoute
@@ -234,6 +288,8 @@ export interface FileRouteTypes {
     | '/pengaduan'
     | '/api/$'
     | '/informasi/agenda'
+    | '/informasi/artikel'
+    | '/informasi/penghargaan'
     | '/layanan/domisili'
     | '/layanan/kehilangan'
     | '/layanan/pindah-kawin'
@@ -246,6 +302,10 @@ export interface FileRouteTypes {
     | '/profil/profil-desa'
     | '/profil/struktur-organisasi'
     | '/publikasi/apbdes'
+    | '/publikasi/bank-data'
+    | '/publikasi/rapbdes'
+    | '/publikasi/rkpdes'
+    | '/publikasi/rpjmdes'
     | '/statistik/idm'
     | '/statistik/kependudukan'
     | '/statistik/sdgs'
@@ -259,6 +319,8 @@ export interface FileRouteTypes {
     | '/pengaduan'
     | '/api/$'
     | '/informasi/agenda'
+    | '/informasi/artikel'
+    | '/informasi/penghargaan'
     | '/layanan/domisili'
     | '/layanan/kehilangan'
     | '/layanan/pindah-kawin'
@@ -271,6 +333,10 @@ export interface FileRouteTypes {
     | '/profil/profil-desa'
     | '/profil/struktur-organisasi'
     | '/publikasi/apbdes'
+    | '/publikasi/bank-data'
+    | '/publikasi/rapbdes'
+    | '/publikasi/rkpdes'
+    | '/publikasi/rpjmdes'
     | '/statistik/idm'
     | '/statistik/kependudukan'
     | '/statistik/sdgs'
@@ -284,6 +350,8 @@ export interface FileRouteTypes {
     | '/pengaduan'
     | '/api/$'
     | '/informasi/agenda'
+    | '/informasi/artikel'
+    | '/informasi/penghargaan'
     | '/layanan/domisili'
     | '/layanan/kehilangan'
     | '/layanan/pindah-kawin'
@@ -296,6 +364,10 @@ export interface FileRouteTypes {
     | '/profil/profil-desa'
     | '/profil/struktur-organisasi'
     | '/publikasi/apbdes'
+    | '/publikasi/bank-data'
+    | '/publikasi/rapbdes'
+    | '/publikasi/rkpdes'
+    | '/publikasi/rpjmdes'
     | '/statistik/idm'
     | '/statistik/kependudukan'
     | '/statistik/sdgs'
@@ -310,6 +382,8 @@ export interface RootRouteChildren {
   PengaduanRoute: typeof PengaduanRoute
   ApiSplatRoute: typeof ApiSplatRoute
   InformasiAgendaRoute: typeof InformasiAgendaRoute
+  InformasiArtikelRoute: typeof InformasiArtikelRoute
+  InformasiPenghargaanRoute: typeof InformasiPenghargaanRoute
   LayananDomisiliRoute: typeof LayananDomisiliRoute
   LayananKehilanganRoute: typeof LayananKehilanganRoute
   LayananPindahKawinRoute: typeof LayananPindahKawinRoute
@@ -322,6 +396,10 @@ export interface RootRouteChildren {
   ProfilProfilDesaRoute: typeof ProfilProfilDesaRoute
   ProfilStrukturOrganisasiRoute: typeof ProfilStrukturOrganisasiRoute
   PublikasiApbdesRoute: typeof PublikasiApbdesRoute
+  PublikasiBankDataRoute: typeof PublikasiBankDataRoute
+  PublikasiRapbdesRoute: typeof PublikasiRapbdesRoute
+  PublikasiRkpdesRoute: typeof PublikasiRkpdesRoute
+  PublikasiRpjmdesRoute: typeof PublikasiRpjmdesRoute
   StatistikIdmRoute: typeof StatistikIdmRoute
   StatistikKependudukanRoute: typeof StatistikKependudukanRoute
   StatistikSdgsRoute: typeof StatistikSdgsRoute
@@ -379,6 +457,34 @@ declare module '@tanstack/react-router' {
       path: '/statistik/idm'
       fullPath: '/statistik/idm'
       preLoaderRoute: typeof StatistikIdmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/publikasi/rpjmdes': {
+      id: '/publikasi/rpjmdes'
+      path: '/publikasi/rpjmdes'
+      fullPath: '/publikasi/rpjmdes'
+      preLoaderRoute: typeof PublikasiRpjmdesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/publikasi/rkpdes': {
+      id: '/publikasi/rkpdes'
+      path: '/publikasi/rkpdes'
+      fullPath: '/publikasi/rkpdes'
+      preLoaderRoute: typeof PublikasiRkpdesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/publikasi/rapbdes': {
+      id: '/publikasi/rapbdes'
+      path: '/publikasi/rapbdes'
+      fullPath: '/publikasi/rapbdes'
+      preLoaderRoute: typeof PublikasiRapbdesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/publikasi/bank-data': {
+      id: '/publikasi/bank-data'
+      path: '/publikasi/bank-data'
+      fullPath: '/publikasi/bank-data'
+      preLoaderRoute: typeof PublikasiBankDataRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/publikasi/apbdes': {
@@ -465,6 +571,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayananDomisiliRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/informasi/penghargaan': {
+      id: '/informasi/penghargaan'
+      path: '/informasi/penghargaan'
+      fullPath: '/informasi/penghargaan'
+      preLoaderRoute: typeof InformasiPenghargaanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/informasi/artikel': {
+      id: '/informasi/artikel'
+      path: '/informasi/artikel'
+      fullPath: '/informasi/artikel'
+      preLoaderRoute: typeof InformasiArtikelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/informasi/agenda': {
       id: '/informasi/agenda'
       path: '/informasi/agenda'
@@ -502,6 +622,8 @@ const rootRouteChildren: RootRouteChildren = {
   PengaduanRoute: PengaduanRoute,
   ApiSplatRoute: ApiSplatRoute,
   InformasiAgendaRoute: InformasiAgendaRoute,
+  InformasiArtikelRoute: InformasiArtikelRoute,
+  InformasiPenghargaanRoute: InformasiPenghargaanRoute,
   LayananDomisiliRoute: LayananDomisiliRoute,
   LayananKehilanganRoute: LayananKehilanganRoute,
   LayananPindahKawinRoute: LayananPindahKawinRoute,
@@ -514,6 +636,10 @@ const rootRouteChildren: RootRouteChildren = {
   ProfilProfilDesaRoute: ProfilProfilDesaRoute,
   ProfilStrukturOrganisasiRoute: ProfilStrukturOrganisasiRoute,
   PublikasiApbdesRoute: PublikasiApbdesRoute,
+  PublikasiBankDataRoute: PublikasiBankDataRoute,
+  PublikasiRapbdesRoute: PublikasiRapbdesRoute,
+  PublikasiRkpdesRoute: PublikasiRkpdesRoute,
+  PublikasiRpjmdesRoute: PublikasiRpjmdesRoute,
   StatistikIdmRoute: StatistikIdmRoute,
   StatistikKependudukanRoute: StatistikKependudukanRoute,
   StatistikSdgsRoute: StatistikSdgsRoute,

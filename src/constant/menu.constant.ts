@@ -188,7 +188,7 @@ export const MENU: Menu = {
       },
       {
         name: 'RAPBDes',
-        path: '/publikasi/apbdes'
+        path: '/publikasi/rapbdes'
       },
       {
         name: 'Dana Desa',
