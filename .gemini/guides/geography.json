@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "code": 200,
+    "message": "Success"
+  },
+  "response": {
+    "total_area": 125.5,
+    "topography": "Dataran Rendah",
+    "altitude": 150,
+    "climate": "Tropis (24°C - 32°C)",
+    "borders": {
+      "north": "Desa Sukomaju",
+      "south": "Desa Sumberasri",
+      "east": "Kecamatan Rejoagung",
+      "west": "Hutan Lindung Perhutani"
+    },
+    "land_use": [
+      { "label": "Lahan Pertanian", "area": 75.2, "percentage": 60 }
+    ],
+    "last_updated": "2025-01-01"
+  }
+}

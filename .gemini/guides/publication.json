@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "code": 200,
+    "message": "Success"
+  },
+  "response": [
+    {
+      "slug": "rpjmdes",
+      "name": "RPJMDes",
+      "documents": [
+        {
+          "id": "rpjmdes-2020-2026",
+          "title": "Rencana Pembangunan Jangka Menengah Desa (RPJMDes) 2020-2026",
+          "description": "Dokumen perencanaan strategis desa untuk jangka waktu 6 tahun.",
+          "file_url": "https://example.com/documents/rpjmdes-2020-2026.pdf",
+          "file_type": "pdf",
+          "file_size": "5.2 MB",
+          "created_at": "2020-03-12"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "code": 200,
+    "message": "Success"
+  },
+  "response": [
+    {
+      "id": "G-001",
+      "title": "Panen Raya Padi Organik",
+      "image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop",
+      "category": "Kegiatan",
+      "description": "Kegiatan syukuran panen raya padi organik bersama seluruh warga desa.",
+      "date": "2025-05-15"
+    }
+  ]
+}

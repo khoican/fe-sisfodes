@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "code": 200,
+    "message": "Success"
+  },
+  "response": [
+    {
+      "id": "1",
+      "title": "Wafat Yesus Kristus",
+      "description": "Hari Libur Nasional",
+      "date": {
+        "start": "2026-04-03",
+        "end": "2026-04-03"
+      },
+      "time": {
+        "start": "00:00",
+        "end": "23:59"
+      },
+      "location": "Nasional",
+      "is_national": true,
+      "is_holiday": true,
+      "last_updated": "2025-01-01T00:00:00Z"
+    }
+  ]
+}

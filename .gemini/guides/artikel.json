@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "code": 200,
+    "message": "Success"
+  },
+  "response": [
+    {
+      "id": 1,
+      "slug": "pentingnya-menjaga-kebersihan-lingkungan-desa",
+      "title": "Pentingnya Menjaga Kebersihan Lingkungan Desa",
+      "description": "Artikel edukasi mengenai cara sederhana menjaga keasrian lingkungan desa demi kesehatan bersama.",
+      "content": "<p>Kebersihan lingkungan merupakan faktor utama dalam menciptakan kehidupan yang sehat dan nyaman. Di lingkungan desa, menjaga kebersihan bisa dimulai dari hal-hal kecil seperti tidak membuang sampah sembarangan dan rutin membersihkan halaman rumah sendiri.</p>",
+      "image": "https://ik.imagekit.io/rulls/sisfodes/demo/news/inovasi-pengolahan-sampah-menjadi-pupuk-organik.jpg?tr-f=webp",
+      "category": { "id": 1, "name": "Edukasi" },
+      "author": "Admin Desa",
+      "created_at": "2026-05-01T08:00:00"
+    }
+  ]
+}

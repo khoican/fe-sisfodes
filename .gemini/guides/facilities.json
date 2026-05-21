@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "code": 200,
+    "message": "Success"
+  },
+  "response": [
+    {
+      "id": "FAC-001",
+      "name": "SDN Sumberkejayan 01",
+      "category": "Pendidikan",
+      "address": "Jl. Pendidikan No. 12, Sumberkejayan",
+      "coordinates": { "lat": -8.123456, "lng": 113.654321 },
+      "description": "Sekolah Dasar Negeri utama di desa dengan fasilitas perpustakaan digital dan laboratorium komputer.",
+      "image": "https://images.unsplash.com/photo-1577891729319-663092288981?q=80&w=1000&auto=format&fit=crop",
+      "status": "Aktif",
+      "metadata": {
+        "Akreditasi": "A",
+        "Jumlah Guru": 18,
+        "Jumlah Siswa": 245,
+        "Luas Bangunan": "1200 m2"
+      },
+      "last_updated": "2025-01-15"
+    }
+  ]
+}
