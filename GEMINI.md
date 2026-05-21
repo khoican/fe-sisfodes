@@ -42,6 +42,7 @@ Primary guide for the frontend development of the SISFODES project. All changes 
 - **Documentation**: Use JSDoc for functions/components (description, param, return, example).
 
 ## 5. Development Workflows
+- **Code Analysis Mandate**: Always use the `code-analyzer` skill before finalizing any code modification (create, refactor, or update) to ensure architectural consistency, SSR safety, and proper Axios/hooks usage.
 - **JSDoc Mandate**: Always use the `jsdoc-generator` skill to generate or update JSDoc whenever code is created, refactored, or modified. Every JSDoc block must include `@description`, `@param`, `@return`, and `@example`.
 - **Data Fetching**: Must use **TanStack Query**.
 - **Query Keys**: Use *Function-based Query Keys* centralized in `src/constant/queryKeys.ts`.
