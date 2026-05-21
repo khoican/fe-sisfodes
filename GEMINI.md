@@ -1,45 +1,72 @@
-# PROYEK: FRONTEND - SISFODES (Sistem Informasi Desa)
-# OWNER: ANTARDATA CAKRAWALA TEKNOLOGI
+# GEMINI.md - SISFODES (Village Information System)
 
-# 1. Konteks Bisni
-- **Tujuan**: Website profil desa yang menampilkan data-data desa seperti kependudukan, anggaran, produk UMKM, kegiata, berita desa, layanan, dan kontak.
-- **Prinsip**: Website harus ringan, mobile-friendly (karena perangkat atau jaringan yang digunakan oleh masyarakat terkadang masih menggunakan teknologi lama), dan aman.
+Primary guide for the frontend development of the SISFODES project. All changes and agent interactions must comply with the standards set in this document.
 
-# 2. Tech Stack dan Standard Coding
-- **Frontend**: Tanstack Start dengan typescript.
-- **Styling**: Tailwind CSS (Utility-first, hindari penggunaan inline styles jika memungkinkan, dan hindari pembuatan custom css).
-- **Icons**: Gunakan Lucide React untuk pilihan pertama, dan jika icon tidak ada gunakan React Icon.
-- **Naming Convention**: camelCase.
+## 1. Project Overview
+- **Project Name**: SISFODES (Sistem Informasi Desa)
+- **Owner**: ANTARDATA CAKRAWALA TEKNOLOGI
+- **Objective**: Build a comprehensive village portal (population, budget, MSMEs, news, public services).
+- **Core Principles**:
+  - **Performance**: Must be very lightweight and fast to access.
+  - **Accessibility**: Mobile-friendly for users with limited devices or networks.
+  - **Security**: Ensures the security of village information data.
 
-## 3. Aturan Respons (Personalization)
-- **Gaya**: To the point, teknis, objektif.
-- **Bahasa**: Indonesia (Instruksi), Inggris (Terminologi Teknis).
-- **Output**: Kode siap pakai (Copy-pasteable) dengan penjelasan JSDoc yang berisi description, param, return, dan example,.
+## 2. Tech Stack
+- **Framework**: TanStack Start (TypeScript).
+- **Styling**: Tailwind CSS (Utility-first).
+  - *Mandate*: Avoid inline styles and pure custom CSS.
+- **Icons**:
+  - Priority 1: `lucide-react`.
+  - Priority 2: `react-icons` (only if not available in Lucide).
+- **Components**: Shadcn UI (based on `src/components/ui`).
 
-## 4. Arsitektur Folder
-- `src/assets/`: Media (Gunakan import, hindari hardcoded path).
-- `src/components/layout`: Navbar, Footer, Sidebar.
-- `src/components/shared`: Card, Carousel, Chart (Molecule components).
-- `src/components/ui`: Base components (Shadcn UI).
-- `src/routes/`: Routing & Page logic (TanStack Router).
-- `src/types/`: Centralized interfaces (Jika dipakai >2 file).
-- `src/hooks/` & `src/utils/`: Reusable logic.
+## 3. Folder Architecture & Pathing
+- **Alias Path**: Use `#` to refer to the `src/` directory (e.g., `#components/ui/button`).
+- **Structure**:
+  - `src/assets/`: Media/static files (must be via import).
+  - `src/components/layout/`: Structural components (Header, Footer, Sidebar).
+  - `src/components/shared/`: Molecular/reusable components (Card, Chart, Carousel).
+  - `src/components/ui/`: Base components (Shadcn UI).
+  - `src/routes/`: Routing logic and pages (TanStack Router).
+  - `src/types/`: Centralized interfaces (if used in >2 files).
+  - `src/hooks/` & `src/utils/`: Business logic and reusable utilities.
+  - `src/data/`: Dummy or static data in `.json` format.
 
-## 5. Instruksi Pengembangan
-- **Fetching**: Wajib menggunakan TanStack Query.
-- **State Management**: Utamakan URL State atau TanStack Query Cache.
-- **Dry Rule**: Refactor fungsi/type yang digunakan >2 kali ke folder utils/types.
-- **Dummy Data**: Gunakan file `.json` di `src/data/`.
-- **Git Flow**: Selesaikan tugas sampai tahap `git commit`. JANGAN melakukan `git push`.
-- **SEO**: Optimisasi penggunaan tag untuk kebutuhan SEO.
+## 4. Coding Standards & Style
+- **Indentation**: 2 spaces.
+- **Naming**: `camelCase` for variables/functions, `PascalCase` for components/types.
+- **Strictness**: Always use strict equality (`===` and `!==`).
+- **Optimization**:
+  - Use `useMemo` and `useCallback` to prevent re-renders on heavy operations.
+  - Minimize `useEffect`; prioritize event handlers or query logic.
+- **Documentation**: Use JSDoc for functions/components (description, param, return, example).
 
-## 6. Coding Style
-- Menggunakan indentasi 2 spasi.
-- Selalu gunakan strict equality (`===` dan `!==`) jika memungkinkan.
-- Optimasi: Gunakan `useMemo` dan `useCallback` untuk mencegah re-render berat.
-- Minimalisir `useEffect`: Gunakan event handlers atau Query logic jika memungkinkan.
-- inisialisasi path `src/` menggunakan tag atau pagar (#).
-- TanStack Query: Gunakan Function-based Query Keys (misal: queryKeys.user.detail(id)) di dalam file src/constant/queryKeys.ts agar manajemen cache terorganisir.
+## 5. Development Workflows
+- **JSDoc Mandate**: Always use the `jsdoc-generator` skill to generate or update JSDoc whenever code is created, refactored, or modified. Every JSDoc block must include `@description`, `@param`, `@return`, and `@example`.
+- **Data Fetching**: Must use **TanStack Query**.
+- **Query Keys**: Use *Function-based Query Keys* centralized in `src/constant/queryKeys.ts`.
+- **State Management**:
+  - Priority 1: URL State (Search params).
+  - Priority 2: TanStack Query Cache.
+- **DRY (Don't Repeat Yourself)**: Refactor logic/types to `utils/` or `types/` if they appear >2 times.
+- **SEO**: Use semantic HTML tags and proper metadata.
+- **Error Handling**: Every main route must have error handling and informative fallback UI.
+- **Git Flow**:
+  - Complete tasks up to the `git commit` stage.
+  - **Strictly prohibited** to `git push` unless explicitly instructed.
 
-## 7. Error Handling
-- Setiap komponen route utama di src/routes/ harus memiliki penanganan error atau fallback UI yang informatif bagi pengguna desa.
+## 6. Testing Strategy
+- **Framework**: Vitest with React Testing Library and JSDOM.
+- **Placement**: Keep tests alongside source files (e.g., `ComponentName.test.tsx`) or in `src/test/` for global setups.
+- **Coverage**: Aim for high coverage; use `npm run test:coverage` to verify.
+- **Commands**:
+  - `npm test`: Interactive mode.
+  - `npm run test:run`: Run all tests once (CI/CD friendly).
+  - `npm run test:coverage`: Run tests and generate coverage report.
+
+## 7. Agent Interaction Guidelines
+- **Communication Style**: To the point, technical, and objective.
+- **Language**:
+  - **Instructions/Explanations**: English.
+  - **Technical Terminology**: English.
+- **Output**: Code must be ready to use (copy-pasteable) and structurally tested according to the project architecture.
