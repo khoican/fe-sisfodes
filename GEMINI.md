@@ -58,7 +58,9 @@ Primary guide for the frontend development of the SISFODES project. All changes 
 
 ## 6. Testing Strategy
 - **Framework**: Vitest with React Testing Library and JSDOM.
-- **Placement**: Keep tests alongside source files (e.g., `ComponentName.test.tsx`) or in `src/test/` for global setups.
+- **Placement**: 
+  - `src/test/ui/`: UI component integration tests.
+  - `src/test/logic/`: Business logic, loaders, and utility unit tests.
 - **Coverage**: Aim for high coverage; use `npm run test:coverage` to verify.
 - **Commands**:
   - `npm test`: Interactive mode.

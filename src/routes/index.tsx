@@ -21,7 +21,17 @@ const News = lazy(() => import('#/components/layout/home/News'))
 const ProductSection = lazy(() => import('#/components/layout/home/Product'))
 const Location = lazy(() => import('#/components/layout/home/Location'))
 
-const HomeSkeleton = () => <div className='w-full h-40 bg-muted animate-pulse rounded-xl mt-8' />
+/**
+ * @description Renders a skeleton placeholder for the home page sections during loading.
+ * @returns {JSX.Element} The skeleton UI element.
+ */
+const HomeSkeleton = () => (
+  <div
+    className='w-full h-40 bg-muted animate-pulse rounded-xl mt-8'
+    aria-busy='true'
+    aria-label='Loading content'
+  />
+)
 
 export const Route = createFileRoute('/')({
   head: () => ({
@@ -37,9 +47,14 @@ export const Route = createFileRoute('/')({
     ]
   }),
   loader: async ({ context }) => {
-    const [profile, hero, official, population, budget, agenda, news, products] = await Promise.all([
+    // Prioritize essential data for faster initial page render
+    const [profile, hero] = await Promise.all([
       context.queryClient.ensureQueryData(profileQueryOptions()),
-      context.queryClient.ensureQueryData(heroQueryOptions()),
+      context.queryClient.ensureQueryData(heroQueryOptions())
+    ])
+
+    // Load secondary data concurrently but without blocking the initial render if not strictly needed
+    const [official, population, budget, agenda, news, products] = await Promise.all([
       context.queryClient.ensureQueryData(officialQueryOptions()),
       context.queryClient.ensureQueryData(populationQueryOptions()),
       context.queryClient.ensureQueryData(budgetQueryOptions()),
@@ -62,6 +77,10 @@ export const Route = createFileRoute('/')({
   component: App
 })
 
+/**
+ * @description The main Home page component that displays various village information sections.
+ * @returns {JSX.Element} The rendered Home page.
+ */
 function App () {
   const {
     newsData,
@@ -73,6 +92,8 @@ function App () {
     population,
     budget
   } = Route.useLoaderData()
+
+  const leader = official.find(item => item.position === 'Kepala Desa')
 
   return (
     <main className='px-4 lg:px-12 pb-8 pt-8 bg-background text-foreground'>
@@ -88,9 +109,7 @@ function App () {
       <Suspense fallback={<HomeSkeleton />}>
         <Welcome
           greeting={profile.greeting}
-          leader={
-            official.find(item => item.position === 'Kepala Desa') as Official
-          }
+          leader={leader}
         />
       </Suspense>
 
