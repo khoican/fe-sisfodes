@@ -32,6 +32,7 @@ When a user requests to **"run plans"** or **"execute the orchestrator"**, follo
 |  [x]   | [002_centralize_query_keys.md](file:///E:/PROJECT/sisfodes/docs/plans/002_centralize_query_keys.md)                         | `src/constant/` & `src/services/` | Centralize function-based query keys into `src/constant/queryKeys.ts` as required by GEMINI.md |   High   |
 |  [ ]   | [003_enhance_test_coverage.md](file:///E:/PROJECT/sisfodes/docs/plans/003_enhance_test_coverage.md)                         | `src/test/`                       | Write comprehensive integration tests for public services (layanan) and complaints             |  Medium  |
 |  [ ]   | [004_apply_mock_data_changes.md](file:///E:/PROJECT/sisfodes/docs/plans/004_apply_mock_data_changes.md)                       | `src/data/`                       | Sinkronisasi data mock dengan perubahan terbaru pada interface src/types                      |   High   |
+|  [ ]   | [005_centralize_village_constants.md](file:///E:/PROJECT/sisfodes/docs/plans/005_centralize_village_constants.md)             | `src/constant/` & `src/utils/`    | Sentralisasi konstanta informasi desa untuk mendukung multi-domain                            |   High   |
 
 ---
 
