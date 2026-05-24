@@ -20,11 +20,11 @@ export class ApiResponse {
         code: number = 200,
     ): Response {
         return Response.json({
-            metadata: {
+            response: {
                 code,
                 message,
             },
-            response: data,
+            metadata: data,
         })
     }
 
@@ -43,11 +43,11 @@ export class ApiResponse {
         code: number = 500,
     ): Response {
         return Response.json({
-            metadata: {
+            response: {
                 code,
                 message,
             },
-            response: null,
+            metadata: null,
         })
     }
 }
