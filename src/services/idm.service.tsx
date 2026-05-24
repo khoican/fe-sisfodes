@@ -1,10 +1,9 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
+import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
 import type { Idm } from '#/types/idm'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
-
-export const idmQueryKey = 'idm' as const
 
 /**
  * Mengambil data Indeks Desa Membangun (IDM) dari API.
@@ -28,6 +27,6 @@ export const fetchIdm = createServerFn({ method: 'GET' }).handler(async () => {
  */
 export const idmQueryOptions = () =>
     queryOptions({
-        queryKey: [idmQueryKey],
+        queryKey: queryKeys.idm(),
         queryFn: () => fetchIdm(),
     })

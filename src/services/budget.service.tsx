@@ -1,10 +1,9 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
+import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
 import type { VillageBudget } from '#/types/budget'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
-
-export const budgetQueryKey = 'budget' as const
 
 /**
  * Mengambil data anggaran desa dari API.
@@ -30,6 +29,6 @@ export const fetchBudget = createServerFn({ method: 'GET' }).handler(
  */
 export const budgetQueryOptions = () =>
     queryOptions({
-        queryKey: [budgetQueryKey],
+        queryKey: queryKeys.budget(),
         queryFn: () => fetchBudget(),
     })

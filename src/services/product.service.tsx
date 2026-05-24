@@ -1,10 +1,9 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
+import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
 import type { Product } from '#/types/product'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
-
-export const productQueryKey = 'product' as const
 
 /**
  * Mengambil data produk desa (UMKM) dari API.
@@ -56,7 +55,7 @@ export const fetchProductDetail = createServerFn({ method: 'GET' })
  */
 export const productQueryOptions = () =>
     queryOptions({
-        queryKey: [productQueryKey],
+        queryKey: queryKeys.product.all(),
         queryFn: () => fetchProducts(),
     })
 
@@ -68,6 +67,6 @@ export const productQueryOptions = () =>
  */
 export const productDetailQueryOptions = (slug: string) =>
     queryOptions({
-        queryKey: [productQueryKey, slug],
+        queryKey: queryKeys.product.detail(slug),
         queryFn: () => fetchProductDetail({ data: slug }),
     })

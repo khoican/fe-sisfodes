@@ -1,4 +1,5 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
+import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
 import type { Sdgs } from '#/types/sdgs'
 import { queryOptions } from '@tanstack/react-query'
@@ -20,7 +21,7 @@ export const getSdgs = async (): Promise<Sdgs> => {
  */
 export const sdgsQueryOptions = () => {
     return queryOptions({
-        queryKey: ['sdgs'],
+        queryKey: queryKeys.sdgs(),
         queryFn: () => getSdgs(),
     })
 }

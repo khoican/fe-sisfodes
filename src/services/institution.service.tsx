@@ -1,10 +1,9 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
+import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
 import type { Institution } from '#/types/institution'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
-
-export const institutionQueryKey = 'institutions' as const
 
 /**
  * Mengambil list semua lembaga desa.
@@ -43,7 +42,7 @@ export const fetchInstitutionDetail = createServerFn({ method: 'GET' })
  */
 export const institutionQueryOptions = () =>
     queryOptions({
-        queryKey: [institutionQueryKey],
+        queryKey: queryKeys.institution.all(),
         queryFn: () => fetchInstitutions(),
     })
 
@@ -52,6 +51,6 @@ export const institutionQueryOptions = () =>
  */
 export const institutionDetailQueryOptions = (slug: string) =>
     queryOptions({
-        queryKey: [institutionQueryKey, slug],
+        queryKey: queryKeys.institution.detail(slug),
         queryFn: () => fetchInstitutionDetail({ data: slug }),
     })

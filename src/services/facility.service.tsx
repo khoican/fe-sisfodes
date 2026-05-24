@@ -1,10 +1,9 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
+import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
 import type { Facility } from '#/types/facility'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
-
-export const facilityQueryKey = 'facilities' as const
 
 /**
  * Mengambil list fasilitas umum dari API.
@@ -30,6 +29,6 @@ export const fetchFacilities = createServerFn({ method: 'GET' }).handler(
  */
 export const facilityQueryOptions = () =>
     queryOptions({
-        queryKey: [facilityQueryKey],
+        queryKey: queryKeys.facility(),
         queryFn: () => fetchFacilities(),
     })

@@ -1,11 +1,10 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
+import { queryKeys } from '#/constant/queryKeys'
 import type { ApiResponse } from '#/lib/api/axios'
 import { api } from '#/lib/api/axios'
 import type { News } from '#/types/news'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
-
-export const artikelQueryKey = 'artikel' as const
 
 /**
  * Mengambil data artikel desa dari API.
@@ -40,6 +39,6 @@ export const fetchArtikel = createServerFn({ method: 'GET' }).handler(
  */
 export const artikelQueryOptions = () =>
     queryOptions({
-        queryKey: [artikelQueryKey],
+        queryKey: queryKeys.artikel(),
         queryFn: () => fetchArtikel(),
     })

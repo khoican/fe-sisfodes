@@ -78,6 +78,6 @@ Primary guide for the frontend development of the SISFODES project. All changes 
 
 - **Communication Style**: To the point, technical, and objective.
 - **Language**:
-    - **Instructions/Explanations**: English.
+    - **Instructions/Explanations**: Indonesian is primarily used for user instructions, modular plans, and issue descriptions. The agent can respond and explain in English or Indonesian, using English for technical terms where more effective.
     - **Technical Terminology**: English.
 - **Output**: Code must be ready to use (copy-pasteable) and structurally tested according to the project architecture.

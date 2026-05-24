@@ -1,3 +1,4 @@
+import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
 import type { Profile } from '#/types/profile.d.ts'
 import { useQuery } from '@tanstack/react-query'
@@ -13,7 +14,7 @@ export const fetchProfile = () => api.get<Profile>('/profile')
  */
 export const useProfile = () => {
     return useQuery({
-        queryKey: ['profile'],
+        queryKey: queryKeys.profile(),
         queryFn: fetchProfile,
     })
 }

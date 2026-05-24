@@ -1,10 +1,9 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
+import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
 import type { Geography } from '#/types/geography'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
-
-export const geographyQueryKey = 'geography' as const
 
 /**
  * Mengambil data geografi desa dari API.
@@ -30,6 +29,6 @@ export const fetchGeography = createServerFn({ method: 'GET' }).handler(
  */
 export const geographyQueryOptions = () =>
     queryOptions({
-        queryKey: [geographyQueryKey],
+        queryKey: queryKeys.geography(),
         queryFn: () => fetchGeography(),
     })

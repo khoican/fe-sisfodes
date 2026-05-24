@@ -8,7 +8,7 @@
         }
     },
     "model": {
-        "name": "gemini-3.1-flash-lite",
+        "name": "gemini-3.5-flash",
         "compressionThreshold": 0.5,
         "temperature": 0.0
     },

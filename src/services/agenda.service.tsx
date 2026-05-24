@@ -1,10 +1,9 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
+import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
 import type { Agenda } from '#/types/agenda'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
-
-export const agendaQueryKey = 'agenda' as const
 
 /**
  * Mengambil data agenda desa dari API.
@@ -30,6 +29,6 @@ export const fetchAgenda = createServerFn({ method: 'GET' }).handler(
  */
 export const agendaQueryOptions = () =>
     queryOptions({
-        queryKey: [agendaQueryKey],
+        queryKey: queryKeys.agenda(),
         queryFn: () => fetchAgenda(),
     })

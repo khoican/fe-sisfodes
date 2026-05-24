@@ -1,10 +1,9 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
+import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
 import type { Official } from '#/types/official'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
-
-export const officialQueryKey = 'official' as const
 
 /**
  * Mengambil data perangkat desa dari API.
@@ -30,6 +29,6 @@ export const fetchOfficial = createServerFn({ method: 'GET' }).handler(
  */
 export const officialQueryOptions = () =>
     queryOptions({
-        queryKey: [officialQueryKey],
+        queryKey: queryKeys.official(),
         queryFn: () => fetchOfficial(),
     })

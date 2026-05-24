@@ -1,11 +1,10 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
+import { queryKeys } from '#/constant/queryKeys'
 import type { ApiResponse } from '#/lib/api/axios'
 import { api } from '#/lib/api/axios'
 import type { PublicationCategory } from '#/types/publication'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
-
-export const publicationQueryKey = 'publication' as const
 
 /**
  * Mengambil data publikasi desa dari API berdasarkan slug kategori.
@@ -36,6 +35,6 @@ export const fetchPublication = createServerFn({ method: 'GET' })
  */
 export const publicationQueryOptions = (slug: string) =>
     queryOptions({
-        queryKey: [publicationQueryKey, slug],
+        queryKey: queryKeys.publication.detail(slug),
         queryFn: () => fetchPublication({ data: { slug } }),
     })

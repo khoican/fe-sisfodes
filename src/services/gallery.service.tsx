@@ -1,10 +1,9 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
+import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
 import type { GalleryItem } from '#/types/gallery'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
-
-export const galleryQueryKey = 'gallery' as const
 
 /**
  * Mengambil list galeri dari API.
@@ -30,6 +29,6 @@ export const fetchGallery = createServerFn({ method: 'GET' }).handler(
  */
 export const galleryQueryOptions = () =>
     queryOptions({
-        queryKey: [galleryQueryKey],
+        queryKey: queryKeys.gallery(),
         queryFn: () => fetchGallery(),
     })

@@ -1,10 +1,9 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
+import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
 import type { Profile } from '#/types/profile'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
-
-export const profileQueryKey = 'profile' as const
 
 export const fetchProfile = createServerFn({ method: 'GET' }).handler(
     async () => {
@@ -20,6 +19,6 @@ export const fetchProfile = createServerFn({ method: 'GET' }).handler(
 
 export const profileQueryOptions = () =>
     queryOptions({
-        queryKey: [profileQueryKey],
+        queryKey: queryKeys.profile(),
         queryFn: () => fetchProfile(),
     })
