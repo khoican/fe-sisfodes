@@ -112,7 +112,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
     </RootDocument>
   )
 })
-function RootDocument ({ children }: { children: React.ReactNode }) {
+function RootDocument({ children }: { children: React.ReactNode }) {
   const { queryClient } = Route.useRouteContext()
   useVoice() // Aktivasi fitur Text-to-Speech global
 
@@ -128,9 +128,9 @@ function RootDocument ({ children }: { children: React.ReactNode }) {
       >
         <QueryClientProvider client={queryClient}>
           <Header />
-          <main className='w-full max-w-7xl mx-auto'>
+          <main className='w-full max-w-380 mx-auto'>
             {children}
-            
+
             <div className='fixed bottom-8 right-4 md:bottom-16 md:right-8 lg:bottom-24 lg:right-16 z-50 flex flex-col gap-4 items-center'>
               <Setting />
               <button
