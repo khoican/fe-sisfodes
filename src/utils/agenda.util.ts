@@ -1,4 +1,4 @@
-import type { Agenda } from '#/types/agenda'
+import type { IAgenda } from '#/types/IAgenda'
 
 export interface CountdownParts {
     days: number
@@ -10,20 +10,20 @@ export interface CountdownParts {
  * Helper class for managing Agenda data using OOP principles.
  */
 export class AgendaHelper {
-    private agenda: Agenda[]
+    private agenda: IAgenda[]
 
     /**
-     * @param {Agenda[]} agenda - List of agenda items.
+     * @param {IAgenda[]} agenda - List of agenda items.
      */
-    constructor(agenda: Agenda[]) {
+    constructor(agenda: IAgenda[]) {
         this.agenda = agenda
     }
 
     /**
      * Sorts agenda items by start date.
-     * @returns {Agenda[]} Sorted agenda.
+     * @returns {IAgenda[]} Sorted agenda.
      */
-    getSorted(): Agenda[] {
+    getSorted(): IAgenda[] {
         return [...this.agenda].sort(
             (a, b) =>
                 new Date(a.date.start).getTime() -
@@ -34,27 +34,27 @@ export class AgendaHelper {
     /**
      * Filters agenda items that are still upcoming or ongoing.
      * @param {Date} now - Current date time.
-     * @returns {Agenda[]} Upcoming agenda.
+     * @returns {IAgenda[]} Upcoming agenda.
      */
-    getUpcoming(now: Date): Agenda[] {
+    getUpcoming(now: Date): IAgenda[] {
         return this.getSorted().filter((item) => new Date(item.date.end) >= now)
     }
 
     /**
      * Finds the nearest village agenda (non-holiday).
      * @param {Date} now - Current date time.
-     * @returns {Agenda | undefined} Next village agenda.
+     * @returns {IAgenda | undefined} Next village agenda.
      */
-    getNextVillageAgenda(now: Date): Agenda | undefined {
+    getNextVillageAgenda(now: Date): IAgenda | undefined {
         return this.getUpcoming(now).find((item) => !item.is_holiday)
     }
 
     /**
      * Finds the nearest national holiday.
      * @param {Date} now - Current date time.
-     * @returns {Agenda | undefined} Next holiday.
+     * @returns {IAgenda | undefined} Next holiday.
      */
-    getNextHoliday(now: Date): Agenda | undefined {
+    getNextHoliday(now: Date): IAgenda | undefined {
         return this.getUpcoming(now).find((item) => item.is_holiday)
     }
 

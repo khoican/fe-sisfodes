@@ -1,10 +1,10 @@
 import { cn } from '#/lib/utils'
-import type { Agenda } from '#/types/agenda'
+import type { IAgenda } from '#/types/IAgenda'
 import { dateFormat } from '#/utils/date.util'
 import { Calendar, Clock } from 'lucide-react'
 
 interface AgendaListItemProps {
-    item: Agenda
+    item: IAgenda
 }
 
 export function AgendaListItem({ item }: AgendaListItemProps) {

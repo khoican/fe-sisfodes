@@ -1,10 +1,10 @@
-import type { Profile } from '#/types/profile.d.ts'
+import type { IProfile } from '#/types/IProfile.d.ts'
 
 /**
  * Data profil Desa Sumberkejayan.
  * Berisi informasi umum, visi misi, sejarah, dan kontak desa.
  */
-export const profileData: Profile = {
+export const profileData: IProfile = {
     name: 'Desa Sumberkejayan',
     address: {
         country: 'Indonesia',

@@ -1,8 +1,8 @@
 import { Card, CardContent, CardHeader } from '#/components/ui/card'
-import type { Official } from '#/types/official'
+import type { IOfficial } from '#/types/IOfficial'
 import { Image } from '@unpic/react'
 
-export default function PersonCard({ name, position, image }: Official) {
+export default function PersonCard({ name, position, image }: IOfficial) {
     return (
         <Card className="p-4 gap-2 h-full">
             <CardHeader className="p-0">

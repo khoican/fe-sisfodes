@@ -1,6 +1,6 @@
-import type { Sdgs } from '#/types/sdgs'
+import type { ISdgs } from '#/types/ISdgs'
 
-export const sdgsData: Sdgs = {
+export const sdgsData: ISdgs = {
     score: {
         average: '33.51',
         data: [

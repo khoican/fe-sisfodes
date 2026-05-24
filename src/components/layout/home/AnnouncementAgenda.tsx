@@ -3,11 +3,11 @@ import { FeaturedAgendaCard } from '#/components/shared/card/agenda/featured'
 import { HolidayAgendaCard } from '#/components/shared/card/agenda/holiday'
 import { AgendaList } from '#/components/shared/card/agenda/list'
 import { useAgenda } from '#/hooks/agenda.hook'
-import type { Agenda } from '#/types/agenda'
+import type { IAgenda } from '#/types/IAgenda'
 import { IoIosArrowForward } from 'react-icons/io'
 
 interface AnnouncementAgendaProps {
-    agenda: Agenda[]
+    agenda: IAgenda[]
 }
 
 /**
@@ -35,7 +35,7 @@ export default function AnnouncementAgenda({
             />
 
             <div className="grid lg:grid-cols-2 gap-8 mt-6">
-                {/* Kolom Kiri: Agenda Terdekat & Libur Nasional Terdekat */}
+                {/* Kolom Kiri: IAgenda Terdekat & Libur Nasional Terdekat */}
                 <div className="flex flex-col gap-6">
                     {nextVillageAgenda ? (
                         <FeaturedAgendaCard

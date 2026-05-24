@@ -1,6 +1,6 @@
-import type { News } from '#/types/news'
+import type { INews } from '#/types/INews'
 
-export const penghargaanData: News[] = [
+export const penghargaanData: INews[] = [
     {
         id: 1,
         slug: 'desa-mandiri-terbaik-tingkat-provinsi',

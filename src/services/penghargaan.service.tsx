@@ -2,19 +2,19 @@ import { ENDPOINTS } from '#/constant/endpoint.constant'
 import { queryKeys } from '#/constant/queryKeys'
 import type { ApiResponse } from '#/lib/api/axios'
 import { api } from '#/lib/api/axios'
-import type { News } from '#/types/news'
+import type { INews } from '#/types/INews'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
 
 /**
  * Mengambil data penghargaan desa dari API.
  *
- * @returns {Promise<ApiResponse<News[]>>} Data penghargaan desa.
+ * @returns {Promise<ApiResponse<INews[]>>} Data penghargaan desa.
  */
 export const fetchPenghargaan = createServerFn({ method: 'GET' }).handler(
     async () => {
         try {
-            const data = await api.get<News[]>(ENDPOINTS.penghargaan)
+            const data = await api.get<INews[]>(ENDPOINTS.penghargaan)
 
             if (Array.isArray(data.response)) {
                 data.response.sort((a, b) => {

@@ -13,7 +13,7 @@ export interface BudgetCategory {
     items: BudgetEntry[]
 }
 
-export interface VillageBudget {
+export interface IVillageBudget {
     year: number
     last_updated: string
     income: BudgetCategory

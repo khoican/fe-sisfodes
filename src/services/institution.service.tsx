@@ -1,7 +1,7 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
 import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
-import type { Institution } from '#/types/institution'
+import type { IInstitution } from '#/types/IInstitution'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
 
@@ -11,7 +11,7 @@ import { createServerFn } from '@tanstack/react-start'
 export const fetchInstitutions = createServerFn({ method: 'GET' }).handler(
     async () => {
         try {
-            const data = await api.get<Institution[]>(ENDPOINTS.institutions)
+            const data = await api.get<IInstitution[]>(ENDPOINTS.institutions)
             return data
         } catch (error) {
             console.error('Error fetching institutions:', error)
@@ -27,7 +27,7 @@ export const fetchInstitutionDetail = createServerFn({ method: 'GET' })
     .inputValidator((slug: string) => slug)
     .handler(async ({ data: slug }) => {
         try {
-            const data = await api.get<Institution>(
+            const data = await api.get<IInstitution>(
                 `${ENDPOINTS.institutions}/${slug}`,
             )
             return data

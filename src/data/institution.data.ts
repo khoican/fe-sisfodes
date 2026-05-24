@@ -1,6 +1,6 @@
-import type { Institution } from '#/types/institution'
+import type { IInstitution } from '#/types/IInstitution'
 
-export const institutionData: Institution[] = [
+export const institutionData: IInstitution[] = [
     {
         id: 'INST-001',
         slug: 'bpd',

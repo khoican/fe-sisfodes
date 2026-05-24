@@ -1,4 +1,4 @@
-export interface IdmSummary {
+export interface IIdmSummary {
     SKOR_SAAT_INI: number
     STATUS: string
     TARGET_STATUS: string
@@ -7,7 +7,7 @@ export interface IdmSummary {
     TAHUN: number
 }
 
-export interface IdmRow {
+export interface IIdmRow {
     NO: number | null
     INDIKATOR: string
     SKOR: number | string
@@ -23,7 +23,7 @@ export interface IdmRow {
     ROW_CELL: number
 }
 
-export interface IdmIdentity {
+export interface IIdmIdentity {
     nama_provinsi: string
     id_prov: string
     id_kabupaten: string
@@ -34,8 +34,8 @@ export interface IdmIdentity {
     nama_desa: string
 }
 
-export interface Idm {
-    SUMMARIES: IdmSummary
-    ROW: IdmRow[]
-    IDENTITAS: IdmIdentity[]
+export interface IIdm {
+    SUMMARIES: IIdmSummary
+    ROW: IIdmRow[]
+    IDENTITAS: IIdmIdentity[]
 }

@@ -1,4 +1,4 @@
-import type { Agenda } from '#/types/agenda'
+import type { IAgenda } from '#/types/IAgenda'
 import type { CountdownParts } from '#/utils/agenda.util'
 import { AgendaHelper } from '#/utils/agenda.util'
 import { useEffect, useMemo, useState } from 'react'
@@ -6,10 +6,10 @@ import { useEffect, useMemo, useState } from 'react'
 /**
  * Custom hook for managing agenda state and logic.
  *
- * @param {Agenda[]} agenda - Raw agenda data.
+ * @param {IAgenda[]} agenda - Raw agenda data.
  * @returns {Object} Processed agenda data and countdown.
  */
-export function useAgenda(agenda: Agenda[]) {
+export function useAgenda(agenda: IAgenda[]) {
     const [now, setNow] = useState<Date>(new Date())
 
     useEffect(() => {

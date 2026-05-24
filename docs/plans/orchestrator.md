@@ -28,7 +28,7 @@ When a user requests to **"run plans"** or **"execute the orchestrator"**, follo
 
 | Status | Plan ID & Filename                                                                                                          | Target Area                       | Description                                                                                    | Priority |
 | :----: | :-------------------------------------------------------------------------------------------------------------------------- | :-------------------------------- | :--------------------------------------------------------------------------------------------- | :------: |
-|  [ ]   | [001_standardization_type_or_interface.md](file:///E:/PROJECT/sisfodes/docs/plans/001_standardization_type_or_interface.md) | `src/types/`                      | Standardisasi nama interface dan type menjadi PascalCase dengan prefix `I`. (On Hold / Draft)  |   High   |
+|  [x]   | [001_standardization_type_or_interface.md](file:///E:/PROJECT/sisfodes/docs/plans/001_standardization_type_or_interface.md) | `src/types/`                      | Standardisasi nama interface dan type menjadi PascalCase dengan prefix `I`.                    |   High   |
 |  [x]   | [002_centralize_query_keys.md](file:///E:/PROJECT/sisfodes/docs/plans/002_centralize_query_keys.md)                         | `src/constant/` & `src/services/` | Centralize function-based query keys into `src/constant/queryKeys.ts` as required by GEMINI.md |   High   |
 |  [ ]   | [003_enhance_test_coverage.md](file:///E:/PROJECT/sisfodes/docs/plans/003_enhance_test_coverage.md)                         | `src/test/`                       | Write comprehensive integration tests for public services (layanan) and complaints             |  Medium  |
 

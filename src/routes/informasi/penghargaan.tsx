@@ -1,6 +1,6 @@
 import { Badge } from '#/components/ui/badge'
 import { penghargaanQueryOptions } from '#/services/penghargaan.service'
-import type { News } from '#/types/news'
+import type { INews } from '#/types/INews'
 import { ClientOnly, createFileRoute } from '@tanstack/react-router'
 import { lazy, Suspense } from 'react'
 
@@ -134,7 +134,7 @@ function Penghargaan() {
                                     penghargaanData.length > 4 ? 4 : 0,
                                     penghargaanData.length,
                                 )
-                                .map((item: News, index: number) => (
+                                .map((item: INews, index: number) => (
                                     <NewsCard
                                         key={index}
                                         {...item}

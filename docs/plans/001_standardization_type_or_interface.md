@@ -9,7 +9,7 @@
 - **Author**: Rulls
 - **Created Date**: 2026-05-25
 - **Target Area**: Types and Interfaces
-- **Status**: `[x] Draft / [ ] Ready / [ ] In Progress / [ ] Completed`
+- **Status**: `[ ] Draft / [ ] Ready / [ ] In Progress / [x] Completed`
 - **Dependencies**: None
 
 ---

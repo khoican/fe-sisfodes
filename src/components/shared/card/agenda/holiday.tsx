@@ -1,10 +1,10 @@
 import { Badge } from '#/components/ui/badge'
-import type { Agenda } from '#/types/agenda'
+import type { IAgenda } from '#/types/IAgenda'
 import { dateFormat } from '#/utils/date.util'
 import { Calendar, Timer } from 'lucide-react'
 
 interface HolidayAgendaCardProps {
-    agenda: Agenda
+    agenda: IAgenda
 }
 
 export function HolidayAgendaCard({ agenda }: HolidayAgendaCardProps) {

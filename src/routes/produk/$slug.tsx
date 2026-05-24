@@ -5,7 +5,7 @@ import {
     productDetailQueryOptions,
     productQueryOptions,
 } from '#/services/product.service'
-import type { Product } from '#/types/product'
+import type { IProduct } from '#/types/IProduct'
 import { ClientOnly, createFileRoute } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
 import { IoIosArrowForward } from 'react-icons/io'
@@ -148,7 +148,7 @@ function DetailProduk() {
                         {products
                             .filter((p) => p.slug !== produk?.slug)
                             .slice(0, 4)
-                            .map((item: Product, index: number) => (
+                            .map((item: IProduct, index: number) => (
                                 <ProductCard key={index} {...item} />
                             ))}
                     </ClientOnly>

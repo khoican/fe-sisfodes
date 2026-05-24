@@ -1,6 +1,6 @@
-import type { News } from '#/types/news'
+import type { INews } from '#/types/INews'
 
-export const news: News[] = [
+export const news: INews[] = [
     {
         id: 1,
         slug: 'pembangunan-jembatan-desa-selesai-lebih-cepat',

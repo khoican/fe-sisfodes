@@ -1,4 +1,4 @@
-export interface Population {
+export interface IPopulation {
     total_residents: number
     total_households: number
     population_density: number

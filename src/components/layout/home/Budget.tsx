@@ -1,9 +1,9 @@
 import Progress from '#/components/shared/progress'
 import { Button } from '#/components/ui/button'
-import type { VillageBudget } from '#/types/budget'
+import type { IVillageBudget } from '#/types/IVillageBudget'
 
 interface BudgetProps {
-    budget: VillageBudget
+    budget: IVillageBudget
 }
 
 /**

@@ -1,6 +1,6 @@
-import type { Hero } from '#/types/hero'
+import type { IHero } from '#/types/IHero'
 
-export const heroData: Hero[] = [
+export const heroData: IHero[] = [
     {
         title: 'Gambar Sawah 1',
         image: 'https://ik.imagekit.io/rulls/sisfodes/demo/gallery/hero3.jpg?tr-f=webp',

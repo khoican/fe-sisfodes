@@ -1,5 +1,5 @@
 import { cn } from '#/lib/utils'
-import type { Official } from '#/types/official'
+import type { IOfficial } from '#/types/IOfficial'
 import {
     Carousel as CarouselComponent,
     CarouselContent,
@@ -13,7 +13,7 @@ import PersonCard from '../card/person'
 interface CarouselProps {
     title: string
     className?: string
-    official: Official[]
+    official: IOfficial[]
 }
 
 export function OrganizationCarousel({

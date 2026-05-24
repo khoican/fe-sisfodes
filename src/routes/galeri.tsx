@@ -1,6 +1,6 @@
 import { Badge } from '#/components/ui/badge'
 import { galleryQueryOptions } from '#/services/gallery.service'
-import type { GalleryItem } from '#/types/gallery'
+import type { IGalleryItem } from '#/types/IGalleryItem'
 import { createFileRoute } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
 import { Calendar, Camera, Filter, Maximize2, X } from 'lucide-react'
@@ -33,7 +33,9 @@ export const Route = createFileRoute('/galeri')({
 function GaleriPage() {
     const { gallery } = Route.useLoaderData()
     const [selectedCategory, setSelectedCategory] = useState<string>('Semua')
-    const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null)
+    const [selectedImage, setSelectedImage] = useState<IGalleryItem | null>(
+        null,
+    )
 
     const categories = useMemo(() => {
         return [

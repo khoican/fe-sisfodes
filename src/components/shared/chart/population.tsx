@@ -1,6 +1,6 @@
 'use client'
 
-import type { Population } from '#/types/population'
+import type { IPopulation } from '#/types/IPopulation'
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts'
 import type { ChartConfig } from '../../ui/chart'
 import {
@@ -19,7 +19,7 @@ const chartConfig = {
 } satisfies ChartConfig
 
 interface PopulationChartProps {
-    data: Population['by_age']
+    data: IPopulation['by_age']
 }
 
 /**

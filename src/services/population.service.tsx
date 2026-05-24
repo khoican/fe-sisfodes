@@ -1,19 +1,19 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
 import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
-import type { Population } from '#/types/population'
+import type { IPopulation } from '#/types/IPopulation'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
 
 /**
  * Mengambil data kependudukan dari API.
  *
- * @returns {Promise<ApiResponse<Population>>} Data kependudukan.
+ * @returns {Promise<ApiResponse<IPopulation>>} Data kependudukan.
  */
 export const fetchPopulation = createServerFn({ method: 'GET' }).handler(
     async () => {
         try {
-            const data = await api.get<Population>(ENDPOINTS.population)
+            const data = await api.get<IPopulation>(ENDPOINTS.population)
             return data
         } catch (error) {
             console.error('Error fetching population:', error)

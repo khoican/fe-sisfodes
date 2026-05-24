@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader } from '#/components/ui/card'
 import { cn } from '#/lib/utils'
-import type { News } from '#/types/news.d'
+import type { INews } from '#/types/INews.d'
 import { dateFormat } from '#/utils/date.util'
 import { Link } from '@tanstack/react-router'
 import { Image } from '@unpic/react'

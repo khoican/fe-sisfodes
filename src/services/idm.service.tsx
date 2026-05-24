@@ -1,18 +1,18 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
 import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
-import type { Idm } from '#/types/idm'
+import type { IIdm } from '#/types/IIdm'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
 
 /**
  * Mengambil data Indeks Desa Membangun (IDM) dari API.
  *
- * @returns {Promise<ApiResponse<Idm>>} Data IDM.
+ * @returns {Promise<ApiResponse<IIdm>>} Data IDM.
  */
 export const fetchIdm = createServerFn({ method: 'GET' }).handler(async () => {
     try {
-        const data = await api.get<Idm>(ENDPOINTS.idm)
+        const data = await api.get<IIdm>(ENDPOINTS.idm)
         return data
     } catch (error) {
         console.error('Error fetching IDM:', error)

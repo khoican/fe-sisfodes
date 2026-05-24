@@ -1,11 +1,11 @@
 import PopulationCard from '#/components/shared/card/population'
 import { Badge } from '#/components/ui/badge'
-import type { Population } from '#/types/population'
+import type { IPopulation } from '#/types/IPopulation'
 import { IoIosMan, IoIosWoman } from 'react-icons/io'
 import { MdOutlineFamilyRestroom, MdOutlineGroups } from 'react-icons/md'
 
 interface DemographyProps {
-    population: Population
+    population: IPopulation
 }
 
 /**

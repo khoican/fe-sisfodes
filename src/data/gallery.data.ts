@@ -1,6 +1,6 @@
-import type { GalleryItem } from '#/types/gallery'
+import type { IGalleryItem } from '#/types/IGalleryItem'
 
-export const galleryData: GalleryItem[] = [
+export const galleryData: IGalleryItem[] = [
     {
         id: 'G-001',
         title: 'Panen Raya Padi Organik',

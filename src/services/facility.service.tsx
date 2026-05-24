@@ -1,19 +1,19 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
 import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
-import type { Facility } from '#/types/facility'
+import type { IFacility } from '#/types/IFacility'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
 
 /**
  * Mengambil list fasilitas umum dari API.
  *
- * @returns {Promise<ApiResponse<Facility[]>>} List fasilitas umum.
+ * @returns {Promise<ApiResponse<IFacility[]>>} List fasilitas umum.
  */
 export const fetchFacilities = createServerFn({ method: 'GET' }).handler(
     async () => {
         try {
-            const data = await api.get<Facility[]>(ENDPOINTS.facilities)
+            const data = await api.get<IFacility[]>(ENDPOINTS.facilities)
             return data
         } catch (error) {
             console.error('Error fetching facilities:', error)

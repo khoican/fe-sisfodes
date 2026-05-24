@@ -1,4 +1,4 @@
-export interface PublicationDocument {
+export interface IPublicationDocument {
     id: string
     title: string
     description?: string
@@ -8,8 +8,8 @@ export interface PublicationDocument {
     created_at: string
 }
 
-export interface PublicationCategory {
+export interface IPublicationCategory {
     slug: string
     name: string
-    documents: PublicationDocument[]
+    documents: IPublicationDocument[]
 }

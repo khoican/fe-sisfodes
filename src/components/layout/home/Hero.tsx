@@ -4,7 +4,7 @@ import {
     CarouselContent,
     CarouselItem,
 } from '#/components/ui/carousel'
-import type { Hero } from '#/types/hero'
+import type { IHero } from '#/types/IHero'
 import { Image } from '@unpic/react'
 import * as React from 'react'
 
@@ -12,10 +12,10 @@ import * as React from 'react'
  * Komponen Hero untuk menampilkan banner utama dengan fitur auto-slide.
  *
  * @param {Object} props - Properti komponen.
- * @param {Hero[]} props.hero - Array data banner hero.
+ * @param {IHero[]} props.hero - Array data banner hero.
  * @returns {JSX.Element} Elemen Hero.
  */
-export default function Hero({ hero }: { hero: Hero[] }) {
+export default function Hero({ hero }: { hero: IHero[] }) {
     const [api, setApi] = React.useState<CarouselApi>()
 
     /**

@@ -1,12 +1,12 @@
 import { Badge } from '#/components/ui/badge'
-import type { Agenda } from '#/types/agenda'
+import type { IAgenda } from '#/types/IAgenda'
 import { dateFormat } from '#/utils/date.util'
 import { ClientOnly } from '@tanstack/react-router'
 import { Calendar, Clock, MapPin } from 'lucide-react'
 import type { CountdownParts } from '#/utils/agenda.util'
 
 interface FeaturedAgendaCardProps {
-    agenda: Agenda
+    agenda: IAgenda
     countdown: CountdownParts | null
 }
 

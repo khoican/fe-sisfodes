@@ -1,4 +1,4 @@
-export interface Agenda {
+export interface IAgenda {
     id: string
     title: string
     description: string

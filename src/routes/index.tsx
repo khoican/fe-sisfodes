@@ -7,7 +7,7 @@ import { officialQueryOptions } from '#/services/official.service'
 import { populationQueryOptions } from '#/services/population.service'
 import { productQueryOptions } from '#/services/product.service'
 import { profileQueryOptions } from '#/services/profile.service'
-import type { Official } from '#/types/official'
+import type { IOfficial } from '#/types/IOfficial'
 import { createFileRoute } from '@tanstack/react-router'
 import { lazy, Suspense } from 'react'
 
@@ -106,7 +106,7 @@ function App() {
 
     return (
         <main className="px-4 lg:px-12 pb-8 pt-8 bg-background text-foreground">
-            <Hero hero={hero} />
+            <IHero hero={hero} />
 
             <Suspense fallback={<HomeSkeleton />}>
                 <div className="grid lg:grid-cols-3 gap-y-8 gap-x-0 lg:gap-y-0 lg:gap-x-8 mt-8 w-full">
@@ -132,7 +132,7 @@ function App() {
             </Suspense>
 
             <Suspense fallback={<HomeSkeleton />}>
-                <News newsData={newsData} />
+                <INews newsData={newsData} />
             </Suspense>
 
             <Suspense fallback={<HomeSkeleton />}>

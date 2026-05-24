@@ -1,6 +1,6 @@
-import type { Facility } from '#/types/facility'
+import type { IFacility } from '#/types/IFacility'
 
-export const facilityData: Facility[] = [
+export const facilityData: IFacility[] = [
     {
         id: 'FAC-001',
         name: 'SDN Sumberkejayan 01',

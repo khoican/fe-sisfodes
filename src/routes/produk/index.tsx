@@ -1,5 +1,5 @@
 import { productQueryOptions } from '#/services/product.service'
-import type { Product } from '#/types/product'
+import type { IProduct } from '#/types/IProduct'
 import { createFileRoute } from '@tanstack/react-router'
 import { lazy, Suspense } from 'react'
 
@@ -61,7 +61,7 @@ function ProdukIndex() {
                         </div>
                     }
                 >
-                    {products.map((item: Product, index: number) => (
+                    {products.map((item: IProduct, index: number) => (
                         <ProductCard key={index} {...item} />
                     ))}
                 </Suspense>

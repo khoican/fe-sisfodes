@@ -6,7 +6,7 @@ import {
     newsDetailQueryOptions,
     newsQueryOptions,
 } from '#/services/news.service'
-import type { News } from '#/types/news'
+import type { INews } from '#/types/INews'
 import { dateFormat } from '#/utils/date.util'
 import { ClientOnly, createFileRoute, Link } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
@@ -17,7 +17,7 @@ export const Route = createFileRoute('/informasi/berita/$slug')({
     loader: async ({
         context,
         params,
-    }): Promise<{ news: News[]; berita: News }> => {
+    }): Promise<{ news: INews[]; berita: INews }> => {
         const [newsResponse, detailResponse] = await Promise.all([
             context.queryClient.ensureQueryData(newsQueryOptions()),
             context.queryClient.ensureQueryData(
@@ -157,7 +157,7 @@ function DetailBerita() {
                     </div>
 
                     <div className="space-y-8">
-                        {news.slice(0, 3).map((item: News, index: number) => (
+                        {news.slice(0, 3).map((item: INews, index: number) => (
                             <div
                                 key={index}
                                 className="flex items-start gap-4 group cursor-pointer"
@@ -202,7 +202,7 @@ function DetailBerita() {
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 w-full gap-6 mt-12">
                     <ClientOnly>
-                        {news.slice(4, 10).map((item: News, index: number) => (
+                        {news.slice(4, 10).map((item: INews, index: number) => (
                             <NewsCard
                                 key={index}
                                 {...item}

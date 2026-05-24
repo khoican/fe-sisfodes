@@ -1,6 +1,6 @@
 'use client'
 
-import type { SdgsChart as SdgsChartType } from '#/types/sdgs'
+import type { ISdgsChart as SdgsChartType } from '#/types/ISdgs'
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts'
 import type { ChartConfig } from '../../ui/chart'
 import {

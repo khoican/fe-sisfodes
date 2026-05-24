@@ -26,7 +26,7 @@ import {
     Hammer,
     XCircle,
 } from 'lucide-react'
-import type { FacilityCategory, FacilityStatus } from '#/types/facility'
+import type { IFacilityCategory, IFacilityStatus } from '#/types/IFacility'
 
 const CardSkeleton = () => (
     <div className="w-full h-80 bg-muted animate-pulse rounded-xl" />
@@ -56,7 +56,7 @@ export const Route = createFileRoute('/profil/fasilitas-umum')({
     component: FasilitasUmum,
 })
 
-const CATEGORY_ICONS: Record<FacilityCategory, any> = {
+const CATEGORY_ICONS: Record<IFacilityCategory, any> = {
     Pendidikan: School,
     Kesehatan: Stethoscope,
     Peribadatan: Church,
@@ -67,7 +67,7 @@ const CATEGORY_ICONS: Record<FacilityCategory, any> = {
     Transportasi: MapPin,
 }
 
-const STATUS_CONFIG: Record<FacilityStatus, { color: string; icon: any }> = {
+const STATUS_CONFIG: Record<IFacilityStatus, { color: string; icon: any }> = {
     Aktif: { color: 'text-green-600 bg-green-50', icon: CheckCircle2 },
     Renovasi: { color: 'text-amber-600 bg-amber-50', icon: Hammer },
     'Dalam Pembangunan': { color: 'text-blue-600 bg-blue-50', icon: Clock },
@@ -77,7 +77,7 @@ const STATUS_CONFIG: Record<FacilityStatus, { color: string; icon: any }> = {
 function FasilitasUmum() {
     const { facilities } = Route.useLoaderData()
     const [selectedCategory, setSelectedCategory] = useState<
-        FacilityCategory | 'Semua'
+        IFacilityCategory | 'Semua'
     >('Semua')
     const [searchQuery, setSearchQuery] = useState('')
 

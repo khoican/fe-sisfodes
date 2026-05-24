@@ -1,10 +1,10 @@
 import { Badge } from '#/components/ui/badge'
-import type { Agenda } from '#/types/agenda'
+import type { IAgenda } from '#/types/IAgenda'
 import { Calendar } from 'lucide-react'
 import { AgendaListItem } from './list-item'
 
 interface AgendaListProps {
-    events: Agenda[]
+    events: IAgenda[]
 }
 
 export function AgendaList({ events }: AgendaListProps) {

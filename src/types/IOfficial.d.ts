@@ -1,4 +1,4 @@
-export interface Official {
+export interface IOfficial {
     id: number
     name: string
     position: string

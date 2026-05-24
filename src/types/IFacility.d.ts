@@ -1,7 +1,7 @@
 /**
  * Kategori fasilitas umum yang tersedia di desa.
  */
-export type FacilityCategory =
+export type IFacilityCategory =
     | 'Pendidikan'
     | 'Kesehatan'
     | 'Peribadatan'
@@ -14,7 +14,7 @@ export type FacilityCategory =
 /**
  * Status operasional fasilitas.
  */
-export type FacilityStatus =
+export type IFacilityStatus =
     | 'Aktif'
     | 'Renovasi'
     | 'Dalam Pembangunan'
@@ -23,7 +23,7 @@ export type FacilityStatus =
 /**
  * Koordinat geografis untuk pemetaan.
  */
-export interface Coordinates {
+export interface ICoordinates {
     lat: number
     lng: number
 }
@@ -31,15 +31,15 @@ export interface Coordinates {
 /**
  * Representasi data fasilitas umum desa.
  */
-export interface Facility {
+export interface IFacility {
     id: string
     name: string
-    category: FacilityCategory
+    category: IFacilityCategory
     address: string
-    coordinates: Coordinates
+    coordinates: ICoordinates
     description: string
     image: string
-    status: FacilityStatus
+    status: IFacilityStatus
     /**
      * Data tambahan spesifik kategori.
      * Contoh: { "Jumlah Ruang Kelas": 6 } atau { "Tipe Layanan": "Puskesmas Pembantu" }
@@ -51,7 +51,7 @@ export interface Facility {
 /**
  * Statistik ringkasan fasilitas umum.
  */
-export interface FacilityStats {
+export interface IFacilityStats {
     total: number
-    by_category: Record<FacilityCategory, number>
+    by_category: Record<IFacilityCategory, number>
 }

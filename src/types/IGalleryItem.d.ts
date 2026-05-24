@@ -1,7 +1,7 @@
 /**
  * Representasi item dalam galeri foto/video desa.
  */
-export interface GalleryItem {
+export interface IGalleryItem {
     id: string
     title: string
     image: string
@@ -13,7 +13,7 @@ export interface GalleryItem {
 /**
  * Metadata untuk galeri.
  */
-export interface Gallery {
-    items: GalleryItem[]
+export interface IGallery {
+    items: IGalleryItem[]
     last_updated: string
 }

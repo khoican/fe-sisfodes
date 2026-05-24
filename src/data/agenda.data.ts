@@ -1,6 +1,6 @@
-import type { Agenda } from '#/types/agenda'
+import type { IAgenda } from '#/types/IAgenda'
 
-export const agendaData: Agenda[] = [
+export const agendaData: IAgenda[] = [
     {
         id: '1',
         title: 'Wafat Yesus Kristus',

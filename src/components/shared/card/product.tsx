@@ -1,7 +1,7 @@
 import { Badge } from '#/components/ui/badge'
 import { Button } from '#/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader } from '#/components/ui/card'
-import type { Product } from '#/types/product'
+import type { IProduct } from '#/types/IProduct'
 import { Link } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
 
@@ -13,7 +13,7 @@ export default function ProductCard({
     category,
     price,
     contact,
-}: Product) {
+}: IProduct) {
     const onClickContact = () => {
         const whatsappUrl = `https://wa.me/${contact.replace('0', '62')}`
         window.open(whatsappUrl, '_blank', 'noopener,noreferrer')

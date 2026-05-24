@@ -1,7 +1,7 @@
 import { Badge } from '#/components/ui/badge'
 import { Button } from '#/components/ui/button'
 import { newsQueryOptions } from '#/services/news.service'
-import type { News } from '#/types/news'
+import type { INews } from '#/types/INews'
 import { ClientOnly, Link, createFileRoute } from '@tanstack/react-router'
 import { lazy, Suspense } from 'react'
 
@@ -152,7 +152,7 @@ function Berita() {
                         >
                             {newsData
                                 .slice(4, newsData.length)
-                                .map((item: News, index: number) => (
+                                .map((item: INews, index: number) => (
                                     <NewsCard
                                         key={index}
                                         {...item}

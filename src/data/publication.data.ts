@@ -1,6 +1,6 @@
-import type { PublicationCategory } from '#/types/publication'
+import type { IPublicationCategory } from '#/types/IPublicationCategory'
 
-export const publicationData: PublicationCategory[] = [
+export const publicationData: IPublicationCategory[] = [
     {
         slug: 'rpjmdes',
         name: 'RPJMDes',

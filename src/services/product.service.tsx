@@ -1,19 +1,19 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
 import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
-import type { Product } from '#/types/product'
+import type { IProduct } from '#/types/IProduct'
 import { queryOptions } from '@tanstack/react-query'
 import { createServerFn } from '@tanstack/react-start'
 
 /**
  * Mengambil data produk desa (UMKM) dari API.
  *
- * @returns {Promise<ApiResponse<Product[]>>} Data produk desa.
+ * @returns {Promise<ApiResponse<IProduct[]>>} Data produk desa.
  */
 export const fetchProducts = createServerFn({ method: 'GET' }).handler(
     async () => {
         try {
-            const data = await api.get<Product[]>(ENDPOINTS.produk)
+            const data = await api.get<IProduct[]>(ENDPOINTS.produk)
             // Sort dari yang terbaru
             if (Array.isArray(data.response)) {
                 data.response.sort((a, b) => {
@@ -34,13 +34,13 @@ export const fetchProducts = createServerFn({ method: 'GET' }).handler(
  * Mengambil detail produk berdasarkan slug.
  *
  * @param {string} slug - Slug produk.
- * @returns {Promise<ApiResponse<Product>>} Detail produk.
+ * @returns {Promise<ApiResponse<IProduct>>} Detail produk.
  */
 export const fetchProductDetail = createServerFn({ method: 'GET' })
     .inputValidator((slug: string) => slug)
     .handler(async ({ data: slug }) => {
         try {
-            const data = await api.get<Product>(`${ENDPOINTS.produk}/${slug}`)
+            const data = await api.get<IProduct>(`${ENDPOINTS.produk}/${slug}`)
             return data
         } catch (error) {
             console.error(`Error fetching product detail [${slug}]:`, error)

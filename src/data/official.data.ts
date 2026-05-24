@@ -1,6 +1,6 @@
-import type { Official } from '#/types/official'
+import type { IOfficial } from '#/types/IOfficial'
 
-export const officialData: Official[] = [
+export const officialData: IOfficial[] = [
     {
         id: 1,
         name: 'Ir. Sugeng Purnomo',

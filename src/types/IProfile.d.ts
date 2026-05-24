@@ -1,4 +1,4 @@
-export interface Profile {
+export interface IProfile {
     name: string
     vision: string
     mission: string[]

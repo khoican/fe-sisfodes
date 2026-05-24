@@ -1,9 +1,9 @@
-import type { Official } from '#/types/official'
+import type { IOfficial } from '#/types/IOfficial'
 import { Image } from '@unpic/react'
 
 interface WelcomeProps {
     greeting: string
-    leader: Official
+    leader: IOfficial
 }
 
 /**

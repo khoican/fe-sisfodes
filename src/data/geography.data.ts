@@ -1,6 +1,6 @@
-import type { Geography } from '#/types/geography'
+import type { IGeography } from '#/types/IGeography'
 
-export const geographyData: Geography = {
+export const geographyData: IGeography = {
     total_area: 125.5,
     topography: 'Dataran Rendah',
     altitude: 150,

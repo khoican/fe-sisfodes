@@ -1,10 +1,10 @@
 import NewsCard from '#/components/shared/card/news'
 import Title from '#/components/ui/title'
-import type { News } from '#/types/news'
+import type { INews } from '#/types/INews'
 import { IoIosArrowForward } from 'react-icons/io'
 
 interface NewsProps {
-    newsData: News[]
+    newsData: INews[]
 }
 
 /**

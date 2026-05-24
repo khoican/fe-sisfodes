@@ -1,6 +1,6 @@
-import type { VillageBudget } from '#/types/budget'
+import type { IVillageBudget } from '#/types/IVillageBudget'
 
-export const budgetData: VillageBudget = {
+export const budgetData: IVillageBudget = {
     year: 2025,
     last_updated: '2025-01-15T08:00:00Z',
     income: {

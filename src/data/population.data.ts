@@ -1,6 +1,6 @@
-import type { Population } from '#/types/population'
+import type { IPopulation } from '#/types/IPopulation'
 
-export const populationData: Population = {
+export const populationData: IPopulation = {
     total_residents: 3250,
     total_households: 980,
     population_density: 450,

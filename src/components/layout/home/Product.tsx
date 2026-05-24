@@ -1,10 +1,10 @@
 import ProductCard from '#/components/shared/card/product'
 import Title from '#/components/ui/title'
-import type { Product } from '#/types/product'
+import type { IProduct } from '#/types/IProduct'
 import { MdStorefront } from 'react-icons/md'
 
 interface ProductProps {
-    products: Product[]
+    products: IProduct[]
 }
 
 /**

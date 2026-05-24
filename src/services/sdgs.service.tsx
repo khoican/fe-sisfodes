@@ -1,16 +1,16 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
 import { queryKeys } from '#/constant/queryKeys'
 import { api } from '#/lib/api/axios'
-import type { Sdgs } from '#/types/sdgs'
+import type { ISdgs } from '#/types/ISdgs'
 import { queryOptions } from '@tanstack/react-query'
 
 /**
  * Mengambil data SDGs dari API.
  *
- * @returns {Promise<Sdgs>} Response API berisi data SDGs.
+ * @returns {Promise<ISdgs>} Response API berisi data SDGs.
  */
-export const getSdgs = async (): Promise<Sdgs> => {
-    const response = await api.get<Sdgs>(ENDPOINTS.sdgs)
+export const getSdgs = async (): Promise<ISdgs> => {
+    const response = await api.get<ISdgs>(ENDPOINTS.sdgs)
     return response.response
 }
 
