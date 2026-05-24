@@ -10,22 +10,7 @@ import { facilityQueryOptions } from '#/services/facility.service'
 import { createFileRoute } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
 import { useState, useMemo, Suspense } from 'react'
-import {
-    School,
-    Stethoscope,
-    Church,
-    Trophy,
-    MapPin,
-    Building2,
-    Trees,
-    ShoppingBag,
-    Search,
-    CheckCircle2,
-    Clock,
-    Hammer,
-    XCircle,
-} from 'lucide-react'
-import type { IFacilityCategory, IFacilityStatus } from '#/types/IFacility'
+import { MapPin, Search } from 'lucide-react'
 
 const CardSkeleton = () => (
     <div className="w-full h-80 bg-muted animate-pulse rounded-xl" />
@@ -49,52 +34,23 @@ export const Route = createFileRoute('/profil/fasilitas-umum')({
             facilityQueryOptions(),
         )
         return {
-            facilities: facilities.response,
+            facilities: facilities.metadata,
         }
     },
     component: FasilitasUmum,
 })
 
-const CATEGORY_ICONS: Record<IFacilityCategory, any> = {
-    Pendidikan: School,
-    Kesehatan: Stethoscope,
-    Peribadatan: Church,
-    Olahraga: Trophy,
-    'Layanan Publik': Building2,
-    'Ruang Terbuka Hijau': Trees,
-    Ekonomi: ShoppingBag,
-    Transportasi: MapPin,
-}
-
-const STATUS_CONFIG: Record<IFacilityStatus, { color: string; icon: any }> = {
-    Aktif: { color: 'text-green-600 bg-green-50', icon: CheckCircle2 },
-    Renovasi: { color: 'text-amber-600 bg-amber-50', icon: Hammer },
-    'Dalam Pembangunan': { color: 'text-blue-600 bg-blue-50', icon: Clock },
-    'Non-Aktif': { color: 'text-red-600 bg-red-50', icon: XCircle },
-}
-
 function FasilitasUmum() {
     const { facilities } = Route.useLoaderData()
-    const [selectedCategory, setSelectedCategory] = useState<
-        IFacilityCategory | 'Semua'
-    >('Semua')
     const [searchQuery, setSearchQuery] = useState('')
 
-    const categories: (IFacilityCategory | 'Semua')[] = [
-        'Semua',
-        ...Array.from(new Set(facilities.map((f) => f.category))),
-    ]
-
     const filteredFacilities = useMemo(() => {
-        return facilities.filter((f) => {
-            const matchCategory =
-                selectedCategory === 'Semua' || f.category === selectedCategory
-            const matchSearch =
+        return facilities.filter(
+            (f) =>
                 f.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                f.address.toLowerCase().includes(searchQuery.toLowerCase())
-            return matchCategory && matchSearch
-        })
-    }, [facilities, selectedCategory, searchQuery])
+                f.address.toLowerCase().includes(searchQuery.toLowerCase()),
+        )
+    }, [facilities, searchQuery])
 
     return (
         <main className="w-full bg-background">
@@ -131,26 +87,9 @@ function FasilitasUmum() {
                 </div>
             </section>
 
-            {/* Filter & Search Section */}
+            {/* Search Section */}
             <section className="mt-12 px-4 lg:px-12">
-                <div className="flex flex-col md:flex-row gap-6 items-center justify-between bg-card p-6 rounded-2xl shadow-sm border border-border">
-                    <div className="flex flex-wrap gap-2">
-                        {categories.map((cat) => (
-                            <button
-                                key={cat}
-                                onClick={() => setSelectedCategory(cat)}
-                                aria-pressed={selectedCategory === cat}
-                                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                                    selectedCategory === cat
-                                        ? 'bg-primary text-white shadow-md'
-                                        : 'bg-muted text-muted-foreground hover:bg-muted/80'
-                                }`}
-                            >
-                                {cat}
-                            </button>
-                        ))}
-                    </div>
-
+                <div className="flex items-center justify-end bg-card p-6 rounded-2xl shadow-sm border border-border">
                     <div className="relative w-full md:w-72">
                         <Search
                             className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/70"
@@ -180,81 +119,43 @@ function FasilitasUmum() {
                             </div>
                         }
                     >
-                        {filteredFacilities.map((facility) => {
-                            const Icon =
-                                CATEGORY_ICONS[facility.category] || Building2
-                            const statusStyle = STATUS_CONFIG[facility.status]
+                        {filteredFacilities.map((facility) => (
+                            <Card
+                                key={facility.id}
+                                className="group overflow-hidden border-none shadow-md hover:shadow-xl transition-all duration-300 bg-card"
+                            >
+                                <div className="relative h-56 overflow-hidden">
+                                    <Image
+                                        src={
+                                            facility.images[0] ??
+                                            'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800'
+                                        }
+                                        alt={facility.name}
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        layout="fullWidth"
+                                    />
+                                </div>
 
-                            return (
-                                <Card
-                                    key={facility.id}
-                                    className="group overflow-hidden border-none shadow-md hover:shadow-xl transition-all duration-300 bg-card"
-                                >
-                                    <div className="relative h-56 overflow-hidden">
-                                        <Image
-                                            src={facility.image}
-                                            alt={facility.name}
-                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                            layout="fullWidth"
+                                <CardHeader className="pb-2">
+                                    <CardTitle className="text-xl group-hover:text-primary transition-colors text-foreground">
+                                        {facility.name}
+                                    </CardTitle>
+                                    <CardDescription className="flex items-start gap-1 text-xs text-muted-foreground">
+                                        <MapPin
+                                            className="w-3 h-3 mt-0.5 shrink-0 text-primary"
+                                            aria-hidden="true"
                                         />
-                                        <div className="absolute top-4 left-4">
-                                            <Badge className="bg-white/90 text-primary hover:bg-white backdrop-blur-sm">
-                                                <Icon
-                                                    className="w-3 h-3 mr-1"
-                                                    aria-hidden="true"
-                                                />
-                                                {facility.category}
-                                            </Badge>
-                                        </div>
-                                        <div className="absolute bottom-4 left-4">
-                                            <div
-                                                className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${statusStyle.color}`}
-                                            >
-                                                <statusStyle.icon
-                                                    className="w-3 h-3"
-                                                    aria-hidden="true"
-                                                />
-                                                {facility.status}
-                                            </div>
-                                        </div>
-                                    </div>
+                                        {facility.address}
+                                    </CardDescription>
+                                </CardHeader>
 
-                                    <CardHeader className="pb-2">
-                                        <CardTitle className="text-xl group-hover:text-primary transition-colors text-foreground">
-                                            {facility.name}
-                                        </CardTitle>
-                                        <CardDescription className="flex items-start gap-1 text-xs text-muted-foreground">
-                                            <MapPin
-                                                className="w-3 h-3 mt-0.5 shrink-0 text-primary"
-                                                aria-hidden="true"
-                                            />
-                                            {facility.address}
-                                        </CardDescription>
-                                    </CardHeader>
-
-                                    <CardContent>
-                                        <p className="text-sm text-muted-foreground line-clamp-2 mb-6">
-                                            {facility.description}
-                                        </p>
-
-                                        <div className="grid grid-cols-2 gap-3 pt-4 border-t border-dashed border-border">
-                                            {Object.entries(facility.metadata)
-                                                .slice(0, 4)
-                                                .map(([key, value]) => (
-                                                    <div key={key}>
-                                                        <p className="text-[10px] uppercase text-muted-foreground/70 font-semibold tracking-wider">
-                                                            {key}
-                                                        </p>
-                                                        <p className="text-xs font-bold text-foreground">
-                                                            {value}
-                                                        </p>
-                                                    </div>
-                                                ))}
-                                        </div>
-                                    </CardContent>
-                                </Card>
-                            )
-                        })}
+                                <CardContent>
+                                    <p className="text-sm text-muted-foreground line-clamp-3">
+                                        {facility.description}
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        ))}
                     </Suspense>
                 </div>
 

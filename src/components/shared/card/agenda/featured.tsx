@@ -2,7 +2,7 @@ import { Badge } from '#/components/ui/badge'
 import type { IAgenda } from '#/types/IAgenda'
 import { dateFormat } from '#/utils/date.util'
 import { ClientOnly } from '@tanstack/react-router'
-import { Calendar, Clock, MapPin } from 'lucide-react'
+import { Calendar, Clock } from 'lucide-react'
 import type { CountdownParts } from '#/utils/agenda.util'
 
 interface FeaturedAgendaCardProps {
@@ -44,10 +44,6 @@ export function FeaturedAgendaCard({
                         <span>
                             {agenda.time.start} - {agenda.time.end} WIB
                         </span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <MapPin className="size-4" />
-                        <span className="line-clamp-1">{agenda.location}</span>
                     </div>
                 </div>
 

@@ -41,12 +41,12 @@ export class AgendaHelper {
     }
 
     /**
-     * Finds the nearest village agenda (non-holiday).
+     * Finds the nearest village agenda.
      * @param {Date} now - Current date time.
      * @returns {IAgenda | undefined} Next village agenda.
      */
     getNextVillageAgenda(now: Date): IAgenda | undefined {
-        return this.getUpcoming(now).find((item) => !item.is_holiday)
+        return this.getUpcoming(now)[0]
     }
 
     /**
@@ -54,8 +54,8 @@ export class AgendaHelper {
      * @param {Date} now - Current date time.
      * @returns {IAgenda | undefined} Next holiday.
      */
-    getNextHoliday(now: Date): IAgenda | undefined {
-        return this.getUpcoming(now).find((item) => item.is_holiday)
+    getNextHoliday(_now: Date): IAgenda | undefined {
+        return undefined
     }
 
     /**

@@ -23,7 +23,7 @@ export const Route = createFileRoute('/profil/peta-desa')({
             facilityQueryOptions(),
         )
         return {
-            facilities: facilities.response,
+            facilities: facilities.metadata,
         }
     },
     component: PetaDesa,
@@ -32,31 +32,23 @@ export const Route = createFileRoute('/profil/peta-desa')({
 function PetaDesa() {
     const { facilities } = Route.useLoaderData()
 
+    // Koordinat pusat desa Sumberkejayan (fallback default)
+    const VILLAGE_CENTER: [number, number] = [-8.123, 113.654]
+
     // Transformasi data fasilitas ke format marker peta
+    // Karena API tidak menyediakan koordinat GPS per fasilitas,
+    // kita generate offset deterministik berdasarkan index sebagai placeholder
     const markers = useMemo(() => {
-        return facilities.map((f) => ({
+        return facilities.map((f, index) => ({
             id: f.id,
             name: f.name,
-            category: f.category,
-            position: [f.coordinates.lat, f.coordinates.lng] as [
-                number,
-                number,
-            ],
+            category: '',
+            position: [
+                VILLAGE_CENTER[0] + (index % 5) * 0.002 - 0.004,
+                VILLAGE_CENTER[1] + Math.floor(index / 5) * 0.002 - 0.004,
+            ] as [number, number],
             address: f.address,
         }))
-    }, [facilities])
-
-    // Center peta di Balai Desa atau fasilitas pertama
-    const centerPosition: [number, number] = useMemo(() => {
-        const balaiDesa = facilities.find((f) => f.name.includes('Balai Desa'))
-        if (balaiDesa)
-            return [balaiDesa.coordinates.lat, balaiDesa.coordinates.lng]
-        if (facilities.length > 0)
-            return [
-                facilities[0].coordinates.lat,
-                facilities[0].coordinates.lng,
-            ]
-        return [-8.123, 113.654] // Fallback koordinat
     }, [facilities])
 
     return (
@@ -138,11 +130,11 @@ function PetaDesa() {
                                         key={f.id}
                                         className="py-3 border-b border-border last:border-none"
                                     >
-                                        <p className="text-[10px] font-bold text-primary uppercase">
-                                            {f.category}
-                                        </p>
                                         <p className="text-xs font-semibold text-foreground line-clamp-1">
                                             {f.name}
+                                        </p>
+                                        <p className="text-[10px] text-muted-foreground line-clamp-1">
+                                            {f.address}
                                         </p>
                                     </div>
                                 ))}
@@ -153,7 +145,7 @@ function PetaDesa() {
                     {/* Main Map Canvas */}
                     <div className="lg:col-span-3 h-[70vh] min-h-[500px]">
                         <Maps
-                            center={centerPosition}
+                            center={VILLAGE_CENTER}
                             markers={markers}
                             zoom={15}
                         />

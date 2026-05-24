@@ -3,8 +3,8 @@ import { galleryQueryOptions } from '#/services/gallery.service'
 import type { IGalleryItem } from '#/types/IGalleryItem'
 import { createFileRoute } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
-import { Calendar, Camera, Filter, Maximize2, X } from 'lucide-react'
-import { useMemo, useState } from 'react'
+import { Calendar, Camera, Maximize2, X } from 'lucide-react'
+import { useState } from 'react'
 
 export const Route = createFileRoute('/galeri')({
     head: () => ({
@@ -24,7 +24,7 @@ export const Route = createFileRoute('/galeri')({
             galleryQueryOptions(),
         )
         return {
-            gallery: gallery.response,
+            gallery: gallery.metadata,
         }
     },
     component: GaleriPage,
@@ -32,22 +32,11 @@ export const Route = createFileRoute('/galeri')({
 
 function GaleriPage() {
     const { gallery } = Route.useLoaderData()
-    const [selectedCategory, setSelectedCategory] = useState<string>('Semua')
     const [selectedImage, setSelectedImage] = useState<IGalleryItem | null>(
         null,
     )
 
-    const categories = useMemo(() => {
-        return [
-            'Semua',
-            ...Array.from(new Set(gallery.map((item) => item.category))),
-        ]
-    }, [gallery])
-
-    const filteredGallery = useMemo(() => {
-        if (selectedCategory === 'Semua') return gallery
-        return gallery.filter((item) => item.category === selectedCategory)
-    }, [gallery, selectedCategory])
+    const filteredGallery = gallery
 
     return (
         <main className="w-full bg-background">
@@ -68,30 +57,6 @@ function GaleriPage() {
                         Sumberkejayan melalui lensa kamera. Dokumentasi kegiatan
                         masyarakat, pembangunan infrastruktur, dan pesona alam.
                     </p>
-                </div>
-            </section>
-
-            {/* Filter Section */}
-            <section className="mt-12 px-4 lg:px-12">
-                <div className="flex flex-wrap items-center gap-3 bg-card p-4 rounded-2xl border border-border shadow-sm">
-                    <div className="flex items-center gap-2 mr-4 text-muted-foreground">
-                        <Filter size={18} aria-hidden="true" />
-                        <span className="text-sm font-medium">Filter:</span>
-                    </div>
-                    {categories.map((cat) => (
-                        <button
-                            key={cat}
-                            onClick={() => setSelectedCategory(cat)}
-                            aria-pressed={selectedCategory === cat}
-                            className={`px-6 py-2 rounded-xl text-sm font-semibold transition-all ${
-                                selectedCategory === cat
-                                    ? 'bg-primary text-white shadow-lg shadow-primary/20 scale-105'
-                                    : 'bg-muted text-muted-foreground hover:bg-muted/80'
-                            }`}
-                        >
-                            {cat}
-                        </button>
-                    ))}
                 </div>
             </section>
 
@@ -119,7 +84,7 @@ function GaleriPage() {
 
                             <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                                 <Badge className="w-fit mb-3 bg-primary border-none text-white">
-                                    {item.category}
+                                    Dokumentasi
                                 </Badge>
                                 <h2 className="text-white font-bold text-lg leading-tight">
                                     {item.title}
@@ -127,7 +92,7 @@ function GaleriPage() {
                                 <div className="flex items-center gap-2 text-white/70 text-xs mt-2">
                                     <Calendar size={12} aria-hidden="true" />
                                     <span>
-                                        {new Date(item.date).toLocaleDateString(
+                                        {new Date(item.uploaded_at).toLocaleDateString(
                                             'id-ID',
                                             {
                                                 day: 'numeric',
@@ -174,7 +139,7 @@ function GaleriPage() {
 
                         <div className="text-center max-w-3xl">
                             <Badge variant="primary" className="mb-3">
-                                {selectedImage.category}
+                                Dokumentasi
                             </Badge>
                             <h2
                                 id="lightbox-title"
@@ -182,17 +147,12 @@ function GaleriPage() {
                             >
                                 {selectedImage.title}
                             </h2>
-                            {selectedImage.description && (
-                                <p className="text-white/60 mt-3 text-sm md:text-base leading-relaxed">
-                                    {selectedImage.description}
-                                </p>
-                            )}
                             <div className="flex items-center justify-center gap-2 text-white/40 text-xs mt-4">
                                 <Calendar size={14} aria-hidden="true" />
                                 <span>
                                     Diambil pada:{' '}
                                     {new Date(
-                                        selectedImage.date,
+                                        selectedImage.uploaded_at,
                                     ).toLocaleDateString('id-ID', {
                                         day: 'numeric',
                                         month: 'long',

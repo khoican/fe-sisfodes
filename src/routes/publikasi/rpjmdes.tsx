@@ -33,7 +33,7 @@ export const Route = createFileRoute('/publikasi/rpjmdes')({
             publicationQueryOptions('rpjmdes'),
         )
         return {
-            publication: publication.response,
+            publication: publication.metadata,
         }
     },
     component: RpjmdesPage,
@@ -160,7 +160,7 @@ function RpjmdesPage() {
                                     variant="outline"
                                     className="text-[10px]"
                                 >
-                                    {selectedDoc.file_type.toUpperCase()}
+                                    {selectedDoc.file_type?.toUpperCase()}
                                 </Badge>
                             </div>
                             <div className="flex-1 relative bg-muted flex items-center justify-center p-8">

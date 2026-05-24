@@ -25,7 +25,7 @@ interface NewsCardProps extends INews {
 export default function NewsCard({
     title,
     description,
-    image,
+    images,
     category,
     created_at,
     layout = 'vertical',
@@ -33,6 +33,7 @@ export default function NewsCard({
     slug,
     options,
 }: NewsCardProps) {
+    const image = images?.[0] || ''
     const { showLink = true } = options || {}
     const isHorizontal = layout === 'horizontal'
     const hasDetail = Boolean(slug)

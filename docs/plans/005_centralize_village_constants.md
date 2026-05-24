@@ -30,6 +30,7 @@ Mendefinisikan tipe data kontrak untuk setiap konfigurasi desa. Properti yang di
 - `tagline`: Slogan desa.
 - `logo`: Path ke file logo desa di aset lokal/CDN.
 - `address.street`, `address.hamlet`, `address.district`, `address.regency`, `address.province`, `address.postal_code`: Struktur alamat lengkap (jalan, dusun, kecamatan, kabupaten, provinsi, kode pos).
+- `map`: mengarah ke dalam `https://ik.imagekit.io/rulls/sisfodes/demo/peta-desa.webp?updatedAt=1777648884236?tr=f-webp`
 - `location.longitude` dan `location.latitude`: Koordinat titik peta default (lat, lng) untuk widget peta desa.
 - `contacts.phone`, `contacts.whatsapp`, `contacts.email`: Kontak desa (nomor telepon, WhatsApp, email).
 - `socials.facebook`, `socials.instagram`, `socials.youtube`, `socials.twitter`: Tautan media sosial (Facebook, Instagram, YouTube, Twitter) (opsional).

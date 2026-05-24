@@ -15,8 +15,8 @@ export const fetchPenghargaan = createServerFn({ method: 'GET' }).handler(
         try {
             const data = await api.get<INews[]>(ENDPOINTS.penghargaan)
 
-            if (Array.isArray(data.response)) {
-                data.response.sort((a, b) => {
+            if (Array.isArray(data.metadata)) {
+                data.metadata.sort((a, b) => {
                     const timeA = new Date(a.created_at).getTime()
                     const timeB = new Date(b.created_at).getTime()
                     return timeB - timeA

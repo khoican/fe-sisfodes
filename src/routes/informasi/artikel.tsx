@@ -27,7 +27,7 @@ export const Route = createFileRoute('/informasi/artikel')({
             artikelQueryOptions(),
         )
         return {
-            artikel: artikel.response,
+            artikel: artikel.metadata,
         }
     },
     component: Artikel,

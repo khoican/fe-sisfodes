@@ -26,7 +26,7 @@ export const Route = createFileRoute('/produk/')({
             productQueryOptions(),
         )
         return {
-            products: products.response,
+            products: products.metadata,
         }
     },
     component: ProdukIndex,

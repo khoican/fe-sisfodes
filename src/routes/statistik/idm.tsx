@@ -46,7 +46,7 @@ export const Route = createFileRoute('/statistik/idm')({
     loader: async ({ context }) => {
         const idm = await context.queryClient.ensureQueryData(idmQueryOptions())
         return {
-            idm: idm.response,
+            idm: idm.metadata,
         }
     },
     component: IdmPage,

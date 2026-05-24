@@ -22,7 +22,7 @@ export const Route = createFileRoute('/profil/profil-desa')({
         )
 
         return {
-            profil: profil.response,
+            profil: profil.metadata,
         }
     },
     component: Profil,

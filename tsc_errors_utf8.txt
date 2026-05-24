@@ -1,0 +1,223 @@
+﻿src/components/shared/card/agenda/featured.tsx(50,64): error TS2339: Property 'location' does not exist on type 'IAgenda'.
+src/components/shared/card/agenda/list-item.tsx(16,26): error TS2339: Property 'is_holiday' does not exist on type 'IAgenda'.
+src/components/shared/card/agenda/list-item.tsx(35,30): error TS2339: Property 'is_holiday' does not exist on type 'IAgenda'.
+src/components/shared/card/agenda/list-item.tsx(50,28): error TS2339: Property 'is_holiday' does not exist on type 'IAgenda'.
+src/components/shared/card/news.tsx(28,5): error TS2339: Property 'image' does not exist on type 'NewsCardProps'.
+src/data/artikel.data.ts(15,9): error TS2561: Object literal may only specify known properties, but 'image' does not exist in type 'INews'. Did you mean to write 'images'?
+src/data/artikel.data.ts(31,9): error TS2561: Object literal may only specify known properties, but 'image' does not exist in type 'INews'. Did you mean to write 'images'?
+src/data/penghargaan.data.ts(15,9): error TS2561: Object literal may only specify known properties, but 'image' does not exist in type 'INews'. Did you mean to write 'images'?
+src/data/penghargaan.data.ts(31,9): error TS2561: Object literal may only specify known properties, but 'image' does not exist in type 'INews'. Did you mean to write 'images'?
+src/routes/galeri.tsx(43,43): error TS2339: Property 'map' does not exist on type '{ code: number; message: string; }'.
+src/routes/galeri.tsx(43,48): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/galeri.tsx(49,24): error TS2339: Property 'filter' does not exist on type '{ code: number; message: string; }'.
+src/routes/galeri.tsx(49,32): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/galeri.tsx(83,29): error TS2322: Type 'unknown' is not assignable to type 'Key | null | undefined'.
+src/routes/galeri.tsx(84,64): error TS2345: Argument of type 'unknown' is not assignable to parameter of type 'SetStateAction<string>'.
+src/routes/galeri.tsx(92,29): error TS2322: Type 'unknown' is not assignable to type 'ReactNode'.
+src/routes/galeri.tsx(101,43): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/galeri.tsx(177,48): error TS2339: Property 'category' does not exist on type 'IGalleryItem'.
+src/routes/galeri.tsx(185,44): error TS2339: Property 'description' does not exist on type 'IGalleryItem'.
+src/routes/galeri.tsx(187,52): error TS2339: Property 'description' does not exist on type 'IGalleryItem'.
+src/routes/galeri.tsx(195,55): error TS2339: Property 'date' does not exist on type 'IGalleryItem'.
+src/routes/index.tsx(79,37): error TS2339: Property 'filter' does not exist on type '{ code: number; message: string; }'.
+src/routes/index.tsx(80,18): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/index.tsx(104,29): error TS2339: Property 'find' does not exist on type '{ code: number; message: string; }'.
+src/routes/index.tsx(104,35): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/index.tsx(108,19): error TS2740: Type '{ code: number; message: string; }' is missing the following properties from type 'IHero[]': length, pop, push, concat, and 29 more.
+src/routes/index.tsx(112,33): error TS2740: Type '{ code: number; message: string; }' is missing the following properties from type 'IPopulation': total_residents, total_households, population_density, by_gender, and 5 more.
+src/routes/index.tsx(113,29): error TS2739: Type '{ code: number; message: string; }' is missing the following properties from type 'IVillageBudget': year, last_updated, income, expenditure, financing
+src/routes/index.tsx(118,44): error TS2339: Property 'greeting' does not exist on type '{ code: number; message: string; }'.
+src/routes/index.tsx(122,37): error TS2740: Type '{ code: number; message: string; }' is missing the following properties from type 'IAgenda[]': length, pop, push, concat, and 29 more.
+src/routes/index.tsx(129,21): error TS2740: Type '{ code: number; message: string; }' is missing the following properties from type 'IOfficial[]': length, pop, push, concat, and 29 more.
+src/routes/index.tsx(138,33): error TS2740: Type '{ code: number; message: string; }' is missing the following properties from type 'IProduct[]': length, pop, push, concat, and 29 more.
+src/routes/index.tsx(143,41): error TS2339: Property 'address' does not exist on type '{ code: number; message: string; }'.
+src/routes/index.tsx(143,69): error TS2339: Property 'address' does not exist on type '{ code: number; message: string; }'.
+src/routes/index.tsx(143,97): error TS2339: Property 'address' does not exist on type '{ code: number; message: string; }'.
+src/routes/index.tsx(143,126): error TS2339: Property 'address' does not exist on type '{ code: number; message: string; }'.
+src/routes/index.tsx(144,39): error TS2339: Property 'coordinates' does not exist on type '{ code: number; message: string; }'.
+src/routes/index.tsx(145,40): error TS2339: Property 'coordinates' does not exist on type '{ code: number; message: string; }'.
+src/routes/informasi/agenda.tsx(44,34): error TS2488: Type '{ code: number; message: string; }' must have a '[Symbol.iterator]()' method that returns an iterator.
+src/routes/informasi/agenda.tsx(56,37): error TS2739: Type 'never[]' is missing the following properties from type '{ code: number; message: string; }': code, message
+src/routes/informasi/agenda.tsx(57,31): error TS2339: Property 'push' does not exist on type '{ code: number; message: string; }'.
+src/routes/informasi/agenda.tsx(111,44): error TS2339: Property 'map' does not exist on type '{ code: number; message: string; }'.
+src/routes/informasi/agenda.tsx(111,49): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/informasi/artikel.tsx(39,35): error TS2339: Property 'slice' does not exist on type '{ code: number; message: string; }'.
+src/routes/informasi/artikel.tsx(56,22): error TS2339: Property 'length' does not exist on type '{ code: number; message: string; }'.
+src/routes/informasi/artikel.tsx(60,61): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/informasi/artikel.tsx(60,67): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/routes/informasi/artikel.tsx(83,43): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/informasi/artikel.tsx(83,49): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/routes/informasi/artikel.tsx(131,34): error TS2339: Property 'slice' does not exist on type '{ code: number; message: string; }'.
+src/routes/informasi/artikel.tsx(132,49): error TS2339: Property 'length' does not exist on type '{ code: number; message: string; }'.
+src/routes/informasi/artikel.tsx(133,49): error TS2339: Property 'length' does not exist on type '{ code: number; message: string; }'.
+src/routes/informasi/berita/$slug.tsx(29,13): error TS2740: Type '{ code: number; message: string; }' is missing the following properties from type 'INews[]': length, pop, push, concat, and 29 more.
+src/routes/informasi/berita/$slug.tsx(30,13): error TS2739: Type '{ code: number; message: string; }' is missing the following properties from type 'INews': title, images, created_at
+src/routes/informasi/berita/$slug.tsx(41,31): error TS2551: Property 'image' does not exist on type 'INews'. Did you mean 'images'?
+src/routes/informasi/berita/$slug.tsx(133,33): error TS2551: Property 'image' does not exist on type 'INews'. Did you mean 'images'?
+src/routes/informasi/berita/index.tsx(40,10): error TS2339: Property 'filter' does not exist on type '{ code: number; message: string; }'.
+src/routes/informasi/berita/index.tsx(40,18): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/informasi/berita/index.tsx(43,27): error TS2339: Property 'filter' does not exist on type '{ code: number; message: string; }'.
+src/routes/informasi/berita/index.tsx(43,35): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/informasi/berita/index.tsx(62,54): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/informasi/berita/index.tsx(62,60): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/routes/informasi/berita/index.tsx(83,58): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/informasi/berita/index.tsx(83,64): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/routes/informasi/penghargaan.tsx(39,43): error TS2339: Property 'slice' does not exist on type '{ code: number; message: string; }'.
+src/routes/informasi/penghargaan.tsx(56,26): error TS2339: Property 'length' does not exist on type '{ code: number; message: string; }'.
+src/routes/informasi/penghargaan.tsx(62,39): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/informasi/penghargaan.tsx(62,45): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/routes/informasi/penghargaan.tsx(85,43): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/informasi/penghargaan.tsx(85,49): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/routes/informasi/penghargaan.tsx(133,34): error TS2339: Property 'slice' does not exist on type '{ code: number; message: string; }'.
+src/routes/informasi/penghargaan.tsx(134,53): error TS2339: Property 'length' does not exist on type '{ code: number; message: string; }'.
+src/routes/informasi/penghargaan.tsx(135,53): error TS2339: Property 'length' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(21,30): error TS2339: Property 'full_name' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(24,26): error TS2339: Property 'description' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(32,63): error TS2339: Property 'logo' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(62,38): error TS2339: Property 'full_name' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(64,43): error TS2339: Property 'name' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(68,38): error TS2339: Property 'description' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(76,45): error TS2339: Property 'last_updated' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(89,46): error TS2339: Property 'logo' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(90,46): error TS2339: Property 'name' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(99,27): error TS2339: Property 'vision' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(100,30): error TS2339: Property 'mission' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(100,53): error TS2339: Property 'mission' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(105,38): error TS2339: Property 'vision' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(117,51): error TS2339: Property 'vision' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(122,38): error TS2339: Property 'mission' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(123,41): error TS2339: Property 'mission' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(135,54): error TS2339: Property 'mission' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(136,46): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/lembaga/$slug.tsx(136,52): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/routes/lembaga/$slug.tsx(158,28): error TS2339: Property 'tasks' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(158,49): error TS2339: Property 'tasks' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(159,30): error TS2339: Property 'functions' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(160,33): error TS2339: Property 'functions' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(164,41): error TS2339: Property 'tasks' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(169,39): error TS2339: Property 'tasks' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(169,60): error TS2339: Property 'functions' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(170,30): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/lembaga/$slug.tsx(170,36): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/routes/lembaga/$slug.tsx(192,50): error TS2339: Property 'full_name' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(195,30): error TS2339: Property 'members' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(195,53): error TS2339: Property 'members' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(197,38): error TS2339: Property 'members' does not exist on type '{ code: number; message: string; }'.
+src/routes/lembaga/$slug.tsx(197,51): error TS7006: Parameter 'member' implicitly has an 'any' type.
+src/routes/pengaduan.tsx(323,71): error TS2339: Property 'contact' does not exist on type '{ code: number; message: string; }'.
+src/routes/pengaduan.tsx(335,57): error TS2339: Property 'contact' does not exist on type '{ code: number; message: string; }'.
+src/routes/pengaduan.tsx(374,53): error TS2339: Property 'address' does not exist on type '{ code: number; message: string; }'.
+src/routes/pengaduan.tsx(375,53): error TS2339: Property 'address' does not exist on type '{ code: number; message: string; }'.
+src/routes/pengaduan.tsx(376,53): error TS2339: Property 'address' does not exist on type '{ code: number; message: string; }'.
+src/routes/pengaduan.tsx(377,53): error TS2339: Property 'address' does not exist on type '{ code: number; message: string; }'.
+src/routes/pengaduan.tsx(392,53): error TS2339: Property 'contact' does not exist on type '{ code: number; message: string; }'.
+src/routes/produk/index.tsx(64,31): error TS2339: Property 'map' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/fasilitas-umum.tsx(28,15): error TS2305: Module '"#/types/IFacility"' has no exported member 'IFacilityCategory'.
+src/routes/profil/fasilitas-umum.tsx(28,34): error TS2305: Module '"#/types/IFacility"' has no exported member 'IFacilityStatus'.
+src/routes/profil/fasilitas-umum.tsx(85,42): error TS2339: Property 'map' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/fasilitas-umum.tsx(85,47): error TS7006: Parameter 'f' implicitly has an 'any' type.
+src/routes/profil/fasilitas-umum.tsx(89,27): error TS2339: Property 'filter' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/fasilitas-umum.tsx(89,35): error TS7006: Parameter 'f' implicitly has an 'any' type.
+src/routes/profil/fasilitas-umum.tsx(183,50): error TS7006: Parameter 'facility' implicitly has an 'any' type.
+src/routes/profil/fasilitas-umum.tsx(249,61): error TS2322: Type 'unknown' is not assignable to type 'ReactNode'.
+src/routes/profil/geografi-desa.tsx(41,33): error TS2339: Property 'total_area' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/geografi-desa.tsx(47,30): error TS2339: Property 'topography' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/geografi-desa.tsx(53,33): error TS2339: Property 'altitude' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/geografi-desa.tsx(59,30): error TS2339: Property 'climate' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/geografi-desa.tsx(136,44): error TS2339: Property 'borders' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/geografi-desa.tsx(143,44): error TS2339: Property 'borders' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/geografi-desa.tsx(156,44): error TS2339: Property 'borders' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/geografi-desa.tsx(166,44): error TS2339: Property 'borders' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/geografi-desa.tsx(195,40): error TS2339: Property 'land_use' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/geografi-desa.tsx(195,54): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/profil/geografi-desa.tsx(195,60): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/routes/profil/geografi-desa.tsx(220,44): error TS2339: Property 'last_updated' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/geografi-desa.tsx(234,35): error TS2339: Property 'land_use' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/geografi-desa.tsx(235,30): error TS7006: Parameter 'l' implicitly has an 'any' type.
+src/routes/profil/peta-desa.tsx(37,27): error TS2339: Property 'map' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/peta-desa.tsx(37,32): error TS7006: Parameter 'f' implicitly has an 'any' type.
+src/routes/profil/peta-desa.tsx(51,38): error TS2339: Property 'find' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/peta-desa.tsx(51,44): error TS7006: Parameter 'f' implicitly has an 'any' type.
+src/routes/profil/peta-desa.tsx(54,24): error TS2339: Property 'length' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/peta-desa.tsx(56,17): error TS7053: Element implicitly has an 'any' type because expression of type '0' can't be used to index type '{ code: number; message: string; }'.
+  Property '0' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/peta-desa.tsx(57,17): error TS7053: Element implicitly has an 'any' type because expression of type '0' can't be used to index type '{ code: number; message: string; }'.
+  Property '0' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/peta-desa.tsx(136,45): error TS2339: Property 'map' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/peta-desa.tsx(136,50): error TS7006: Parameter 'f' implicitly has an 'any' type.
+src/routes/profil/profil-desa.tsx(34,28): error TS2339: Property 'history' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/profil-desa.tsx(35,27): error TS2339: Property 'vision' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/profil-desa.tsx(36,28): error TS2339: Property 'mission' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/struktur-organisasi.tsx(34,33): error TS2339: Property 'find' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/struktur-organisasi.tsx(34,39): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/profil/struktur-organisasi.tsx(35,33): error TS2339: Property 'find' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/struktur-organisasi.tsx(35,39): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/profil/struktur-organisasi.tsx(36,35): error TS2339: Property 'filter' does not exist on type '{ code: number; message: string; }'.
+src/routes/profil/struktur-organisasi.tsx(37,10): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/profil/struktur-organisasi.tsx(91,44): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/publikasi/apbdes.tsx(59,38): error TS2339: Property 'income' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/apbdes.tsx(60,37): error TS2339: Property 'income' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/apbdes.tsx(64,38): error TS2339: Property 'expenditure' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/apbdes.tsx(65,37): error TS2339: Property 'expenditure' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/apbdes.tsx(101,47): error TS2339: Property 'year' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/apbdes.tsx(116,48): error TS2339: Property 'last_updated' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/apbdes.tsx(142,48): error TS2339: Property 'expenditure' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/apbdes.tsx(149,53): error TS2339: Property 'expenditure' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/apbdes.tsx(150,56): error TS2339: Property 'expenditure' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/apbdes.tsx(170,48): error TS2339: Property 'income' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/apbdes.tsx(254,33): error TS2339: Property 'income' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/apbdes.tsx(254,51): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/publikasi/apbdes.tsx(321,33): error TS2339: Property 'expenditure' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/apbdes.tsx(321,56): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/publikasi/bank-data.tsx(48,38): error TS2339: Property 'documents' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/bank-data.tsx(49,10): error TS7006: Parameter 'doc' implicitly has an 'any' type.
+src/routes/publikasi/bank-data.tsx(95,43): error TS7006: Parameter 'doc' implicitly has an 'any' type.
+src/routes/publikasi/rapbdes.tsx(44,64): error TS2339: Property 'documents' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/rapbdes.tsx(76,42): error TS2339: Property 'documents' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/rapbdes.tsx(76,57): error TS7006: Parameter 'doc' implicitly has an 'any' type.
+src/routes/publikasi/rkpdes.tsx(44,64): error TS2339: Property 'documents' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/rkpdes.tsx(76,42): error TS2339: Property 'documents' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/rkpdes.tsx(76,57): error TS7006: Parameter 'doc' implicitly has an 'any' type.
+src/routes/publikasi/rpjmdes.tsx(44,64): error TS2339: Property 'documents' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/rpjmdes.tsx(76,42): error TS2339: Property 'documents' does not exist on type '{ code: number; message: string; }'.
+src/routes/publikasi/rpjmdes.tsx(76,57): error TS7006: Parameter 'doc' implicitly has an 'any' type.
+src/routes/statistik/idm.tsx(61,25): error TS2339: Property 'SUMMARIES' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/idm.tsx(62,22): error TS2339: Property 'ROW' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/idm.tsx(67,25): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/routes/statistik/idm.tsx(70,25): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/routes/statistik/idm.tsx(73,25): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/routes/statistik/idm.tsx(104,22): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/routes/statistik/idm.tsx(105,22): error TS7006: Parameter 'r' implicitly has an 'any' type.
+src/routes/statistik/idm.tsx(368,41): error TS7006: Parameter 'row' implicitly has an 'any' type.
+src/routes/statistik/idm.tsx(368,46): error TS7006: Parameter 'idx' implicitly has an 'any' type.
+src/routes/statistik/idm.tsx(431,30): error TS2339: Property 'IDENTITAS' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/idm.tsx(432,30): error TS2339: Property 'IDENTITAS' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/idm.tsx(435,40): error TS2339: Property 'IDENTITAS' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/idm.tsx(436,30): error TS2339: Property 'IDENTITAS' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/idm.tsx(444,38): error TS2339: Property 'IDENTITAS' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/kependudukan.tsx(78,35): error TS2339: Property 'by_gender' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/kependudukan.tsx(84,35): error TS2339: Property 'by_gender' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/kependudukan.tsx(97,31): error TS2339: Property 'total_residents' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/kependudukan.tsx(103,31): error TS2339: Property 'total_households' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/kependudukan.tsx(109,31): error TS2339: Property 'population_density' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/kependudukan.tsx(254,60): error TS2339: Property 'by_age' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/kependudukan.tsx(312,37): error TS2339: Property 'by_education' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/kependudukan.tsx(312,55): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/statistik/kependudukan.tsx(312,61): error TS7006: Parameter 'idx' implicitly has an 'any' type.
+src/routes/statistik/kependudukan.tsx(353,54): error TS2339: Property 'by_administration' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/kependudukan.tsx(361,49): error TS2339: Property 'by_administration' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/kependudukan.tsx(362,42): error TS7006: Parameter '_' implicitly has an 'any' type.
+src/routes/statistik/kependudukan.tsx(362,45): error TS7006: Parameter 'index' implicitly has an 'any' type.
+src/routes/statistik/kependudukan.tsx(388,37): error TS2339: Property 'by_administration' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/kependudukan.tsx(388,60): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/statistik/kependudukan.tsx(388,66): error TS7006: Parameter 'idx' implicitly has an 'any' type.
+src/routes/statistik/kependudukan.tsx(427,37): error TS2339: Property 'last_updated' does not exist on type '{ code: number; message: string; }'.
+src/routes/statistik/sdgs.tsx(52,21): error TS2339: Property 'score' does not exist on type 'ISdgs'.
+src/routes/statistik/sdgs.tsx(52,40): error TS7006: Parameter 'goal' implicitly has an 'any' type.
+src/routes/statistik/sdgs.tsx(99,43): error TS2339: Property 'score' does not exist on type 'ISdgs'.
+src/routes/statistik/sdgs.tsx(107,43): error TS2339: Property 'score' does not exist on type 'ISdgs'.
+src/routes/statistik/sdgs.tsx(133,47): error TS2339: Property 'chart' does not exist on type 'ISdgs'.
+src/routes/statistik/sdgs.tsx(170,45): error TS7006: Parameter 'goal' implicitly has an 'any' type.
+src/services/sdgs.service.tsx(14,5): error TS2739: Type '{ code: number; message: string; }' is missing the following properties from type 'ISdgs': average, data, total_desa
+src/utils/agenda.util.ts(49,59): error TS2339: Property 'is_holiday' does not exist on type 'IAgenda'.
+src/utils/agenda.util.ts(58,58): error TS2339: Property 'is_holiday' does not exist on type 'IAgenda'.

@@ -27,7 +27,7 @@ export const Route = createFileRoute('/informasi/penghargaan')({
             penghargaanQueryOptions(),
         )
         return {
-            penghargaan: penghargaan.response,
+            penghargaan: penghargaan.metadata,
         }
     },
     component: Penghargaan,

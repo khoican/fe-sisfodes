@@ -11,7 +11,7 @@ import { queryOptions } from '@tanstack/react-query'
  */
 export const getSdgs = async (): Promise<ISdgs> => {
     const response = await api.get<ISdgs>(ENDPOINTS.sdgs)
-    return response.response
+    return response.metadata
 }
 
 /**

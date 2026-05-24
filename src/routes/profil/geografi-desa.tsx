@@ -24,7 +24,7 @@ export const Route = createFileRoute('/profil/geografi-desa')({
             geographyQueryOptions(),
         )
         return {
-            geography: geography.response,
+            geography: geography.metadata,
         }
     },
     component: GeografiDesa,

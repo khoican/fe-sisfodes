@@ -12,7 +12,7 @@ export const penghargaanData: INews[] = [
       <p>Selain itu, tingkat swadaya masyarakat yang tinggi dalam pembangunan infrastruktur desa juga menjadi poin penilaian utama. Kepala Desa menyampaikan bahwa piala ini adalah milik seluruh warga yang telah bekerja keras membangun desa.</p>
       <p>Diharapkan prestasi ini menjadi pemacu semangat bagi desa-desa lain untuk terus berinovasi dan mandiri dalam mengelola wilayahnya.</p>
     `,
-        image: 'https://ik.imagekit.io/rulls/sisfodes/demo/news/lomba-desa-bersih-tingkat-kabupaten.jpg?tr-f=webp',
+        images: ['https://ik.imagekit.io/rulls/sisfodes/demo/news/lomba-desa-bersih-tingkat-kabupaten.jpg?tr-f=webp'],
         category: { id: 1, name: 'Prestasi' },
         author: 'Admin Desa',
         created_at: new Date('2026-04-20T10:00:00'),
@@ -28,7 +28,7 @@ export const penghargaanData: INews[] = [
       <p>Program "Sabtu Berbudaya" yang melibatkan seluruh lapisan masyarakat dalam kegiatan seni menjadi kunci utama kemenangan ini. Juri mengapresiasi bagaimana budaya asli desa tetap eksis di tengah arus modernisasi.</p>
       <p>Penghargaan ini diharapkan mampu meningkatkan kunjungan wisatawan dan berdampak positif pada ekonomi kreatif warga desa.</p>
     `,
-        image: 'https://ik.imagekit.io/rulls/sisfodes/demo/news/pesta-rakyat-dan-bazar-kuliner-tradisional.jpg?tr-f=webp',
+        images: ['https://ik.imagekit.io/rulls/sisfodes/demo/news/pesta-rakyat-dan-bazar-kuliner-tradisional.jpg?tr-f=webp'],
         category: { id: 1, name: 'Prestasi' },
         author: 'Panitia Wisata',
         created_at: new Date('2026-04-25T11:00:00'),

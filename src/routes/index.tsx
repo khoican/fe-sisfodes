@@ -70,16 +70,16 @@ export const Route = createFileRoute('/')({
             ])
 
         return {
-            profile: profile.response,
-            hero: hero.response,
-            official: official.response,
-            population: population.response,
-            budget: budget.response,
-            agenda: agenda.response,
-            newsData: news.response.filter(
+            profile: profile.metadata,
+            hero: hero.metadata,
+            official: official.metadata,
+            population: population.metadata,
+            budget: budget.metadata,
+            agenda: agenda.metadata,
+            newsData: news.metadata.filter(
                 (item) => item.category?.name !== 'Pengumuman',
             ),
-            products: products.response,
+            products: products.metadata,
         }
     },
     component: App,

@@ -3,7 +3,6 @@ import { Card, CardContent } from '#/components/ui/card'
 import { agendaQueryOptions } from '#/services/agenda.service'
 import { createFileRoute } from '@tanstack/react-router'
 import {
-    MapPin,
     Clock,
     Bell,
     Info,
@@ -27,7 +26,7 @@ export const Route = createFileRoute('/informasi/agenda')({
         const agenda =
             await context.queryClient.ensureQueryData(agendaQueryOptions())
         return {
-            agenda: agenda.response,
+            agenda: agenda.metadata,
         }
     },
     component: AgendaPage,
@@ -111,12 +110,12 @@ function AgendaPage() {
                                     {items.map((item) => (
                                         <Card
                                             key={item.id}
-                                            className={`border-none shadow-sm hover:shadow-md transition-all overflow-hidden ${item.is_holiday ? 'bg-destructive/10' : 'bg-card'}`}
+                                            className="border-none shadow-sm hover:shadow-md transition-all overflow-hidden bg-card"
                                         >
                                             <CardContent className="p-0 flex flex-col md:flex-row">
                                                 {/* Date Box */}
                                                 <div
-                                                    className={`w-full md:w-32 p-6 flex flex-col items-center justify-center text-center ${item.is_holiday ? 'bg-destructive text-white' : 'bg-primary text-white'}`}
+                                                    className="w-full md:w-32 p-6 flex flex-col items-center justify-center text-center bg-primary text-white"
                                                 >
                                                     <span className="text-sm font-bold uppercase tracking-widest opacity-80">
                                                         {formatDay(
@@ -134,22 +133,11 @@ function AgendaPage() {
                                                 <div className="flex-1 p-6 flex flex-col justify-between">
                                                     <div>
                                                         <div className="flex items-center gap-2 mb-2">
-                                                            {item.is_holiday && (
-                                                                <Badge
-                                                                    variant="destructive"
-                                                                    className="text-[10px]"
-                                                                >
-                                                                    Libur
-                                                                    Nasional
-                                                                </Badge>
-                                                            )}
                                                             <Badge
                                                                 variant="outline"
                                                                 className="text-[10px] border-primary/20 text-primary uppercase"
                                                             >
-                                                                {item.is_national
-                                                                    ? 'Nasional'
-                                                                    : 'Lokal'}
+                                                                Lokal
                                                             </Badge>
                                                         </div>
                                                         <h3 className="text-xl font-bold text-foreground mb-2">
@@ -175,16 +163,6 @@ function AgendaPage() {
                                                                 -{' '}
                                                                 {item.time.end}{' '}
                                                                 WIB
-                                                            </span>
-                                                        </div>
-                                                        <div className="flex items-center gap-1.5">
-                                                            <MapPin
-                                                                size={14}
-                                                                className="text-primary"
-                                                                aria-hidden="true"
-                                                            />
-                                                            <span>
-                                                                {item.location}
                                                             </span>
                                                         </div>
                                                     </div>

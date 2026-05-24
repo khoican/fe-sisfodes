@@ -51,7 +51,7 @@ export const Route = createFileRoute('/statistik/kependudukan')({
             populationQueryOptions(),
         )
         return {
-            population: population.response,
+            population: population.metadata,
         }
     },
     component: KependudukanPage,

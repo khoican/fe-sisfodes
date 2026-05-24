@@ -15,8 +15,8 @@ export const fetchNews = createServerFn({ method: 'GET' }).handler(async () => {
         const data = await api.get<INews[]>(ENDPOINTS.berita)
 
         // Sort dari yang terbaru jika response merupakan array
-        if (Array.isArray(data.response)) {
-            data.response.sort((a, b) => {
+        if (Array.isArray(data.metadata)) {
+            data.metadata.sort((a, b) => {
                 const timeA = new Date(a.created_at).getTime()
                 const timeB = new Date(b.created_at).getTime()
                 return timeB - timeA

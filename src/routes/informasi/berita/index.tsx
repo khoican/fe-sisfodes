@@ -27,7 +27,7 @@ export const Route = createFileRoute('/informasi/berita/')({
         const news =
             await context.queryClient.ensureQueryData(newsQueryOptions())
         return {
-            news: news.response,
+            news: news.metadata,
         }
     },
     component: Berita,

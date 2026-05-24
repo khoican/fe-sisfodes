@@ -33,7 +33,7 @@ export const Route = createFileRoute('/publikasi/bank-data')({
             publicationQueryOptions('bank-data'),
         )
         return {
-            publication: publication.response,
+            publication: publication.metadata,
         }
     },
     component: BankDataPage,
@@ -128,7 +128,7 @@ function BankDataPage() {
                                                 </span>
                                                 <span className="flex items-center gap-1.5 text-primary">
                                                     FORMAT:{' '}
-                                                    {doc.file_type.toUpperCase()}
+                                                    {doc.file_type?.toUpperCase()}
                                                 </span>
                                             </div>
                                         </div>

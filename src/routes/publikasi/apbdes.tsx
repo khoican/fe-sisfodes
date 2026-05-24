@@ -40,7 +40,7 @@ export const Route = createFileRoute('/publikasi/apbdes')({
         const budget =
             await context.queryClient.ensureQueryData(budgetQueryOptions())
         return {
-            budget: budget.response,
+            budget: budget.metadata,
         }
     },
     component: ApbdesPage,

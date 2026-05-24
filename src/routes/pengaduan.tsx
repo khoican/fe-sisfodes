@@ -47,7 +47,7 @@ export const Route = createFileRoute('/pengaduan')({
             profileQueryOptions(),
         )
         return {
-            profil: profil.response,
+            profil: profil.metadata,
         }
     },
     component: PengaduanPage,

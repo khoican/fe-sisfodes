@@ -49,10 +49,19 @@ function SdgsPage() {
     if (!sdgs) return null
 
     const filteredGoals = useMemo(() => {
-        return sdgs.score.data.filter((goal) =>
+        return sdgs.data.filter((goal) =>
             goal.title.toLowerCase().includes(searchQuery.toLowerCase()),
         )
     }, [sdgs, searchQuery])
+
+    const chartData = useMemo(
+        () =>
+            sdgs.data.map((goal) => ({
+                label: `Tujuan ${goal.goals}`,
+                score: goal.score,
+            })),
+        [sdgs],
+    )
 
     const getScoreColor = (score: number) => {
         if (score >= 75) return 'text-green-600'
@@ -96,7 +105,7 @@ function SdgsPage() {
                                     Skor Rata-rata
                                 </span>
                                 <span className="text-4xl font-black text-primary">
-                                    {sdgs.score.average}
+                                    {sdgs.average}
                                 </span>
                             </div>
                             <div className="px-8 py-4 bg-muted rounded-2xl border border-border flex flex-col justify-center">
@@ -104,7 +113,7 @@ function SdgsPage() {
                                     Total Tujuan
                                 </span>
                                 <span className="text-2xl font-black text-foreground">
-                                    {sdgs.score.data.length} Goals
+                                    {sdgs.data.length} Goals
                                 </span>
                             </div>
                         </div>
@@ -130,7 +139,7 @@ function SdgsPage() {
                 <Title title="Visualisasi Capaian" />
                 <div className="h-140 w-full bg-card p-6 rounded-3xl shadow-sm border border-border mt-8">
                     <Suspense fallback={<ChartSkeleton />}>
-                        <SdgsChart data={sdgs.chart} />
+                        <SdgsChart data={chartData} />
                     </Suspense>
                 </div>
             </section>

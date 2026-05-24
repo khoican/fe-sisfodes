@@ -26,8 +26,8 @@ export const Route = createFileRoute('/informasi/berita/$slug')({
         ])
 
         return {
-            news: newsResponse.response,
-            berita: detailResponse.response,
+            news: newsResponse.metadata,
+            berita: detailResponse.metadata,
         }
     },
     head: ({ loaderData }) => {
@@ -38,7 +38,7 @@ export const Route = createFileRoute('/informasi/berita/$slug')({
         const description =
             berita?.description ||
             'Baca berita terbaru dari Desa Sumberkejayan.'
-        const image = berita?.image || ''
+        const image = berita?.images?.[0] || ''
 
         const jsonLd = {
             '@context': 'https://schema.org',
@@ -130,7 +130,7 @@ function DetailBerita() {
 
             <section className="w-full h-full mt-16">
                 <Image
-                    src={berita.image || ''}
+                    src={berita.images?.[0] || ''}
                     alt={berita.title || 'Gambar Berita'}
                     layout="fullWidth"
                     className="w-full h-auto rounded-xl object-cover shadow-lg"

@@ -21,7 +21,7 @@ export const Route = createFileRoute('/profil/struktur-organisasi')({
             officialQueryOptions(),
         )
         return {
-            official: official.response,
+            official: official.metadata,
         }
     },
     component: StrukturOrganisasi,

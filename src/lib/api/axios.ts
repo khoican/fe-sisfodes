@@ -49,12 +49,12 @@ axiosInstance.interceptors.request.use(
  */
 axiosInstance.interceptors.response.use(
     (response: AxiosResponse<ApiResponse>) => {
-        // Jika backend mengembalikan status 200 tetapi metadata code bukan 200
+        // Jika backend mengembalikan status 200 tetapi response code bukan 200
         // (Misal: logic error dari server)
-        const { metadata } = response.data
-        if (metadata.code !== 200) {
+        const { response: res } = response.data
+        if (res && res.code !== 200) {
             return Promise.reject(
-                new Error(metadata.message || 'API Logic Error'),
+                new Error(res.message || 'API Logic Error'),
             )
         }
         return response
@@ -73,7 +73,7 @@ axiosInstance.interceptors.response.use(
             const data = error.response.data
 
             // Ambil pesan error dari response backend jika ada
-            const serverMessage = data.metadata.message
+            const serverMessage = data.response?.message
 
             switch (status) {
                 case 400:
