@@ -33,7 +33,8 @@ When a user requests to **"run plans"** or **"execute the orchestrator"**, follo
 |  [ ]   | [003_enhance_test_coverage.md](file:///E:/PROJECT/sisfodes/docs/plans/003_enhance_test_coverage.md)                         | `src/test/`                       | Write comprehensive integration tests for public services (layanan) and complaints             |  Medium  |
 |  [x]   | [004_apply_mock_data_changes.md](file:///E:/PROJECT/sisfodes/docs/plans/004_apply_mock_data_changes.md)                       | `src/data/`                       | Sinkronisasi data mock dengan perubahan terbaru pada interface src/types                      |   High   |
 |  [ ]   | [005_centralize_village_constants.md](file:///E:/PROJECT/sisfodes/docs/plans/005_centralize_village_constants.md)             | `src/constant/` & `src/utils/`    | Sentralisasi konstanta informasi desa untuk mendukung multi-domain                            |   High   |
-|  [ ]   | [006_resolve_type_discrepancies.md](file:///E:/PROJECT/sisfodes/docs/plans/006_resolve_type_discrepancies.md)                 | Codebase-wide                     | Penyelarasan kode program dan layout UI dengan struktur tipe/interface yang baru               |   High   |
+|  [x]   | [006_resolve_type_discrepancies.md](file:///E:/PROJECT/sisfodes/docs/plans/006_resolve_type_discrepancies.md)                 | Codebase-wide                     | Penyelarasan kode program dan layout UI dengan struktur tipe/interface yang baru               |   High   |
+|  [ ]   | [007_refactor_home_and_footer_layout.md](file:///E:/PROJECT/sisfodes/docs/plans/007_refactor_home_and_footer_layout.md)         | `src/components/layout/` & `src/data/` | Moderate improvement layout beranda & footer: visual, CTA, bug fix `as any`, mekanisme libur nasional via data statis, perbaikan semua link footer | Medium |
 
 ---
 
