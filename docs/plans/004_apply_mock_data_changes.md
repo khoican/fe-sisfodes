@@ -41,6 +41,7 @@ Berikut adalah spesifikasi perubahan yang perlu diterapkan pada setiap data mock
 5. **`src/data/institution.data.ts`** (Sesuai `IInstitution`):
    - Hapus properti `full_name`, `tasks`, `functions`, `members`, dan `last_updated`.
    - Ubah properti `mission` yang sebelumnya berupa array dari string (`string[]`) menjadi string tunggal (`string`).
+   - Tambahkan properti `images: string[]` (misalnya menggunakan array kosong atau URL gambar demo).
 
 6. **`src/data/news.data.ts`** (Sesuai `INews`):
    - Ubah properti `image: string` menjadi `images: string[]` (mengemas URL gambar tunggal ke dalam array).
@@ -84,6 +85,7 @@ Langkah-langkah yang akan dieksekusi:
 - `[ ]` **Step 4: Update institution.data.ts**
     - Hapus `full_name`, `tasks`, `functions`, `members`, dan `last_updated`.
     - Ubah `mission` dari `string[]` menjadi `string` (gabungkan jika ada beberapa poin misi menggunakan newline atau spasi).
+    - Tambahkan properti `images: string[]` (misalnya menggunakan array berisi logo institusi atau array kosong `[]`).
 - `[ ]` **Step 5: Update news.data.ts**
     - Ubah `image` menjadi `images` dengan tipe array string.
 - `[ ]` **Step 6: Update profile.data.ts**
@@ -91,6 +93,7 @@ Langkah-langkah yang akan dieksekusi:
 - `[ ]` **Step 7: Update sdgs.data.ts**
     - Ubah struktur `sdgsData` dengan memindahkan properti dari `score` ke root level.
     - Hapus properti `chart`.
+- `[ ]` **Step 8: Update image**
 - `[ ]` **Step 8: Verifikasi Awal**
     - Pastikan semua file di `src/data/` terbebas dari kesalahan tipe TypeScript (*TypeScript compilation errors*).
     - *Catatan*: Perubahan ini mungkin memicu kesalahan tipe di komponen UI atau layanan (*services*) yang membaca properti yang dihapus. Penyesuaian pada file UI/layanan akan dikerjakan pada rencana terpisah.
