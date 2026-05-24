@@ -1,4 +1,3 @@
-import type { IOfficial } from './IOfficial'
 
 /**
  * Representasi data lembaga desa (BPD, LPM, PKK, Karang Taruna, dll).
@@ -7,18 +6,11 @@ export interface IInstitution {
     id: string
     slug: string
     name: string
-    full_name: string
-    description: string
     logo: string
+    description: string
     vision?: string
-    mission?: string[]
-    tasks?: string[]
-    functions?: string[]
-    /**
-     * Daftar pengurus lembaga.
-     */
-    members: IOfficial[]
-    last_updated: string
+    mission?: string
+    images: string[]
 }
 
 /**

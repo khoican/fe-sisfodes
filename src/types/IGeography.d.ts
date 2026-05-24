@@ -7,14 +7,14 @@ export interface IGeographyBorder {
 
 export interface ILandUse {
     label: string
-    area: number // in hectares
+    area: number
     percentage: number
 }
 
 export interface IGeography {
-    total_area: number // in hectares
+    total_area: number
     topography: string
-    altitude: number // in meters above sea level
+    altitude: number
     climate: string
     borders: IGeographyBorder
     land_use: ILandUse[]

@@ -4,7 +4,6 @@ export interface IProfile {
     mission: string[]
     history: string
     address: {
-        country: string
         province: string
         regency: string
         district: string

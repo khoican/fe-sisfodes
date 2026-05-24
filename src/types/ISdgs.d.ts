@@ -5,7 +5,7 @@ export interface ISdgsGoal {
     score: number
 }
 
-export interface ISdgsScore {
+export interface ISdgs {
     average: string
     data: ISdgsGoal[]
     total_desa: number
@@ -14,9 +14,4 @@ export interface ISdgsScore {
 export interface ISdgsChart {
     label: string
     score: number
-}
-
-export interface ISdgs {
-    score: ISdgsScore
-    chart: ISdgsChart[]
 }

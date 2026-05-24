@@ -11,11 +11,11 @@ import axios from 'axios'
  * Interface untuk format response standar dari backend
  */
 export interface ApiResponse<T = any> {
-    metadata: {
+    response: {
         code: number
         message: string
     }
-    response: T
+    metadata: T
 }
 
 /**

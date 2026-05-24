@@ -9,7 +9,7 @@
 - **Author**: Antigravity
 - **Created Date**: 2026-05-25
 - **Target Area**: Mock Data (`src/data/`)
-- **Status**: `[ ] Draft / [ ] Ready / [ ] In Progress / [ ] Completed`
+- **Status**: `[ ] Draft / [ ] Ready / [ ] In Progress / [x] Completed`
 - **Dependencies**: None
 
 ---
@@ -74,27 +74,34 @@ Identifikasi file data mock yang akan diubah:
 
 Langkah-langkah yang akan dieksekusi:
 
-- `[ ]` **Step 1: Update agenda.data.ts**
+- `[x]` **Step 1: Update agenda.data.ts**
     - Hapus `location`, `is_national`, `is_holiday`, dan `last_updated` dari semua item.
-- `[ ]` **Step 2: Update facility.data.ts**
+- `[x]` **Step 2: Update facility.data.ts**
     - Hapus `category`, `coordinates`, `image`, `status`, `metadata`, dan `last_updated`.
     - Tambahkan `images: string[]` untuk semua item.
-- `[ ]` **Step 3: Update gallery.data.ts**
+    - Gunakan url gambar `https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061` dalam array images di mock data.
+    - Dalam 1 mock data, `images` dapat menampung 1 sampai 3 url gambar. Gunakan array kosong `[]` jika tidak ada url gambar.
+- `[x]` **Step 3: Update gallery.data.ts**
     - Hapus `category`, `description`, dan `date`.
     - Tambahkan `uploaded_at: string` untuk semua item.
-- `[ ]` **Step 4: Update institution.data.ts**
+    - Gunakan url gambar `https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061`.
+    - Buat minimal 10 daftar gambar.
+- `[x]` **Step 4: Update institution.data.ts**
     - Hapus `full_name`, `tasks`, `functions`, `members`, dan `last_updated`.
     - Ubah `mission` dari `string[]` menjadi `string` (gabungkan jika ada beberapa poin misi menggunakan newline atau spasi).
     - Tambahkan properti `images: string[]` (misalnya menggunakan array berisi logo institusi atau array kosong `[]`).
-- `[ ]` **Step 5: Update news.data.ts**
+    - Gunakan url gambar `https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061`.
+    - Dalam 1 mock data, `images` dapat menampung 1 sampai 3 url gambar. Gunakan array kosong `[]` jika tidak ada url gambar.
+- `[x]` **Step 5: Update news.data.ts**
     - Ubah `image` menjadi `images` dengan tipe array string.
-- `[ ]` **Step 6: Update profile.data.ts**
+    - Gunakan url gambar `https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061`.
+    - Dalam 1 mock data, `images` dapat menampung 1 sampai 3 url gambar. Gunakan array kosong `[]` jika tidak ada url gambar.
+- `[x]` **Step 6: Update profile.data.ts**
     - Hapus `address.country`.
-- `[ ]` **Step 7: Update sdgs.data.ts**
+- `[x]` **Step 7: Update sdgs.data.ts**
     - Ubah struktur `sdgsData` dengan memindahkan properti dari `score` ke root level.
     - Hapus properti `chart`.
-- `[ ]` **Step 8: Update image**
-- `[ ]` **Step 8: Verifikasi Awal**
+- `[x]` **Step 8: Verifikasi Awal**
     - Pastikan semua file di `src/data/` terbebas dari kesalahan tipe TypeScript (*TypeScript compilation errors*).
     - *Catatan*: Perubahan ini mungkin memicu kesalahan tipe di komponen UI atau layanan (*services*) yang membaca properti yang dihapus. Penyesuaian pada file UI/layanan akan dikerjakan pada rencana terpisah.
 

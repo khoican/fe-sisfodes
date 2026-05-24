@@ -10,8 +10,4 @@ export interface IAgenda {
         start: string
         end: string
     }
-    location: string
-    is_national: boolean
-    is_holiday: boolean
-    last_updated: string
 }

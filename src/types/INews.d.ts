@@ -4,7 +4,7 @@ export interface INews {
     title: string
     description?: string
     content?: string
-    image: string
+    images: string[]
     category?: {
         id: number
         name: string

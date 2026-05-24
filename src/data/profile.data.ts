@@ -7,7 +7,6 @@ import type { IProfile } from '#/types/IProfile.d.ts'
 export const profileData: IProfile = {
     name: 'Desa Sumberkejayan',
     address: {
-        country: 'Indonesia',
         province: 'Jawa Timur',
         regency: 'Jember',
         district: 'Mayang',

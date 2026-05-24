@@ -9,7 +9,7 @@
 - **Author**: Antigravity
 - **Created Date**: 2026-05-25
 - **Target Area**: Constants (`src/constant/`), Utilities (`src/utils/`), Layouts & Routes
-- **Status**: `[ ] Draft / [ ] Ready / [ ] In Progress / [ ] Completed`
+- **Status**: `[ ] Draft / [x] Ready / [ ] In Progress / [ ] Completed`
 - **Dependencies**: None
 
 ---
@@ -28,12 +28,12 @@ Mendefinisikan tipe data kontrak untuk setiap konfigurasi desa. Properti yang di
 - `hostnames`: Array domain/hostname yang terasosiasi (misal: `['sumberkejayan.desa.id', 'localhost']`).
 - `name`: Nama resmi desa (misal: `'Desa Sumberkejayan'`).
 - `tagline`: Slogan desa.
-- `logoUrl`: Path ke file logo desa di aset lokal/CDN.
-- `address`: Struktur alamat lengkap (jalan, dusun, kecamatan, kabupaten, provinsi, kode pos).
-- `location`: Koordinat titik peta default (lat, lng) untuk widget peta desa.
-- `contacts`: Kontak desa (nomor telepon, WhatsApp, email).
-- `socials`: Tautan media sosial (Facebook, Instagram, YouTube, Twitter).
-- `theme`: Opsi dasar penentu visual (misal: warna primer Tailwind, gambar latar belakang hero).
+- `logo`: Path ke file logo desa di aset lokal/CDN.
+- `address.street`, `address.hamlet`, `address.district`, `address.regency`, `address.province`, `address.postal_code`: Struktur alamat lengkap (jalan, dusun, kecamatan, kabupaten, provinsi, kode pos).
+- `location.longitude` dan `location.latitude`: Koordinat titik peta default (lat, lng) untuk widget peta desa.
+- `contacts.phone`, `contacts.whatsapp`, `contacts.email`: Kontak desa (nomor telepon, WhatsApp, email).
+- `socials.facebook`, `socials.instagram`, `socials.youtube`, `socials.twitter`: Tautan media sosial (Facebook, Instagram, YouTube, Twitter) (opsional).
+- `theme`: Warna primer Tailwind (`primary`, `green`, `pink`, `purple`, dan `yellow`).
 
 ### 2. File Konstanta Terpusat (`src/constant/village.constant.ts`)
 Mengandung daftar konfigurasi desa terdaftar menggunakan struktur Key-Value (Record).

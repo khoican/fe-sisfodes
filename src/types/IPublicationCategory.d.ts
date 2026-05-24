@@ -3,8 +3,8 @@ export interface IPublicationDocument {
     title: string
     description?: string
     file_url: string
-    file_type: 'pdf' | 'doc' | 'xls' | 'zip'
-    file_size: string
+    file_type?: 'pdf' | 'doc' | 'xls' | 'zip'
+    file_size?: string
     created_at: string
 }
 

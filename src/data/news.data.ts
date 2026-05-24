@@ -12,7 +12,10 @@ export const news: INews[] = [
       <p>Kepala Desa menyatakan bahwa percepatan pembangunan ini terjadi berkat gotong royong warga yang membantu para pekerja konstruksi setiap akhir pekan. Selain itu, suplai material dari vendor lokal yang stabil juga menjadi faktor pendukung utama lancarnya proyek ini tanpa kendala teknis yang berarti.</p>
       <p>Dengan beroperasinya jembatan ini, akses ekonomi warga diprediksi akan meningkat signifikan karena waktu tempuh menuju pasar induk kini terpangkas hingga 30 menit. Pemerintah desa berharap warga dapat menjaga fasilitas ini dengan baik agar manfaatnya bisa dirasakan hingga generasi mendatang.</p>
     `,
-        image: 'https://ik.imagekit.io/rulls/sisfodes/demo/news/Pembangunan%20Jembatan%20Penghubung%202%20Desa%20Selesai%20Lebih%20Cepat.png?tr-f=webp',
+        images: [
+            'https://ik.imagekit.io/rulls/sisfodes/demo/news/Pembangunan%20Jembatan%20Penghubung%202%20Desa%20Selesai%20Lebih%20Cepat.png?tr-f=webp',
+            'https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061',
+        ],
         category: { id: 2, name: 'Infrastruktur' },
         source: { id: 1, name: 'Warta Desa' },
         author: 'Admin Desa',
@@ -29,7 +32,10 @@ export const news: INews[] = [
       <p>Tujuan utama dari kegiatan ini adalah agar produk-produk unggulan desa dapat dipasarkan secara lebih luas dan profesional. Para pemuda desa diharapkan menjadi motor penggerak transformasi digital bagi usaha mikro yang ada di lingkungan mereka masing-masing.</p>
       <p>Dengan bekal keterampilan ini, diharapkan angka penjualan UMKM desa meningkat dan tercipta ekosistem ekonomi digital yang mandiri di Desa Sumberkejayan.</p>
     `,
-        image: 'https://ik.imagekit.io/rulls/sisfodes/demo/news/Pelatihan%20Digital%20Marketing%20Untuk%20Pemuda%20dan%20UMKM%20Desa.png?tr-f=webp',
+        images: [
+            'https://ik.imagekit.io/rulls/sisfodes/demo/news/Pelatihan%20Digital%20Marketing%20Untuk%20Pemuda%20dan%20UMKM%20Desa.png?tr-f=webp',
+            'https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061',
+        ],
         category: { id: 3, name: 'Ekonomi' },
         source: { id: 1, name: 'Warta Desa' },
         author: 'Bidang Pemberdayaan',
@@ -46,7 +52,10 @@ export const news: INews[] = [
       <p>Kepala Desa beserta perangkat desa turut serta dalam acara syukuran panen raya bersama warga. Beliau menyampaikan bahwa keberhasilan ini merupakan buah dari kerja keras dan kesabaran para petani dalam mengikuti arahan penyuluh pertanian lapangan.</p>
       <p>Pemerintah desa berkomitmen untuk terus mendukung ketersediaan sarana produksi pertanian guna menjaga ketahanan pangan dan stabilitas ekonomi warga desa.</p>
     `,
-        image: 'https://ik.imagekit.io/rulls/sisfodes/demo/news/%20Berkah%20Desa%20-%20Panen%20Raya%20Terbesar%20Setelah%2020%20Tahun.png?tr-f=webp',
+        images: [
+            'https://ik.imagekit.io/rulls/sisfodes/demo/news/%20Berkah%20Desa%20-%20Panen%20Raya%20Terbesar%20Setelah%2020%20Tahun.png?tr-f=webp',
+            'https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061',
+        ],
         category: { id: 1, name: 'Pertanian' },
         source: { id: 1, name: 'Warta Desa' },
         author: 'Ketua Gapoktan',
@@ -60,10 +69,13 @@ export const news: INews[] = [
             'Memberikan pemahaman kepada warga tentang bahaya kejahatan siber dan cara melindungi data pribadi.',
         content: `
       <p>Menanggapi maraknya penipuan online, Kapolsek setempat menyelenggarakan sosialisasi keamanan digital di Balai Desa Sumberkejayan. Acara ini dihadiri oleh berbagai lapisan masyarakat, mulai dari orang tua hingga remaja desa yang aktif menggunakan media sosial.</p>
-      <p>Dalam pemaparannya, Kapolsek menekankan pentingnya waspada terhadap tautan mencurigakan dan tidak sembarangan memberikan kode OTP kepada siapapun. Beliau juga menjelaskan prosedur pelaporan jika warga menjadi korban tindak pidana siber.</p>
+      <p>Dalam pemaparannya, Kapolsek menekankan pentingnya waspada terhadap tautan mencurigakan and tidak sembarangan memberikan kode OTP kepada siapapun. Beliau juga menjelaskan prosedur pelaporan jika warga menjadi korban tindak pidana siber.</p>
       <p>Diharapkan melalui kegiatan ini, tingkat literasi digital dan keamanan warga desa meningkat, sehingga potensi kerugian akibat kejahatan siber dapat diminimalisir.</p>
     `,
-        image: 'https://ik.imagekit.io/rulls/sisfodes/demo/news/Sosialisasi%20Keamanan%20Digital%20Oleh%20Kapolsek.png?tr-f=webp',
+        images: [
+            'https://ik.imagekit.io/rulls/sisfodes/demo/news/Sosialisasi%20Keamanan%20Digital%20Oleh%20Kapolsek.png?tr-f=webp',
+            'https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061',
+        ],
         category: { id: 6, name: 'Keamanan' },
         source: { id: 2, name: 'Humas Polsek' },
         author: 'Humas Polsek',
@@ -80,7 +92,10 @@ export const news: INews[] = [
       <p>Pabrik ini nantinya akan dikelola oleh BUMDes dan melibatkan tenaga kerja lokal. Sampah organik yang dikumpulkan dari warga akan diproses menggunakan mesin modern untuk menghasilkan pupuk yang nantinya dapat digunakan kembali oleh para petani desa.</p>
       <p>Inovasi ini diharapkan menjadikan Desa Sumberkejayan sebagai desa percontohan dalam pengelolaan lingkungan hidup yang berkelanjutan dan berbasis ekonomi kerakyatan.</p>
     `,
-        image: 'https://ik.imagekit.io/rulls/sisfodes/demo/news/Pembangunan%20Pabrik%20Pengolahan%20Sampah%20Organik%20Menjadi%20Pupuk%20Telah%20dimulai.png?tr-f=webp',
+        images: [
+            'https://ik.imagekit.io/rulls/sisfodes/demo/news/Pembangunan%20Pabrik%20Pengolahan%20Sampah%20Organik%20Menjadi%20Pupuk%20Telah%20dimulai.png?tr-f=webp',
+            'https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061',
+        ],
         category: { id: 4, name: 'Lingkungan' },
         source: { id: 1, name: 'Warta Desa' },
         author: 'Dinas Kebersihan',
@@ -97,7 +112,10 @@ export const news: INews[] = [
       <p>Program beasiswa ini merupakan hasil kerja sama desa dengan yayasan pendidikan internasional. Kepala Desa berpesan agar para siswa tetap rendah hati dan belajar dengan tekun agar ilmu yang didapat bisa bermanfaat untuk kemajuan desa di masa depan.</p>
       <p>Prestasi ini membuktikan bahwa anak-anak desa memiliki potensi besar yang mampu bersaing di tingkat internasional jika diberikan kesempatan dan dukungan yang tepat.</p>
     `,
-        image: 'https://ik.imagekit.io/rulls/sisfodes/demo/news/Pelepasan%20Siswa-Siswi%20Berprestasi%20Untuk%20Belajar%20Di%20UNS%20Singapura.png?tr-f=webp',
+        images: [
+            'https://ik.imagekit.io/rulls/sisfodes/demo/news/Pelepasan%20Siswa-Siswi%20Berprestasi%20Untuk%20Belajar%20Di%20UNS%20Singapura.png?tr-f=webp',
+            'https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061',
+        ],
         category: { id: 8, name: 'Pendidikan' },
         source: { id: 3, name: 'Info Pendidikan' },
         author: 'Kader Pendidikan',
@@ -114,7 +132,10 @@ export const news: INews[] = [
       <p>Kesadaran ibu-ibu di desa terhadap pentingnya imunisasi terlihat dari tingginya angka kehadiran di setiap pos. Selain imunisasi, warga juga mendapatkan penyuluhan mengenai pola makan sehat untuk mencegah stunting sejak dini.</p>
       <p>Pemerintah desa terus berupaya menyediakan fasilitas kesehatan yang memadai dan mudah diakses demi menjamin tumbuh kembang anak yang optimal di lingkungan desa.</p>
     `,
-        image: 'https://ik.imagekit.io/rulls/sisfodes/demo/news/Program%20Imunisasi%20Rutin%20di%20Posyandu.png?tr-f=webp',
+        images: [
+            'https://ik.imagekit.io/rulls/sisfodes/demo/news/Program%20Imunisasi%20Rutin%20di%20Posyandu.png?tr-f=webp',
+            'https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061',
+        ],
         category: { id: 7, name: 'Kesehatan' },
         source: { id: 1, name: 'Warta Desa' },
         author: 'Bidan Desa',
@@ -131,7 +152,10 @@ export const news: INews[] = [
       <p>Suasana penuh keakraban terlihat saat warga bahu-membahu membersihkan selokan dan merapikan taman desa. Budaya gotong royong yang masih kental menjadi identitas kuat masyarakat Desa Sumberkejayan yang harus terus dilestarikan.</p>
       <p>Melalui kegiatan rutin ini, diharapkan lingkungan desa tetap asri, sehat, dan nyaman untuk ditinggali oleh seluruh lapisan masyarakat.</p>
     `,
-        image: 'https://ik.imagekit.io/rulls/sisfodes/demo/news/Kegiatan%20Kerja%20Bakti%20Merekatkan%20Hubungan%20Sosial%20Antar%20Warga%20Desa.png?tr-f=webp',
+        images: [
+            'https://ik.imagekit.io/rulls/sisfodes/demo/news/Kegiatan%20Kerja%20Bakti%20Merekatkan%20Hubungan%20Sosial%20Antar%20Warga%20Desa.png?tr-f=webp',
+            'https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061',
+        ],
         category: { id: 6, name: 'Sosial' },
         source: { id: 1, name: 'Warta Desa' },
         author: 'Ketua RW',
@@ -148,7 +172,10 @@ export const news: INews[] = [
       <p>Penilaian meliputi aspek kebersihan drainase, pengelolaan limbah rumah tangga, hingga partisipasi aktif warga dalam program penghijauan. Kepala Desa menyampaikan rasa terima kasih yang mendalam kepada seluruh warga atas dedikasinya dalam menjaga lingkungan.</p>
       <p>Piala penghargaan ini diharapkan menjadi motivasi tambahan bagi warga untuk terus mempertahankan gaya hidup bersih dan sehat di Desa Sumberkejayan.</p>
     `,
-        image: 'https://ik.imagekit.io/rulls/sisfodes/demo/news/Desa%20Sumberkejayan%20Memenangkan%20Penghargaan%20Desa%20Terbersih.png?tr-f=webp',
+        images: [
+            'https://ik.imagekit.io/rulls/sisfodes/demo/news/Desa%20Sumberkejayan%20Memenangkan%20Penghargaan%20Desa%20Terbersih.png?tr-f=webp',
+            'https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061',
+        ],
         category: { id: 4, name: 'Lingkungan' },
         source: { id: 1, name: 'Warta Desa' },
         author: 'Admin Desa',
@@ -165,7 +192,10 @@ export const news: INews[] = [
       <p>Selain kuliner, panggung hiburan rakyat juga menyajikan berbagai atraksi seni lokal yang menghibur seluruh keluarga. Kegiatan ini juga menjadi sarana promosi yang efektif bagi para pelaku usaha makanan di desa.</p>
       <p>Kegiatan yang berlangsung meriah ini sukses meningkatkan perputaran ekonomi lokal dan memperkuat rasa memiliki warga terhadap warisan budaya desa mereka sendiri.</p>
     `,
-        image: 'https://ik.imagekit.io/rulls/sisfodes/demo/news/Pesta%20Rakyat%20dan%20Bazar%20Kuliner%20Tradisional.png?tr-f=webp',
+        images: [
+            'https://ik.imagekit.io/rulls/sisfodes/demo/news/Pesta%20Rakyat%20dan%20Bazar%20Kuliner%20Tradisional.png?tr-f=webp',
+            'https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061',
+        ],
         category: { id: 6, name: 'Sosial' },
         source: { id: 1, name: 'Warta Desa' },
         author: 'Panitia Pesta',
