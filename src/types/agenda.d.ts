@@ -1,17 +1,17 @@
 export interface Agenda {
-    id: string,
-    title: string,
-    description: string,
+    id: string
+    title: string
+    description: string
     date: {
-        start: string,
+        start: string
         end: string
     }
     time: {
-        start: string,
+        start: string
         end: string
-    },
-    location: string,
-    is_national: boolean,
-    is_holiday: boolean,
+    }
+    location: string
+    is_national: boolean
+    is_holiday: boolean
     last_updated: string
 }

@@ -1,20 +1,20 @@
 {
-  "metadata": {
-    "code": 200,
-    "message": "Success"
-  },
-  "response": [
-    {
-      "id": 1,
-      "slug": "pembangunan-jembatan-desa-selesai-lebih-cepat",
-      "title": "Pembangunan Jembatan Desa Selesai Lebih Cepat",
-      "description": "Proyek jembatan utama penghubung antar dusun resmi beroperasi dua minggu mendahului target.",
-      "content": "<p>Proyek pembangunan jembatan utama yang menghubungkan Dusun Krajan dan Dusun Sumber akhirnya resmi selesai dua minggu lebih awal dari jadwal yang ditentukan.</p>",
-      "image": "https://ik.imagekit.io/rulls/sisfodes/demo/news/Pembangunan%20Jembatan%20Penghubung%202%20Desa%20Selesai%20Lebih%20Cepat.png?tr-f=webp",
-      "category": { "id": 2, "name": "Infrastruktur" },
-      "source": { "id": 1, "name": "Warta Desa" },
-      "author": "Admin Desa",
-      "created_at": "2026-04-10T09:00:00"
-    }
-  ]
+    "metadata": {
+        "code": 200,
+        "message": "Success"
+    },
+    "response": [
+        {
+            "id": 1,
+            "slug": "pembangunan-jembatan-desa-selesai-lebih-cepat",
+            "title": "Pembangunan Jembatan Desa Selesai Lebih Cepat",
+            "description": "Proyek jembatan utama penghubung antar dusun resmi beroperasi dua minggu mendahului target.",
+            "content": "<p>Proyek pembangunan jembatan utama yang menghubungkan Dusun Krajan dan Dusun Sumber akhirnya resmi selesai dua minggu lebih awal dari jadwal yang ditentukan.</p>",
+            "image": "https://ik.imagekit.io/rulls/sisfodes/demo/news/Pembangunan%20Jembatan%20Penghubung%202%20Desa%20Selesai%20Lebih%20Cepat.png?tr-f=webp",
+            "category": { "id": 2, "name": "Infrastruktur" },
+            "source": { "id": 1, "name": "Warta Desa" },
+            "author": "Admin Desa",
+            "created_at": "2026-04-10T09:00:00"
+        }
+    ]
 }

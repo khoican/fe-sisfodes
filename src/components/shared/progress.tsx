@@ -15,14 +15,26 @@ interface ProgressProps {
     }
 }
 
-export default function Progress ({ label, progress, className }: ProgressProps) {
-  return (
-    <div className='w-full'>
-      <div className={cn('flex items-center mb-2', className?.label)}>
-        <span>{label.title}</span>
-        <span className={cn('ml-auto', className?.value)}>{label.value}</span>
-      </div>
-      <ProgressComponent value={progress} id='progress-upload' className={className?.root} indicatorClassName={className?.indicator} aria-label={label.title} />
-    </div>
-  )
+export default function Progress({
+    label,
+    progress,
+    className,
+}: ProgressProps) {
+    return (
+        <div className="w-full">
+            <div className={cn('flex items-center mb-2', className?.label)}>
+                <span>{label.title}</span>
+                <span className={cn('ml-auto', className?.value)}>
+                    {label.value}
+                </span>
+            </div>
+            <ProgressComponent
+                value={progress}
+                id="progress-upload"
+                className={className?.root}
+                indicatorClassName={className?.indicator}
+                aria-label={label.title}
+            />
+        </div>
+    )
 }

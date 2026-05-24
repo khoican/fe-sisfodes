@@ -12,24 +12,26 @@ export const penghargaanQueryKey = 'penghargaan' as const
  *
  * @returns {Promise<ApiResponse<News[]>>} Data penghargaan desa.
  */
-export const fetchPenghargaan = createServerFn({ method: 'GET' }).handler(async () => {
-  try {
-    const data = await api.get<News[]>(ENDPOINTS.penghargaan)
+export const fetchPenghargaan = createServerFn({ method: 'GET' }).handler(
+    async () => {
+        try {
+            const data = await api.get<News[]>(ENDPOINTS.penghargaan)
 
-    if (Array.isArray(data.response)) {
-      data.response.sort((a, b) => {
-        const timeA = new Date(a.created_at).getTime()
-        const timeB = new Date(b.created_at).getTime()
-        return timeB - timeA
-      })
-    }
+            if (Array.isArray(data.response)) {
+                data.response.sort((a, b) => {
+                    const timeA = new Date(a.created_at).getTime()
+                    const timeB = new Date(b.created_at).getTime()
+                    return timeB - timeA
+                })
+            }
 
-    return data
-  } catch (error) {
-    console.error('Error fetching penghargaan:', error)
-    throw error
-  }
-})
+            return data
+        } catch (error) {
+            console.error('Error fetching penghargaan:', error)
+            throw error
+        }
+    },
+)
 
 /**
  * Options untuk TanStack Query guna mengambil data penghargaan desa.
@@ -37,7 +39,7 @@ export const fetchPenghargaan = createServerFn({ method: 'GET' }).handler(async 
  * @returns {QueryOptions} Query options object.
  */
 export const penghargaanQueryOptions = () =>
-  queryOptions({
-    queryKey: [penghargaanQueryKey],
-    queryFn: () => fetchPenghargaan()
-  })
+    queryOptions({
+        queryKey: [penghargaanQueryKey],
+        queryFn: () => fetchPenghargaan(),
+    })

@@ -19,5 +19,5 @@ export const ENDPOINTS = {
     institutions: '/institutions',
     artikel: '/artikel',
     penghargaan: '/penghargaan',
-    publikasi: '/publication'
-    }
+    publikasi: '/publication',
+}

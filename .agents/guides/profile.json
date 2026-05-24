@@ -1,33 +1,31 @@
 {
-  "metadata": {
-    "code": 200,
-    "message": "Success"
-  },
-  "response": {
-    "name": "Desa Sumberkejayan",
-    "address": {
-      "country": "Indonesia",
-      "province": "Jawa Timur",
-      "regency": "Jember",
-      "district": "Mayang",
-      "village": "Sumberkejayan",
-      "address": "Jl. Raya Banyuwangi No. 6, Tegalan"
+    "metadata": {
+        "code": 200,
+        "message": "Success"
     },
-    "vision": "Visi Desa Sumberkejayan adalah menjadi desa yang maju, mandiri, dan berbudaya, dengan memanfaatkan potensi lokal untuk meningkatkan kesejahteraan masyarakat serta menjaga kelestarian lingkungan.",
-    "mission": [
-      "Reformasi Birokrasi & Pelayanan Publik"
-    ],
-    "history": "<p>Awal mula terjadinya Desa Sumberkejayan berawal dari masa kerajaan di Pulau Jawa...</p>",
-    "contact": {
-      "phone": "081234567890",
-      "email": "edisantijo2@gmail.com",
-      "instagram": "@desasumberkejayan",
-      "tiktok": "@desasumberkejayan"
-    },
-    "coordinates": {
-      "latitude": "-8.176801402877157",
-      "longitude": "113.8329968231125"
-    },
-    "greeting": "Selamat datang di Desa Sumberkejayan..."
-  }
+    "response": {
+        "name": "Desa Sumberkejayan",
+        "address": {
+            "country": "Indonesia",
+            "province": "Jawa Timur",
+            "regency": "Jember",
+            "district": "Mayang",
+            "village": "Sumberkejayan",
+            "address": "Jl. Raya Banyuwangi No. 6, Tegalan"
+        },
+        "vision": "Visi Desa Sumberkejayan adalah menjadi desa yang maju, mandiri, dan berbudaya, dengan memanfaatkan potensi lokal untuk meningkatkan kesejahteraan masyarakat serta menjaga kelestarian lingkungan.",
+        "mission": ["Reformasi Birokrasi & Pelayanan Publik"],
+        "history": "<p>Awal mula terjadinya Desa Sumberkejayan berawal dari masa kerajaan di Pulau Jawa...</p>",
+        "contact": {
+            "phone": "081234567890",
+            "email": "edisantijo2@gmail.com",
+            "instagram": "@desasumberkejayan",
+            "tiktok": "@desasumberkejayan"
+        },
+        "coordinates": {
+            "latitude": "-8.176801402877157",
+            "longitude": "113.8329968231125"
+        },
+        "greeting": "Selamat datang di Desa Sumberkejayan..."
+    }
 }

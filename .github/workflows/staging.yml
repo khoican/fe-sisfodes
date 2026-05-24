@@ -18,12 +18,12 @@
 #     steps:
 #       - name: Checkout repository
 #         uses: actions/checkout@v4
-    
+
 #       - name: Install pnpm
 #         uses: pnpm/action-setup@v4
 #         with:
 #             version: 10
-    
+
 #       - name: Setup Node.js
 #         uses: actions/setup-node@v4
 #         with:
@@ -50,13 +50,13 @@
 
 #           # Pastikan direktori target ada
 #           sudo mkdir -p "$TARGET_DIR"
-          
+
 #           # Sinkronisasi output build
 #           sudo rsync -az --delete .output/ "$TARGET_DIR"/.output/
-          
+
 #           # Salin file konfigurasi yang diperlukan
 #           sudo cp package.json "$TARGET_DIR"/
-          
+
 #           # Restart aplikasi via PM2
 #           cd "$TARGET_DIR"
 #           sudo pm2 restart sisfodes-app || sudo pm2 start .output/server/index.mjs --name sisfodes-app

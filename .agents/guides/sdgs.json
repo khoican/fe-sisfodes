@@ -1,23 +1,21 @@
 {
-  "metadata": {
-    "code": 200,
-    "message": "Success"
-  },
-  "response": {
-    "score": {
-      "average": "33.51",
-      "data": [
-        {
-          "goals": 1,
-          "title": "Desa Tanpa Kemiskinan",
-          "image": "https://sid.kemendesa.go.id/website/skor-sdgs-1.jpg",
-          "score": 47.22
-        }
-      ],
-      "total_desa": 1
+    "metadata": {
+        "code": 200,
+        "message": "Success"
     },
-    "chart": [
-      { "label": "Desa Tanpa Kemiskinan", "score": 47.22 }
-    ]
-  }
+    "response": {
+        "score": {
+            "average": "33.51",
+            "data": [
+                {
+                    "goals": 1,
+                    "title": "Desa Tanpa Kemiskinan",
+                    "image": "https://sid.kemendesa.go.id/website/skor-sdgs-1.jpg",
+                    "score": 47.22
+                }
+            ],
+            "total_desa": 1
+        },
+        "chart": [{ "label": "Desa Tanpa Kemiskinan", "score": 47.22 }]
+    }
 }

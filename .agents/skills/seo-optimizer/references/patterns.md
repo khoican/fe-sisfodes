@@ -7,13 +7,17 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({
-  component: IndexPage,
-  head: () => ({
-    meta: [
-      { title: 'Village Information System - SISFODES' },
-      { name: 'description', content: 'Comprehensive portal for village population, budget, and services.' },
-    ],
-  }),
+    component: IndexPage,
+    head: () => ({
+        meta: [
+            { title: 'Village Information System - SISFODES' },
+            {
+                name: 'description',
+                content:
+                    'Comprehensive portal for village population, budget, and services.',
+            },
+        ],
+    }),
 })
 ```
 
@@ -22,15 +26,13 @@ export const Route = createFileRoute('/')({
 ```tsx
 // Example layout
 export function PageLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <Header />
-      <main id="main-content">
-        {children}
-      </main>
-      <Footer />
-    </>
-  )
+    return (
+        <>
+            <Header />
+            <main id="main-content">{children}</main>
+            <Footer />
+        </>
+    )
 }
 ```
 

@@ -1,28 +1,22 @@
 {
-  "metadata": {
-    "code": 200,
-    "message": "Success"
-  },
-  "response": {
-    "total_residents": 3250,
-    "total_households": 980,
-    "population_density": 450,
-    "by_gender": {
-      "male": 1610,
-      "female": 1640
+    "metadata": {
+        "code": 200,
+        "message": "Success"
     },
-    "by_religion": {
-      "islam": 2850
-    },
-    "by_age": [
-      { "label": "0-5", "count": 280 }
-    ],
-    "by_education": [
-      { "label": "Tidak/Belum Sekolah", "count": 450 }
-    ],
-    "by_administration": [
-      { "label": "Dusun Krajan", "count": 1100 }
-    ],
-    "last_updated": "2025-01-01"
-  }
+    "response": {
+        "total_residents": 3250,
+        "total_households": 980,
+        "population_density": 450,
+        "by_gender": {
+            "male": 1610,
+            "female": 1640
+        },
+        "by_religion": {
+            "islam": 2850
+        },
+        "by_age": [{ "label": "0-5", "count": 280 }],
+        "by_education": [{ "label": "Tidak/Belum Sekolah", "count": 450 }],
+        "by_administration": [{ "label": "Dusun Krajan", "count": 1100 }],
+        "last_updated": "2025-01-01"
+    }
 }

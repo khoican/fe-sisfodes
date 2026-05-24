@@ -1,45 +1,45 @@
 {
-  "metadata": {
-    "code": 200,
-    "message": "Success"
-  },
-  "response": {
-    "SUMMARIES": {
-      "SKOR_SAAT_INI": 0.82603174603175,
-      "STATUS": "MANDIRI",
-      "TARGET_STATUS": "MANDIRI",
-      "SKOR_MINIMAL": "0.8156",
-      "PENAMBAHAN": -0.010431746031750011,
-      "TAHUN": 2024
+    "metadata": {
+        "code": 200,
+        "message": "Success"
     },
-    "ROW": [
-      {
-        "NO": 1,
-        "INDIKATOR": "Skor Akses Sarkes",
-        "SKOR": 5,
-        "KETERANGAN": "Waktu tempuh dari ≤ 30  Menit",
-        "KEGIATAN": "-",
-        "NILAI": "0",
-        "PUSAT": null,
-        "PROV": null,
-        "KAB": "Dinkes, PU",
-        "DESA": null,
-        "CSR": null,
-        "LAINNYA": null,
-        "ROW_CELL": 10
-      }
-    ],
-    "IDENTITAS": [
-      {
-        "nama_provinsi": "JAWA TIMUR",
-        "id_prov": "35",
-        "id_kabupaten": "3509",
-        "nama_kab_kota": "JEMBER",
-        "id_kecamatan": "350926",
-        "nama_kecamatan": "MAYANG",
-        "id_desa": "3509262006",
-        "nama_desa": "SUMBERKEJAYAN"
-      }
-    ]
-  }
+    "response": {
+        "SUMMARIES": {
+            "SKOR_SAAT_INI": 0.82603174603175,
+            "STATUS": "MANDIRI",
+            "TARGET_STATUS": "MANDIRI",
+            "SKOR_MINIMAL": "0.8156",
+            "PENAMBAHAN": -0.010431746031750011,
+            "TAHUN": 2024
+        },
+        "ROW": [
+            {
+                "NO": 1,
+                "INDIKATOR": "Skor Akses Sarkes",
+                "SKOR": 5,
+                "KETERANGAN": "Waktu tempuh dari ≤ 30  Menit",
+                "KEGIATAN": "-",
+                "NILAI": "0",
+                "PUSAT": null,
+                "PROV": null,
+                "KAB": "Dinkes, PU",
+                "DESA": null,
+                "CSR": null,
+                "LAINNYA": null,
+                "ROW_CELL": 10
+            }
+        ],
+        "IDENTITAS": [
+            {
+                "nama_provinsi": "JAWA TIMUR",
+                "id_prov": "35",
+                "id_kabupaten": "3509",
+                "nama_kab_kota": "JEMBER",
+                "id_kecamatan": "350926",
+                "nama_kecamatan": "MAYANG",
+                "id_desa": "3509262006",
+                "nama_desa": "SUMBERKEJAYAN"
+            }
+        ]
+    }
 }

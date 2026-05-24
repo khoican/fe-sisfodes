@@ -14,17 +14,19 @@ export const publicationQueryKey = 'publication' as const
  * @returns {Promise<ApiResponse<PublicationCategory>>} Data publikasi desa.
  */
 export const fetchPublication = createServerFn({ method: 'GET' })
-  .inputValidator((data: { slug: string }) => data)
-  .handler(async ({ data }) => {
-    const { slug } = data
-    try {
-      const res = await api.get<PublicationCategory>(`${ENDPOINTS.publikasi}/${slug}`)
-      return res
-    } catch (error) {
-      console.error(`Error fetching publication [${slug}]:`, error)
-      throw error
-    }
-  })
+    .inputValidator((data: { slug: string }) => data)
+    .handler(async ({ data }) => {
+        const { slug } = data
+        try {
+            const res = await api.get<PublicationCategory>(
+                `${ENDPOINTS.publikasi}/${slug}`,
+            )
+            return res
+        } catch (error) {
+            console.error(`Error fetching publication [${slug}]:`, error)
+            throw error
+        }
+    })
 
 /**
  * Options untuk TanStack Query guna mengambil data publikasi desa.
@@ -33,7 +35,7 @@ export const fetchPublication = createServerFn({ method: 'GET' })
  * @returns {QueryOptions} Query options object.
  */
 export const publicationQueryOptions = (slug: string) =>
-  queryOptions({
-    queryKey: [publicationQueryKey, slug],
-    queryFn: () => fetchPublication({ data: { slug } })
-  })
+    queryOptions({
+        queryKey: [publicationQueryKey, slug],
+        queryFn: () => fetchPublication({ data: { slug } }),
+    })

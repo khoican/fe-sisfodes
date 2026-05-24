@@ -12,24 +12,26 @@ export const artikelQueryKey = 'artikel' as const
  *
  * @returns {Promise<ApiResponse<News[]>>} Data artikel desa.
  */
-export const fetchArtikel = createServerFn({ method: 'GET' }).handler(async () => {
-  try {
-    const data = await api.get<News[]>(ENDPOINTS.artikel)
+export const fetchArtikel = createServerFn({ method: 'GET' }).handler(
+    async () => {
+        try {
+            const data = await api.get<News[]>(ENDPOINTS.artikel)
 
-    if (Array.isArray(data.response)) {
-      data.response.sort((a, b) => {
-        const timeA = new Date(a.created_at).getTime()
-        const timeB = new Date(b.created_at).getTime()
-        return timeB - timeA
-      })
-    }
+            if (Array.isArray(data.response)) {
+                data.response.sort((a, b) => {
+                    const timeA = new Date(a.created_at).getTime()
+                    const timeB = new Date(b.created_at).getTime()
+                    return timeB - timeA
+                })
+            }
 
-    return data
-  } catch (error) {
-    console.error('Error fetching artikel:', error)
-    throw error
-  }
-})
+            return data
+        } catch (error) {
+            console.error('Error fetching artikel:', error)
+            throw error
+        }
+    },
+)
 
 /**
  * Options untuk TanStack Query guna mengambil data artikel desa.
@@ -37,7 +39,7 @@ export const fetchArtikel = createServerFn({ method: 'GET' }).handler(async () =
  * @returns {QueryOptions} Query options object.
  */
 export const artikelQueryOptions = () =>
-  queryOptions({
-    queryKey: [artikelQueryKey],
-    queryFn: () => fetchArtikel()
-  })
+    queryOptions({
+        queryKey: [artikelQueryKey],
+        queryFn: () => fetchArtikel(),
+    })

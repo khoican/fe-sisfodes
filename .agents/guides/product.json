@@ -1,20 +1,22 @@
 {
-  "metadata": {
-    "code": 200,
-    "message": "Success"
-  },
-  "response": [
-    {
-      "id": 1,
-      "name": "Keripik Tempe Rejeki",
-      "slug": "keripik-tempe-rejeki",
-      "price": 15000,
-      "description": "<p>Keripik tempe tipis renyah...</p>",
-      "store": "Rejeki Snack",
-      "image": ["https://ik.imagekit.io/rulls/sisfodes/demo/product/Keripik%20Tempe%20Sri%20Rejeki.png?updatedAt=1777645175891?tr-f=fwebp"],
-      "category": { "id": 1, "name": "Makanan" },
-      "contact": "081234567890",
-      "created_at": "2026-04-18T10:00:00Z"
-    }
-  ]
+    "metadata": {
+        "code": 200,
+        "message": "Success"
+    },
+    "response": [
+        {
+            "id": 1,
+            "name": "Keripik Tempe Rejeki",
+            "slug": "keripik-tempe-rejeki",
+            "price": 15000,
+            "description": "<p>Keripik tempe tipis renyah...</p>",
+            "store": "Rejeki Snack",
+            "image": [
+                "https://ik.imagekit.io/rulls/sisfodes/demo/product/Keripik%20Tempe%20Sri%20Rejeki.png?updatedAt=1777645175891?tr-f=fwebp"
+            ],
+            "category": { "id": 1, "name": "Makanan" },
+            "contact": "081234567890",
+            "created_at": "2026-04-18T10:00:00Z"
+        }
+    ]
 }

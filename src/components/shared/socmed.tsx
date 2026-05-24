@@ -1,5 +1,5 @@
-import { Link } from "@tanstack/react-router";
-import type { IconType } from "react-icons/lib";
+import { Link } from '@tanstack/react-router'
+import type { IconType } from 'react-icons/lib'
 
 interface SocmedProps {
     icon: IconType
@@ -9,7 +9,7 @@ interface SocmedProps {
 
 export default function Socmed({ icon: Icon, link, label }: SocmedProps) {
     return (
-        <a 
+        <a
             href={link}
             target="_blank"
             rel="noopener noreferrer"

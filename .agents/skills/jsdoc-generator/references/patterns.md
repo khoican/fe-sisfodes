@@ -15,7 +15,7 @@ Use these patterns to ensure consistency across different TypeScript constructs.
  * // returns "27 Oktober 2023"
  */
 export function formatDate(date: string, locale: string = 'en-US'): string {
-  // ... implementation
+    // ... implementation
 }
 ```
 
@@ -23,9 +23,9 @@ export function formatDate(date: string, locale: string = 'en-US'): string {
 
 ```tsx
 interface ButtonProps {
-  label: string;
-  onClick: () => void;
-  variant?: 'primary' | 'secondary';
+    label: string
+    onClick: () => void
+    variant?: 'primary' | 'secondary'
 }
 
 /**
@@ -33,14 +33,18 @@ interface ButtonProps {
  * @param {ButtonProps} props - The component props.
  * @returns {JSX.Element} The rendered button component.
  * @example
- * <Button 
- *   label="Click Me" 
- *   onClick={() => console.log('clicked')} 
- *   variant="primary" 
+ * <Button
+ *   label="Click Me"
+ *   onClick={() => console.log('clicked')}
+ *   variant="primary"
  * />
  */
-export const Button: React.FC<ButtonProps> = ({ label, onClick, variant = 'primary' }) => {
-  // ... implementation
+export const Button: React.FC<ButtonProps> = ({
+    label,
+    onClick,
+    variant = 'primary',
+}) => {
+    // ... implementation
 }
 ```
 
@@ -54,7 +58,9 @@ export const Button: React.FC<ButtonProps> = ({ label, onClick, variant = 'prima
  * @example
  * const [isOpen, toggleOpen] = useToggle(false);
  */
-export function useToggle(initialValue: boolean = false): [boolean, () => void] {
-  // ... implementation
+export function useToggle(
+    initialValue: boolean = false,
+): [boolean, () => void] {
+    // ... implementation
 }
 ```

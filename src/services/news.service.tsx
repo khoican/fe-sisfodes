@@ -13,23 +13,23 @@ export const newsQueryKey = 'news' as const
  * @returns {Promise<ApiResponse<News[]>>} Data berita desa.
  */
 export const fetchNews = createServerFn({ method: 'GET' }).handler(async () => {
-  try {
-    const data = await api.get<News[]>(ENDPOINTS.berita)
+    try {
+        const data = await api.get<News[]>(ENDPOINTS.berita)
 
-    // Sort dari yang terbaru jika response merupakan array
-    if (Array.isArray(data.response)) {
-      data.response.sort((a, b) => {
-        const timeA = new Date(a.created_at).getTime()
-        const timeB = new Date(b.created_at).getTime()
-        return timeB - timeA
-      })
+        // Sort dari yang terbaru jika response merupakan array
+        if (Array.isArray(data.response)) {
+            data.response.sort((a, b) => {
+                const timeA = new Date(a.created_at).getTime()
+                const timeB = new Date(b.created_at).getTime()
+                return timeB - timeA
+            })
+        }
+
+        return data
+    } catch (error) {
+        console.error('Error fetching news:', error)
+        throw error
     }
-
-    return data
-  } catch (error) {
-    console.error('Error fetching news:', error)
-    throw error
-  }
 })
 
 /**
@@ -39,17 +39,17 @@ export const fetchNews = createServerFn({ method: 'GET' }).handler(async () => {
  * @returns {Promise<ApiResponse<News>>} Detail berita.
  */
 export const fetchNewsDetail = createServerFn({ method: 'GET' })
-  .inputValidator((data: { slug: string }) => data)
-  .handler(async ({ data }) => {
-    const { slug } = data
-    try {
-      const res = await api.get<News>(`${ENDPOINTS.berita}/${slug}`)
-      return res
-    } catch (error) {
-      console.error(`Error fetching news detail [${slug}]:`, error)
-      throw error
-    }
-  })
+    .inputValidator((data: { slug: string }) => data)
+    .handler(async ({ data }) => {
+        const { slug } = data
+        try {
+            const res = await api.get<News>(`${ENDPOINTS.berita}/${slug}`)
+            return res
+        } catch (error) {
+            console.error(`Error fetching news detail [${slug}]:`, error)
+            throw error
+        }
+    })
 
 /**
  * Options untuk TanStack Query guna mengambil data berita desa.
@@ -57,10 +57,10 @@ export const fetchNewsDetail = createServerFn({ method: 'GET' })
  * @returns {QueryOptions} Query options object.
  */
 export const newsQueryOptions = () =>
-  queryOptions({
-    queryKey: [newsQueryKey],
-    queryFn: () => fetchNews()
-  })
+    queryOptions({
+        queryKey: [newsQueryKey],
+        queryFn: () => fetchNews(),
+    })
 
 /**
  * Options untuk TanStack Query guna mengambil detail berita desa.
@@ -68,7 +68,7 @@ export const newsQueryOptions = () =>
  * @returns {QueryOptions} Query options object.
  */
 export const newsDetailQueryOptions = (slug: string) =>
-  queryOptions({
-    queryKey: [newsQueryKey, slug],
-    queryFn: () => fetchNewsDetail({ data: { slug } })
-  })
+    queryOptions({
+        queryKey: [newsQueryKey, slug],
+        queryFn: () => fetchNewsDetail({ data: { slug } }),
+    })

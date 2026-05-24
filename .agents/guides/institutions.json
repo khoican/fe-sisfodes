@@ -1,34 +1,38 @@
 {
-  "metadata": {
-    "code": 200,
-    "message": "Success"
-  },
-  "response": [
-    {
-      "id": "INST-001",
-      "slug": "bpd",
-      "name": "BPD",
-      "full_name": "Badan Permusyawaratan Desa",
-      "description": "Lembaga yang melaksanakan fungsi pemerintahan yang anggotanya merupakan wakil dari penduduk desa berdasarkan keterwakilan wilayah.",
-      "logo": "https://ik.imagekit.io/rulls/sisfodes/demo/official/bpd-logo.png?tr-f=webp",
-      "vision": "Terwujudnya BPD yang aspiratif, transparan, dan akuntabel.",
-      "mission": [
-        "Menggali dan menampung aspirasi masyarakat.",
-        "Melakukan pengawasan kinerja Kepala Desa.",
-        "Membahas dan menyepakati rancangan Peraturan Desa."
-      ],
-      "functions": ["Fungsi Legislasi", "Fungsi Pengawasan", "Fungsi Aspirasi"],
-      "members": [
+    "metadata": {
+        "code": 200,
+        "message": "Success"
+    },
+    "response": [
         {
-          "id": 101,
-          "name": "H. Ahmad Subarjo",
-          "position": "Ketua",
-          "nip": "-",
-          "image": "https://ik.imagekit.io/rulls/sisfodes/demo/official/member-1.png?tr-f=webp",
-          "period": "2021-2027"
+            "id": "INST-001",
+            "slug": "bpd",
+            "name": "BPD",
+            "full_name": "Badan Permusyawaratan Desa",
+            "description": "Lembaga yang melaksanakan fungsi pemerintahan yang anggotanya merupakan wakil dari penduduk desa berdasarkan keterwakilan wilayah.",
+            "logo": "https://ik.imagekit.io/rulls/sisfodes/demo/official/bpd-logo.png?tr-f=webp",
+            "vision": "Terwujudnya BPD yang aspiratif, transparan, dan akuntabel.",
+            "mission": [
+                "Menggali dan menampung aspirasi masyarakat.",
+                "Melakukan pengawasan kinerja Kepala Desa.",
+                "Membahas dan menyepakati rancangan Peraturan Desa."
+            ],
+            "functions": [
+                "Fungsi Legislasi",
+                "Fungsi Pengawasan",
+                "Fungsi Aspirasi"
+            ],
+            "members": [
+                {
+                    "id": 101,
+                    "name": "H. Ahmad Subarjo",
+                    "position": "Ketua",
+                    "nip": "-",
+                    "image": "https://ik.imagekit.io/rulls/sisfodes/demo/official/member-1.png?tr-f=webp",
+                    "period": "2021-2027"
+                }
+            ],
+            "last_updated": "2025-01-10"
         }
-      ],
-      "last_updated": "2025-01-10"
-    }
-  ]
+    ]
 }

@@ -23,69 +23,84 @@ import { createFileRoute } from '@tanstack/react-router'
  * Endpoint API Dinamis
  * Menangani permintaan ke /api/* untuk list data maupun detail data.
  * Format: /api/{collection} atau /api/{collection}/{slug|id}
- * 
+ *
  * @example
  * GET /api/news -> Mengembalikan list berita
  * GET /api/news/judul-berita -> Mengembalikan detail berita berdasarkan slug
  */
 export const Route = createFileRoute('/api/$')({
-  server: {
-    handlers: {
-      GET: async ({ params }) => {
-        const splat = params._splat ?? ''
-        const [collection, slug] = splat.split('/')
-        
-        // Mapping data berdasarkan nama koleksi
-        const dataMap: Record<string, any> = {
-          profile: profileData,
-          hero: heroData,
-          official: officialData,
-          budget: budgetData,
-          footer: footerData,
-          news: news,
-          product: product,
-          population: populationData,
-          agenda: agendaData,
-          idm: idmData,
-          sdgs: sdgsData,
-          geography: geographyData,
-          facilities: facilityData,
-          gallery: galleryData,
-          institutions: institutionData,
-          artikel: artikelData,
-          penghargaan: penghargaanData,
-          publication: publicationData
-        }
+    server: {
+        handlers: {
+            GET: async ({ params }) => {
+                const splat = params._splat ?? ''
+                const [collection, slug] = splat.split('/')
 
-        try {
-          const rawData = dataMap[collection]
+                // Mapping data berdasarkan nama koleksi
+                const dataMap: Record<string, any> = {
+                    profile: profileData,
+                    hero: heroData,
+                    official: officialData,
+                    budget: budgetData,
+                    footer: footerData,
+                    news: news,
+                    product: product,
+                    population: populationData,
+                    agenda: agendaData,
+                    idm: idmData,
+                    sdgs: sdgsData,
+                    geography: geographyData,
+                    facilities: facilityData,
+                    gallery: galleryData,
+                    institutions: institutionData,
+                    artikel: artikelData,
+                    penghargaan: penghargaanData,
+                    publication: publicationData,
+                }
 
-          if (!rawData) {
-            return ApiResponse.error(`Koleksi '${collection}' tidak ditemukan`, 404)
-          }
+                try {
+                    const rawData = dataMap[collection]
 
-          // Jika ada slug, cari detail data dalam array
-          if (slug && Array.isArray(rawData)) {
-            const detail = rawData.find(
-              (item: any) => 
-                String(item.slug) === slug || 
-                String(item.id) === slug
-            )
+                    if (!rawData) {
+                        return ApiResponse.error(
+                            `Koleksi '${collection}' tidak ditemukan`,
+                            404,
+                        )
+                    }
 
-            if (!detail) {
-              return ApiResponse.error(`Data dengan identifier '${slug}' tidak ditemukan di ${collection}`, 404)
-            }
+                    // Jika ada slug, cari detail data dalam array
+                    if (slug && Array.isArray(rawData)) {
+                        const detail = rawData.find(
+                            (item: any) =>
+                                String(item.slug) === slug ||
+                                String(item.id) === slug,
+                        )
 
-            return ApiResponse.success(detail, `Berhasil mengambil detail ${collection}`)
-          }
+                        if (!detail) {
+                            return ApiResponse.error(
+                                `Data dengan identifier '${slug}' tidak ditemukan di ${collection}`,
+                                404,
+                            )
+                        }
 
-          // Jika tidak ada slug, kembalikan seluruh data koleksi
-          return ApiResponse.success(rawData, `Berhasil mengambil list ${collection}`)
-        } catch (error) {
-          console.error(`API Error [/api/${splat}]:`, error)
-          return ApiResponse.error(`Gagal memproses permintaan ${splat}`, 500)
-        }
-      }
-    }
-  }
+                        return ApiResponse.success(
+                            detail,
+                            `Berhasil mengambil detail ${collection}`,
+                        )
+                    }
+
+                    // Jika tidak ada slug, kembalikan seluruh data koleksi
+                    return ApiResponse.success(
+                        rawData,
+                        `Berhasil mengambil list ${collection}`,
+                    )
+                } catch (error) {
+                    console.error(`API Error [/api/${splat}]:`, error)
+                    return ApiResponse.error(
+                        `Gagal memproses permintaan ${splat}`,
+                        500,
+                    )
+                }
+            },
+        },
+    },
 })

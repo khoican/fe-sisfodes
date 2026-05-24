@@ -1,12 +1,12 @@
 {
-  "metadata": {
-    "code": 200,
-    "message": "Success"
-  },
-  "response": [
-    {
-      "title": "Gambar Sawah 1",
-      "image": "https://ik.imagekit.io/rulls/sisfodes/demo/gallery/hero3.jpg?tr-f=webp"
-    }
-  ]
+    "metadata": {
+        "code": 200,
+        "message": "Success"
+    },
+    "response": [
+        {
+            "title": "Gambar Sawah 1",
+            "image": "https://ik.imagekit.io/rulls/sisfodes/demo/gallery/hero3.jpg?tr-f=webp"
+        }
+    ]
 }

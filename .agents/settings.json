@@ -1,32 +1,32 @@
 {
-  "general": {
-    "vimMode": false,
-    "defaultApprovalMode": "default",
-    "sessionRetention": {
-      "enabled": true,
-      "maxAge": "30d"
+    "general": {
+        "vimMode": false,
+        "defaultApprovalMode": "default",
+        "sessionRetention": {
+            "enabled": true,
+            "maxAge": "30d"
+        }
+    },
+    "model": {
+        "name": "gemini-3.1-flash-lite",
+        "compressionThreshold": 0.5,
+        "temperature": 0.0
+    },
+    "tools": {
+        "useRipgrep": true,
+        "truncateToolOutputThreshold": 40000,
+        "shell": {
+            "enableInteractiveShell": true,
+            "showColor": true,
+            "pager": "cat",
+            "inactivityTimeout": 300,
+            "enableShellOutputEfficiency": true
+        }
+    },
+    "context": {
+        "fileFiltering": {
+            "respectGitIgnore": true,
+            "respectGeminiIgnore": true
+        }
     }
-  },
-  "model": {
-    "name": "gemini-3.1-flash-lite",
-    "compressionThreshold": 0.5,
-    "temperature": 0.0
-  },
-  "tools": {
-    "useRipgrep": true,
-    "truncateToolOutputThreshold": 40000,
-    "shell": {
-      "enableInteractiveShell": true,
-      "showColor": true,
-      "pager": "cat",
-      "inactivityTimeout": 300,
-      "enableShellOutputEfficiency": true
-    }
-  },
-  "context": {
-    "fileFiltering": {
-      "respectGitIgnore": true,
-      "respectGeminiIgnore": true
-    }
-  }
 }

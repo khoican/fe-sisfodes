@@ -1,4 +1,4 @@
 export interface Hero {
-  title: string
-  image: string
+    title: string
+    image: string
 }

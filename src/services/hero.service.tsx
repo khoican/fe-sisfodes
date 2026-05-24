@@ -6,20 +6,18 @@ import { createServerFn } from '@tanstack/react-start'
 
 export const heroQueryKey = 'hero' as const
 
-export const fetchHero = createServerFn({ method: 'GET' }).handler(
-  async () => {
+export const fetchHero = createServerFn({ method: 'GET' }).handler(async () => {
     try {
-      const data = await api.get<Hero[]>(ENDPOINTS.hero)
-      return data
+        const data = await api.get<Hero[]>(ENDPOINTS.hero)
+        return data
     } catch (error) {
-      console.error('Error fetching hero:', error)
-      throw error
+        console.error('Error fetching hero:', error)
+        throw error
     }
-  }
-)
+})
 
 export const heroQueryOptions = () =>
-  queryOptions({
-    queryKey: [heroQueryKey],
-    queryFn: () => fetchHero()
-  })
+    queryOptions({
+        queryKey: [heroQueryKey],
+        queryFn: () => fetchHero(),
+    })

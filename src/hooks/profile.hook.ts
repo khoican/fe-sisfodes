@@ -1,6 +1,6 @@
-import { api } from "#/lib/api/axios"
-import type { Profile } from "#/types/profile.d.ts"
-import { useQuery } from "@tanstack/react-query"
+import { api } from '#/lib/api/axios'
+import type { Profile } from '#/types/profile.d.ts'
+import { useQuery } from '@tanstack/react-query'
 
 /**
  * Fungsi fetch murni tanpa React Hook
@@ -12,8 +12,8 @@ export const fetchProfile = () => api.get<Profile>('/profile')
  * Hook untuk sinkronisasi data profil secara reaktif
  */
 export const useProfile = () => {
-  return useQuery({
-    queryKey: ['profile'],
-    queryFn: fetchProfile
-  })
+    return useQuery({
+        queryKey: ['profile'],
+        queryFn: fetchProfile,
+    })
 }
