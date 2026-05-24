@@ -130,7 +130,7 @@ function SdgsPage() {
                 <Title title="Visualisasi Capaian" />
                 <div className="h-140 w-full bg-card p-6 rounded-3xl shadow-sm border border-border mt-8">
                     <Suspense fallback={<ChartSkeleton />}>
-                        <ISdgsChart data={sdgs.chart} />
+                        <SdgsChart data={sdgs.chart} />
                     </Suspense>
                 </div>
             </section>

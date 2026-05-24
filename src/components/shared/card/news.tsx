@@ -6,7 +6,7 @@ import { Link } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
 import { IoIosArrowForward } from 'react-icons/io'
 
-interface NewsCardProps extends News {
+interface NewsCardProps extends INews {
     layout?: 'horizontal' | 'vertical'
     className?: {
         root?: string

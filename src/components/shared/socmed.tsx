@@ -1,4 +1,3 @@
-import { Link } from '@tanstack/react-router'
 import type { IconType } from 'react-icons/lib'
 
 interface SocmedProps {

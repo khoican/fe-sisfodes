@@ -1,10 +1,8 @@
 import { Badge } from '#/components/ui/badge'
 import { Card, CardContent } from '#/components/ui/card'
-import Title from '#/components/ui/title'
 import { agendaQueryOptions } from '#/services/agenda.service'
 import { createFileRoute } from '@tanstack/react-router'
 import {
-    Calendar as CalendarIcon,
     MapPin,
     Clock,
     Bell,

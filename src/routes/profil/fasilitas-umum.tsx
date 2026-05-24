@@ -6,11 +6,10 @@ import {
     CardHeader,
     CardTitle,
 } from '#/components/ui/card'
-import Title from '#/components/ui/title'
 import { facilityQueryOptions } from '#/services/facility.service'
 import { createFileRoute } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
-import { useState, useMemo, lazy, Suspense } from 'react'
+import { useState, useMemo, Suspense } from 'react'
 import {
     School,
     Stethoscope,
@@ -81,7 +80,7 @@ function FasilitasUmum() {
     >('Semua')
     const [searchQuery, setSearchQuery] = useState('')
 
-    const categories: (FacilityCategory | 'Semua')[] = [
+    const categories: (IFacilityCategory | 'Semua')[] = [
         'Semua',
         ...Array.from(new Set(facilities.map((f) => f.category))),
     ]

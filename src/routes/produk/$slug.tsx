@@ -12,8 +12,8 @@ import { IoIosArrowForward } from 'react-icons/io'
 import { MdStorefront } from 'react-icons/md'
 
 export const Route = createFileRoute('/produk/$slug')({
-    head: ({ loaderData }) => {
-        const produk = loaderData?.produk
+    head: ({ loaderData }: { loaderData?: any }) => {
+        const produk = loaderData?.produk as IProduct | undefined
         const title = produk
             ? `${produk.name} | Desa Sumberkejayan`
             : 'Produk | Desa Sumberkejayan'
@@ -21,7 +21,7 @@ export const Route = createFileRoute('/produk/$slug')({
             produk?.description.replace(/<[^>]*>?/gm, '').slice(0, 160) ||
             'Detail produk Desa Sumberkejayan.'
         const image = produk?.image[0] || ''
-
+ 
         return {
             meta: [
                 { title },
@@ -39,7 +39,7 @@ export const Route = createFileRoute('/produk/$slug')({
                 productDetailQueryOptions(params.slug),
             ),
         ])
-
+ 
         return {
             products: products.response,
             produk: produk.response,
@@ -47,9 +47,12 @@ export const Route = createFileRoute('/produk/$slug')({
     },
     component: DetailProduk,
 })
-
+ 
 function DetailProduk() {
-    const { produk, products } = Route.useLoaderData()
+    const { produk, products } = Route.useLoaderData() as {
+        produk: IProduct
+        products: IProduct[]
+    }
 
     const onClickContact = () => {
         const whatsappUrl = `https://wa.me/${produk?.contact.replace('0', '62')}`

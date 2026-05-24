@@ -1,6 +1,5 @@
 import { ENDPOINTS } from '#/constant/endpoint.constant'
 import { queryKeys } from '#/constant/queryKeys'
-import type { ApiResponse } from '#/lib/api/axios'
 import { api } from '#/lib/api/axios'
 import type { INews } from '#/types/INews'
 import { queryOptions } from '@tanstack/react-query'

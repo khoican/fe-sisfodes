@@ -63,13 +63,13 @@ Identify which files will be created, modified, or deleted:
 
 The task breakdown for the AI agent to follow:
 
-- `[ ]` **Step 1: Update Function Type and Interface Name**
+- `[x]` **Step 1: Update Function Type and Interface Name**
     - Memasitkan setiap nama function untuk interface dan type dalam daftar file diatas diubah menjadi PascalCase dengan prefix `I`.
-- `[ ]` **Step 2: Update File Name**
+- `[x]` **Step 2: Update File Name**
     - Mengubah nama file agar sesuai dengan nama type dan interface yang telah diubah menjadi PascalCase dengan prefix `I`.
-- `[ ]` **Step 3: Update Import Path**
+- `[x]` **Step 3: Update Import Path**
     - Mengubah path import dari seluruh file yang memanggil function interface atau type yang sudah diubah agar sesuai dengan nama file yang telah diubah menjadi PascalCase dengan prefix `I`.
-- `[ ]` **Step 4: Verifikasi Kode**
+- `[x]` **Step 4: Verifikasi Kode**
     - Jalankan script `code-analyzer` untuk memastikan tidak ada error.
 
 ---

@@ -2,7 +2,6 @@ import { Badge } from '#/components/ui/badge'
 import {
     Card,
     CardContent,
-    CardDescription,
     CardHeader,
     CardTitle,
 } from '#/components/ui/card'
@@ -18,8 +17,6 @@ import {
     Tooltip,
     ResponsiveContainer,
     Cell,
-    PieChart,
-    Pie,
 } from 'recharts'
 import {
     TrendingUp,

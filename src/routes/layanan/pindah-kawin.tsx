@@ -15,14 +15,8 @@ import { profileQueryOptions } from '#/services/profile.service'
 import { createFileRoute } from '@tanstack/react-router'
 import {
     CheckCircle2,
-    FileText,
     Send,
     User,
-    IdCard,
-    MapPin,
-    Calendar as CalendarIcon,
-    Briefcase,
-    Globe,
     Heart,
     ExternalLink,
 } from 'lucide-react'

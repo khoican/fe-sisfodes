@@ -29,8 +29,6 @@ import {
     Venus,
     Mars,
     GraduationCap,
-    Briefcase,
-    MapPin,
     Clock,
 } from 'lucide-react'
 import { useMemo } from 'react'
@@ -91,18 +89,7 @@ function KependudukanPage() {
         [population],
     )
 
-    const religionData = useMemo(
-        () =>
-            [
-                { name: 'Islam', value: population.by_religion.islam },
-                { name: 'Kristen', value: population.by_religion.christianity },
-                { name: 'Katolik', value: population.by_religion.catholicism },
-                { name: 'Hindu', value: population.by_religion.hinduism },
-                { name: 'Budha', value: population.by_religion.buddhism },
-                { name: 'Lainnya', value: population.by_religion.other },
-            ].filter((item) => item.value > 0),
-        [population],
-    )
+
 
     const stats = [
         {
@@ -372,7 +359,7 @@ function KependudukanPage() {
                                     label
                                 >
                                     {population.by_administration.map(
-                                        (entry, index) => (
+                                        (_, index) => (
                                             <Cell
                                                 key={`cell-${index}`}
                                                 fill={

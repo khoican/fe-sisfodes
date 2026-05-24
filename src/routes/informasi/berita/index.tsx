@@ -126,7 +126,7 @@ function Berita() {
                     size="lg"
                     className="text-primary relative z-10"
                 >
-                    <Link to="/berita/pengumuman">Lihat Pengumuman</Link>
+                    <Link to="/informasi/agenda">Lihat Pengumuman</Link>
                 </Button>
             </section>
 

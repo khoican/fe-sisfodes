@@ -150,7 +150,7 @@ function BankDataPage() {
                                             </a>
                                         </Button>
                                         <Button
-                                            variant="primary"
+                                            variant="default"
                                             size="icon"
                                             className="shrink-0 rounded-xl group-hover:translate-x-1 transition-transform hidden md:flex"
                                             asChild

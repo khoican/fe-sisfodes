@@ -12,14 +12,12 @@ import {
     Tooltip,
     ResponsiveContainer,
     Legend,
-    Cell,
 } from 'recharts'
 import {
     TrendingUp,
     Wallet,
     PieChart as PieChartIcon,
     ArrowUpRight,
-    ArrowDownRight,
     Info,
     Calendar,
 } from 'lucide-react'
@@ -203,8 +201,8 @@ function ApbdesPage() {
                             />
                             <Tooltip
                                 cursor={{ fill: '#f3f4f6' }}
-                                formatter={(value: number) =>
-                                    formatCurrency(value)
+                                formatter={(value: any) =>
+                                    formatCurrency(Number(value))
                                 }
                                 contentStyle={{
                                     borderRadius: '16px',

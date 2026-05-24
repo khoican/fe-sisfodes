@@ -3,7 +3,7 @@ import { Image } from '@unpic/react'
 
 interface WelcomeProps {
     greeting: string
-    leader: IOfficial
+    leader?: IOfficial
 }
 
 /**
@@ -11,9 +11,11 @@ interface WelcomeProps {
  *
  * @param {Object} props - Properti komponen.
  * @param {greeting} props.greeting - Array data banner greeting.
- * @returns {JSX.Element} Elemen Greeting.
+ * @returns {JSX.Element | null} Elemen Greeting atau null jika leader tidak ada.
  */
 export default function Welcome({ greeting, leader }: WelcomeProps) {
+    if (!leader) return null
+
     return (
         <section className="w-full grid grid-cols-1 md:grid-cols-3 mt-16 gap-y-8 gap-x-0 md:gap-y-0 md:gap-x-8 items-center p-6 rounded-lg">
             <div className="col-span-2 flex flex-col gap-2 max-sm:order-2">

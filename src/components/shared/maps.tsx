@@ -45,7 +45,7 @@ export default function Maps({
     markers = [],
 }: MapsProps) {
     // Membuat icon kustom menggunakan Lucide React
-    const createCustomIcon = (category: string) => {
+    const createCustomIcon = (_category: string) => {
         const iconHtml = renderToStaticMarkup(
             <div className="bg-primary p-2 rounded-full border-2 border-white shadow-lg text-white">
                 <MapPin size={20} />
