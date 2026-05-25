@@ -3,8 +3,8 @@ import { Card, CardContent } from '#/components/ui/card'
 import { agendaQueryOptions } from '#/services/agenda.service'
 import { createFileRoute } from '@tanstack/react-router'
 import {
-    Clock,
     Bell,
+    Clock,
     Info,
 } from 'lucide-react'
 import { useMemo } from 'react'
@@ -101,7 +101,7 @@ function AgendaPage() {
                                         {month}
                                     </h2>
                                     <div
-                                        className="flex-grow h-px bg-border"
+                                        className="grow h-px bg-border"
                                         aria-hidden="true"
                                     ></div>
                                 </div>
