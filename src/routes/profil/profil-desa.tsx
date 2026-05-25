@@ -80,7 +80,7 @@ function Profil() {
                         layout="fullWidth"
                     />
 
-                    <div className="w-full md:col-span-2 bg-card rounded-2xl shadow p-8 border-b-6 border-primary border">
+                    <div className="w-full md:col-span-2 bg-card rounded-2xl shadow p-8 border-b-6 border-primary">
                         <h3 className="text-xl font-semibold text-primary">
                             Sejarah Awal
                         </h3>

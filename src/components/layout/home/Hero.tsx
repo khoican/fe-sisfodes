@@ -1,15 +1,15 @@
+import { Button } from '#/components/ui/button'
 import type { CarouselApi } from '#/components/ui/carousel'
 import {
     Carousel,
     CarouselContent,
     CarouselItem,
 } from '#/components/ui/carousel'
+import { cn } from '#/lib/utils'
 import type { IHero } from '#/types/IHero'
+import { Link } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
 import * as React from 'react'
-import { Button } from '#/components/ui/button'
-import { Link } from '@tanstack/react-router'
-import { cn } from '#/lib/utils'
 
 /**
  * Komponen Hero untuk menampilkan banner utama dengan fitur auto-slide.
@@ -74,7 +74,7 @@ export default function Hero({ hero }: { hero: IHero[] }) {
                 </CarouselContent>
             </Carousel>
 
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black/10 via-black/35 to-black/80 p-8 md:p-12 flex items-end justify-start pointer-events-none">
+            <div className="absolute top-0 left-0 w-full h-full bg-linear-to-b from-primary/10 via-primary/35 to-primary/80 p-8 md:p-12 flex items-end justify-start pointer-events-none">
                 <div className="w-full lg:w-2/3 pointer-events-auto">
                     <h1 className="text-4xl lg:text-6xl font-bold text-white capitalize leading-tight">
                         membangun masa depan dari akar desa
@@ -83,11 +83,11 @@ export default function Hero({ hero }: { hero: IHero[] }) {
                         Portal resmi informasi dan pelayanan publik. Akuntabel, Transparan, dan Mandiri.
                     </p>
                     <div className="mt-6 flex flex-wrap gap-4">
-                        <Button 
-                            asChild 
-                            variant="default" 
-                            size="lg" 
-                            className="bg-primary text-white hover:bg-primary/95 transition-all shadow-lg shadow-primary/20"
+                        <Button
+                            asChild
+                            variant="default"
+                            size="lg"
+                            className="bg-primary text-white hover:bg-primary/95 transition-all shadow-sm shadow-white/40"
                         >
                             <Link to="/profil/profil-desa">
                                 Profil Desa
@@ -105,8 +105,8 @@ export default function Hero({ hero }: { hero: IHero[] }) {
                         onClick={() => api?.scrollTo(index)}
                         className={cn(
                             "w-2.5 h-2.5 rounded-full transition-all duration-300",
-                            current === index 
-                                ? "bg-white w-6" 
+                            current === index
+                                ? "bg-white w-6"
                                 : "bg-white/40 hover:bg-white/70"
                         )}
                         aria-label={`Slide ${index + 1}`}
