@@ -37,7 +37,7 @@ When a user requests to **"run plans"** or **"execute the orchestrator"**, follo
 |  [x]   | [007_refactor_home_and_footer_layout.md](file:///E:/PROJECT/sisfodes/docs/plans/007_refactor_home_and_footer_layout.md)         | `src/components/layout/` & `src/data/` | Moderate improvement layout beranda & footer: visual, CTA, bug fix `as any`, mekanisme libur nasional via data statis, perbaikan semua link footer | Medium |
 |  [x]   | [008_integrate_geography_map.md](file:///E:/PROJECT/sisfodes/docs/plans/008_integrate_geography_map.md)                     | `src/types/`, `src/routes/` & `src/data/` | Tambah type item `image_map`, perbarui data mock, hapus rute peta-desa, dan tambah section gambar peta di halaman geografi | Medium |
 |  [x]   | [009_code_audit_and_bug_fix.md](file:///E:/PROJECT/sisfodes/docs/plans/009_code_audit_and_bug_fix.md)                       | Codebase-wide                     | Audit kode terpadu: code smell, SSR safety, edge cases, komponen, dan konfigurasi chart | High |
-|  [ ]   | [010_fix_scroll_lock_on_navigation.md](file:///E:/PROJECT/sisfodes/docs/plans/010_fix_scroll_lock_on_navigation.md)         | `src/components/layout/`          | Perbaiki bug pengunci scroll body (tidak bisa scroll) setelah berpindah halaman di menu mobile | High |
+|  [x]   | [010_fix_scroll_lock_on_navigation.md](file:///E:/PROJECT/sisfodes/docs/plans/010_fix_scroll_lock_on_navigation.md)         | `src/components/layout/`          | Perbaiki bug pengunci scroll body (tidak bisa scroll) setelah berpindah halaman di menu mobile | High |
 
 ---
 

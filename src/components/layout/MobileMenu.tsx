@@ -4,6 +4,8 @@ import type { MenuItem } from '#/constant/menu.constant'
 import { Button } from '#/components/ui/button'
 import { FaBarsStaggered } from 'react-icons/fa6'
 import { NavMenuMobile } from '../shared/navmenu'
+import { useLocation } from '@tanstack/react-router'
+import { useState, useEffect } from 'react'
 import {
     Drawer,
     DrawerContent,
@@ -15,9 +17,23 @@ interface MobileMenuProps {
     menus: MenuItem[]
 }
 
+/**
+ * @description Komponen menu navigasi seluler (mobile menu) yang menggunakan Drawer controlled dan menutup otomatis saat rute berubah.
+ * @param {MobileMenuProps} props - Properti komponen.
+ * @returns {React.ReactElement} Elemen JSX menu mobile.
+ * @example
+ * <MobileMenu menus={DISPLAY_MENU} />
+ */
 export function MobileMenu({ menus }: MobileMenuProps) {
+    const [open, setOpen] = useState(false)
+    const location = useLocation()
+
+    useEffect(() => {
+        setOpen(false)
+    }, [location.pathname])
+
     return (
-        <Drawer direction="right">
+        <Drawer direction="right" open={open} onOpenChange={setOpen}>
             <DrawerTrigger asChild className="flex lg:hidden">
                 <Button variant="outline" aria-label="Buka menu">
                     <FaBarsStaggered />
