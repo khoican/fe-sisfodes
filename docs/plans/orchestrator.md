@@ -35,6 +35,7 @@ When a user requests to **"run plans"** or **"execute the orchestrator"**, follo
 |  [x]   | [005_centralize_village_constants.md](file:///E:/PROJECT/sisfodes/docs/plans/005_centralize_village_constants.md)             | `src/constant/` & `src/utils/`    | Sentralisasi konstanta informasi desa untuk mendukung multi-domain                            |   High   |
 |  [x]   | [006_resolve_type_discrepancies.md](file:///E:/PROJECT/sisfodes/docs/plans/006_resolve_type_discrepancies.md)                 | Codebase-wide                     | Penyelarasan kode program dan layout UI dengan struktur tipe/interface yang baru               |   High   |
 |  [x]   | [007_refactor_home_and_footer_layout.md](file:///E:/PROJECT/sisfodes/docs/plans/007_refactor_home_and_footer_layout.md)         | `src/components/layout/` & `src/data/` | Moderate improvement layout beranda & footer: visual, CTA, bug fix `as any`, mekanisme libur nasional via data statis, perbaikan semua link footer | Medium |
+|  [ ]   | [008_integrate_geography_map.md](file:///E:/PROJECT/sisfodes/docs/plans/008_integrate_geography_map.md)                     | `src/types/`, `src/routes/` & `src/data/` | Tambah type item `image_map`, perbarui data mock, hapus rute peta-desa, dan tambah section gambar peta di halaman geografi | Medium |
 
 ---
 
