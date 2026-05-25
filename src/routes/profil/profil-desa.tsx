@@ -28,6 +28,13 @@ export const Route = createFileRoute('/profil/profil-desa')({
     component: Profil,
 })
 
+/**
+ * @description Komponen halaman Profil Desa yang menampilkan sejarah luhur desa, visi, dan misi desa.
+ * @param {object} props - Properti komponen (kosong).
+ * @returns {React.ReactElement} Elemen JSX halaman Profil Desa.
+ * @example
+ * <Profil />
+ */
 function Profil() {
     const { profil } = Route.useLoaderData()
 
@@ -77,11 +84,10 @@ function Profil() {
                         <h3 className="text-xl font-semibold text-primary">
                             Sejarah Awal
                         </h3>
-                        <p
+                        <div
                             className="flex flex-col gap-4 text-muted-foreground mt-4 leading-relaxed"
                             dangerouslySetInnerHTML={{ __html: history }}
-                            suppressHydrationWarning
-                        ></p>
+                        ></div>
                     </div>
                 </div>
             </section>
