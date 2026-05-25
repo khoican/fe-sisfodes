@@ -218,13 +218,14 @@ function ApbdesPage() {
                             <Bar
                                 dataKey="direncanakan"
                                 name="Anggaran (RPP)"
-                                fill="#3b82f6"
+                                fill="var(--primary)"
+                                opacity={0.5}
                                 radius={[6, 6, 0, 0]}
                             />
                             <Bar
                                 dataKey="terealisasi"
                                 name="Realisasi (RKP)"
-                                fill="#10b981"
+                                fill="var(--primary)"
                                 radius={[6, 6, 0, 0]}
                             />
                         </BarChart>

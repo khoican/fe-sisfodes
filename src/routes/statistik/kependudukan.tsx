@@ -290,7 +290,7 @@ function KependudukanPage() {
                                     />
                                     <Bar
                                         dataKey="count"
-                                        fill="#3b82f6"
+                                        fill="var(--primary)"
                                         radius={[6, 6, 0, 0]}
                                     />
                                 </BarChart>
