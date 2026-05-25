@@ -5,7 +5,7 @@
 - **Author**: Antigravity Agent
 - **Created Date**: 2026-05-25
 - **Target Area**: UI Components, Pages (`src/routes/informasi/berita/$slug.tsx`, `src/routes/produk/$slug.tsx`)
-- **Status**: `[ ] Ready`
+- **Status**: `[x] Completed`
 - **Dependencies**: None
 
 ---

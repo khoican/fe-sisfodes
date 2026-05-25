@@ -1,4 +1,5 @@
 import NewsCard from '#/components/shared/card/news'
+import { ShareButtons } from '#/components/shared/ShareButtons'
 import { Avatar, AvatarFallback } from '#/components/ui/avatar'
 import { Badge } from '#/components/ui/badge'
 import Title from '#/components/ui/title'
@@ -143,10 +144,13 @@ function DetailBerita() {
             </section>
 
             <section className="grid lg:grid-cols-3 gap-16 mt-16 pb-16 border-b border-b-border">
-                <article
-                    className="w-full flex flex-col gap-6 text-lg text-muted-foreground leading-relaxed lg:col-span-2"
-                    dangerouslySetInnerHTML={{ __html: berita.content || '' }}
-                ></article>
+                <div className="lg:col-span-2 flex flex-col">
+                    <article
+                        className="w-full flex flex-col gap-6 text-lg text-muted-foreground leading-relaxed"
+                        dangerouslySetInnerHTML={{ __html: berita.content || '' }}
+                    ></article>
+                    <ShareButtons title={berita.title} />
+                </div>
 
                 <aside className="space-y-8">
                     <div className="flex items-center gap-2">

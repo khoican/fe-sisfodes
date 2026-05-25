@@ -1,4 +1,5 @@
 import ProductCard from '#/components/shared/card/product'
+import { ShareButtons } from '#/components/shared/ShareButtons'
 import { Badge } from '#/components/ui/badge'
 import Title from '#/components/ui/title'
 import {
@@ -125,6 +126,8 @@ function DetailProduk() {
                             }}
                         ></article>
                     </div>
+
+                    <ShareButtons title={produk?.name || ''} />
 
                     <button
                         onClick={onClickContact}
