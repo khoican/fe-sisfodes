@@ -4,7 +4,7 @@ import Title from '#/components/ui/title'
 import { geographyQueryOptions } from '#/services/geography.service'
 import { createFileRoute } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
-import { Map, Mountain, CloudSun, Navigation, PieChart } from 'lucide-react'
+import { Map, Mountain, CloudSun, Navigation, PieChart, Info } from 'lucide-react'
 
 export const Route = createFileRoute('/profil/geografi-desa')({
     head: () => ({
@@ -30,6 +30,13 @@ export const Route = createFileRoute('/profil/geografi-desa')({
     component: GeografiDesa,
 })
 
+/**
+ * @description Komponen halaman Geografi Desa yang menampilkan profil bentang alam, batas wilayah, tata guna lahan, serta peta wilayah administratif desa.
+ * @param {object} props - Properti komponen (kosong).
+ * @returns {React.ReactElement} Elemen JSX halaman Geografi Desa.
+ * @example
+ * <GeografiDesa />
+ */
 function GeografiDesa() {
     const { geography } = Route.useLoaderData()
 
@@ -223,6 +230,27 @@ function GeografiDesa() {
                     </div>
                 </section>
             </div>
+
+            {/* Peta Wilayah Section */}
+            <section className="px-4 lg:px-12 mb-16">
+                <Title title="Peta Wilayah Desa" />
+                <div className="bg-white rounded-3xl shadow-sm border p-6 mt-6">
+                    <div className="relative w-full aspect-video rounded-2xl overflow-hidden group shadow-md max-h-[500px]">
+                        <Image
+                            src={geography.image_map}
+                            alt="Peta Wilayah Desa"
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            layout="fullWidth"
+                        />
+                        {/* Soft overlay */}
+                        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300"></div>
+                    </div>
+                    <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground/70">
+                        <Info size={14} aria-hidden="true" />
+                        <span>Peta wilayah administratif resmi Desa Sumberkejayan.</span>
+                    </div>
+                </div>
+            </section>
 
             {/* Footer Info */}
             <section className="w-full bg-primary/5 rounded-t-3xl p-12 flex flex-col items-center text-center gap-6">

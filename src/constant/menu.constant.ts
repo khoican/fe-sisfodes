@@ -32,10 +32,6 @@ export const MENU: Menu = {
                 name: 'Fasilitas Umum',
                 path: '/profil/fasilitas-umum',
             },
-            {
-                name: 'Peta Desa',
-                path: '/profil/peta-desa',
-            },
         ],
     },
     lembaga: {

@@ -19,4 +19,5 @@ export interface IGeography {
     borders: IGeographyBorder
     land_use: ILandUse[]
     last_updated: string
+    image_map: string
 }

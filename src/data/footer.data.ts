@@ -20,7 +20,6 @@ export const footerData: FooterData[] = [
             { label: 'Profil Desa', to: '/profil/profil-desa' },
             { label: 'Struktur Organisasi', to: '/profil/struktur-organisasi' },
             { label: 'Fasilitas Umum', to: '/profil/fasilitas-umum' },
-            { label: 'Peta Desa', to: '/profil/peta-desa' },
         ],
     },
     {

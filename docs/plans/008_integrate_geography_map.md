@@ -5,7 +5,7 @@
 - **Author**: Antigravity Agent
 - **Created Date**: 2026-05-25
 - **Target Area**: types, data, routes, constants
-- **Status**: `[ ] Ready`
+- **Status**: `[x] Completed`
 - **Dependencies**: None
 
 ---
@@ -48,7 +48,7 @@ Memindahkan tampilan visual peta desa dari halaman interaktif terpisah (`/profil
 
 - `[ ]` **Step 1: Update Tipe Data & Mock Data**
   - Edit [IGeography.d.ts](file:///E:/PROJECT/sisfodes/src/types/IGeography.d.ts) untuk menambahkan field `image_map: string`.
-  - Edit [geography.data.ts](file:///E:/PROJECT/sisfodes/src/data/geography.data.ts) untuk menyertakan nilai `image_map`.
+  - Edit [geography.data.ts](file:///E:/PROJECT/sisfodes/src/data/geography.data.ts) untuk menyertakan nilai `image_map` dengan value = `https://ik.imagekit.io/rulls/sisfodes/demo/peta-desa.webp?updatedAt=1777648884236`.
 - `[ ]` **Step 2: Bersihkan Navigasi & Hapus File Peta Desa**
   - Hapus file rute [peta-desa.tsx](file:///E:/PROJECT/sisfodes/src/routes/profil/peta-desa.tsx).
   - Edit [menu.constant.ts](file:///E:/PROJECT/sisfodes/src/constant/menu.constant.ts) untuk menghapus menu `Peta Desa`.

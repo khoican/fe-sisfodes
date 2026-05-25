@@ -23,7 +23,6 @@ import { Route as PublikasiBankDataRouteImport } from './routes/publikasi/bank-d
 import { Route as PublikasiApbdesRouteImport } from './routes/publikasi/apbdes'
 import { Route as ProfilStrukturOrganisasiRouteImport } from './routes/profil/struktur-organisasi'
 import { Route as ProfilProfilDesaRouteImport } from './routes/profil/profil-desa'
-import { Route as ProfilPetaDesaRouteImport } from './routes/profil/peta-desa'
 import { Route as ProfilGeografiDesaRouteImport } from './routes/profil/geografi-desa'
 import { Route as ProfilFasilitasUmumRouteImport } from './routes/profil/fasilitas-umum'
 import { Route as ProdukSlugRouteImport } from './routes/produk/$slug'
@@ -108,11 +107,6 @@ const ProfilStrukturOrganisasiRoute =
 const ProfilProfilDesaRoute = ProfilProfilDesaRouteImport.update({
   id: '/profil/profil-desa',
   path: '/profil/profil-desa',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProfilPetaDesaRoute = ProfilPetaDesaRouteImport.update({
-  id: '/profil/peta-desa',
-  path: '/profil/peta-desa',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProfilGeografiDesaRoute = ProfilGeografiDesaRouteImport.update({
@@ -202,7 +196,6 @@ export interface FileRoutesByFullPath {
   '/produk/$slug': typeof ProdukSlugRoute
   '/profil/fasilitas-umum': typeof ProfilFasilitasUmumRoute
   '/profil/geografi-desa': typeof ProfilGeografiDesaRoute
-  '/profil/peta-desa': typeof ProfilPetaDesaRoute
   '/profil/profil-desa': typeof ProfilProfilDesaRoute
   '/profil/struktur-organisasi': typeof ProfilStrukturOrganisasiRoute
   '/publikasi/apbdes': typeof PublikasiApbdesRoute
@@ -233,7 +226,6 @@ export interface FileRoutesByTo {
   '/produk/$slug': typeof ProdukSlugRoute
   '/profil/fasilitas-umum': typeof ProfilFasilitasUmumRoute
   '/profil/geografi-desa': typeof ProfilGeografiDesaRoute
-  '/profil/peta-desa': typeof ProfilPetaDesaRoute
   '/profil/profil-desa': typeof ProfilProfilDesaRoute
   '/profil/struktur-organisasi': typeof ProfilStrukturOrganisasiRoute
   '/publikasi/apbdes': typeof PublikasiApbdesRoute
@@ -265,7 +257,6 @@ export interface FileRoutesById {
   '/produk/$slug': typeof ProdukSlugRoute
   '/profil/fasilitas-umum': typeof ProfilFasilitasUmumRoute
   '/profil/geografi-desa': typeof ProfilGeografiDesaRoute
-  '/profil/peta-desa': typeof ProfilPetaDesaRoute
   '/profil/profil-desa': typeof ProfilProfilDesaRoute
   '/profil/struktur-organisasi': typeof ProfilStrukturOrganisasiRoute
   '/publikasi/apbdes': typeof PublikasiApbdesRoute
@@ -298,7 +289,6 @@ export interface FileRouteTypes {
     | '/produk/$slug'
     | '/profil/fasilitas-umum'
     | '/profil/geografi-desa'
-    | '/profil/peta-desa'
     | '/profil/profil-desa'
     | '/profil/struktur-organisasi'
     | '/publikasi/apbdes'
@@ -329,7 +319,6 @@ export interface FileRouteTypes {
     | '/produk/$slug'
     | '/profil/fasilitas-umum'
     | '/profil/geografi-desa'
-    | '/profil/peta-desa'
     | '/profil/profil-desa'
     | '/profil/struktur-organisasi'
     | '/publikasi/apbdes'
@@ -360,7 +349,6 @@ export interface FileRouteTypes {
     | '/produk/$slug'
     | '/profil/fasilitas-umum'
     | '/profil/geografi-desa'
-    | '/profil/peta-desa'
     | '/profil/profil-desa'
     | '/profil/struktur-organisasi'
     | '/publikasi/apbdes'
@@ -392,7 +380,6 @@ export interface RootRouteChildren {
   ProdukSlugRoute: typeof ProdukSlugRoute
   ProfilFasilitasUmumRoute: typeof ProfilFasilitasUmumRoute
   ProfilGeografiDesaRoute: typeof ProfilGeografiDesaRoute
-  ProfilPetaDesaRoute: typeof ProfilPetaDesaRoute
   ProfilProfilDesaRoute: typeof ProfilProfilDesaRoute
   ProfilStrukturOrganisasiRoute: typeof ProfilStrukturOrganisasiRoute
   PublikasiApbdesRoute: typeof PublikasiApbdesRoute
@@ -506,13 +493,6 @@ declare module '@tanstack/react-router' {
       path: '/profil/profil-desa'
       fullPath: '/profil/profil-desa'
       preLoaderRoute: typeof ProfilProfilDesaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/profil/peta-desa': {
-      id: '/profil/peta-desa'
-      path: '/profil/peta-desa'
-      fullPath: '/profil/peta-desa'
-      preLoaderRoute: typeof ProfilPetaDesaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/profil/geografi-desa': {
@@ -632,7 +612,6 @@ const rootRouteChildren: RootRouteChildren = {
   ProdukSlugRoute: ProdukSlugRoute,
   ProfilFasilitasUmumRoute: ProfilFasilitasUmumRoute,
   ProfilGeografiDesaRoute: ProfilGeografiDesaRoute,
-  ProfilPetaDesaRoute: ProfilPetaDesaRoute,
   ProfilProfilDesaRoute: ProfilProfilDesaRoute,
   ProfilStrukturOrganisasiRoute: ProfilStrukturOrganisasiRoute,
   PublikasiApbdesRoute: PublikasiApbdesRoute,
