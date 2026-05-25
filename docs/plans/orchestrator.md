@@ -36,6 +36,7 @@ When a user requests to **"run plans"** or **"execute the orchestrator"**, follo
 |  [x]   | [006_resolve_type_discrepancies.md](file:///E:/PROJECT/sisfodes/docs/plans/006_resolve_type_discrepancies.md)                 | Codebase-wide                     | Penyelarasan kode program dan layout UI dengan struktur tipe/interface yang baru               |   High   |
 |  [x]   | [007_refactor_home_and_footer_layout.md](file:///E:/PROJECT/sisfodes/docs/plans/007_refactor_home_and_footer_layout.md)         | `src/components/layout/` & `src/data/` | Moderate improvement layout beranda & footer: visual, CTA, bug fix `as any`, mekanisme libur nasional via data statis, perbaikan semua link footer | Medium |
 |  [x]   | [008_integrate_geography_map.md](file:///E:/PROJECT/sisfodes/docs/plans/008_integrate_geography_map.md)                     | `src/types/`, `src/routes/` & `src/data/` | Tambah type item `image_map`, perbarui data mock, hapus rute peta-desa, dan tambah section gambar peta di halaman geografi | Medium |
+|  [ ]   | [009_code_audit_and_bug_fix.md](file:///E:/PROJECT/sisfodes/docs/plans/009_code_audit_and_bug_fix.md)                       | Codebase-wide                     | Audit kode terpadu: code smell, SSR safety, edge cases, komponen, dan konfigurasi chart | High |
 
 ---
 
