@@ -33,14 +33,4 @@ export const footerData: FooterData[] = [
             { label: 'Surat Pindah Kawin', to: '/layanan/pindah-kawin' },
         ],
     },
-    {
-        title: 'Transparansi',
-        links: [
-            { label: 'APBDes', to: '/publikasi/apbdes' },
-            { label: 'RAPBDes', to: '/publikasi/rapbdes' },
-            { label: 'RKPDes', to: '/publikasi/rkpdes' },
-            { label: 'RPJMDes', to: '/publikasi/rpjmdes' },
-            { label: 'Bank Data', to: '/publikasi/bank-data' },
-        ],
-    },
 ]

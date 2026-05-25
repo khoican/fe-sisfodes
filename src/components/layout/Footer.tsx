@@ -1,14 +1,17 @@
+import { VILLAGES_CONFIG } from '#/constant/village.constant'
 import { footerData } from '#/data/footer.data'
 import { ClientOnly, Link, useLoaderData } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
 import { getYear } from 'date-fns'
+import { FaMapMarker } from 'react-icons/fa'
 import {
+    FaEnvelope,
     FaFacebook,
     FaInstagram,
-    FaTiktok,
+    FaPhone,
+    FaTiktok
 } from 'react-icons/fa6'
 import Socmed from '../shared/socmed'
-import { VILLAGES_CONFIG } from '#/constant/village.constant'
 
 /**
  * @description The main Footer component, dynamically rendered based on the active village tenant.
@@ -21,7 +24,7 @@ export default function Footer() {
     const year = getYear(new Date())
     const rootData = useLoaderData({ from: '__root__' }) as any
     const activeVillage = rootData?.activeVillage || VILLAGES_CONFIG.sumberkejayan
-    
+
     const logo = activeVillage.logo
     const name = activeVillage.name
     const tagline = activeVillage.tagline
@@ -31,28 +34,30 @@ export default function Footer() {
     const socials = activeVillage.socials
 
     return (
-        <footer 
-            aria-label="Footer navigasi" 
-            className="mt-20 bg-neutral-950 text-neutral-200 border-t border-white/10"
+        <footer
+            aria-label="Footer navigasi"
+            className="mt-20 border-t border-gray-500/10"
         >
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 p-12 max-w-7xl mx-auto">
-                <div className="flex flex-col gap-6">
-                    <Image
-                        src={logo}
-                        alt={`Logo ${name}`}
-                        layout="fullWidth"
-                        className="w-1/2 brightness-0 invert"
-                    />
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 p-12 max-w-380 mx-auto">
+                <div className="flex flex-col gap-6 w-full">
+                    <div className='w-1/2'>
+                        <Image
+                            src={logo}
+                            alt={`Logo ${name}`}
+                            layout="fullWidth"
+                            className="object-cover"
+                        />
 
-                    <p className="text-sm text-neutral-400 font-medium leading-relaxed">
+                    </div>
+
+                    <p className="text-sm text-gray-500">
                         {tagline}
                     </p>
 
-                    <div className="space-y-3 text-xs text-neutral-400">
-                        <p className="font-semibold text-white uppercase tracking-wider">Kontak Kami</p>
-                        <p className="leading-relaxed">{addressText}</p>
-                        <p>Telp/WA: {contacts.phone}</p>
-                        <p>Email: {contacts.email}</p>
+                    <div className="space-y-3 text-sm text-gray-500">
+                        <p className="leading-relaxed flex items-center gap-2"><FaMapMarker size={12} />{addressText}</p>
+                        <p className='flex items-center gap-2'><FaPhone size={12} /> {contacts.phone}</p>
+                        <p className='flex items-center gap-2'><FaEnvelope size={12} /> {contacts.email}</p>
                     </div>
 
                     <div className="w-full flex items-center gap-4 mt-2">
@@ -75,7 +80,7 @@ export default function Footer() {
                 </div>
 
                 {footerData.map((item) => (
-                    <div key={item.title} className="flex flex-col gap-4">
+                    <div key={item.title} className="flex flex-col gap-4 text-end">
                         <FooterTitle title={item.title} />
                         <div className="flex flex-col gap-2">
                             {item.links.map((link) => (
@@ -89,7 +94,7 @@ export default function Footer() {
             <div className="border-t border-white/10">
                 <div className="max-w-7xl mx-auto px-12 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
                     <ClientOnly>
-                        <p className="text-xs text-neutral-400">
+                        <p className="text-xs text-gray-500">
                             &copy; {year} {name}. Hak Cipta Dilindungi.
                         </p>
                     </ClientOnly>
@@ -110,7 +115,7 @@ export default function Footer() {
  */
 function FooterTitle({ title }: { title: string }) {
     return (
-        <h3 className="text-sm text-white font-semibold tracking-wider uppercase mb-2">
+        <h3 className="text-sm text-gray-800 font-semibold tracking-wider uppercase mb-2">
             {title}
         </h3>
     )
@@ -127,7 +132,7 @@ function FooterLink({ label, to }: { label: string; to: string }) {
     return (
         <Link
             to={to}
-            className="text-sm text-neutral-400 hover:text-white font-medium transition-colors py-1"
+            className="text-sm text-gray-500 hover:text-gray-800 font-medium transition-colors py-1"
         >
             {label}
         </Link>

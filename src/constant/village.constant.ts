@@ -43,7 +43,7 @@ export const VILLAGES_CONFIG: Record<string, IVillageConfig> = {
         hostnames: ['localhost', '127.0.0.1', 'sumberkejayan.desa.id'],
         name: 'Desa Sumberkejayan',
         tagline: 'Melayani warga dengan sepenuh hati, membangun kemandirian ekonomi dari potensi lokal yang berkelanjutan.',
-        logo: 'https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061',
+        logo: 'https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?tr=f-webp',
         address: {
             street: 'Jl. Banyuwangi No.6',
             hamlet: 'Tegalan',
