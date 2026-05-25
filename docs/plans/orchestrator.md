@@ -38,6 +38,7 @@ When a user requests to **"run plans"** or **"execute the orchestrator"**, follo
 |  [x]   | [008_integrate_geography_map.md](file:///E:/PROJECT/sisfodes/docs/plans/008_integrate_geography_map.md)                     | `src/types/`, `src/routes/` & `src/data/` | Tambah type item `image_map`, perbarui data mock, hapus rute peta-desa, dan tambah section gambar peta di halaman geografi | Medium |
 |  [x]   | [009_code_audit_and_bug_fix.md](file:///E:/PROJECT/sisfodes/docs/plans/009_code_audit_and_bug_fix.md)                       | Codebase-wide                     | Audit kode terpadu: code smell, SSR safety, edge cases, komponen, dan konfigurasi chart | High |
 |  [x]   | [010_fix_scroll_lock_on_navigation.md](file:///E:/PROJECT/sisfodes/docs/plans/010_fix_scroll_lock_on_navigation.md)         | `src/components/layout/`          | Perbaiki bug pengunci scroll body (tidak bisa scroll) setelah berpindah halaman di menu mobile | High |
+|  [ ]   | [011_social_media_share.md](file:///E:/PROJECT/sisfodes/docs/plans/011_social_media_share.md)                               | `src/components/`, `src/routes/`  | Fitur berbagi berita, artikel, dan produk ke media sosial (WhatsApp, Facebook, Instagram/Link) | Medium |
 
 ---
 
