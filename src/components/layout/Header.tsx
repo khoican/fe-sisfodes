@@ -1,13 +1,15 @@
 import { DISPLAY_MENU, MENU } from '#/constant/menu.constant'
-import { ClientOnly, Link } from '@tanstack/react-router'
+import { ClientOnly, Link, useLoaderData } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
 import { NavMenu } from '../shared/navmenu'
 import { Button } from '../ui/button'
 import { MobileMenu } from './MobileMenu'
 
 export default function Header() {
-    const logo =
-        'https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061'
+    const rootData = useLoaderData({ from: '__root__' }) as any
+    const activeVillage = rootData?.activeVillage
+    const logo = activeVillage?.logo || 'https://ik.imagekit.io/rulls/sisfodes/demo/logo/logo.svg?updatedAt=1777281903061'
+    const name = activeVillage?.name || 'Desa Sumberkejayan'
 
     return (
         <header className="sticky top-0 z-50 border-b px-4 backdrop-blur-lg bg-background/80">
@@ -16,7 +18,7 @@ export default function Header() {
                     <Link to="/" aria-label="Kembali ke Beranda">
                         <Image
                             src={logo}
-                            alt="Sisfodes Desa Sumberkejayan"
+                            alt={`Sisfodes ${name}`}
                             layout="fullWidth"
                             className="w-full h-8 object-cover"
                         />

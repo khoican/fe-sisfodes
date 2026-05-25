@@ -9,7 +9,7 @@
 - **Author**: Antigravity (AI Coding Assistant)
 - **Created Date**: 2026-05-25
 - **Target Area**: Testing, Public Services (Layanan), Complaints (Pengaduan)
-- **Status**: `[x] Ready / [ ] In Progress / [ ] Completed`
+- **Status**: `[x] Ready / [x] In Progress / [x] Completed`
 - **Dependencies**: None
 
 ---
@@ -39,17 +39,17 @@ The goal of this plan is to write robust component integration tests in `src/tes
 
 ## 5. Step-by-Step Checklist
 
-- `[ ]` **Step 1: Set Up Mocks**
+- `[x]` **Step 1: Set Up Mocks**
     - Verify that the test setup (`src/test/setup.ts`) contains standard JSDOM mocks.
     - Implement form submission target mocks.
-- `[ ]` **Step 2: Write Layanan Form Tests**
+- `[x]` **Step 2: Write Layanan Form Tests**
     - Write validation tests checking empty field errors (e.g. NIK must be 16 digits, name cannot be empty).
     - Test validation error rendering under inputs.
     - Test valid submissions.
-- `[ ]` **Step 3: Write Pengaduan Form Tests**
+- `[x]` **Step 3: Write Pengaduan Form Tests**
     - Verify validation warnings on complaints (e.g. phone number requirements, complaint description length).
     - Verify layout list displays mock complaints.
-- `[ ]` **Step 4: Execute & Validate**
+- `[x]` **Step 4: Execute & Validate**
     - Run the tests using `npm.cmd run test:run`.
     - Validate coverage metrics.
 

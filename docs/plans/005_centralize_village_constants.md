@@ -9,7 +9,7 @@
 - **Author**: Antigravity
 - **Created Date**: 2026-05-25
 - **Target Area**: Constants (`src/constant/`), Utilities (`src/utils/`), Layouts & Routes
-- **Status**: `[ ] Draft / [x] Ready / [ ] In Progress / [ ] Completed`
+- **Status**: `[ ] Draft / [x] Ready / [x] In Progress / [x] Completed`
 - **Dependencies**: None
 
 ---
@@ -66,19 +66,19 @@ Fungsi pendeteksi domain aktif yang aman digunakan baik di sisi server (SSR) mau
 
 ## 5. Step-by-Step Checklist
 
-- `[ ]` **Step 1: Pembuatan Konstanta & Tipe Data**
+- `[x]` **Step 1: Pembuatan Konstanta & Tipe Data**
     - Buat file `src/constant/village.constant.ts`.
     - Deklarasikan interface `IVillageConfig`.
     - Buat objek `VILLAGES_CONFIG` yang berisi konfigurasi Desa Sumberkejayan dan Desa Demo.
-- `[ ]` **Step 2: Pembuatan Resolver Tenant**
+- `[x]` **Step 2: Pembuatan Resolver Tenant**
     - Buat file `src/utils/tenant.util.ts`.
     - Implementasikan logika deteksi hostname yang aman untuk SSR (menggunakan context request/headers jika di server) dan CSR (`window.location.hostname`).
-- `[ ]` **Step 3: Integrasi pada Layout Utama**
+- `[x]` **Step 3: Integrasi pada Layout Utama**
     - Refaktor `Header` untuk menampilkan logo dan nama dari config desa aktif.
     - Refaktor `Footer` untuk menampilkan alamat lengkap, sosial media, dan kontak desa aktif.
-- `[ ]` **Step 4: Integrasi pada Metadata Halaman**
+- `[x]` **Step 4: Integrasi pada Metadata Halaman**
     - Perbarui fungsi `head` pada rute utama dan rute global agar menggunakan data nama desa dari resolver secara dinamis.
-- `[ ]` **Step 5: Verifikasi Kode & Uji Coba Multi-Domain**
+- `[x]` **Step 5: Verifikasi Kode & Uji Coba Multi-Domain**
     - Jalankan `code-analyzer` untuk memastikan kepatuhan terhadap aturan arsitektur.
     - Lakukan uji simulasi dengan mengubah hostname target secara manual untuk melihat perubahan seluruh konfigurasi visual dan teks desa di halaman web.
 

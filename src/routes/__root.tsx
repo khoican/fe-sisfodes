@@ -19,10 +19,28 @@ import Setting from '#/components/Setting'
 import { useVoice } from '#/hooks/voice.hook'
 import type { QueryClient } from '@tanstack/react-query'
 import { FaWhatsapp } from 'react-icons/fa6'
+import { createServerFn } from '@tanstack/react-start'
+import { getVillageConfig } from '#/utils/tenant.util'
+import { VILLAGES_CONFIG } from '#/constant/village.constant'
+import { useEffect } from 'react'
 
 interface MyRouterContext {
     queryClient: QueryClient
 }
+
+/**
+ * @description Server function to retrieve the hostname of the incoming request on the server side.
+ * @returns {Promise<string>} The request hostname or 'localhost' fallback.
+ * @example
+ * const host = await getHostname();
+ */
+export const getHostname = createServerFn({ method: 'GET' }).handler(
+    async () => {
+        const { getRequestHost } = await import('@tanstack/react-start/server')
+        const host = getRequestHost() || 'localhost'
+        return host.split(':')[0]
+    }
+)
 
 const THEME_INIT_SCRIPT = `(function(){
   try {
@@ -42,48 +60,61 @@ const THEME_INIT_SCRIPT = `(function(){
 })();`
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
-    head: () => ({
-        meta: [
-            {
-                charSet: 'utf-8',
-            },
-            {
-                name: 'viewport',
-                content: 'width=device-width, initial-scale=1',
-            },
-            {
-                title: 'Desa Sumberkejayan',
-            },
-            {
-                name: 'description',
-                content:
-                    'Portal resmi informasi dan pelayanan publik Desa Sumberkejayan. Akuntabel, Transparan, dan Mandiri.',
-            },
-            {
-                property: 'og:title',
-                content: 'Desa Sumberkejayan',
-            },
-            {
-                property: 'og:description',
-                content:
-                    'Portal resmi informasi dan pelayanan publik Desa Sumberkejayan.',
-            },
-            {
-                property: 'og:type',
-                content: 'website',
-            },
-            {
-                name: 'twitter:card',
-                content: 'summary_large_image',
-            },
-        ],
-        links: [
-            {
-                rel: 'stylesheet',
-                href: appCss,
-            },
-        ],
-    }),
+    loader: async () => {
+        let hostname = 'localhost'
+        if (typeof window !== 'undefined') {
+            hostname = window.location.hostname
+        } else {
+            hostname = await getHostname()
+        }
+        const activeVillage = getVillageConfig(hostname)
+        return {
+            activeVillage,
+        }
+    },
+    head: ({ loaderData }) => {
+        const activeVillage = loaderData?.activeVillage || VILLAGES_CONFIG.sumberkejayan
+        return {
+            meta: [
+                {
+                    charSet: 'utf-8',
+                },
+                {
+                    name: 'viewport',
+                    content: 'width=device-width, initial-scale=1',
+                },
+                {
+                    title: activeVillage.name,
+                },
+                {
+                    name: 'description',
+                    content: `Portal resmi informasi dan pelayanan publik ${activeVillage.name}. Akuntabel, Transparan, dan Mandiri.`,
+                },
+                {
+                    property: 'og:title',
+                    content: activeVillage.name,
+                },
+                {
+                    property: 'og:description',
+                    content: `Portal resmi informasi dan pelayanan publik ${activeVillage.name}.`,
+                },
+                {
+                    property: 'og:type',
+                    content: 'website',
+                },
+                {
+                    name: 'twitter:card',
+                    content: 'summary_large_image',
+                },
+            ],
+            links: [
+                {
+                    rel: 'stylesheet',
+                    href: appCss,
+                },
+            ],
+        }
+    },
     errorComponent: (props: ErrorComponentProps) => {
         return (
             <div className="p-20 flex flex-col items-center justify-center text-center">
@@ -121,6 +152,21 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 function RootDocument({ children }: { children: React.ReactNode }) {
     const { queryClient } = Route.useRouteContext()
     useVoice() // Aktivasi fitur Text-to-Speech global
+    const loaderData = Route.useLoaderData()
+    const activeVillage = loaderData?.activeVillage || VILLAGES_CONFIG.sumberkejayan
+
+    useEffect(() => {
+        const root = document.documentElement
+        const themeColors = {
+            primary: '#0d47a1',
+            green: '#10b981',
+            pink: '#db2777',
+            purple: '#7c3aed',
+            yellow: '#d97706',
+        }
+        const color = themeColors[activeVillage.theme] || themeColors.primary
+        root.style.setProperty('--primary', color)
+    }, [activeVillage.theme])
 
     return (
         <html lang="id" suppressHydrationWarning>

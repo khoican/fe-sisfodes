@@ -54,8 +54,10 @@ export class AgendaHelper {
      * @param {Date} now - Current date time.
      * @returns {IAgenda | undefined} Next holiday.
      */
-    getNextHoliday(_now: Date): IAgenda | undefined {
-        return undefined
+    getNextHoliday(now: Date): IAgenda | undefined {
+        return this.getUpcoming(now).find(
+            (item) => item.description === 'Hari Libur Nasional',
+        )
     }
 
     /**

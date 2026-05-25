@@ -24,7 +24,7 @@ export function FeaturedAgendaCard({
                     variant="outline"
                     className="text-white border-white/30 bg-white/10 mb-4 px-3 py-1"
                 >
-                    Agenda Desa Terdekat
+                    Terdekat
                 </Badge>
                 <h3 className="text-2xl md:text-3xl font-bold mb-3 leading-tight">
                     {agenda.title}

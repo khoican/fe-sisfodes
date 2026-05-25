@@ -26,9 +26,9 @@ export default function AnnouncementAgenda({
     return (
         <section className="mt-16">
             <Title
-                title="Agenda Desa"
+                title="Agenda & Hari Besar"
                 link={{
-                    to: '/agenda',
+                    to: '/informasi/agenda',
                     label: 'Lihat Semua',
                     icon: IoIosArrowForward,
                 }}

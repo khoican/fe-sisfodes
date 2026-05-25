@@ -9,6 +9,8 @@ import { productQueryOptions } from '#/services/product.service'
 import { profileQueryOptions } from '#/services/profile.service'
 import { createFileRoute } from '@tanstack/react-router'
 import { lazy, Suspense } from 'react'
+import { getHostname } from './__root'
+import { getVillageConfig } from '#/utils/tenant.util'
 
 // Lazy loaded components for better initial performance
 const Demography = lazy(() => import('#/components/layout/home/Demography'))
@@ -39,19 +41,29 @@ const HomeSkeleton = () => (
 )
 
 export const Route = createFileRoute('/')({
-    head: () => ({
-        meta: [
-            {
-                title: 'Beranda | Desa Sumberkejayan',
-            },
-            {
-                name: 'description',
-                content:
-                    'Selamat datang di portal resmi Desa Sumberkejayan. Temukan informasi terkini, layanan publik, dan potensi desa kami.',
-            },
-        ],
-    }),
-    loader: async ({ context }) => {
+    head: ({ loaderData }: { loaderData?: any }) => {
+        const activeVillage = loaderData?.activeVillage || { name: 'Desa Sumberkejayan' }
+        return {
+            meta: [
+                {
+                    title: `Beranda | ${activeVillage.name}`,
+                },
+                {
+                    name: 'description',
+                    content: `Selamat datang di portal resmi ${activeVillage.name}. Temukan informasi terkini, layanan publik, dan potensi desa kami.`,
+                },
+            ],
+        }
+    },
+    loader: async ({ context }: { context: any }) => {
+        let hostname = 'localhost'
+        if (typeof window !== 'undefined') {
+            hostname = window.location.hostname
+        } else {
+            hostname = await getHostname()
+        }
+        const activeVillage = getVillageConfig(hostname)
+
         // Prioritize essential data for faster initial page render
         const [profile, hero] = await Promise.all([
             context.queryClient.ensureQueryData(profileQueryOptions()),
@@ -70,6 +82,7 @@ export const Route = createFileRoute('/')({
             ])
 
         return {
+            activeVillage,
             profile: profile.metadata,
             hero: hero.metadata,
             official: official.metadata,
@@ -77,7 +90,7 @@ export const Route = createFileRoute('/')({
             budget: budget.metadata,
             agenda: agenda.metadata,
             newsData: news.metadata.filter(
-                (item) => item.category?.name !== 'Pengumuman',
+                (item: any) => item.category?.name !== 'Pengumuman',
             ),
             products: products.metadata,
         }
@@ -99,9 +112,9 @@ function App() {
         hero,
         population,
         budget,
-    } = Route.useLoaderData()
+    } = Route.useLoaderData() as any
 
-    const leader = official.find((item) => item.position === 'Kepala Desa')
+    const leader = official.find((item: any) => item.position === 'Kepala Desa')
 
     return (
         <main className="px-4 lg:px-12 pb-8 pt-8 bg-background text-foreground">
