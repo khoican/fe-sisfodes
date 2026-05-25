@@ -18,5 +18,5 @@ export const geographyData: IGeography = {
         { label: 'Hutan Desa/Lainnya', area: 7.7, percentage: 6 },
     ],
     last_updated: '2025-01-01',
-    image_map: 'https://ik.imagekit.io/rulls/sisfodes/demo/peta-desa.webp?updatedAt=1777648884236?tr=f-webp',
+    image_map: 'https://ik.imagekit.io/rulls/sisfodes/demo/peta-desa.webp?tr=f-webp',
 }

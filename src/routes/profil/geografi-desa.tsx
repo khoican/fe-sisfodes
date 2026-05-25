@@ -4,7 +4,7 @@ import Title from '#/components/ui/title'
 import { geographyQueryOptions } from '#/services/geography.service'
 import { createFileRoute } from '@tanstack/react-router'
 import { Image } from '@unpic/react'
-import { Map, Mountain, CloudSun, Navigation, PieChart, Info } from 'lucide-react'
+import { CloudSun, Info, Map, Mountain, Navigation, PieChart } from 'lucide-react'
 
 export const Route = createFileRoute('/profil/geografi-desa')({
     head: () => ({
@@ -235,7 +235,7 @@ function GeografiDesa() {
             <section className="px-4 lg:px-12 mb-16">
                 <Title title="Peta Wilayah Desa" />
                 <div className="bg-white rounded-3xl shadow-sm border p-6 mt-6">
-                    <div className="relative w-full aspect-video rounded-2xl overflow-hidden group shadow-md max-h-[500px]">
+                    <div className="relative w-full rounded-2xl overflow-hidden group shadow-md">
                         <Image
                             src={geography.image_map}
                             alt="Peta Wilayah Desa"
