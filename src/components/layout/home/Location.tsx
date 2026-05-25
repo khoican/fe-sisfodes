@@ -1,7 +1,7 @@
 import Maps from '#/components/shared/maps'
 import Title from '#/components/ui/title'
 import { ClientOnly } from '@tanstack/react-router'
-import { MapPin, Clock } from 'lucide-react'
+import { Clock, MapPin } from 'lucide-react'
 
 interface LocationProps {
     address: string
@@ -41,7 +41,7 @@ export default function Location({
                             <p className="text-xs leading-relaxed">{address}</p>
                         </div>
                     </div>
-                    
+
                     <div className="flex items-start mt-4 gap-3 font-medium">
                         <Clock className="text-primary shrink-0 mt-1" size={18} />
                         <div className="flex flex-col gap-1">
