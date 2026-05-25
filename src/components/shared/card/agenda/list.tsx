@@ -22,7 +22,7 @@ export function AgendaList({ events }: AgendaListProps) {
                 </Badge>
             </div>
 
-            <div className="space-y-5 overflow-y-auto max-h-[400px] pr-2">
+            <div className="space-y-5 overflow-y-auto max-h-100 pr-2">
                 {events.length > 0 ? (
                     events
                         .slice(0, 6)
